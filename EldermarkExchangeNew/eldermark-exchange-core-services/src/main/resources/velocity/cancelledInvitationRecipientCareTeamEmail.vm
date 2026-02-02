@@ -1,0 +1,9 @@
+#* @vtlvariable name="cancelledInvitation" type="com.scnsoft.eldermark.dto.notification.careteam.CareTeamMemberCancelledInvitationSenderNotificationDto" *#
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+<div
+    ##        style="margin-left: 25px; margin-right: 25px; width:573px;"
+>
+    <b>Dear ${cancelledInvitation.receiverName},</b> <br/>
+    <br/>
+    The invitation to join the care team has been cancelled by ${cancelledInvitation.clientName}.<br><br>
+</div>

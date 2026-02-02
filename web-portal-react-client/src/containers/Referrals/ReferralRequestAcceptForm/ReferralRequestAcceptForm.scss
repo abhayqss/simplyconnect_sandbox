@@ -1,0 +1,37 @@
+.ReferralRequestAcceptForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ReferralRequestAcceptForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.ReferralRequestAcceptForm-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ReferralRequestAcceptForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

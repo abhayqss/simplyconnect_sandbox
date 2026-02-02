@@ -1,0 +1,73 @@
+@import "custom/_fonts";
+
+.ReferralRequestList {
+  &.Table {
+    tbody {
+      & > tr {
+        & > td {
+          padding: 18px 15px;
+        }
+      }
+    }
+  }
+}
+
+.ReferralRequestList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.ReferralRequests-Title {
+  position: relative;
+  display: inline-block;
+}
+
+.ReferralRequests-Count {
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+
+.ReferralRequests-Serial {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.ReferralRequest-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.ReferralRequest-ViewBtn {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}

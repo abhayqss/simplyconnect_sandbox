@@ -1,0 +1,391 @@
+import ClientPrimaryFilter from "../../../../Clients/Clients/ClientPrimaryFilter/ClientPrimaryFilter";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import "./VendorList.scss";
+import cn from "classnames";
+import { ReactComponent as Filter } from "images/filters.svg";
+import { ONLY_VIEW_ROLES, SYSTEM_ROLES } from "../../../../../lib/Constants";
+import { Badge, Button, Col, Collapse, Row } from "reactstrap";
+import { SelectField, TextField } from "../../../../../components/Form";
+import textImg from "./test.svg";
+import Pagination from "../../../../../components/Pagination/Pagination";
+import { usePrimaryFilter } from "../../../../../hooks/common/filter";
+import services from "../../../../../services/OrganizationService";
+import service from "../../../../../services/Marketplace";
+import { Loader } from "../../../../../components";
+import { useHistory } from "react-router-dom";
+import { useClientPrimaryFilter } from "../../../../../hooks/business/client";
+import { useDispatch, useSelector } from "react-redux";
+import PrimaryFilterWrapper from "./VendorPrimaryFilter";
+import { getVendorType } from "../../../../../redux/marketplace/Vendor/VendorActions";
+import Actions from "../../../../../redux/directory/state/list/stateListActions";
+import { useAuthUser, useDirectoryData } from "../../../../../hooks/common";
+import { map } from "underscore";
+import { useStatesQuery } from "../../../../../hooks/business/directory/query";
+import defaultImg from "../../../../../images/marketplace/defaultImg.png";
+import ReferralRequestEditor from "../../../../Referrals/ReferralRequestEditor/ReferralRequestEditor";
+import { SuccessDialog } from "../../../../../components/dialogs";
+import adminAssociationsService from "../../../../../services/AssociationsService";
+
+const vendorList = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { HOME_CARE_ASSISTANT } = SYSTEM_ROLES;
+  const ROLES_WITH_DISABLED_FILTER = [HOME_CARE_ASSISTANT];
+
+  const { communityId, organizationId } = useSelector((state) => state.Vendor);
+
+  const [isFilterOpen, setIsFilterOpen] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const size = 18; // 每页显示条数
+  const [isFetching, setIsFetching] = useState(false);
+  const [vendorList, setVendorList] = useState([]);
+  const [selectVendorId, setSelectVendorId] = useState();
+  const [keyword, setKeyword] = useState("");
+  const [category, setCategory] = useState("");
+  const [state, setState] = useState("");
+  const [vendorReferModalOpen, setVendorReferModalOpen] = useState(false);
+  const [isReferSuccessDialogOpen, setIsReferSuccessDialogOpen] = useState(false);
+
+  function valueTextMapper({ id, name, title, label }) {
+    return { value: id || name, text: title || label || name };
+  }
+
+  const VendorTypeData = useSelector((state) => state.vendor.vendorTypeData);
+
+  const { data: states = [] } = useStatesQuery();
+
+  const mappedStates = useMemo(() => map(states, valueTextMapper), [states]);
+
+  useEffect(() => {
+    dispatch(getVendorType());
+  }, []);
+
+  const user = useAuthUser();
+  const { ASSOCIATION } = SYSTEM_ROLES;
+  const [isAssociation, setIsAssociation] = useState(false);
+  useEffect(() => {
+    if (user.roleName === ASSOCIATION) {
+      setIsAssociation(true);
+    } else {
+      setIsAssociation(false);
+    }
+  }, [user]);
+  const selectUser = (state) => state.auth.login.user.data;
+
+  function isFilterEnabled() {
+    return Boolean(selectUser && !ROLES_WITH_DISABLED_FILTER.includes(selectUser.roleName));
+  }
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+    console.log(newPage);
+  };
+
+  const handleFieldChange = (name, value) => {
+    switch (name) {
+      case "keyword":
+        setKeyword(value);
+        break;
+      case "category":
+        setCategory(value);
+        break;
+      case "state":
+        setState(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    setIsFetching(true);
+
+    // 调用服务获取供应商的信息
+    if (isAssociation) {
+      const params = {
+        page: page - 1,
+        size,
+      };
+      getAssociationVendorData();
+    } else {
+      const params = {
+        communityId,
+        page: page - 1,
+        size,
+      };
+      getVendorDataList(params);
+    }
+  }, [communityId, page, isAssociation]);
+
+  const getVendorDataList = (params) => {
+    services.featVendorOfAssociation(params).then(async (res) => {
+      // 获取供应商的 Logo
+      const fetchLogos = res.data.map(async (item) => {
+        try {
+          if (item.logo) {
+            // 请求 Logo 数据并赋值给 item.logo
+            await service.getVendorLogo(item.vendorId).then((response) => {
+              item.logo = response.data;
+              return Promise.resolve();
+            });
+          }
+          return Promise.resolve();
+        } catch (e) {
+          return Promise.resolve();
+        }
+      });
+
+      await Promise.all(fetchLogos);
+
+      // 更新供应商列表
+      setVendorList(res.data);
+      setTotalCount(res.totalCount);
+      setIsFetching(false);
+    });
+  };
+
+  const getAssociationVendorData = (params) => {
+    adminAssociationsService.marketPlaceFindAssociationsVendor(params).then(async (res) => {
+      // 获取供应商的 Logo
+      const fetchLogos = res?.data?.map(async (item) => {
+        item.vendorId = item.id;
+        try {
+          if (item.logo) {
+            // 请求 Logo 数据并赋值给 item.logo
+            await service.getVendorLogo(item.vendorId).then((response) => {
+              item.logo = response.data;
+              return Promise.resolve();
+            });
+          }
+          return Promise.resolve();
+        } catch (e) {
+          return Promise.resolve();
+        }
+      });
+
+      await Promise.all(fetchLogos);
+
+      // 更新供应商列表
+      setVendorList(res.data);
+      setTotalCount(res.totalCount);
+      setIsFetching(false);
+    });
+  };
+
+  const onReset = () => {
+    setKeyword(null);
+    setState(null);
+    setCategory(null);
+  };
+  const apply = () => {
+    if (keyword || state || category) {
+      if (isAssociation) {
+        getAssociationVendorData({
+          state,
+          vendorTypeIds: category,
+          keyword,
+        });
+      } else {
+        getVendorDataList({
+          communityId,
+          state,
+          vendorTypeIds: category,
+          keyword,
+        });
+      }
+    } else {
+      return;
+    }
+  };
+
+  const onRefer = (id) => {
+    setSelectVendorId(id);
+    console.log(id);
+    setVendorReferModalOpen(true);
+  };
+
+  const onCloseReferModal = () => {
+    setVendorReferModalOpen(false);
+  };
+
+  const onSaveReferralRequestSuccess = () => {
+    setVendorReferModalOpen(false);
+  };
+
+  const goDetail = (id) => {
+    history.push(`/web-portal/marketplace/vendorDetail/${id}`);
+  };
+  return (
+    <div className="vendorListWrap">
+      {isFetching && <Loader hasBackdrop style={{ position: "fixed" }} />}
+      <div>{!isAssociation && <PrimaryFilterWrapper />}</div>
+      <div className={"vendorListWrapHeader"}>
+        <div className="vendorListTitle">
+          <div className="vendorListTitleText">Vendor List</div>
+          {totalCount > 0 && (
+            <Badge color="info" className="vendorTitleBadge">
+              {totalCount}
+            </Badge>
+          )}
+        </div>
+        <div className="Vednors-Actions">
+          {isFilterEnabled() && (
+            <Filter
+              className={cn(
+                "VendorsFilter-Icon",
+                isFilterOpen ? "VendorsFilter-Icon_rotated_90" : "VendorsFilter-Icon_rotated_0",
+              )}
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+            />
+          )}
+        </div>
+      </div>
+
+      {isFilterEnabled && (
+        <Collapse isOpen={isFilterOpen}>
+          <div className="vendorListCollapse">
+            <Row>
+              <Col md={4} lg={4}>
+                <TextField
+                  type="text"
+                  name="keyword"
+                  value={keyword}
+                  label="Keyword"
+                  placeholder="Find your ideal vendor by name or zip code"
+                  onChange={handleFieldChange}
+                />
+              </Col>
+
+              <Col md={4} lg={4}>
+                <SelectField
+                  hasAllOption
+                  name="category"
+                  options={VendorTypeData.map((option) => ({
+                    value: option.id,
+                    text: option.name,
+                  }))} // 转换成MultiSelect需要的格式
+                  value={category}
+                  label="Category"
+                  placeholder={"Select Category"}
+                  // className="ClientFilter-SelectField"
+                  isMultiple={true}
+                  onChange={handleFieldChange}
+                />
+              </Col>
+
+              <Col md={4} lg={4}>
+                <SelectField
+                  hasAllOption
+                  name="state"
+                  options={mappedStates}
+                  value={state}
+                  label="State"
+                  placeholder={"Select State"}
+                  isMultiple={false}
+                  onChange={handleFieldChange}
+                />
+              </Col>
+
+              {/* <Col md={4} lg={4}>
+            <SelectField
+              hasAllOption
+              name="service"
+              options={[]}
+              value={""}
+              label="Service"
+              placeholder={"Select Service"}
+              isMultiple={true}
+            />
+          </Col>*/}
+            </Row>
+
+            <Row>
+              <Col
+                md={12}
+                lg={12}
+                className="padding-top-31"
+                style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", flexDirection: "row" }}
+              >
+                <Button outline color="success" data-testid="clear-btn" className="margin-right-25" onClick={onReset}>
+                  Clear
+                </Button>
+                <Button color="success" data-testid="apply-btn" onClick={apply}>
+                  Apply
+                </Button>
+              </Col>
+            </Row>
+          </div>
+        </Collapse>
+      )}
+
+      <div className="vendorBoxWrap">
+        {vendorList.map((item) => {
+          return (
+            <div className="vendorBox" key={item.vendorId} onClick={() => goDetail(item.vendorId)}>
+              <div className="vendorListImgBox">
+                <img
+                  src={item?.logo ? `data:image/png;base64,${item?.logo}` : defaultImg}
+                  className="vendorImg"
+                  alt={item?.vendorName || item?.name}
+                />
+              </div>
+
+              <div className="vendorName">{item.vendorName || item.name || "-"}</div>
+              <div className="vendorAddress">
+                {item?.street || "-"} <span className="vendorZipCode">{item?.stateInfo?.zipCode || "-"}</span>
+              </div>
+              <div className="vendorPhone">{item?.phone || "-"}</div>
+              <Button
+                outline
+                color="success"
+                data-testid="clear-btn"
+                className="vendorReferButton"
+                disabled={!item?.canRefer}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onRefer(item.vendorId);
+                }}
+              >
+                Refer
+              </Button>
+            </div>
+          );
+        })}
+      </div>
+      <ReferralRequestEditor
+        isFromVendor={true}
+        isFromSearch={true}
+        isOpen={vendorReferModalOpen}
+        marketplace={{}}
+        vendorId={selectVendorId}
+        organizationId={organizationId}
+        onClose={onCloseReferModal}
+        onSaveSuccess={onSaveReferralRequestSuccess}
+        successDialog={{
+          text: `The request will be displayed in the "Outbound" section located under the "Referrals and Inquires" tab. You can see the details and manage status of the referral request there.`,
+        }}
+      />
+
+      {isReferSuccessDialogOpen && (
+        <SuccessDialog
+          isOpen
+          title="Refer have been send."
+          buttons={[
+            {
+              text: "OK",
+              onClick: () => {
+                setIsReferSuccessDialogOpen(false);
+              },
+            },
+          ]}
+        />
+      )}
+
+      <Pagination page={page} size={size} totalCount={totalCount} onPageChange={handlePageChange} />
+    </div>
+  );
+};
+
+export default vendorList;

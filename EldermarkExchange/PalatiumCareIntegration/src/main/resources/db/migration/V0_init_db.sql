@@ -1,0 +1,115 @@
+
+CREATE DATABASE IF NOT EXISTS "palatium_care";
+USE "palatium_care";
+
+CREATE TABLE IF NOT EXISTS "action" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"default_value" INT(10,0) NULL DEFAULT NULL,
+	"max_value" INT(10,0) NULL DEFAULT NULL,
+	"min_value" INT(10,0) NULL DEFAULT NULL,
+	"name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "action_type" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "alert" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"status" INT(10,0) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "contact" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"first_name" VARCHAR(255) NULL DEFAULT NULL,
+	"last_name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "cpt_code" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "device" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"area" VARCHAR(255) NULL DEFAULT NULL,
+	"name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "event" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"ack_date_time" VARCHAR(255) NULL DEFAULT NULL,
+	"action_url" VARCHAR(255) NULL DEFAULT NULL,
+	"event_date_time" VARCHAR(255) NULL DEFAULT NULL,
+	"text" VARCHAR(255) NULL DEFAULT NULL,
+	"type_id" INT(10,0) NULL DEFAULT NULL,
+	"type_name" VARCHAR(255) NULL DEFAULT NULL,
+	"version" VARCHAR(255) NULL DEFAULT NULL,
+	"contact_id" NUMERIC(19,0) NULL DEFAULT NULL,
+	"device_id" NUMERIC(19,0) NULL DEFAULT NULL,
+	"location_id" NUMERIC(19,0) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "event_action" (
+	"event_id" NUMERIC(19,0) NOT NULL,
+	"action_id" NUMERIC(19,0) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "event_cpt_code" (
+	"event_id" NUMERIC(19,0) NOT NULL,
+	"near_locs_id" NUMERIC(19,0) NOT NULL,
+	"near_loc_id" NUMERIC(19,0) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "event_near_location" (
+	"event_id" NUMERIC(19,0) NOT NULL,
+	"near_location_id" NUMERIC(19,0) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "event_near_locations" (
+	"event_id" NUMERIC(19,0) NOT NULL,
+	"action_id" NUMERIC(19,0) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "event_resident" (
+	"event_id" NUMERIC(19,0) NOT NULL,
+	"resident_id" NUMERIC(19,0) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "event_responder" (
+	"event_id" NUMERIC(19,0) NOT NULL,
+	"responder_id" NUMERIC(19,0) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "hibernate_sequence" (
+	"next_val" NUMERIC(19,0) NULL DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS "location" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"building" VARCHAR(255) NULL DEFAULT NULL,
+	"name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "resident" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"first_name" VARCHAR(255) NULL DEFAULT NULL,
+	"last_name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);
+
+CREATE TABLE IF NOT EXISTS "responder" (
+	"id" NUMERIC(19,0) NOT NULL,
+	"first_name" VARCHAR(255) NULL DEFAULT NULL,
+	"last_name" VARCHAR(255) NULL DEFAULT NULL,
+	PRIMARY KEY ("id")
+);

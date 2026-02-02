@@ -1,0 +1,86 @@
+.associateRegisterWrap {
+  padding: 0 20px;
+  margin-bottom: 30px;
+
+  .associateRegisterTitle {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #075AA0;
+
+    margin-bottom: 20px;
+    padding-left: 30px;
+
+    div:last-child {
+      position: relative;
+      left: 5px;
+    }
+  }
+}
+
+
+.AccountInformationTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #075AA0;
+  margin: 20px 0;
+}
+
+
+.CompleteRegistration {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .registrationSuccessTitle {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+    color: #000;
+    margin-top: 10px;
+  }
+
+  .registrationSuccessInfo {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #222;
+    margin-top: 10px;
+  }
+
+  .registrationSuccessBox {
+    background: #075AA01A;
+    padding: 15px;
+    margin-top: 20px;
+
+    .registrationSuccessBoxTitle {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      color: #075AA0;
+    }
+
+    .registrationSuccessBoxInfo {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 28px;
+
+      color: #000;
+    }
+
+  }
+
+
+
+
+}

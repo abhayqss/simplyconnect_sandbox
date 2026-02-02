@@ -1,0 +1,21 @@
+@import "custom/_fonts";
+
+.ClientRecentNotesSummary {
+  padding: 20px 30px;
+  position: relative;
+  border-top: 8px solid #1e3352;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+
+  &-Fallback {
+    flex: 1;
+  }
+}
+
+.ClientRecentNotesSummary-Title {
+  color: $font-color_head-text;
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin-bottom: 16px;
+}

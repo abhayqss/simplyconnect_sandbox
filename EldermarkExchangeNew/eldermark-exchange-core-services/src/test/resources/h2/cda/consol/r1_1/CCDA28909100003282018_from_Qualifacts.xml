@@ -1,0 +1,2359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+  <realmCode code="US"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.2"/>
+  <templateId root="2.16.840.1.113883.10.20.22.1.1"/>
+  <id root="25f98318-f574-4ea1-bf56-ce1a419558c0"/>
+  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Clinical Summary"/>
+  <title>Clinical Summary</title>
+  <effectiveTime value="20180328172149" xsi:type="IVL_TS"/>
+  <confidentialityCode codeSystem="2.16.840.1.113883.5.25" codeSystemName="ConfidentialityCode"/>
+  <languageCode code="en-US"/>
+  <recordTarget>
+    <patientRole>
+      <id extension="28909-1000" root="2.16.840.1.113883.3.1670.2"/>
+      <addr><streetAddressLine>108906 Some Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60651</postalCode><state>IL</state></addr>
+      <telecom use="MC" value="tel:(708)571-4345"/>
+      <patient>
+        <name><given>Cindy</given><family>Accardo</family></name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+        <birthTime value="19880329"/>
+        <raceCode code="2054-5" codeSystem="2.16.840.1.113883.6.238" codeSystemName="OMB Standards for Race and Ethnicity" displayName="Black/African-American"/>
+        <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" codeSystemName="OMB Standards for Race and Ethnicity" displayName="Not of Hispanic origin"/>
+        <languageCommunication>
+          <languageCode code="eng"/>
+          <preferenceInd value="true"/>
+        </languageCommunication>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20180328"/>
+    <assignedAuthor>
+      <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+      <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+      <telecom use="WP" value="tel:(847)635-4600"/>
+      <assignedPerson>
+        <name><given>Marian</given><family>Glenn</family></name>
+      </assignedPerson>
+      <representedOrganization/>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="Lutheran Social Services-1011" root="2.16.840.1.113883.3.1452.6"/>
+        <name>Portage Cragin Counseling Center</name>
+        <telecom value="tel:(773)282-7800"/>
+        <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <informationRecipient>
+    <intendedRecipient>
+      <informationRecipient>
+        <name><given>No Information to Report</given></name>
+      </informationRecipient>
+      <receivedOrganization>
+        <name nullFlavor="NI"/>
+      </receivedOrganization>
+    </intendedRecipient>
+  </informationRecipient>
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Marian</given><family>Glenn</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="2.16.840.1.113883.4.6"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Stephany</given><family>Brutsman</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="2.16.840.1.113883.4.6"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Kasandra</given><family>Bellamy</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id root="2.16.840.1.113883.4.6"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Kristen</given><family>Sernett</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id extension="1376905489" root="2.16.840.1.113883.4.6"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Courtney</given><family>George</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <assignedEntity>
+          <id extension="1437512233" root="2.16.840.1.113883.4.6"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Rory</given><family>Koontz</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <componentOf>
+    <encompassingEncounter>
+      <id extension="589493" root="2.16.840.1.113883.3.1452"/>
+      <effectiveTime>
+        <low value="20170809114500"/>
+        <high value="20170809120000"/>
+      </effectiveTime>
+      <responsibleParty>
+        <assignedEntity>
+          <id extension="1376905489" root="2.16.840.1.113883.4.6"/>
+          <code nullFlavor="UNK"/>
+          <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          <telecom use="WP" value="tel:(773)282-7800"/>
+          <assignedPerson>
+            <name><given>Courtney</given><family>George</family></name>
+          </assignedPerson>
+        </assignedEntity>
+      </responsibleParty>
+      <location>
+        <healthCareFacility>
+          <id nullFlavor="UNK"/>
+          <code nullFlavor="UNK"/>
+          <location>
+            <name>Portage Cragin Counseling Center</name>
+            <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+          </location>
+          <serviceProviderOrganization>
+            <id nullFlavor="UNK"/>
+            <name>Portage Cragin Counseling Center</name>
+            <telecom value="tel:(773)282-7800"/>
+            <addr><streetAddressLine>4840 W. Byron Street</streetAddressLine><city>Chicago</city><country>US</country><postalCode>60641</postalCode><state>IL</state></addr>
+            <standardIndustryClassCode nullFlavor="UNK"/>
+          </serviceProviderOrganization>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.10"/>
+          <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Plan of Care"/>
+          <title>Care Plan</title>
+          <text>  <table>
+    <tbody>
+              <tr ID="pocdetail0">
+          <td>Future Scheduled Appointments</td>
+          <td>
+          	          	No Information to Report
+          			  </td>
+        </tr>
+                      <tr ID="pocdetail1">
+          <td>Future Scheduled Tests</td>
+          <td>
+          	          	No Information to Report
+          			  </td>
+        </tr>
+                      <tr ID="pocdetail2">
+          <td>Comments About Referral</td>
+          <td>
+          	          	No Information to Report
+          			  </td>
+        </tr>
+                      <tr ID="pocdetail3">
+          <td>Clinical Instructions</td>
+          <td>
+          	          	<list listType="unordered">
+          		          		<item ID="pocdetailvalue0">Client will engage with CST case manager throughout housing search. Client will provide her housing requests to CST, participate in housing search, attend apartment viewings (as scheduled), and collaborate with CST to complete necessary paperwork in order to secure housing (ie. rental application, HACC forms etc.). Client will maintain her ADL's at a level that is appropriate for independent living in the community.</item>
+          		          		          		<item ID="pocdetailvalue1">Client will take steps toward attending school including: finding a school she would like to attend, picking a program of interest and finding funding to pay for schooling. </item>
+          		          		          		<item ID="pocdetailvalue2">Client will take steps toward obtaining employment including researching job postings she is interested in, completing and updating her resume and filling out job applications.</item>
+          		          		          		<item ID="pocdetailvalue3">To ensure client has access to medical/psychiatric services as needed to promote overall health and wellbeing.</item>
+          		          		          	</list>          	
+          			  </td>
+        </tr>
+                  </tbody>
+  </table>
+<paragraph><content ID="POCDiagHeader0" styleCode="Bold Underline">Diagnostic Tests Pending</content></paragraph>
+    <paragraph><content ID="POCDiagNoData0">No Information to Report</content></paragraph>
+<paragraph><content ID="POCGoalsHeader0" styleCode="Bold Underline">Goals and Instructions</content></paragraph>
+
+                       
+    <table>
+    <thead>
+      <tr>
+        <th>Goals</th>
+      </tr>
+    </thead>
+    <tbody>
+              <tr ID="pocgoal0">
+          <td> Client reports wanting to obtain her own apartment. Client states "I wanna move out." 
+ </td>
+        </tr>
+                      <tr ID="pocgoal1">
+          <td> Client reports wanting to obtain her GED. Client states "I wanna go back to school."
+ </td>
+        </tr>
+                      <tr ID="pocgoal2">
+          <td> Client reports wanting to obtain employment once she moves out of the NH. Client states "I wanna get a job." </td>
+        </tr>
+                      <tr ID="pocgoal3">
+          <td> Decreased frequency and intensity of psychotic and other severe mental illness symptoms.  </td>
+        </tr>
+                  </tbody>
+  </table>
+      <br/>
+      <table>
+    <thead>
+      <tr>
+        <th>Instructions</th>
+      </tr>
+    </thead>
+    <tbody>
+              <tr ID="pocinstr0">
+          <td> CST will assist and support Levonne in searching for, obtaining, and/or maintaining housing at a level of independence appropriate for her. CST will assist and support Levonne in applying for housing and in obtaining all appropriate financial assistance (re: utilities, rent etc.). CST will assist Levonne in obtaining furniture and necessities, as needed. CST will assist and support Levonne in developing a budget to allow her to maintain stable housing. CST will assist and support Levonne in complying with lease terms/rules. CST will communicate with landlord as needed (re: issues that may arise regarding Levonne's living arrangement, Levonne's unit, etc.). </td>
+        </tr>
+                      <tr ID="pocinstr1">
+          <td> As Levonne feels ready, CST can assist, support and educate her on resources in the community and can link her to educational opportunities. CST will support and encourage Levonne as she pursues her goal of returning to school, including supporting and assisting her as she researches programs and a means of financing her education. </td>
+        </tr>
+                      <tr ID="pocinstr2">
+          <td> As Levonne feels ready, CST can assist, support and educate her on resources in the community and can link her to employment opportunities. CST will support and encourage Levonne as she pursues her goal of obtaining employment, including supporting and assisting her as she researches potential jobs.  </td>
+        </tr>
+                      <tr ID="pocinstr3">
+          <td> Nurse will refer client to primary care physician (if needed). Nurse will complete medical paperwork, and complete pre-authorizations for public or private entitlements. Will assist with application for pharmaceutical patient assistance program.  </td>
+        </tr>
+                      <tr ID="pocinstr4">
+          <td> Psychiatrist will evaluate &amp; monitor medications to assist client with maintaining stability. </td>
+        </tr>
+                      <tr ID="pocinstr5">
+          <td> Nurse will provide individual or group services related to self-management of diabetes, smoking, and weight management. Nurse will assist patient with any medical/psychiatric paperwork (i.e., choosing health plans) to ensure client receives most effective services. Nurse will assist patient in making appointments with their PCP and encourages patient to make calls on their own behalf.  </td>
+        </tr>
+                      <tr ID="pocinstr6">
+          <td> Nurse will engage in professional communication with other provider staff re: client's clinical condition (vitals, lab results, medications, side effects) and progress towards treatment goals. Nurse will make referrals to primary care physicians or ER, if warranted.  </td>
+        </tr>
+                  </tbody>
+  </table>
+    
+  
+</text>
+          <entry>
+            <act classCode="ACT" moodCode="RQO">
+              <templateId root="2.16.840.1.113883.10.20.22.4.39"/>
+              <id extension="28909" root="2.16.840.1.113883.10.20.22.4.39"/>
+              <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="No Information to Report" xsi:type="CE"/>
+              <statusCode code="new"/>
+              <effectiveTime>
+                <low value="20180328"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.13"/>
+          <code code="46239-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Chief Complaint And Reason For Visit"/>
+          <title>Chief Complaint and Reason for Visit</title>
+          <text>Leydi Test</text>
+        </section>
+      </component>
+      <component>
+				<section>
+					<!-- conforms to Encounters section with entries optional -->
+					<templateId root="2.16.840.1.113883.10.20.22.2.22"/>
+					<!-- Encounters section with entries required -->
+					<templateId root="2.16.840.1.113883.10.20.22.2.22.1"/>
+					<code code="46240-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+						displayName="History of encounters"/>
+					<title>ENCOUNTERS</title>
+					<text>
+						<table border="1" width="100%">
+							<thead>
+								<tr>
+									<th>Encounter</th>
+									<th>Performer</th>
+									<th>Location</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<content ID="Encounter1"/> Checkup Examination </td>
+									<td>Performer Name</td>
+									<td>Community Urgent Care Center</td>
+									<td>20090227130000+0500</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="DRIV">
+						<encounter classCode="ENC" moodCode="EVN">
+							<!-- ** Encounter activities ** -->
+							<templateId root="2.16.840.1.113883.10.20.22.4.49"/>
+							<id root="2a620155-9d11-439e-92b3-5d9815ff4de8"/>
+							<code code="99213" displayName="Office outpatient visit 15 minutes"
+								codeSystemName="CPT" codeSystem="2.16.840.1.113883.6.12"
+								codeSystemVersion="4">
+								<originalText> Checkup Examination <reference value="#Encounter1"/>
+								</originalText>
+								<translation code="AMB" codeSystem="2.16.840.1.113883.5.4"
+									displayName="Ambulatory" codeSystemName="HL7 ActEncounterCode"/>
+							</code>
+							<!-- February 27, 2009 at 1:00PM EST -->
+							<effectiveTime value="20090227130000+0500"/>
+							<performer>
+								<assignedEntity>
+									<!-- Provider NPI "PseduoMD-3" -->
+									<id root="PseduoMD-3"/>
+									<code code="59058001" codeSystem="2.16.840.1.113883.6.96"
+										codeSystemName="SNOMED CT" displayName="General Physician"/>
+								</assignedEntity>
+							</performer>
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<templateId root="2.16.840.1.113883.10.20.22.4.32"/>
+									<!-- Service Delivery Location template -->
+									<code code="1160-1" codeSystem="2.16.840.1.113883.6.259"
+										codeSystemName="HealthcareServiceLocation"
+										displayName="Urgent Care Center"/>
+									<addr>
+										<streetAddressLine>17 Daws Rd.</streetAddressLine>
+										<city>Blue Bell</city>
+										<state>MA</state>
+										<postalCode>02368</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom nullFlavor="UNK"/>
+									<playingEntity classCode="PLC">
+										<name>Community Urgent Care Center</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+							<entryRelationship typeCode="RSON">
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.22.4.19"/>
+									<id root="db734647-fc99-424c-a864-7e3cda82e703"
+										extension="45665"/>
+									<code code="404684003" displayName="Finding"
+										codeSystem="2.16.840.1.113883.6.96"
+										codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="20070103"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="233604007" displayName="Pneumonia"
+										codeSystem="2.16.840.1.113883.6.96"/>
+								</observation>
+							</entryRelationship>
+						</encounter>
+					</entry>
+				</section>
+			</component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.2.1"/>
+          <templateId root="2.16.840.1.113883.10.20.22.2.2"/>
+          <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of immunizations"/>
+          <title>Immunizations Administered During Visit</title>
+          <text>
+  <paragraph><content ID="Immun0">No Information to Report</content></paragraph>
+</text>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false" nullFlavor="NI">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52"/>
+              <id extension="Lutheran Social Services-28909" root="2.16.840.1.113883.3.1452.5"/>
+              <statusCode nullFlavor="UNK"/>
+              <effectiveTime nullFlavor="UNK" xsi:type="IVL_TS"/>
+              <routeCode nullFlavor="UNK"/>
+              <approachSiteCode nullFlavor="UNK"/>
+              <doseQuantity nullFlavor="UNK"/>
+              <administrationUnitCode nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54"/>
+                  <manufacturedMaterial>
+                    <code nullFlavor="UNK">
+                      <originalText><reference value="#immun0"/></originalText>
+                    </code>
+                    <lotNumberText nullFlavor="UNK"/>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.1.1"/>
+          <templateId root="2.16.840.1.113883.10.20.22.2.1"/>
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of medication use"/>
+          <title>Medications</title>
+          <text>
+  <table>
+  <thead>
+    <tr>
+     <th>Medication Name</th>
+     <th>Start Date</th>
+     <th>End Date</th>
+     <th>Dosage</th>
+     <th>SIG</th>
+     <th>Status</th>
+     <th>Comments</th>
+    </tr>
+  </thead>
+    <tbody>
+              <tr ID="MED_0">
+         <td>Atripla</td>
+         <td>02/19/2015</td>
+         <td/>
+         <td>600-200-300 mg tablet  </td>
+         <td ID="PRN_ID_0">SIG information not entered</td>
+         <td>Active</td>
+         <td ID="MED_COMMENT_0">per pcp</td>
+       </tr>
+                   <tr ID="MED_1">
+         <td>clozapine</td>
+         <td>02/11/2016</td>
+         <td>06/07/2017</td>
+         <td>150 mg tablet,disintegrating  </td>
+         <td ID="PRN_ID_1">SIG information not entered</td>
+         <td>Inactive</td>
+         <td ID="MED_COMMENT_1"/>
+       </tr>
+                   <tr ID="MED_2">
+         <td>famotidine</td>
+         <td>06/07/2017</td>
+         <td/>
+         <td>20 mg tablet 1 tablet</td>
+         <td ID="PRN_ID_2">Take 1 tablet by mouth every night </td>
+         <td>Active</td>
+         <td ID="MED_COMMENT_2">per pcp</td>
+       </tr>
+                   <tr ID="MED_3">
+         <td>ferrous sulfate</td>
+         <td>06/07/2017</td>
+         <td/>
+         <td>325 mg (65 mg iron) tablet,delayed release (DR/EC) 1 tablet</td>
+         <td ID="PRN_ID_3">Take 1 tablet by mouth twice a day </td>
+         <td>Active</td>
+         <td ID="MED_COMMENT_3">per pcp</td>
+       </tr>
+                   <tr ID="MED_4">
+         <td>Latuda</td>
+         <td>06/07/2017</td>
+         <td>06/14/2017</td>
+         <td>40 mg tablet 1 tablet</td>
+         <td ID="PRN_ID_4">Take 1 tablet by mouth every evening with meals</td>
+         <td>Inactive</td>
+         <td ID="MED_COMMENT_4"/>
+       </tr>
+                   <tr ID="MED_5">
+         <td>Symbicort</td>
+         <td>06/07/2017</td>
+         <td/>
+         <td>160-4.5 mcg/actuation HFA aerosol inhaler 1 puff</td>
+         <td ID="PRN_ID_5">Inhale 1 puff using inhaler twice a day </td>
+         <td>Active</td>
+         <td ID="MED_COMMENT_5">per pcp</td>
+       </tr>
+                   <tr ID="MED_6">
+         <td>benztropine</td>
+         <td>06/07/2017</td>
+         <td>09/12/2017</td>
+         <td>2 mg tablet 1 tablet</td>
+         <td ID="PRN_ID_6">Take 1 tablet by mouth twice a day </td>
+         <td>Inactive</td>
+         <td ID="MED_COMMENT_6"/>
+       </tr>
+                   <tr ID="MED_7">
+         <td>Depo-Provera</td>
+         <td>06/07/2017</td>
+         <td/>
+         <td>150 mg/mL suspension 1 ml</td>
+         <td ID="PRN_ID_7">Inject 1 ml intramuscularly every three months </td>
+         <td>Active</td>
+         <td ID="MED_COMMENT_7">per pcp</td>
+       </tr>
+                   <tr ID="MED_8">
+         <td>Clozaril</td>
+         <td>06/07/2017</td>
+         <td>10/11/2017</td>
+         <td>100 mg tablet 1 1/2 tablet</td>
+         <td ID="PRN_ID_8">Take 1 1/2 tablet by mouth twice a day </td>
+         <td>Inactive</td>
+         <td ID="MED_COMMENT_8"/>
+       </tr>
+                   <tr ID="MED_9">
+         <td>Latuda</td>
+         <td>06/14/2017</td>
+         <td>06/19/2017</td>
+         <td>40 mg tablet 1 tablet</td>
+         <td ID="PRN_ID_9">Take 1 tablet by mouth twice a day with meals</td>
+         <td>Inactive</td>
+         <td ID="MED_COMMENT_9"/>
+       </tr>
+                   <tr ID="MED_10">
+         <td>Latuda</td>
+         <td>06/19/2017</td>
+         <td>09/17/2017</td>
+         <td>80 mg tablet 1/2 tablet</td>
+         <td ID="PRN_ID_10">Take 1/2 tablet by mouth twice a day with meals</td>
+         <td>Inactive</td>
+         <td ID="MED_COMMENT_10">6/21/17 approved for 1 year.</td>
+       </tr>
+            </tbody>
+  </table>
+</text>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75935" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_0"/>SIG information not entered</text>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20150219"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <effectiveTime nullFlavor="UNK" operator="A" xsi:type="PIVL_TS"/>
+              <routeCode nullFlavor="UNK"/>
+              <doseQuantity nullFlavor="UNK"/>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="643070" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Atripla 600-200-300 mg">
+                      <originalText><reference value="#MED_0"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.64"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment" xsi:type="CE"/>
+                  <text><reference value="#MED_COMMENT_0"/>per pcp</text>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75933" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_1"/>SIG information not entered</text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20160211"/>
+                <high value="20170607"/>
+              </effectiveTime>
+              <effectiveTime nullFlavor="UNK" operator="A" xsi:type="PIVL_TS"/>
+              <routeCode nullFlavor="UNK"/>
+              <doseQuantity nullFlavor="UNK"/>
+              <administrationUnitCode displayName="tablet,disintegrating" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="1006801" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="clozapine 150 mg">
+                      <originalText><reference value="#MED_1"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75931" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_2"/>Take 1 tablet by mouth every night </text>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <effectiveTime operator="A" xsi:type="EIVL_TS">
+                <event code="PCV"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="310273" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="famotidine 20 mg">
+                      <originalText><reference value="#MED_2"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="75931" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170705"/>
+                  </effectiveTime>
+                  <repeatNumber value="1"/>
+                  <quantity value="28"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="310273" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="famotidine 20 mg">
+                          <originalText><reference value="#MED_2"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.64"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment" xsi:type="CE"/>
+                  <text><reference value="#MED_COMMENT_2"/>per pcp</text>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75930" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_3"/>Take 1 tablet by mouth twice a day </text>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="h" value="12.0"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="tablet,delayed release (DR/EC)" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="310324" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="ferrous sulfate 325 mg (65 mg iron)">
+                      <originalText><reference value="#MED_3"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="75930" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170705"/>
+                  </effectiveTime>
+                  <repeatNumber value="1"/>
+                  <quantity value="56"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="310324" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="ferrous sulfate 325 mg (65 mg iron)">
+                          <originalText><reference value="#MED_3"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.64"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment" xsi:type="CE"/>
+                  <text><reference value="#MED_COMMENT_3"/>per pcp</text>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75929" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_4"/>Take 1 tablet by mouth every evening with meals</text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high value="20170614"/>
+              </effectiveTime>
+              <effectiveTime operator="A" xsi:type="EIVL_TS">
+                <event code="ACV"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="1040036" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Latuda 40 mg">
+                      <originalText><reference value="#MED_4"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <author>
+                <time value="20160829"/>
+                <assignedAuthor>
+                  <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Marian</given><family>Glenn</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="75929" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170614"/>
+                  </effectiveTime>
+                  <repeatNumber value="1"/>
+                  <quantity value="28"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="1040036" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Latuda 40 mg">
+                          <originalText><reference value="#MED_4"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75928" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_5"/>Inhale 1 puff using inhaler twice a day </text>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="h" value="12.0"/>
+              </effectiveTime>
+              <routeCode displayName="using inhaler" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="HFA aerosol inhaler" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code displayName="Symbicort 160-4.5 mcg/actuation" nullFlavor="UNK">
+                      <originalText><reference value="#MED_5"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.64"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment" xsi:type="CE"/>
+                  <text><reference value="#MED_COMMENT_5"/>per pcp</text>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75934" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_6"/>Take 1 tablet by mouth twice a day </text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high value="20170912"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="h" value="12.0"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="885209" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="benztropine 2 mg">
+                      <originalText><reference value="#MED_6"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <author>
+                <time value="20160829"/>
+                <assignedAuthor>
+                  <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Marian</given><family>Glenn</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="75934" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170912"/>
+                  </effectiveTime>
+                  <repeatNumber value="3"/>
+                  <quantity value="60"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="885209" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="benztropine 2 mg">
+                          <originalText><reference value="#MED_6"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-75932" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_7"/>Inject 1 ml intramuscularly every three months </text>
+              <statusCode code="active"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="mo" value="3.0"/>
+              </effectiveTime>
+              <routeCode displayName="intramuscularly" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="suspension" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="1000128" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Depo-Provera 150 mg/mL">
+                      <originalText><reference value="#MED_7"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="75932" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170905"/>
+                  </effectiveTime>
+                  <repeatNumber value="1"/>
+                  <quantity value="1"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="1000128" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Depo-Provera 150 mg/mL">
+                          <originalText><reference value="#MED_7"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.64"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment" xsi:type="CE"/>
+                  <text><reference value="#MED_COMMENT_7"/>per pcp</text>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-104419" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_8"/>Take 1 1/2 tablet by mouth twice a day </text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170607"/>
+                <high value="20171011"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="h" value="12.0"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity>
+                <translation displayName="1 1/2" nullFlavor="UNK"/>
+              </doseQuantity>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="104776" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Clozaril 100 mg">
+                      <originalText><reference value="#MED_8"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <author>
+                <time value="20170607"/>
+                <assignedAuthor>
+                  <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Marian</given><family>Glenn</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="104419" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20171011"/>
+                  </effectiveTime>
+                  <repeatNumber value="9"/>
+                  <quantity value="21"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="104776" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Clozaril 100 mg">
+                          <originalText><reference value="#MED_8"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-105116" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_9"/>Take 1 tablet by mouth twice a day with meals</text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170614"/>
+                <high value="20170619"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="h" value="12.0"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity value="1"/>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="1040036" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Latuda 40 mg">
+                      <originalText><reference value="#MED_9"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <author>
+                <time value="20170614"/>
+                <assignedAuthor>
+                  <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Marian</given><family>Glenn</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="105116" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170619"/>
+                  </effectiveTime>
+                  <repeatNumber value="3"/>
+                  <quantity value="60"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="1040036" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Latuda 40 mg">
+                          <originalText><reference value="#MED_9"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-105379" root="2.16.840.1.113883.3.1452.3"/>
+              <text><reference value="#MED_10"/>Take 1/2 tablet by mouth twice a day with meals</text>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20170619"/>
+                <high value="20170917"/>
+              </effectiveTime>
+              <effectiveTime institutionSpecified="true" operator="A" xsi:type="PIVL_TS">
+                <period unit="h" value="12.0"/>
+              </effectiveTime>
+              <routeCode displayName="by mouth" nullFlavor="UNK"/>
+              <doseQuantity>
+                <translation displayName="1/2" nullFlavor="UNK"/>
+              </doseQuantity>
+              <administrationUnitCode displayName="tablet" nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code code="1040043" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Latuda 80 mg">
+                      <originalText><reference value="#MED_10"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <author>
+                <time value="20170619"/>
+                <assignedAuthor>
+                  <id extension="1265858013" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Marian</given><family>Glenn</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.17"/>
+                  <id extension="105379" root="2.16.840.1.113883.10.20.22.4.16"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime xsi:type="IVL_TS">
+                    <high value="20170917"/>
+                  </effectiveTime>
+                  <repeatNumber value="3"/>
+                  <quantity value="30"/>
+                  <product>
+                    <manufacturedProduct classCode="MANU">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                      <manufacturedMaterial>
+                        <code code="1040043" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Latuda 80 mg">
+                          <originalText><reference value="#MED_10"/></originalText>
+                        </code>
+                      </manufacturedMaterial>
+                    </manufacturedProduct>
+                  </product>
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <act classCode="ACT" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.64"/>
+                  <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment" xsi:type="CE"/>
+                  <text><reference value="#MED_COMMENT_10"/>6/21/17 approved for 1 year.</text>
+                </act>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.38"/>
+          <code code="29549-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="MEDICATIONS ADMINISTERED"/>
+          <title>Medications Administered During Visit</title>
+          <text>
+  <paragraph><content ID="MEDS_ADMIN_0">No Information to Report</content></paragraph>
+</text>
+          <entry>
+            <substanceAdministration classCode="SBADM" moodCode="EVN" nullFlavor="NI">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16"/>
+              <id extension="Lutheran Social Services-28909" root="2.16.840.1.113883.3.1452.3"/>
+              <statusCode code="completed"/>
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20180328"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <effectiveTime nullFlavor="UNK" operator="A" xsi:type="PIVL_TS"/>
+              <routeCode nullFlavor="UNK"/>
+              <doseQuantity nullFlavor="UNK"/>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23"/>
+                  <manufacturedMaterial>
+                    <code nullFlavor="UNK">
+                      <originalText><reference value="#MEDS_ADMIN_0"/></originalText>
+                    </code>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.45"/>
+          <code code="69730-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="INSTRUCTIONS"/>
+          <title>Instructions</title>
+          <text><paragraph><content ID="PDAHeader0" styleCode="Bold Underline">Recommended Patient Decision Aids</content></paragraph>
+  <paragraph><content ID="PDANoData0">No Information to Report</content></paragraph>
+</text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
+          <templateId root="2.16.840.1.113883.10.20.22.2.5"/>
+          <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Problem List"/>
+          <title>Problems</title>
+          <text>
+  <table>
+  <thead>
+  <tr>
+     <th>Problem Description</th>
+     <th>Type</th>
+     <th>Onset Date</th>
+     <th>End Date</th>
+     <th>Status</th>
+  </tr>
+  </thead>
+    <tbody>
+      <tr ID="PROBLEM_0">
+      <td>Schizoaffective disorder, depressive type</td>
+      <td>Encounter Diagnosis</td>
+      <td>08/26/2016</td>
+      <td/>
+      <td>active</td>
+    </tr>
+          <tr ID="PROBLEM_1">
+      <td>Major depressive disorder unspecified, recurrent episode</td>
+      <td>Condition</td>
+      <td>08/26/2016</td>
+      <td/>
+      <td>active</td>
+    </tr>
+          <tr ID="PROBLEM_2">
+      <td>Anemia; HIV; Muscle Weakness; Pure Hypercholesterolemia; Constipation; Asthma.</td>
+      <td>Condition</td>
+      <td>08/26/2016</td>
+      <td/>
+      <td>active</td>
+    </tr>
+           </tbody>
+  </table>
+</text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id extension="Lutheran Social Services-47744" root="2.16.840.1.113883.3.1452.2.1"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6" xsi:type="CE"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20160826100705"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id extension="Lutheran Social Services-47744" root="2.16.840.1.113883.3.1452.2.2"/>
+                  <code code="282291009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Diagnosis" xsi:type="CE"/>
+                  <text><reference value="#PROBLEM_0"/></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20160826100705"/>
+                    <high nullFlavor="UNK"/>
+                  </effectiveTime>
+                  <value displayName="Schizoaffective disorder, depressive type" nullFlavor="UNK" xsi:type="CD">
+                    <translation code="F25.1" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Schizoaffective disorder, depressive type"/>
+                  </value>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status" xsi:type="CE"/>
+                      <statusCode code="completed"/>
+                      <value code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="active" xsi:type="CE"/>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id extension="Lutheran Social Services-47746" root="2.16.840.1.113883.3.1452.2.1"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6" xsi:type="CE"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20160826100705"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id extension="Lutheran Social Services-47746" root="2.16.840.1.113883.3.1452.2.2"/>
+                  <code code="64572001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Condition" xsi:type="CE"/>
+                  <text><reference value="#PROBLEM_1"/></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20160826100705"/>
+                    <high nullFlavor="UNK"/>
+                  </effectiveTime>
+                  <value displayName="Major depressive disorder unspecified, recurrent episode" nullFlavor="UNK" xsi:type="CD">
+                    <translation code="F33.9" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Major depressive disorder, recurrent, unspecified"/>
+                  </value>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status" xsi:type="CE"/>
+                      <statusCode code="completed"/>
+                      <value code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="active" xsi:type="CE"/>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+              <id extension="Lutheran Social Services-47745" root="2.16.840.1.113883.3.1452.2.1"/>
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6" xsi:type="CE"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20160826100705"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                  <id extension="Lutheran Social Services-47745" root="2.16.840.1.113883.3.1452.2.2"/>
+                  <code code="64572001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Condition" xsi:type="CE"/>
+                  <text><reference value="#PROBLEM_2"/></text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20160826100705"/>
+                    <high nullFlavor="UNK"/>
+                  </effectiveTime>
+                  <value displayName="Anemia; HIV; Muscle Weakness; Pure Hypercholesterolemia; Constipation; Asthma." nullFlavor="UNK" xsi:type="CD"/>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status" xsi:type="CE"/>
+                      <statusCode code="completed"/>
+                      <value code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="active" xsi:type="CE"/>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.7.1"/>
+          <templateId root="2.16.840.1.113883.10.20.22.2.7"/>
+          <code code="47519-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of Procedures"/>
+          <title>Procedures</title>
+          <text>
+  <table>
+  <thead>
+  <tr>
+     <th>Procedure Description</th>
+     <th>Code</th>
+     <th>Effective Date</th>
+     <th>Status</th>
+  </tr>
+  </thead>
+    <tbody>
+      <tr ID="PROCEDURE_0">
+      <td>Case Management Offsite</td>
+      <td>T1016</td>
+      <td>05/15/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_1">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>05/16/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_2">
+      <td>Case Management Offsite</td>
+      <td>T1016</td>
+      <td>05/25/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_3">
+      <td>Case Management Offsite</td>
+      <td>T1016</td>
+      <td>06/01/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_4">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>06/06/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_5">
+      <td>Case Management Offsite</td>
+      <td>T1016</td>
+      <td>06/06/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_6">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/07/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_7">
+      <td>Case Management Offsite</td>
+      <td>T1016</td>
+      <td>06/09/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_8">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>06/12/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_9">
+      <td>Case Management Offsite</td>
+      <td>T1016</td>
+      <td>06/13/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_10">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/14/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_11">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/14/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_12">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/15/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_13">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/19/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_14">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>06/20/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_15">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/20/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_16">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/21/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_17">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/22/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_18">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/26/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_19">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/27/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_20">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>06/29/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_21">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>06/29/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_22">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>07/03/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_23">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>07/06/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_24">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>07/07/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_25">
+      <td>Community Support Offsite</td>
+      <td>H2015</td>
+      <td>07/10/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_26">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>07/10/2017</td>
+      <td>completed</td>
+    </tr>
+          <tr ID="PROCEDURE_27">
+      <td>Case Management</td>
+      <td>T1016</td>
+      <td>07/10/2017</td>
+      <td>completed</td>
+    </tr>
+           </tbody>
+  </table>
+</text>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-697775" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_0"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170515"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-697776" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_1"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170516"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-706644" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_2"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170525"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-715307" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_3"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170601"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-716935" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_4"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170606"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-716936" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_5"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170606"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-717701" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_6"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170607"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-719212" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_7"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170609"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-722869" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_8"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170612"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-722870" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_9"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170613"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-722872" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_10"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170614"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-722871" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_11"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170614"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-722062" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_12"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170615"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-724660" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_13"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170619"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-727118" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_14"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170620"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-727119" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_15"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170620"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-729325" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_16"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170621"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-730212" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_17"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170622"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-732059" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_18"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170626"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-733838" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_19"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170627"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-739905" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_20"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170629"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-735318" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_21"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170629"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-737295" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_22"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170703"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-739906" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_23"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170706"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-741114" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_24"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170707"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-741115" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="H2015" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Community Support Offsite" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_25"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170710"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-741116" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_26"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170710"/>
+            </procedure>
+          </entry>
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+              <id extension="Lutheran Social Services-741117" root="2.16.840.1.113883.3.1452.7"/>
+              <code code="T1016" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT-4" displayName="Case Management" xsi:type="CE">
+                <originalText><reference value="#PROCEDURE_27"/></originalText>
+              </code>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170710"/>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1"/>
+          <code code="42349-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Reason For Referral"/>
+          <title>Reason for Referral</title>
+          <text>
+  <paragraph>No Information to Report</paragraph>
+</text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.3.1"/>
+          <templateId root="2.16.840.1.113883.10.20.22.2.3"/>
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Relevant Diagnostic Test And/Or Laboratory Data"/>
+          <title>Laboratory Values and Results</title>
+          <text>
+  <paragraph><content ID="RESULT_0">No Information to Report</content></paragraph>
+</text>
+          <entry>
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1"/>
+              <id extension="Lutheran Social Services-28909" root="2.16.840.1.113883.3.1452.11"/>
+              <code nullFlavor="UNK" xsi:type="CE"/>
+              <statusCode nullFlavor="UNK"/>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2"/>
+                  <id extension="Lutheran Social Services-28909" root="2.16.840.1.113883.3.1452.11.1"/>
+                  <code nullFlavor="UNK" xsi:type="CE">
+                    <originalText><reference value="#RESULT_0"/></originalText>
+                  </code>
+                  <statusCode nullFlavor="UNK"/>
+                  <effectiveTime nullFlavor="UNK"/>
+                  <value nullFlavor="UNK" xsi:type="PQ"/>
+                  <interpretationCode nullFlavor="UNK"/>
+                  <referenceRange>
+                    <observationRange>
+                      <text nullFlavor="UNK"/>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.17"/>
+          <code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Social history"/>
+          <title>Social History</title>
+          <text>
+<table>
+  <thead>
+    <tr>
+      <th>Smoking Status</th>
+      <th>Date Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Current every day smoker</td>
+      <td>8/26/2016-Present</td>
+    </tr>
+  </tbody>
+</table> 
+</text>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.78"/>
+              <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20160826"/>
+              <value code="449868002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Current every day smoker" xsi:type="CD"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.4"/>
+          <code code="8716-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Vital Signs"/>
+          <title>Vital Signs</title>
+          <text>
+  <table>
+  <thead>
+  <tr>
+     <th>Date</th>
+     <th>Height</th>
+     <th>Weight</th>
+     <th>BMI</th>
+     <th>Temperature</th>
+     <th>Blood Pressure</th>
+     <th>Resp Rate</th>
+     <th>Heart Rate</th>
+  </tr>
+  </thead>
+    <tbody>
+      <tr ID="VITALS_0">
+      <td>06/14/2017 12:59</td>
+      <td>62.6 in</td>
+      <td>190.0 lb</td>
+      <td>34.08</td>
+      <td/>
+      <td>106/70</td>
+      <td>16</td>
+      <td>120</td>
+    </tr>
+          <tr ID="VITALS_1">
+      <td>07/12/2017 11:56</td>
+      <td>62.6 in</td>
+      <td>186.0 lb</td>
+      <td>33.37</td>
+      <td/>
+      <td>110/80</td>
+      <td>16</td>
+      <td>102</td>
+    </tr>
+          <tr ID="VITALS_2">
+      <td>08/09/2017 11:41</td>
+      <td>62.6 in</td>
+      <td>182.0 lb</td>
+      <td>32.65</td>
+      <td/>
+      <td>110/70</td>
+      <td>16</td>
+      <td>82</td>
+    </tr>
+           </tbody>
+  </table>
+</text>
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.26"/>
+              <id extension="Lutheran Social Services-35850" root="2.16.840.1.113883.3.1452.4"/>
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Vital Signs" xsi:type="CE"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170614125900"/>
+              <author>
+                <time value="20170614"/>
+                <assignedAuthor>
+                  <id extension="1205294980" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Yolanda</given><family>Nunez</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-8462-4" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BP Diastolic" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value unit="mmHg" value="70" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-8480-6" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BP Systolic" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value unit="mmHg" value="106" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-8867-4" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Heart Rate" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value unit="BPM" value="120" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-8302-2" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Height" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value unit="[in_us]" value="62.60" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-9279-1" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="9279-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Respiratory Rate" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value unit="BPM" value="16" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-3141-9" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="3141-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Weight" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value unit="[lb_av]" value="190.00" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="35850-39156-5" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BMI (Body Mass Index)" xsi:type="CE">
+                    <originalText><reference value="#VITALS_0"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170614125900"/>
+                  <value value="34.08" xsi:type="PQ"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.26"/>
+              <id extension="Lutheran Social Services-36479" root="2.16.840.1.113883.3.1452.4"/>
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Vital Signs" xsi:type="CE"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170712115600"/>
+              <author>
+                <time value="20170712"/>
+                <assignedAuthor>
+                  <id extension="1205294980" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Yolanda</given><family>Nunez</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-8462-4" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BP Diastolic" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value unit="mmHg" value="80" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-8480-6" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BP Systolic" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value unit="mmHg" value="110" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-8867-4" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Heart Rate" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value unit="BPM" value="102" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-8302-2" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Height" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value unit="[in_us]" value="62.60" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-9279-1" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="9279-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Respiratory Rate" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value unit="BPM" value="16" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-3141-9" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="3141-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Weight" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value unit="[lb_av]" value="186.00" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="36479-39156-5" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BMI (Body Mass Index)" xsi:type="CE">
+                    <originalText><reference value="#VITALS_1"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170712115600"/>
+                  <value value="33.37" xsi:type="PQ"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.26"/>
+              <id extension="Lutheran Social Services-37125" root="2.16.840.1.113883.3.1452.4"/>
+              <code code="46680005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Vital Signs" xsi:type="CE"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20170809114100"/>
+              <author>
+                <time value="20170809"/>
+                <assignedAuthor>
+                  <id extension="1205294980" root="2.16.840.1.113883.4.6"/>
+                  <addr><streetAddressLine>1001 East Touhy Ave</streetAddressLine><city>Des Plaines</city><country>US</country><postalCode>60018</postalCode><state>IL</state></addr>
+                  <telecom use="WP" value="tel:(847)635-4600"/>
+                  <assignedPerson>
+                    <name><given>Yolanda</given><family>Nunez</family></name>
+                  </assignedPerson>
+                </assignedAuthor>
+              </author>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-8462-4" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8462-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BP Diastolic" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value unit="mmHg" value="70" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-8480-6" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8480-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BP Systolic" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value unit="mmHg" value="110" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-8867-4" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8867-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Heart Rate" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value unit="BPM" value="82" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-8302-2" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="8302-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Height" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value unit="[in_us]" value="62.60" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-9279-1" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="9279-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Respiratory Rate" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value unit="BPM" value="16" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-3141-9" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="3141-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="Weight" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value unit="[lb_av]" value="182.00" xsi:type="PQ"/>
+                </observation>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27"/>
+                  <id extension="37125-39156-5" root="2.16.840.1.113883.10.20.22.4.26"/>
+                  <code code="39156-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="2.16.840.1.113883.6.1" displayName="BMI (Body Mass Index)" xsi:type="CE">
+                    <originalText><reference value="#VITALS_2"/></originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20170809114100"/>
+                  <value value="32.65" xsi:type="PQ"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.6.1"/>
+          <templateId root="2.16.840.1.113883.10.20.22.2.6"/>
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, adverse reactions, alerts"/>
+          <title>Allergies</title>
+          <text>
+  <table>
+  <thead>
+  <tr>
+     <th>Allergy Description</th>
+     <th>Allergy Type</th>
+     <th>Onset Date</th>
+     <th>End Date</th>
+     <th>Reaction</th>
+     <th>Severity</th>
+     <th>Status</th>
+  </tr>
+  </thead>
+    <tbody>
+              <tr ID="ALLERGY_0">
+         <td colspan="7">No Known Allergies</td>
+       </tr>
+            </tbody>
+  </table>
+</text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30"/>
+              <id extension="5044" root="2.16.840.1.113883.10.20.22.4.30"/>
+              <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, adverse reactions, alerts" xsi:type="CE"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low nullFlavor="UNK"/>
+                <high nullFlavor="UNK"/>
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <id extension="5044" root="2.16.840.1.113883.10.20.22.4.7"/>
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" xsi:type="CE"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low nullFlavor="UNK"/>
+                    <high nullFlavor="UNK"/>
+                  </effectiveTime>
+                  <value code="419199007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Allergy to substance (disorder)" xsi:type="CD">
+                    <originalText><reference value="#ALLERGY_0"/></originalText>
+                  </value>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

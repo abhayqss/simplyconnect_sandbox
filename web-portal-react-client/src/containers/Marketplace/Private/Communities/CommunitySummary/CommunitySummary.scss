@@ -1,0 +1,81 @@
+@import "../../../../../custom/fonts";
+
+.MarketplaceCommunitySummary {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-right: 36px;
+  padding-bottom: 29px;
+
+  &-Info {
+    flex: 1;
+    max-width: calc(100% - 72px);
+  }
+
+  &-Title {
+    margin-bottom: 4px;
+    color: $font-color_head-text;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+  }
+
+  &-PrimaryFocuses {
+    color: $font-color_head-text;
+    font-size: $font-size_list-item-text;
+    margin-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-Address {
+    flex: 1;
+    color: $font-color_head-text;
+    font-size: $font-size_list-item-text;
+    font-family: "Open Sans Bold", sans-serif;
+  }
+
+  &-Distance {
+    min-width: 50px;
+    color: $font-color_head-text;
+    font-size: $font-size_list-item-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Logo {
+    width: 64px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+
+  &-LogoPicture {
+    width: 64px;
+    max-height: 64px;
+
+    &:nth-child(2n) {
+      display: none;
+    }
+  }
+
+  &-MoreInfo,
+  &-Navigate {
+    &:hover {
+      cursor: pointer;
+    }
+
+    margin-left: 15px;
+    margin-top: 10px;
+    float: right;
+    color:  #0064ad;
+    font-size: 26px;
+  }
+
+  &-Highlight {
+    background-color: #fff1ca;
+    padding: 0;
+    border-radius: 2px;
+  }
+}
+

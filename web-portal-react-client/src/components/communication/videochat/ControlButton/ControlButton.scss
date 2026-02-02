@@ -1,0 +1,40 @@
+.VideoChatControlButton {
+  padding: 11px;
+  border-radius: 28px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.IconButton {
+    svg {
+      fill: #ffffff;
+    }
+  }
+
+  &_color {
+    &_red {
+      background-color: #F33232;
+
+      &:hover {
+        box-shadow: 0 0 5px 3px rgba(243, 50, 50, 0.9);
+      }
+
+      &:active {
+        background-color: #F30000;
+      }
+    }
+
+    &_green {
+      background-color: #0064ad;
+
+      &:hover {
+        box-shadow: 0 0 5px 3px rgba(68, 128, 147, 0.9);
+      }
+
+      &:active {
+        background-color: #448093;
+      }
+    }
+  }
+}

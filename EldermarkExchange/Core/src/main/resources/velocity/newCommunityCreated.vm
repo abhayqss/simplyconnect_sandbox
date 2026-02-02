@@ -1,0 +1,9 @@
+<div>Dear ${newCommunityCreated.target}, </div><br/>
+<div>
+    <br/>
+    "${newCommunityCreated.communityName}" community has been created automatically.
+    <br/>
+    Please check details on the "Communities list" page by clicking the button:
+    <br/>
+    #parse( "velocity/button.vm")
+</div>

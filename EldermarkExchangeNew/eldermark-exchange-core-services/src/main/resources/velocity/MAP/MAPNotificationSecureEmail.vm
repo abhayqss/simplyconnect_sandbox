@@ -1,0 +1,13 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.MAP.MAPNotificationSecureMailDto" *#
+
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    You have a new Medication action plan (MAP) for ${dto.clientName}.
+    <br>
+    The MAP is attached.
+    <br><br>
+    Please <a href="${dto.mapUrl}">login</a> to the Simply Connect platform to view the MAP.
+    #parse( "velocity/button.vm")
+</div>
+

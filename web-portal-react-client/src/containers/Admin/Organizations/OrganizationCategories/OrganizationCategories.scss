@@ -1,0 +1,41 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.OrganizationCategories {
+  @include page;
+
+  &-Header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  &-HeaderItem {
+    margin-right: 20px;
+    padding-bottom: 10px;
+
+    &:first-child {
+      flex: 1
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-Title {
+    display: inline-block;
+    font-size: 26px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

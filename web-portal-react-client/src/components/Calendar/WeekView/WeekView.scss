@@ -1,0 +1,15 @@
+.WeekView {
+  &-Header {
+    top: 44px;
+    z-index: 1;
+    position: sticky;
+    background-color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 75px;
+  }
+
+  &-Body {
+    position: relative;
+  }
+}

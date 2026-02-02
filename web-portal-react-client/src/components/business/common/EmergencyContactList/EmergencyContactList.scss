@@ -1,0 +1,49 @@
+@import "custom/_fonts";
+
+.EmergencyContactList {
+    margin-top: 10px;
+}
+
+.EmergencyContactList-Item {
+    &.list-group-item {
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.EmergencyContact-Avatar {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.EmergencyContact-Demographics {
+    flex: 1;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #dddddd;
+}
+
+.EmergencyContact-FullName {
+    padding: 1px 0;
+    font-size: $font-size_list-item-text;
+    font-family: "Open Sans Semibold", sans-serif;
+}
+
+.EmergencyContact-Relationship {
+    font-size: $font-size_list-item-text;
+    color: #898989;
+    padding: 2px 0;
+}
+
+.EmergencyContact-Phone {
+    padding: 1px 0;
+    font-size: $font-size_list-item-text;
+}
+
+.EmergencyContact-Email {
+    padding: 1px 0;
+    font-size: $font-size_list-item-text;
+}

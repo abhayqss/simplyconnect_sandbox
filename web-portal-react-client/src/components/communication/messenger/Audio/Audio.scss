@@ -1,0 +1,44 @@
+.Audio {
+    display: flex;
+    align-items: center;
+    padding: 9px 12px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    min-height: 41px;
+
+    &-PlayIcon {
+        cursor: pointer;
+        margin-right: 8px;
+    }
+
+    &-Duration {
+        margin-right: 9px;
+    }
+
+    &-ProgressWrapper {
+        flex: 1;
+        min-width: 0;
+        width: 280px;
+    }
+
+    &-Progress {
+        height: 6px;
+        border-radius: 1px;
+        border: solid 1px #e0e0e0;
+        background-color: #f9f9f9;
+        flex: 1;
+        min-width: 0;
+        cursor: pointer;
+    }
+
+    &-ProgressBar {
+        background-color: #0064ad;
+        transition: none;
+        min-width: 0;
+    }
+
+    &-CancelButton {
+        cursor: pointer;
+    }
+}

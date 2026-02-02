@@ -1,0 +1,18 @@
+.SwitchField {
+  &.mb-3 {
+    margin-bottom: 20px !important;
+  }
+
+  .react-switch-bg {
+    .yes, .no {
+      color: #ffffff;
+      padding-top: 5px;
+      padding-left: 9px;
+      font-size: 12px;
+    }
+  }
+
+  &-Label {
+    margin-right: 15px;
+  }
+}

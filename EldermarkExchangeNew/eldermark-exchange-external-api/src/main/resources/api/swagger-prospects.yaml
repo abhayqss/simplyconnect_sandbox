@@ -1,0 +1,2677 @@
+swagger: "2.0"
+info:
+  title: SimplyConnect API
+  description: SimplyConnect API for third-party apps <h3>Terms of Service</h3><p>In order to access the SimplyConnect API you must have written consent from Simply Connect HIE. Any other use of this API is prohibited. Please contact us.</p>
+  version: draft 02/21/2018
+host: dev.simplyhie.com:9443
+basePath: /api
+schemes:
+  - https
+
+tags:
+  - name: prospects-controller
+    description: Prospects
+
+responses:
+  'badRequest':
+    description: Bad Request
+    schema:
+      $ref: '#/definitions/Response«BadRequestResponse»'
+  'noAuth':
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Response«UnauthorizedResponse»'
+  'forbidden':
+    description: Forbidden
+    schema:
+      $ref: '#/definitions/Response«AccessForbiddenResponse»'
+  'notFound':
+    description: Not Found
+    schema:
+      $ref: '#/definitions/Response«NotFoundResponse»'
+  'conflict':
+    description: Conflict
+    schema:
+      $ref: '#/definitions/Response«ConflictResponse»'
+
+### Authorization definition ###
+
+securityDefinitions:
+  X-Auth-Token:
+    type: apiKey
+    name: X-Auth-Token
+    in: header
+
+### Endpoints definition ###
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - login-controller
+      summary: Login
+      description: >-
+        This step is not mandatory, but recommended. Once per session, prior to calling other endpoints make a call to `POST /auth/login` OR `POST /auth/validateToken`. Successful response from any of these endpoints indicates that:<ol>
+        <li><p>SimplyHIE REST service is up & running</p></li>
+        <li><p>Supplied token is valid</p></li></ol>
+      operationId: loginUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: formData
+          description: access token
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset - the time difference between UTC time and local time, in minutes (example -120 for GMT+2; overwrites the value specified during registration; affects events filtering by date in `GET /events`)
+          required: false
+          type: string
+          minimum: -720
+          maximum: 720
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseWithToken«UserAppDTO»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+  /auth/validateToken:
+    post:
+      tags:
+        - login-controller
+      summary: Validate token
+      description: >-
+        This step is not mandatory, but recommended. Once per session, prior to calling other endpoints make a call to `POST /auth/login` OR `POST /auth/validateToken`. Successful response from any of these endpoints indicates that:<ol>
+        <li><p>SimplyHIE REST service is up & running</p></li>
+        <li><p>Supplied token is valid</p></li></ol>
+      operationId: validateTokenUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: formData
+          description: access token
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        401:
+          $ref: '#/responses/noAuth'
+
+  /register/signup/application:
+    post:
+      tags:
+        - registration-controller
+      summary: Step 1. Register new application (Sign Up as Third-Party application)
+      description: This method creates a new API User account with non-active status (active = false) and account type of APPLICATION.<br/>All applications are reviewed by Administration (SimplyHIE dev team). Contact us if you want to speed up the review process.<br/>The registered user (if approved) will have access to Simply Connect external API.<br/>Before the registration is completed it may be resubmitted with a different data.
+      operationId: registerApplicationUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: appName
+          in: formData
+          description: application name (max length 255)
+          required: true
+          type: string
+          minLength: 2
+          maxLength: 255
+        - name: appDescription
+          in: formData
+          description: application description (max length 500)
+          required: false
+          type: string
+          maxLength: 500
+        - name: phone
+          in: formData
+          description: phone number (max length 50)
+          required: false
+          type: string
+          maxLength: 50
+        - name: email
+          in: formData
+          description: email (min length 3, max length 255)
+          required: false
+          type: string
+          maxLength: 255
+          minLength: 3
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset - the time difference between UTC time and local time, in minutes (example -120 for GMT+2; affects events filtering by date in `GET /events`)
+          minimum: -720
+          maximum: 720
+          required: false
+          default: 0
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«RegistrationAnswerDto»'
+        400:
+          $ref: '#/responses/badRequest'
+  /register/complete:
+    post:
+      tags:
+        - registration-controller
+      summary: Step 2 (final). Complete the registration and generate access token
+      description: Call this method once to get access token when your registration application is approved. After the registration is completed send your access token in `X-Auth-Token` header with any request that requires authentication.
+      operationId: completeRegistrationUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: flowId
+          in: formData
+          description: registration flow guid (returned in response to `POST /register/signup/application`)
+          required: true
+          type: string
+          minLength: 36
+          maxLength: 36
+        - name: appName
+          in: formData
+          description: application name (the same as was specified in request to `POST /register/signup/application`)
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseWithToken«UserAppDTO»'
+        400:
+          $ref: '#/responses/badRequest'
+  /prospects:
+    post:
+      tags:
+      - prospects-controller
+      summary: Create/Update Prospect
+      operationId: saveProspect
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: prospectDto
+        in: body
+        description: prospectDto
+        required: true
+        schema:
+          $ref: '#/definitions/ProspectDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Integer»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+      - X-Auth-Token: []
+  /prospects/{prospectId}/signed-documents:
+    get:
+      tags:
+      - prospects-controller
+      summary: Get prospect's signed documents Simply Connect ids (TBD other fields needed in List of files response name, size etc)
+      operationId: getProspectSignedDocumentsIds
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: prospectId
+        in: path
+        description: prospect identifier in external system (TBD or in Simply Connect system)
+        required: true
+        type: integer
+        format: int64
+        minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«Integer»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+      - X-Auth-Token: []
+  /prospects/{prospectId}/signed-documents/{documentId}:
+    get:
+      tags:
+      - prospects-controller
+      summary: Get prospect's signed document file by document id
+      operationId: getProspectSignedDocument
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: prospectId
+        in: path
+        description: prospect identifier in external system (TBD or in Simply Connect system)
+        required: true
+        type: integer
+        format: int64
+        minimum: 1
+      - name: documentId
+        in: path
+        description: signed document identifier in Simply Connect
+        required: true
+        type: integer
+        format: int64
+        minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            type: file
+          headers:
+            Content-Disposition:
+              type: string
+              description: filename (e.g. 'attachment;filename="signedDocument1.docx"')
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+      - X-Auth-Token: []
+
+
+
+
+### Models definition ###
+
+definitions:
+  StatusCode:
+    type: integer
+    format: int32
+    description: HTTP response status code
+    example: 200
+    minimum: 100
+    maximum: 599
+
+  Response«List«MedicationInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/PagedResponseBody«List«MedicationInfoDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  MedicationInfoDto:
+    type: object
+    properties:
+      directions:
+        type: string
+        example: "Give 30 ml by mouth daily as needed for Constipation\nAlso has routine order"
+      indications:
+        type: array
+        items:
+          type: string
+      medicationName:
+        type: string
+        example: "Milk of Magnesia 7.75 % SUSP"
+      startedDate:
+        type: integer
+        format: int64
+        example: 1326862800000
+      stoppedDate:
+        type: integer
+        format: int64
+        example: null
+  PagedResponseBody«List«MedicationInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/MedicationInfoDto'
+      totalCount:
+        type: integer
+        format: int64
+        description: medications count
+        example: 101
+        minimum: 0
+      success:
+        type: boolean
+
+  StateAbbrEnum:
+    type: string
+    description: US state (abbreviation)
+    enum:
+      - AL
+      - AZ
+      - CA
+      - CT
+      - FL
+      - GA
+      - ID
+      - IN
+      - KS
+      - NH
+      - NM
+      - ND
+      - OK
+      - OR
+      - RI
+      - SD
+      - TN
+      - UT
+      - VA
+      - WV
+      - WY
+      - ME
+      - MA
+      - MN
+      - MO
+      - NE
+      - NV
+      - NJ
+      - NY
+      - NC
+      - OH
+      - PA
+      - SC
+      - VT
+      - WA
+      - WI
+      - AK
+      - AR
+      - CO
+      - DE
+      - HI
+      - IL
+      - IA
+      - KY
+      - LA
+      - MD
+      - MI
+      - MS
+      - MT
+      - TX
+
+  StateDto:
+    type: object
+    description: This DTO is indended to represent US states
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: state id
+        minimum: 1
+      name:
+        type: string
+        example: "Alabama"
+      abbr:
+        $ref: '#/definitions/StateAbbrEnum'
+  KeyValueDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        minimum: 1
+      label:
+        type: string
+        example: "Alabama (AL)"
+    required:
+      - id
+  ResponseBody«List«StateDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/StateDto'
+      success:
+        type: boolean
+  Response«List«StateDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«StateDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«List«Integer»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: integer
+          format: int64
+      success:
+        type: boolean
+  Response«List«Integer»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«Integer»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResponseBody«Long»:
+    type: object
+    properties:
+      data:
+        type: integer
+        format: int64
+        example: 3
+      success:
+        type: boolean
+  Response«Long»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Long»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResponseBody«boolean»:
+    type: object
+    properties:
+      data:
+        type: boolean
+      success:
+        type: boolean
+  ResponseBody«object»:
+    type: object
+    properties:
+      data:
+        type: object
+      success:
+        type: boolean
+  Response«boolean»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«boolean»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  Response«string»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«string»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«string»:
+    type: object
+    properties:
+      data:
+        type: string
+      success:
+        type: boolean
+
+  Response:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«object»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  AccountType.Type:
+    type: string
+    description: User role
+    enum:
+      - "CONSUMER"
+      - "PROVIDER"
+      - "APPLICATION"
+  UserDTO:
+    type: object
+    properties:
+      profile:
+        $ref: '#/definitions/Profile'
+      userId:
+        type: integer
+        format: int64
+        description: User id
+        minimum: 1
+      type:
+        $ref: '#/definitions/AccountType.Type'
+  Profile:
+    type: object
+    properties:
+      birthDate:
+        type: integer
+        description: Date of birth (Unix timestamp)
+        format: int64
+        example: 1336338000000
+      firstName:
+        type: string
+        description: First name
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        example: "Duck"
+      gender:
+        type: string
+        description: Gender display name
+        enum:
+          - "Male"
+          - "Female"
+          - "Undifferentiated"
+  UserAppDTO:
+    type: object
+    properties:
+      userId:
+        type: integer
+        format: int64
+        description: User id
+        minimum: 1
+        example: 100
+      appName:
+        type: string
+        description: Application name
+      type:
+        type: string
+        description: User role
+        example:
+          "APPLICATION"
+
+  RegistrationAnswerDto:
+    type: object
+    properties:
+      comments:
+        type: string
+        example: "Your application is accepted for review."
+        description: Human-readable directions
+      flowId:
+        type: string
+        example: 'BB0B2367-7D5F-4EB4-9247-536542161BAA'
+        description: Registration flow GUID. Remember this GUID, you'll need it to complete the registration.
+  ResponseBody«RegistrationAnswerDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/RegistrationAnswerDto'
+      success:
+        type: boolean
+  Response«RegistrationAnswerDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«RegistrationAnswerDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  DateDto:
+    type: object
+    description: This DTO is intended to represent dates (e.g. date of measurement)
+    properties:
+      dateTime:
+        type: integer
+        format: int64
+        example: 1336338000000
+      dateTimeStr:
+        type: string
+        format: date-time
+
+  DataSourceDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: "Allina Health"
+      residentId:
+        type: integer
+        format: int64
+        description: resident id
+  PeriodDto:
+    type: object
+    description: This DTO is intended to represent a period of time (from `startDate` to `endDate`)
+    properties:
+      startDate:
+        type: integer
+        format: int64
+        description: start date in unix time
+        example: 1336338000000
+      startDateStr:
+        type: string
+        format: date-time
+      endDate:
+        type: integer
+        format: int64
+        description: end date in unix time
+        example: null
+      endDateStr:
+        type: string
+        format: date-time
+  GenderEnum:
+    type: string
+    description: Gender display name
+    enum:
+      - "Male"
+      - "Female"
+      - "Undifferentiated"
+  MaritalStatusEnum:
+    type: string
+    description: Marital status display name
+    enum:
+      - "Annulled"
+      - "Divorced"
+      - "Domestic Partner"
+      - "Interlocutory"
+      - "Legally Separated"
+      - "Married"
+      - "Never Married"
+      - "Polygamous"
+      - "Widowed"
+  ProspectRaceEnum:
+    type: string
+    description: Prospect race display name
+    enum:
+      - "American Indian, Alaska Native, or Indigenous"
+      - "Asian or Asian American"
+      - "Black, African-American, or African"
+      - "Native Hawaiian or Other Pacific Islander"
+      - "White"
+      - "Prospect doesn't know"
+  ProspectVeteranEnum:
+    type: string
+    description: Prospect veteran display name
+    enum:
+      - "Yes"
+      - "No"
+      - "Prospect doesn't know"
+      - "Chooses not to disclose"
+  ProspectRelatedPartyRelationshipEnum:
+    type: string
+    description: Prospect related party relationship display name
+    enum:
+    - "Spouse"
+    - "Life partner"
+    - "Child"
+    - "Grandchild"
+    - "Parent"
+    - "Caregiver"
+    - "Guardian"
+    - "Emergency contact"
+    - "Friend"
+    - "Sibling"
+    - "Other"
+  PersonDto:
+    type: object
+    description: This DTO is intended to represent persons
+    properties:
+      addresses:
+        type: array
+        description: List of addresses
+        items:
+          $ref: '#/definitions/AddressDto'
+      code:
+        type: string
+        description: IDK what it means. It's always null.
+        example: null
+      names:
+        type: array
+        description: List of names
+        items:
+          $ref: '#/definitions/NameDto'
+      telecoms:
+        type: array
+        description: List of telecommunication addresses
+        items:
+          $ref: '#/definitions/TelecomDto'
+  EventAddressDto:
+    type: object
+    description: This DTO is intended to represent editable postal addresses (for events)
+    properties:
+      city:
+        type: string
+        maxLength: 128
+        example: "Minnetonka"
+      zip:
+        type: string
+        description: USA zip code (5 digits)
+        pattern: ^\d{5}$
+        example: "55343"
+      state:
+        $ref: '#/definitions/KeyValueDto'
+      street:
+        type: string
+        maxLength: 255
+        example: "38 Blueside Road Nomes"
+      displayAddress:
+        type: string
+        description: Full address (computed attribute)
+        example: "38 Blueside Road Nomes Minnetonka Illinois (IL) 55343"
+    required:
+      - zip
+      - state
+      - city
+      - street
+  AddressDto:
+    type: object
+    description: This DTO is intended to represent postal addresses
+    properties:
+      city:
+        type: string
+        maxLength: 128
+        example: "Minnetonka"
+      cityStateAndPostalCode:
+        type: string
+        description: This field contains concatenated value of city, state, and postalCode fields
+        example: "Minnetonka, MN 55343"
+      cityStatePostalCodeAndCountry:
+        type: string
+        description: This field contains concatenated value of city, state, postalCode, and country fields
+        example: "Minnetonka, MN 55343, US"
+      country:
+        type: string
+        description: Country (currently it's always US)
+        maxLength: 100
+        example: "US"
+      postalAddressUse:
+        type: string
+        description: The postalAddressUse attribute of the AddressDto indicates what type of address it is, as per the list of allowed values.
+        enum:
+          - "WP"
+          - "HP"
+      postalCode:
+        type: string
+        description: USA zip code (5 digits)
+        pattern: ^\d{5}$
+        example: "55343"
+      state:
+        $ref: '#/definitions/StateAbbrEnum'
+      streetAddress:
+        type: string
+        maxLength: 255
+        example: "38 Blueside Road Nomes"
+    required:
+      - postalCode
+      - state
+      - city
+      - streetAddress
+  NameDto:
+    type: object
+    description: This DTO is intended to represent names of people
+    properties:
+      fullName:
+        type: string
+        description: The text of the name
+        example: "Lukas Smith"
+      useCode:
+        type: string
+        description: This attribute of the NameDto indicates what type of name it is, as per the list of allowed values. The most widely used type is "L" - Legal name.
+        example: "L"
+        enum:
+          - "C"
+          - "I"
+          - "L"
+          - "P"
+          - "A"
+          - "R"
+          - "SRCH"
+          - "PHON"
+          - "SNDX"
+          - "ABC"
+          - "SYL"
+          - "IDE"
+  TelecomDto:
+    type: object
+    description: This DTO is intended to represent telecommunication addresses such as phone/fax numbers, e-mail addresses, etc.
+    properties:
+      useCode:
+        type: string
+        description: This attribute of the TelecomDto element indicates what type of number/address it is, as per the list of allowed values.
+        enum:
+          - "MC"
+          - "WP"
+          - "MP"
+          - "EMAIL"
+          - null
+      value:
+        type: string
+        example: "Cell: (645) 876-5432"
+
+  VitalSignType:
+    type: string
+    description: Type of Vital Sign
+      <ul><li><p><code>RESP</code> = Respiration Rate; stored as 9279-1 (LOINC)</p></li>
+      <li><p><code>HEART_BEAT</code> = Heart Beat; stored as 8867-4 (LOINC)</p></li>
+      <li><p><code>O2_SAT</code> = Oxygen Saturation; stored as 2710-2 (LOINC)</p></li>
+      <li><p><code>INTR_SYSTOLIC</code> = intravascular systolic; stored as 8480-6 (LOINC)</p></li>
+      <li><p><code>INTR_DIASTOLIC</code> = intravascular diastolic; stored as 8462-4 (LOINC)</p></li>
+      <li><p><code>TEMP</code> = body temperature; stored as 8310-5 (LOINC)</p></li>
+      <li><p><code>HEIGHT</code> = body height (measured); stored as 8302-2 (LOINC)</p></li>
+      <li><p><code>HEIGHT_LYING</code> = body height^lying; stored as 8306-3 (LOINC)</p></li>
+      <li><p><code>CIRCUMFERENCE</code> = circumfrence.occipital-frontal (tape measure); stored as 8287-5 (LOINC)</p></li>
+      <li><p><code>WEIGHT</code> = body weight (measured); stored as 3141-9 (LOINC)</p></li></ul>
+    enum:
+      - RESP
+      - HEART_BEAT
+      - O2_SAT
+      - INTR_SYSTOLIC
+      - INTR_DIASTOLIC
+      - TEMP
+      - HEIGHT
+      - HEIGHT_LYING
+      - CIRCUMFERENCE
+      - WEIGHT
+  'ResponseBody«Map«string,DateDto»»':
+    type: object
+    properties:
+      data:
+        type: object
+        description: A map of all known Vital Signs to their measurement date
+        additionalProperties:
+          $ref: '#/definitions/DateDto'
+      success:
+        type: boolean
+  ResponseBody«VitalSignObservationDetailsDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/VitalSignObservationDetailsDto'
+      success:
+        type: boolean
+  Response«VitalSignObservationDetailsDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«VitalSignObservationDetailsDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«VitalSignObservationReport»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/VitalSignObservationReport'
+      success:
+        type: boolean
+  Response«VitalSignObservationReport»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«VitalSignObservationReport»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  VitalSignObservationReport:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/VitalSignObservationDto'
+      unit:
+        type: string
+        description: Unit of measurement. Nullable
+        example: "mm Hg"
+      vitalSignType:
+        $ref: '#/definitions/VitalSignType'
+      vitalSignTypeDisplayName:
+        type: string
+        description: Human readable description of Vital Sign type
+        enum:
+          - "Respiration Rate"
+          - "Heart Beat"
+          - "Oxygen Saturation"
+          - "Intravascular Systolic"
+          - "Intravascular Diastolic"
+          - "Body Temperature"
+          - "Body Height"
+          - "Body Height (Lying)"
+          - "Circumference Occipital-Frontal (Tape Measure)"
+          - "Body Weight"
+  Response«Map«string,DateDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Map«string,DateDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  Map«VitalSignType,string»:
+    type: object
+    properties:
+      RESP:
+        type: string
+        example: "Respiration Rate"
+      HEART_BEAT:
+        type: string
+        example: "Heart Beat"
+      O2_SAT:
+        type: string
+        example: "Oxygen Saturation"
+      INTR_SYSTOLIC:
+        type: string
+        example: "Intravascular Systolic"
+      INTR_DIASTOLIC:
+        type: string
+        example: "Intravascular Diastolic"
+      TEMP:
+        type: string
+        example: "Body Temperature"
+      HEIGHT:
+        type: string
+        example: "Body Height"
+      HEIGHT_LYING:
+        type: string
+        example: "Body Height (Lying)"
+      CIRCUMFERENCE:
+        type: string
+        example: "Circumference Occipital-Frontal (Tape Measure)"
+      WEIGHT:
+        type: string
+        example: "Body Weight"
+  ResponseBody«Map«VitalSignType,string»»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/Map«VitalSignType,string»'
+      success:
+        type: boolean
+  Response«Map«VitalSignType,string»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Map«VitalSignType,string»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  VitalSignObservationDto:
+    type: object
+    description: This DTO is intended to represent vital sign observation (biometric data).
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: vital sign id
+        minimum: 1
+      dateTime:
+        type: integer
+        format: int64
+        description: Date and time of the observation
+        example: 1435234244000
+      value:
+        type: number
+        format: double
+        example: 82
+  VitalSignObservationDetailsDto:
+    type: object
+    properties:
+      dateTime:
+        type: integer
+        format: int64
+        description: Date and time of the observation
+        example: 1435234244000
+      value:
+        description: Numeric measurement value. A floating-point number with double precision (use dot as a decimal mark).
+        type: number
+        format: double
+        example: 26.0
+      unit:
+        type: string
+        description: Unit of measurement. Nullable. Please, use the Unified Code for Units of Measure (UCUM) when submitting a new Vital Sign Observation.
+        maximum: 50
+        example: "/min"
+      loinc:
+        type: object
+        description: When submitting a new Vital Sign Observation, specify a valid LOINC code in this section or leave it blank and use `type` attribute.
+        properties:
+          code:
+            type: string
+            description: LOINC code (format is nnnnn-n or nnnn-n) - a "magic value" which tells you what is being measured.
+              LOINC was chosen for the "magic values" because this aligns with the most countries, but it can be treated as simply a fixed core set of common codes to communicate basic vital signs.
+            maximum: 70
+            example: "9279-1"
+            pattern: ^\d{4,5}-\d$
+          displayName:
+            type: string
+            example: "Respiration Rate"
+        required:
+          - code
+      type:
+        $ref: '#/definitions/VitalSignType'
+    required:
+      - dateTime
+      - value
+
+  AccountTypeDto:
+    type: object
+    properties:
+      type:
+        $ref: '#/definitions/AccountType.Type'
+      name:
+        type: string
+        example: "Consumer"
+      current:
+        type: boolean
+      active:
+        type: boolean
+        description: false for non-approved physicians (providers) and consumers without patient data (NOT IMPLEMENTED)
+  ResponseWithToken«UserAppDTO»:
+    type: object
+    properties:
+      token:
+        type: string
+        description: Access token of the current user - a system object representing the subject of access control operations
+        example: "YWJjMTIzIT8kKiYoKSctPUB-=="
+      body:
+        $ref: '#/definitions/ResponseBody«UserAppDTO»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«UserAppDTO»:
+    type: object
+    description: A user account for the current user
+    properties:
+      data:
+        $ref: '#/definitions/UserAppDTO'
+      success:
+        type: boolean
+
+  CareTeamRoleName:
+    type: string
+    maxLength: 50
+    enum:
+      - "Case Manager"
+      - "Care Coordinator"
+      - "Parent/Guardian"
+      - "Person Receiving Services"
+      - "Primary physician"
+      - "Behavioral Health"
+      - "Community Members"
+      - "Service Provider"
+      - "Administrator"
+      - "Super Administrator"
+      - "Community Administrator"
+  CareTeamRoleCode:
+    type: string
+    maxLength: 255
+    enum:
+      - "ROLE_CASE_MANAGER"
+      - "ROLE_CARE_COORDINATOR"
+      - "ROLE_PARENT_GUARDIAN"
+      - "ROLE_PERSON_RECEIVING_SERVICES"
+      - "ROLE_PRIMARY_PHYSICIAN"
+      - "ROLE_BEHAVIORAL_HEALTH"
+      - "ROLE_COMMUNITY_MEMBERS"
+      - "ROLE_SERVICE_PROVIDER"
+      - "ROLE_ADMINISTRATOR"
+      - "ROLE_SUPER_ADMINISTRATOR"
+      - "ROLE_COMMUNITY_ADMINISTRATOR"
+  CareTeamRoleDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Care Team Role ID
+        minimum: 1
+        example: 1
+      code:
+        $ref: '#/definitions/CareTeamRoleCode'
+      label:
+        $ref: '#/definitions/CareTeamRoleName'
+  ResponseBody«List«CareTeamRoleDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        description: A list of Care Team Roles.
+        items:
+          $ref: '#/definitions/CareTeamRoleDto'
+      success:
+        type: boolean
+  Response«List«CareTeamRoleDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CareTeamRoleDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResponseBody«CareteamMemberDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CareteamMemberDto'
+      success:
+        type: boolean
+  Response«CareteamMemberDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CareteamMemberDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«List«CareteamMemberBriefDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        description: A list of Care Team Members. It may be empty if the user does not have any care team members.
+        items:
+          $ref: '#/definitions/CareteamMemberBriefDto'
+      success:
+        type: boolean
+  Response«List«CareteamMemberBriefDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CareteamMemberBriefDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  CareteamMemberDto:
+    type: object
+    description: This DTO is intended to represent a Care Team Member (CTM).<br>[NOTE] The `physicianId` property is null when Care Team Member is not of type "MEDICAL_STAFF".
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Contact id
+        minimum: 1
+      employeeId:
+        type: integer
+        format: int64
+        description: Employee id
+        minimum: 1
+      person:
+        $ref: '#/definitions/PersonDto'
+      relationship:
+        type: string
+        description: >-
+          Member role.<ul>
+          <li>`MEDICAL_STAFF` = Doctor = Physician = "Care provider"</li>
+          <li>`FRIEND_FAMILY` = Relative = "Friend or Family Member"</li></ul>
+        enum:
+          - "FRIEND_FAMILY"
+          - "MEDICAL_STAFF"
+      relation:
+        type: string
+        description: This attribute indicates the nature of the relationship between a patient and a CTM
+        enum:
+          - "Family"
+          - "Friend"
+          - "Guardian"
+          - "Partner"
+          - "Work"
+          - "Parent"
+      careTeamRole:
+        $ref: '#/definitions/CareTeamRoleName'
+      physicianId:
+        type: integer
+        format: int64
+        description: Physician id
+        minimum: 1
+      emergencyContact:
+        type: boolean
+        description: Is this CTM set as "Emergency contact"?
+      invitationStatus:
+        type: string
+        description: Invitation status. Pending / Active status is used for Friend contacts, Pending / Active / Declined status is used for Medical Staff contacts.
+        enum:
+          - "PENDING"
+          - "ACTIVE"
+          - "EXPIRED"
+          - "DECLINED"
+      contactPhone:
+        type: string
+        example: "6458765432"
+        description: phone number
+      contactEmail:
+        type: string
+        example: "cpatnode@test.com"
+  CareteamMemberBriefDto:
+    type: object
+    description: This DTO is intended to represent a Care Team Member (CTM = Contact) list item.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Contact id
+        minimum: 1
+      employeeId:
+        type: integer
+        format: int64
+        description: employee id
+        minimum: 1
+      fullName:
+        type: string
+        example: "Lukas Smith"
+        description: The text of the name
+      contactPhone:
+        type: string
+        example: "+6458765432"
+        description: phone number
+      careTeamRole:
+        $ref: '#/definitions/CareTeamRoleName'
+      emergencyContact:
+        type: boolean
+        description: Is this CTM set as "Emergency contact"?
+      invitationStatus:
+        type: string
+        description: Invitation status. Pending / Active status is used for Friend contacts, Pending / Active / Declined status is used for Medical Staff contacts.
+        enum:
+          - "PENDING"
+          - "ACTIVE"
+          - "EXPIRED"
+          - "DECLINED"
+
+  ActivityDto:
+    type: object
+    description: This DTO is intended to represent a call / video activity.
+    properties:
+      type:
+        type: string
+        description: Type of activity (discriminator property)
+        enum:
+          - CALL
+          - VIDEO
+      date:
+        type: integer
+        format: int64
+        description: Date of activity
+        example: 1336338000000
+      duration:
+        type: integer
+        format: int32
+        description: Call duration (in seconds)
+        minimum: 0
+      callerUserId:
+        type: integer
+        format: int64
+        description: mobile user id of caller
+        minimum: 1
+        example: 11
+      calleeUserId:
+        type: integer
+        format: int64
+        description: mobile user id of callee
+        minimum: 1
+        example: 22
+    required:
+      - type
+
+  EventTypeCodeEnum:
+    type: string
+    description: Event type code
+    maxLength: 50
+    enum:
+      - SI
+      - ME
+      - AS
+      - MERR
+      - ARM
+      - SA
+      - USI
+      - ART
+      - FIRE
+      - CI
+      - H
+      - ERV
+      - SEVA
+      - PA
+      - LIFE
+      - DEPRESSION
+      - CB
+      - MNC
+      - EBS
+      - GENERAL
+      - EADT
+  EventTypeDto:
+    type: object
+    description: This DTO is intended to represent an event type.
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Event type ID
+        minimum: 1
+      code:
+        $ref: '#/definitions/EventTypeCodeEnum'
+      description:
+        type: string
+        description: Event type description
+        maxLength: 255
+        example: "Accident requiring treatment"
+      groupId:
+        type: integer
+        format: int32
+        description: Event type group ID (see `GET /info/eventgroups`)
+        minimum: 1
+    required:
+      - id
+      - code
+      - description
+      - groupId
+  EventTypeGroupDto:
+    type: object
+    description: This DTO is intended to represent an info for events grouping.
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Group ID
+        minimum: 1
+      name:
+        type: string
+        description: Group name
+        maxLength: 100
+        example: "Behavior / Mental Health"
+      priority:
+        type: integer
+        format: int32
+        description: Group priority. Lower numbers are higher priority.
+        example: 4
+        minimum: 1
+    required:
+      - id
+      - name
+      - priority
+  EventDto:
+    type: object
+    description: This DTO is intended to represent events. [NOTE] `employee` represents event Author; `responsible` represents Details of Registered Nurse (RN); `treatingPhysician` represents Details of Treating Physician
+    properties:
+      employee:
+        $ref: '#/definitions/EmployeeDto'
+      eventDetails:
+        $ref: '#/definitions/EventDetailsDto'
+      includeHospital:
+        type: boolean
+      includeManager:
+        type: boolean
+      includeResponsible:
+        type: boolean
+      includeTreatingPhysician:
+        type: boolean
+      manager:
+        $ref: '#/definitions/ManagerDto'
+      patient:
+        $ref: '#/definitions/PatientDto'
+      responsible:
+        $ref: '#/definitions/NameWithAddressDto'
+      treatingHospital:
+        $ref: '#/definitions/HospitalDto'
+      treatingPhysician:
+        $ref: '#/definitions/NameWithAddressDto'
+    required:
+      - eventDetails
+      - includeHospital
+      - includeManager
+      - includeResponsible
+      - includeTreatingPhysician
+  EventCreateDto:
+    type: object
+    description: This DTO is intended to represent submitted events. [NOTE] `responsible` represents Details of Registered Nurse (RN); `treatingPhysician` represents Details of Treating Physician
+    properties:
+      author:
+        $ref: '#/definitions/EventAuthorDto'
+      eventDetails:
+        $ref: '#/definitions/EventDetailsDto'
+      manager:
+        $ref: '#/definitions/ManagerDto'
+      responsible:
+        $ref: '#/definitions/NameWithAddressEditDto'
+      treatingHospital:
+        $ref: '#/definitions/HospitalEditDto'
+      treatingPhysician:
+        $ref: '#/definitions/NameWithAddressEditDto'
+    required:
+      - author
+      - eventDetails
+  EmployeeDto:
+    type: object
+    description: This DTO is intended to represent a contact or a person submitting the event (aka Event Author, see Event Essentials).
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: employee id
+        minimum: 1
+      displayName:
+        type: string
+        description: Employee's display name
+        maxLength: 256
+        example: "Donald Duck"
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      phone:
+        type: string
+        description: Phone number. Nullable
+        maxLength: 150
+        example: "6458765432"
+      email:
+        type: string
+        description: Email address. Nullable
+        maxLength: 150
+        example: "dduck@disney.com"
+      role:
+        $ref: '#/definitions/CareTeamRoleName'
+      roleId:
+        type: integer
+        format: int64
+        minimum: 1
+      orgId:
+        type: integer
+        description: organization id
+        format: int64
+        minimum: 1
+      communityId:
+        type: integer
+        description: community id
+        format: int64
+        minimum: 1
+  EventDetailsDto:
+    type: object
+    description: This DTO is intended to represent event details (Event Essentials).
+    properties:
+      assessment:
+        type: string
+        description: Value of the field describes what has happened or is happening.
+        maxLength: 5000
+      background:
+        type: string
+        description: Any historical information about the person(s) involved that could have led to event.
+        maxLength: 5000
+      emergencyVisit:
+        type: boolean
+        description: Value of the field specifies whether patient has visited emergency room (Emergency Department).
+      eventDatetime:
+        type: integer
+        format: int64
+        description: Date and time of the event occurrence. It may be any moment in the past or future.
+        example: 1495028820000
+      eventType:
+        type: string
+        description: Event type. May be `null` in POST call when creating a new Event.
+        example: "Accident requiring treatment"
+      eventTypeId:
+        type: integer
+        format: int64
+        description: Event type id (`GET /info/eventtypes`)
+        minimum: 1
+      followUpDetails:
+        type: string
+        description: Details on event follow up (required if `followUpExpected` is true).
+        maxLength: 5000
+      followUpExpected:
+        type: boolean
+        description: Value of the field specifies whether event follow up is expected.
+      injury:
+        type: boolean
+        description: Value of the field shows whether event has resulted in injury.
+      location:
+        type: string
+        description: Event location.
+        example: "House"
+      overnightPatient:
+        type: boolean
+        description: Value of the field specifies whether patient has an overnight (in-patient) stay.
+      situation:
+        type: string
+        description: A clear and concise description of an event.
+        example: "Donald fell today after tripping on a rug"
+        maxLength: 5000
+      auxiliaryInfo:
+        type: string
+        description: This field is used for testing purposes. The information will NOT be displayed for the end users.
+    required:
+      - eventTypeId
+      - eventDatetime
+      - emergencyVisit
+      - overnightPatient
+  EventAuthorDto:
+    type: object
+    description: This DTO is intended to represent an event author. Usually it's a patient or employee submitting the event.
+    properties:
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      roleId:
+        type: integer
+        format: int64
+        description: Care team role ID
+        minimum: 1
+    required:
+      - firstName
+      - lastName
+      - roleId
+  ManagerDto:
+    type: object
+    description: This DTO is intended to represent details of responsible manager (Event Manager).
+    properties:
+      displayName:
+        type: string
+        description: Display name. May be `null` in POST call when creating a new Event.
+        example: "Donald Duck"
+        maxLength: 256
+      email:
+        type: string
+        description: Email address
+        example: "cpatnode@test.com"
+        maxLength: 255
+      firstName:
+        type: string
+        description: First name
+        minLength: 2
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        minLength: 2
+        maxLength: 128
+        example: "Duck"
+      phone:
+        type: string
+        description: Phone number
+        example: "6458765432"
+        maxLength: 20
+    required:
+      - firstName
+      - lastName
+  PatientDto:
+    type: object
+    description: This DTO is intended to represent patient info.
+    properties:
+      id:
+        type: integer
+        format: int64
+      active:
+        type: boolean
+      address:
+        $ref: '#/definitions/EventAddressDto'
+      birthDate:
+        type: integer
+        format: int64
+        description: Date of birth
+      community:
+        type: string
+        example: "Minnesota Assisted Living"
+      communityId:
+        type: integer
+        format: int64
+        minimum: 1
+      displayName:
+        type: string
+        description: Patient's display name
+        example: "Donald Duck"
+      firstName:
+        type: string
+        description: First name
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        example: "Duck"
+      editable:
+        type: boolean
+      email:
+        type: string
+        description: Email address
+        example: "cpatnode@test.com"
+      gender:
+        $ref: '#/definitions/GenderEnum'
+      maritalStatus:
+        type: string
+        example: "Divorced"
+      organization:
+        type: string
+        example: "EMTest_21250"
+      phone:
+        type: string
+        example: "6458765432"
+      hashKey:
+        type: string
+        description: Always null. Never mind.
+        example: null
+      ssn:
+        type: string
+        description: Last 4 digits of Social security number (SSN)
+        pattern: ^(?!0000)\d{4}$
+        example: "4447"
+    required:
+      - id
+  NameWithAddressDto:
+    type: object
+    description: This DTO is intended to represent contact info.
+    properties:
+      address:
+        $ref: '#/definitions/EventAddressDto'
+      displayName:
+        type: string
+        description: Display name
+        example: "Donal Duck"
+      firstName:
+        type: string
+        description: First name
+        minLength: 2
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        minLength: 2
+        maxLength: 128
+        example: "Duck"
+      includeAddress:
+        type: boolean
+      phone:
+        type: string
+        description: Phone number. Nullable. Moreover it's always null for `responsible` (registered nurse)
+        example: "6458765432"
+        maxLength: 16
+    required:
+      - displayName
+      - firstName
+      - lastName
+      - includeAddress
+  NameWithAddressEditDto:
+    type: object
+    description: This DTO is intended to represent contact info.
+    properties:
+      address:
+        $ref: '#/definitions/EventAddressDto'
+      firstName:
+        type: string
+        description: First name
+        minLength: 2
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        minLength: 2
+        maxLength: 128
+        example: "Duck"
+      phone:
+        type: string
+        description: Phone number. Nullable. Moreover `responsible` (registered nurse) doesn't have any associated phone, so you can omit this field for `responsible`.
+        example: "6458765432"
+        maxLength: 16
+    required:
+      - firstName
+      - lastName
+  HospitalDto:
+    type: object
+    description: This DTO is intended to represent Hospital / Clinic contact info (Details of Treating Hospital).
+    properties:
+      address:
+        $ref: '#/definitions/EventAddressDto'
+      includeAddress:
+        type: boolean
+      name:
+        type: string
+        description: Hospital / Clinic name
+        example: Princeton Plainsboro
+        maxLength: 255
+      phone:
+        type: string
+        example: "6458765432"
+        maxLength: 16
+  HospitalEditDto:
+    type: object
+    description: This DTO is intended to represent Hospital / Clinic contact info (Details of Treating Hospital).
+    properties:
+      address:
+        $ref: '#/definitions/EventAddressDto'
+      name:
+        type: string
+        description: Hospital / Clinic name
+        example: Princeton Plainsboro
+        maxLength: 255
+      phone:
+        type: string
+        example: "6458765432"
+        maxLength: 16
+    required:
+      - name
+  EventListItemDto:
+    type: object
+    description: This DTO is intended to represent a brief info about events.
+    properties:
+      eventDate:
+        type: integer
+        format: int64
+        description: Date of event
+        example: 1495028820000
+      eventId:
+        type: integer
+        format: int64
+        description: event id
+        minimum: 1
+      eventType:
+        type: string
+        description: Event type (description)
+        example: "Accident requiring treatment"
+      eventGroupId:
+        type: integer
+        format: int32
+        description: event group id (see `GET /info/eventgroups`)
+        minimum: 1
+      residentName:
+        type: string
+        description: Patient's full name
+        example: "Charles Xavier"
+      unread:
+        type: boolean
+        description: list item status. true if current user hasn't seen this item yet.
+
+  ResponseBody«List«EventTypeDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EventTypeDto'
+      success:
+        type: boolean
+  Response«List«EventTypeDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«EventTypeDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«List«EventTypeGroupDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EventTypeGroupDto'
+      success:
+        type: boolean
+  Response«List«EventTypeGroupDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«EventTypeGroupDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResponseBody«EventDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/EventDto'
+      success:
+        type: boolean
+  Response«EventDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«EventDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  PagedResponseBody«List«EventListItemDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EventListItemDto'
+      totalCount:
+        type: integer
+        format: int64
+        description: events count
+        example: 1
+        minimum: 0
+      minimumDate:
+        type: integer
+        format: int64
+        description: Date of the oldest event available for the current user
+      success:
+        type: boolean
+  Response«List«EventListItemDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/PagedResponseBody«List«EventListItemDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResponseBody«PhysicianExtendedDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/PhysicianExtendedDto'
+      success:
+        type: boolean
+  Response«PhysicianExtendedDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«PhysicianExtendedDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  PhysicianExtendedDto:
+    type: object
+    description: Physician object (extended info)
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: physician id
+        minimum: 1
+      fullName:
+        type: string
+        example: "Roy Stevens"
+      speciality:
+        type: string
+        example: "Behavioral health"
+      professionalInfo:
+        type: object
+        description: A map of professional data (field name / field value approach).
+        additionalProperties:
+          type: string
+          example: "Medical School - State University of New York"
+
+  OrgDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: organization id
+        minimum: 1
+      name:
+        type: string
+        description: organization name
+  ResponseBody«OrgDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/OrgDto'
+      success:
+        type: boolean
+  ResponseBody«List«OrgDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/OrgDto'
+      success:
+        type: boolean
+  Response«List«OrgDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«OrgDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  Response«OrgDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«OrgDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  CommunityDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: community id
+        minimum: 1
+      name:
+        type: string
+        description: community name
+      orgId:
+        type: integer
+        format: int64
+        description: organization id
+        minimum: 1
+      orgName:
+        type: string
+        description: organization name
+  ResponseBody«CommunityDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CommunityDto'
+      success:
+        type: boolean
+  ResponseBody«List«CommunityDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/CommunityDto'
+      success:
+        type: boolean
+  Response«List«CommunityDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CommunityDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  Response«CommunityDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CommunityDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  EmployeeListItemDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: employee id
+        minimum: 1
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+  PagedResponseBody«List«EmployeeListItemDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EmployeeListItemDto'
+      totalCount:
+        type: integer
+        format: int64
+        description: employees count
+        example: 1
+        minimum: 0
+      success:
+        type: boolean
+  Response«List«EmployeeListItemDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/PagedResponseBody«List«EmployeeListItemDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«EmployeeDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/EmployeeDto'
+      success:
+        type: boolean
+  Response«EmployeeDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«EmployeeDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResidentListItemDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: resident id
+        minimum: 1
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      communityName:
+        type: string
+        description: Community name
+        example: "Unaffiliated"
+      orgName:
+        type: string
+        description: Organization name
+        example: "Unaffiliated"
+  ResidentDto:
+    description: This DTO is intended to represent resident's (patient's) personal data
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: resident id
+        minimum: 1
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      middleName:
+        type: string
+        description: Middle name. Nullable
+        maxLength: 128
+        example: "Fauntleroy"
+      phone:
+        type: string
+        description: Phone number. Nullable
+        maxLength: 150
+        example: "6458765432"
+      email:
+        type: string
+        description: Email address. Nullable
+        maxLength: 150
+        example: "dduck@disney.com"
+      orgId:
+        type: integer
+        description: organization id
+        format: int64
+        minimum: 1
+      orgName:
+        type: string
+        description: Organization name
+        example: "Unaffiliated"
+      communityId:
+        type: integer
+        description: community id
+        format: int64
+        minimum: 1
+      communityName:
+        type: string
+        description: Community name
+        example: "Unaffiliated"
+  PagedResponseBody«List«ResidentListItemDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ResidentListItemDto'
+      totalCount:
+        type: integer
+        format: int64
+        description: residents count
+        example: 1
+        minimum: 0
+      success:
+        type: boolean
+  Response«List«ResidentListItemDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/PagedResponseBody«List«ResidentListItemDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«ResidentDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/ResidentDto'
+      success:
+        type: boolean
+  Response«ResidentDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«ResidentDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResolveItiPatientIdentifierRequestDto:
+    type: object
+    description: This dto is is intended to represent a resolve iti patient identifier request
+    properties:
+      identifier:
+        type: string
+        description: ITI patient identifier
+        example: 'S12345'
+      assigningAuthority:
+        $ref: '#/definitions/HDHierarchicDesignatorDto'
+
+  ConsanaXrefPatientIdDto:
+    type: object
+    required: [identifier, organizationOID, communityOID]
+    description: This dto is is intended to represent a resolve Consana Xref patient identifier request
+    properties:
+      identifier:
+        type: string
+        description: Xref patient identifier
+        example: '12345'
+      organizationOID:
+        type: string
+        description: Consana XOwningOrganization id
+        example: '1.2.345677888'
+      communityOID:
+        type: string
+        description: Consana Organization id
+        example: '1.2.34567781234.6.7.8.9'
+
+  HDHierarchicDesignatorDto:
+    type: object
+    description: This dto is is intended to represent HD data dype
+    properties:
+      namespaceID:
+        type: string
+        description: Namespace Id
+        example: NS12345
+      universalID:
+        type: string
+        description: Universal Id
+        example: 2.16.840.1.113883.1.234567.890
+      universalIDType:
+        type: string
+        description: Universal Id Type
+        example: ISO
+
+  NoteListItemDto:
+    type: object
+    description: This dto is is intended to represent a note entry in notes list
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Note id
+        minimum: 1
+        example: 40
+      text:
+        type: string
+        description: This is a text of the note
+        example: Note text will be displayed here, the text will be cut by “…” symbols
+      status:
+        $ref: '#/definitions/NoteStatus'
+      lastModifiedDate:
+        type: integer
+        description: Date of the last modification of the note
+        format: int64
+        example: 1326862800000
+  ResponseBody«NoteListItemDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/NoteListItemDto'
+      success:
+        type: boolean
+  Response«NoteListItemDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«NoteListItemDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  NucleusDeviceDto:
+    type: object
+    description: This DTO is intended to represent Nucleus communication device.
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: nucleus device id (36-char UUID)
+        example: "1a8a0c8d-7e16-41be-a73d-c6cc5ed68f07"
+      location:
+        type: string
+        description: nucleus device location
+        example: "Kitchen"
+      type:
+        type: string
+        description: device type, such as intercom, mobile app, etc.
+    required:
+      - id
+  ResponseBody«NucleusDeviceDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/NucleusDeviceDto'
+      success:
+        type: boolean
+  Response«NucleusDeviceDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«NucleusDeviceDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«List«NucleusDeviceDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/NucleusDeviceDto'
+      success:
+        type: boolean
+  Response«List«NucleusDeviceDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«NucleusDeviceDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  NucleusInfoDto:
+    type: object
+    properties:
+      userId:
+        type: string
+        format: uuid
+        description: nucleus user id (36-char UUID)
+        example: "dfa1953f-e401-442f-bbcf-bde33b3ca018"
+      familyCareTeamMemberId:
+        type: integer
+        format: int64
+        description: nucleus family CTM id
+    required:
+      - userId
+  ResponseBody«NucleusInfoDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/NucleusInfoDto'
+      success:
+        type: boolean
+  Response«NucleusInfoDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«NucleusInfoDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ProspectDto:
+    type: object
+    required: [identifier, organizationOID, communityOID, firstName, lastName]
+    description: This dto represents Prospect data
+    properties:
+      identifier:
+        type: integer
+        format: int64
+        description: "Unique prospect identifier in external system"
+        example: 72
+      organizationOID:
+        type: string
+        description: "Organization OID in Simply Connect"
+        example: '1.2.34567781234.6.7.8.9'
+      communityOID:
+        type: string
+        description: "Community OID in Simply Connect"
+        example: '1.2.34567781234.6.7.8.9'
+      firstName:
+        type: string
+        description: "Prospect's first name"
+      lastName:
+        type: string
+        description: "Prospect's last name"
+      middleName:
+        type: string
+        description: "Prospect's middle name"
+      inNetworkInsuranceId:
+        type: integer
+        format: int64
+        description: " Prospect's InNetwork insurance id in Simply Connect"
+      insurancePlan:
+        type: string
+        description: "Prospect's insurance plan name"
+      birthDate:
+        type: string
+        description: "Date of birth in format MM/DD/YYYY"
+        example: '10/20/1960'
+      gender:
+        description: "Prospect's gender. Possible values: Male; Female; Undefined"
+        $ref: '#/definitions/GenderEnum'
+      maritalStatus:
+        description: "Prospect's marital status. Possible values: Annulled; Divorced; Domestic Partner; Interlocutory; Legally Separated; Married; Never Married; Polygamous; Widowed"
+        $ref: '#/definitions/MaritalStatusEnum'
+      race:
+        description: "Prospect's race. Possible values: American Indian, Alaska Native, or Indigenous; Asian or Asian American; Black, African-American, or African; Native Hawaiian or Other Pacific Islander; White; Prospect doesn't know"
+        $ref: '#/definitions/ProspectRaceEnum'
+      ssn:
+        type: string
+        description: "Prospect's ssn"
+      veteran:
+        description: "Prospect's veteran status. Possible values: Yes; No; Prospect doesn't know; Chooses not to disclose"
+        $ref: '#/definitions/ProspectVeteranEnum'
+      street:
+        description: "Prospect's street address (maximum 256 characters)"
+        type: string
+        maximum: 256
+      city:
+        description: "Prospect's city"
+        type: string
+      state:
+        description: "Prospect's state abbreviation"
+        $ref: '#/definitions/StateAbbrEnum'
+        exabple: "MN"
+      zip:
+        description: "Prospect's address zip"
+        type: string
+      phone:
+        description: "Prospect's mobile phone"
+        type: string
+      email:
+        description: "Prospect's email"
+        type: string
+      moveInDate:
+        description: "Move-In date means the date stated in the agreement on which the prospect will be first permitted to move into residence. Format: milliseconds timestamp"
+        type: integer
+        format: int64
+        example: 1326862800000
+      rentalAgreementDate:
+        description: "Rental agreement date as a milliseconds timestamp"
+        type: integer
+        format: int64
+        example: 1326862800000
+      assessmentDate:
+        description: "date when a moving assessment was conducted. Format: milliseconds timestamp"
+        type: integer
+        format: int64
+        example: 1326862800000
+      referralSource:
+        description: "A person or organization from which a prospect is referred (maximum 256 characters)"
+        type: string
+        maximum: 256
+      notes:
+        description: "Any additional information on prospect (maximum 256 characters)"
+        type: string
+        maximum: 256
+      relatedPartyFirstName:
+        type: string
+        description: "Prospect's related party first name"
+      relatedPartyLastName:
+        type: string
+        description: "Prospect's related party last name"
+      relatedPartyRelationship:
+        description: "Relationship between prospect and related party. Possible values: Spouse; Life partner; Child; Grandchild; Parent; Caregiver; Guardian; Emergency contact;  Friend; Sibling; Other"
+        $ref: '#/definitions/ProspectRelatedPartyRelationshipEnum'
+      relatedPartyStreet:
+        description: "Prospect's related party street address (maximum 256 characters)"
+        type: string
+        maximum: 256
+      relatedPartyCity:
+        description: "Prospect's related party city"
+        type: string
+      relatedPartyState:
+        description: "Prospect's related party state abbreviation"
+        $ref: '#/definitions/StateAbbrEnum'
+      relatedPartyZip:
+        description: "Prospect's related party address zip"
+        type: string
+      relatedPartyPhone:
+        description: "Prospect's related party mobile phone"
+        type: string
+      relatedPartyEmail:
+        description: "Prospect's related party email"
+        type: string
+      isRelatedPartySecondOccupant:
+        type: boolean
+      secondOccupantFirstName:
+        type: string
+        description: "Prospect's second occupant first name"
+      secondOccupantLastName:
+        type: string
+        description: "Prospect's second occupant last name"
+      secondOccupantMiddleName:
+        type: string
+        description: "Prospect's second occupant middle name"
+      secondOccupantInNetworkInsuranceId:
+        type: integer
+        format: int64
+        description: "Prospect's second occupant InNetwork insurance id in Simply Connect"
+      secondOccupantInsurancePlan:
+        type: string
+        description: "Prospect's second occupant insurance plan name"
+      secondOccupantBirthDate:
+        type: string
+        description: "Prospect's second occupant date of birth in format MM/DD/YYYY"
+        example: '10/20/1960'
+      secondOccupantGender:
+        $ref: '#/definitions/GenderEnum'
+        description: "Prospect's second occupant gender. Possible values: Male; Female; Undefined"
+      secondOccupantMaritalStatus:
+        $ref: '#/definitions/MaritalStatusEnum'
+        description: "Prospect's second occupant marital status. Possible values: Annulled; Divorced; Domestic Partner; Interlocutory; Legally Separated; Married; Never Married; Polygamous; Widowed"
+      secondOccupantRace:
+        $ref: '#/definitions/ProspectRaceEnum'
+        description: "Prospect's second occupant race. Possible values: American Indian, Alaska Native, or Indigenous; Asian or Asian American; Black, African-American, or African; Native Hawaiian or Other Pacific Islander; White; Prospect doesn't know"
+      secondOccupantSsn:
+        type: string
+        description: "Prospect's second occupant ssn"
+      secondOccupantVeteran:
+        $ref: '#/definitions/ProspectVeteranEnum'
+        description: "Prospect's second occupant veteran status. Possible values: Yes; No; Prospect doesn't know; Chooses not to disclose"
+      useProspectAddressAsSecondOccupantAddress:
+        type: boolean
+        descrition: "true if prospect and second occupant share the same address"
+      secondOccupantStreet:
+        description: "Prospect's second occupant street address (maximum 256 characters)"
+        type: string
+      secondOccupantCity:
+        description: "Prospect's second occupant city"
+        type: string
+      secondOccupantState:
+        description: "Prospect's second occupant state abbreviation"
+        $ref: '#/definitions/StateAbbrEnum'
+      secondOccupantZip:
+        description: "Prospect's second occupant address zip"
+        type: string
+      secondOccupantPhone:
+        description: "Prospect's second occupant mobile phone"
+        type: string
+      secondOccupantEmail:
+        description: "Prospect's second occupant email"
+        type: string
+
+
+  ResponseBody«Integer»:
+    type: object
+    properties:
+      data:
+        type: integer
+        format: int32
+        example: 3
+      success:
+        type: boolean
+  Response«Integer»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Integer»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ### Error Response Examples ###
+
+  Response«UnauthorizedResponse»:
+    type: object
+    description: This response is returned in case of the access token provided is invalid.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/UnauthorizedErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 401
+        minimum: 100
+        maximum: 599
+  UnauthorizedErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "unauthorized"
+      message:
+        type: string
+        example: "Unauthorized"
+
+  Response«BadRequestResponse»:
+    type: object
+    description: This response is returned in case of the invalid submitted data.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/ValidationErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 400
+        minimum: 100
+        maximum: 599
+  ValidationErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "constraint.violation"
+      message:
+        type: string
+        example: "Validation failed. 2 error(s)."
+      validationErrors:
+        type: array
+        description: A list of validation error messages
+        items:
+          type: string
+        example:
+          - "firstName size must be between 2 and 128"
+          - "eventTypeId may not be null"
+
+  Response«AccessForbiddenResponse»:
+    type: object
+    description: This response is returned in case of the acting user has no access to requested data or the access token provided is empty.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/AccessForbiddenErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 403
+        minimum: 100
+        maximum: 599
+  AccessForbiddenErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "access.forbidden"
+      message:
+        type: string
+        example: "Access Forbidden"
+
+  Response«NotFoundResponse»:
+    type: object
+    description: This response is returned in case of the acting user has no access to requested data or the access token provided is empty.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/NotFoundErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 404
+        minimum: 100
+        maximum: 599
+  NotFoundErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "not.found"
+      message:
+        type: string
+        example: "The specified entity can not be found"
+
+  Response«ConflictResponse»:
+    type: object
+    description: This response is returned in case if the request could not be completed due to a conflict with the current state of the target resource. This code is used in situations where the user might be able to resolve the conflict and resubmit the request.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/ConflictErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 409
+        minimum: 100
+        maximum: 599
+  ConflictErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "data.integrity.violation"
+      message:
+        type: string
+        example: "SQLServerException: Cannot insert duplicate key row in object 'dbo.NucleusInfo' with unique index 'IDX_NI_resource_name'. The duplicate key value is (8)."

@@ -1,0 +1,28 @@
+.ContactFilter {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #f9f9f9;
+  margin-bottom: 45px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+  }
+
+  &-Icon {
+    cursor: pointer;
+    margin-right: 32px;
+    margin-left: 10px;
+  }
+
+  &-Icon_rotated_90 {
+    transform: rotate(90deg);
+    transition: 0.3s;
+  }
+
+  &-Icon_rotated_0 {
+    transform: rotate(0deg);
+    transition: 0.3s;
+  }
+}

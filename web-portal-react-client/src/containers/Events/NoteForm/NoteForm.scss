@@ -1,0 +1,154 @@
+.NoteForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.NoteForm-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.NoteForm-TextArea {
+  .TextField-Input {
+    height: 80px;
+  }
+}
+
+.NoteForm-Button {
+  width: 100px;
+  height: 35px;
+  margin-top: 30px;
+
+  &.btn{
+    padding: 0;
+  }
+}
+
+.NoteForm-FilterFieldIcon {
+  top: 45px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+  position: absolute;
+}
+
+.NoteForm-LabelIcon{
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+.NoteForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 25px 40px;
+  border-top: 1px solid #dee2e6;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.RadioGroupField-Title {
+  margin-bottom: .5rem;
+}
+
+.NoteForm-RadioGroupField {
+  display: flex;
+
+  .Radio {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 12px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .Radio-CheckMark {
+    position: initial;
+    margin-right: 8px;
+
+    &:after {
+      top: 9px;
+      left: 9px
+    }
+  }
+}
+
+.NoteForm-ResourceNameSection {
+  .NoteForm-ResourceName {
+    display: flex;
+    align-items: flex-end;
+
+    @media (max-width: 414px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  .TextField {
+    flex: 1 1;
+    width: 100%;
+  }
+
+  .TextField-Input {
+    &.is-invalid {
+      border: 1px solid #f33232;
+    }
+  }
+
+  .NoteForm-AddResourceBtn {
+    min-width: 95px;
+    height: 35px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    @media (max-width: 414px) {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.NoteForm-DateField {
+  position: relative;
+
+  .DateField-CalendarIcon {
+    top: 42px;
+  }
+
+  .DateField-Error {
+    position: static;
+    margin-top: 2px;
+    margin-bottom: -24px;
+  }
+
+  &_NextCheckDate {
+    .react-datepicker-popper {
+      &[data-placement="bottom-end"] {
+        .react-datepicker__triangle {
+          right: 7px;
+          left: auto;
+        }
+      }
+    }
+  }
+}

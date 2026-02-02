@@ -1,0 +1,48 @@
+[
+  {
+    "text": "Events",
+    "nodes": [
+      {
+        "text": "Registered Events Dashboard",
+        "href": "#7",
+        "server": "kyubit"
+      },
+      {
+        "text": "Demographics Dashboard",
+        "href": "#8",
+        "server": "kyubit"
+      },
+      {
+        "text": "Prevention Dashboard",
+        "href": "#9",
+        "server": "kyubit"
+      },
+      {
+        "text": "Influence of Problems & Medications",
+        "href": "#17",
+        "server": "kyubit"
+      },
+      {
+        "text": "Influence of Problems & Diagnosis",
+        "href": "#19",
+        "server": "kyubit"
+      }
+    ]
+  },
+  {
+    "text": "Client Intakes",
+    "nodes":
+    [
+      {
+        "text": "Client Intake by date",
+        "href": "?%2fIntakeReports%2fClient+IntakeReport&rs:Command=Render&rc:stylesheet=HideToolBar",
+        "server": "microsoft"
+      },
+      {
+        "text": "Client Intake/Follow-up",
+        "href": "?%2fIntakeReports%2fClient+Intake+Follow-up&rs:Command=Render&rc:stylesheet=HideToolBar",
+        "server": "microsoft"
+      }
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+@import "custom/_fonts.scss";
+
+.ESignRequestedDocumentList {
+  &-Caption {
+    margin-bottom: 10px;
+  }
+
+  &-DocFormatIcon {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  &-DocTitle {
+    padding: 4px 0;
+    text-align: left;
+    width: calc(100% - 44px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: $font-color_head-text;
+
+    &:hover {
+      white-space: normal;
+      word-break: break-all;
+    }
+  }
+
+  &-CategoryCol {
+    @media (min-width: 1300px) {
+      width: 13%;
+    }
+
+    @media (min-width: 1550px) {
+      width: 15%;
+    }
+  }
+
+  &-TypeCol {
+    @media (max-width: 1650px) {
+      display: none;
+    }
+  }
+
+  &-SizeCol {
+    @media (min-width: 1000px) {
+      width: 10%;
+    }
+
+    @media (min-width: 1580px) {
+      width: 9%;
+    }
+
+    @media (min-width: 1651px) {
+      width: 8%;
+    }
+  }
+
+  &-CreatedCol {
+    @media (min-width: 1300px) {
+      width: 10%;
+    }
+
+    @media (min-width: 1450px) {
+      width: 9%;
+    }
+
+    @media (min-width: 1650px) {
+      width: 8%;
+    }
+  }
+
+  &-DescriptionCol {
+    @media (max-width: 1650px) {
+      display: none;
+    }
+
+    @media (min-width: 1650px) {
+      width: 10%;
+    }
+
+    @media (min-width: 1830px) {
+      width: 12%;
+    }
+  }
+
+  &-Actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &-Action {
+    margin-right: 7px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

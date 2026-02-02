@@ -1,0 +1,22 @@
+ 
+  .FeaturedCommunities.Table_empty thead {
+    display: none;
+  }
+  
+  .FeaturedCommunities .Table-Title {
+    width: 100%;
+  }
+  
+  .FeaturedCommunities-Alert {
+    padding: 8px 16px;
+  }
+  
+  .FeaturedCommunities-AlertParagraph {
+    margin-bottom: 0;
+    font-family: "Open Sans";
+    font-weight: normal;
+  }
+  
+  .FeaturedCommunities-OrderButton_rotated_180 {
+    transform: rotate(180deg);
+  }

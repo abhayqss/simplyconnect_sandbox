@@ -1,0 +1,71 @@
+// no member
+.card-no-member-avatar {
+  width: 120px;
+  height: 120px;
+  border: 1px dashed rgb(234, 234, 234);
+  border-radius: 50%;
+  color: #075aa0;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #eeeeee !important;
+}
+
+.card-member-avatar {
+  width: 120px;
+  height: 120px;
+  border: 1px dashed rgb(234, 234, 234);
+  border-radius: 50%;
+  color: #075aa0;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  img, .Avatar {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.card-role-show {
+  color: #075aa0;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.card-name-have-show {
+  color: #075aa0;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-role-btn-show {
+  padding: 4px 8px;
+  background: #edf2fd;
+  color: rgb(72, 122, 239);
+  font-size: 15px;
+  font-family: Poppins, sans-serif;
+  border-radius: 4px;
+  line-height: 23px;
+}
+
+.card-no-member-desc {
+  font-size: 15px;
+  color: #eaeaea;
+  padding: 0 34px;
+  text-align: center;
+}
+
+.add-member-icon {
+  transform: rotate(90deg);
+}
+
+.card-has-member-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

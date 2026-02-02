@@ -1,0 +1,13 @@
+@media (min-width: 576px) {
+  .ClientExpenseViewer {
+    &.modal-dialog {
+      max-width: 1040px;
+    }
+  }
+}
+
+.ClientExpenseViewer {
+  .Modal-Body {
+    padding: 20px 40px 20px;
+  }
+}

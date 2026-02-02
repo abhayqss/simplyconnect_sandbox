@@ -1,0 +1,14 @@
+package org.openhealthtools.openxds.entity.hl7table;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
+
+@Entity
+@org.hibernate.annotations.Table(appliesTo = HL7DefinedCodeTable.TABLE_NAME, optional = false)
+@SecondaryTable(name = HL7DefinedCodeTable.TABLE_NAME, pkJoinColumns = @PrimaryKeyJoinColumn(name = "id"))
+@DiscriminatorValue("0105")
+public class HL7CodeTable0105SourceOfComment extends HL7DefinedCodeTable {
+
+}

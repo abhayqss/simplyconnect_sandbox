@@ -1,0 +1,1 @@
+CREATE INDEX IX_event_resident_id ON dbo.Event_enc (resident_id);

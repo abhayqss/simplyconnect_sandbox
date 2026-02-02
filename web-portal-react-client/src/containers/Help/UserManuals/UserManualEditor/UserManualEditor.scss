@@ -1,0 +1,10 @@
+.UserManualEditor {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+
+  .modal-content {
+    border: none;
+    max-height: 520px;
+  }
+}

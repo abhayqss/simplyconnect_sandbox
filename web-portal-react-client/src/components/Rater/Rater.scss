@@ -1,0 +1,38 @@
+.Rater {
+    display: flex;
+    flex-direction: row;
+
+    &-Digits {
+        color: #03b6f3;
+        font-size: 14px;
+        font-family: "Open Sans Semibold", sans-serif;
+        margin-left: 8px;
+    }
+
+    .react-rater {
+        display: flex;
+        flex-direction: row;
+
+        & > * {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+.Star {
+    cursor: pointer;
+
+    &_isDisabled {
+        cursor: default;
+    }
+
+    &_willBeActive {
+        opacity: 0.7;
+    }
+}

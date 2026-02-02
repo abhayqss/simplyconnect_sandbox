@@ -1,0 +1,25 @@
+<service>
+	<id>notifychatmicroservice.exe</id>
+	<name>Notify Chat micro service</name>
+	<description>Socket.io / Node.js application</description>
+	<executable>C:\Program Files\nodejs\node.exe</executable>
+	<logmode>rotate</logmode>
+	<argument>--harmony</argument>
+	<argument>C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>C:\Notify\notify-server\Microservices\Chat\src\service.js</argument>
+	<argument>--log</argument>
+	<argument>Notify Chat micro service wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<stoptimeout>30sec</stoptimeout>
+	<workingdirectory>C:\Notify\notify-server\Microservices\Chat</workingdirectory>
+</service>

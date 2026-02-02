@@ -1,0 +1,137 @@
+.AuditLogList {
+  &.Table.table {
+    .reset-expansion-style {
+      padding: 0;
+      border: none;
+
+      .row-expansion-style {
+        padding: 0;
+      }
+    }
+
+    $radius: 5px;
+
+    tbody {
+      & > tr.AuditLogList-ExpandableRow {
+        box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+        background-color: #0064ad;
+        color: #ffffff;
+
+        &:hover {
+          background-color: #004182;
+        }
+
+        .AuditLogList-ClientName {
+          color: #ffffff;
+        }
+
+        .Actions-Item {
+          fill: #ffffff;
+          stroke: #ffffff;
+        }
+
+        border-radius: $radius;
+
+        & > td:first-child {
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+        }
+
+        & > td:last-child {
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+        }
+
+        & + tr {
+          box-shadow: none;
+          background: none;
+
+          &:hover {
+            .reset-expansion-style {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-ClientName {
+    color: #0064ad;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    text-decoration: none;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+
+  &-ClientAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    @media (max-width: 375px) {
+      display: none !important;
+    }
+
+    &_black-white {
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+  }
+
+  &-ShowMatchesActionItem {
+    width: 36px;
+    height: 36px;
+    margin-left: -30px;
+    cursor: pointer;
+    padding: 6px;
+
+    &:hover {
+      background-color: #0064ad;
+      border-radius: 3px;
+      transition: 0.2s;
+      fill: white;
+      stroke: white;
+    }
+  }
+
+  &-Community {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-Link {
+    text-decoration: none;
+
+    &:hover {
+      color: #0064ad;
+    }
+
+    &, &_disabled {
+      &:not(:first-child) {
+        margin-left: 6px;
+      }
+    }
+
+    color: #0064ad;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &_disabled {
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+  }
+}
+
+.ClientRecordListHeader-ClientName {
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
+}

@@ -1,0 +1,1 @@
+UPDATE [dbo].[EventType_CareTeamRole_Xref] SET [responsibility] = 'V' WHERE [care_team_role_id] =10 OR [care_team_role_id] = 9;

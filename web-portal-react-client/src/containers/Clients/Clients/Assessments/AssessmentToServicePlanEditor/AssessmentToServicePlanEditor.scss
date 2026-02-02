@@ -1,0 +1,192 @@
+@import "custom/_fonts";
+
+.AssessmentToServicePlanEditor {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+
+  & .modal-body {
+    padding-bottom: 62px;
+  }
+}
+
+.ServicePlanNeedIdentification {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ServicePlanNeedIdentification-Header {
+  padding: 20px 40px 0;
+  margin-bottom: 20px;
+}
+
+.ServicePlanNeedIdentification-Title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ServicePlanNeedIdentificationListContainer {
+  flex: 1;
+  padding: 0 40px 0;
+}
+
+.ServicePlanNeedIdentificationList {
+  &.Table {
+    .CheckboxField.form-group {
+      padding-top: 0;
+    }
+
+    &.table {
+      tbody {
+        & > tr {
+          &.disabled {
+            pointer-events: none;
+
+            .CheckboxField {
+              .CheckboxField-Checkbox {
+                background-color: #f9f9f9;
+              }
+
+              .CheckboxField-CheckMark {
+                border: solid #bfbdbd;
+                border-width: 0 3px 3px 0;
+              }
+            }
+          }
+
+          &.odd-first,
+          &.even-first {
+            & > td {
+              &:first-child {
+                border-bottom-left-radius: 0;
+              }
+
+              &:last-child {
+                border-bottom-right-radius: 0;
+              }
+            }
+          }
+
+          &.odd-medium,
+          &.even-medium {
+            & > td {
+              &:first-child {
+                border-radius: 0;
+
+                input:disabled {
+                  display: none;
+                }
+              }
+
+              &:last-child {
+                border-radius: 0;
+              }
+            }
+          }
+
+          &.odd-last,
+          &.even-last {
+            & > td {
+              &:first-child {
+                border-top-left-radius: 0;
+
+                input:disabled {
+                  display: none;
+                }
+              }
+
+              &:last-child {
+                border-top-right-radius: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.AssessmentToServicePlanEditor-Actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+
+  @media (max-width: 590px) {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+
+.AssessmentToServicePlanEditor {
+  .modal-footer {
+    .AssessmentToServicePlanEditor-ActionGroup {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @media (max-width: 590px) {
+        margin-right: 0;
+        margin-bottom: 15px;
+
+        &:first-child {
+          padding-left: 20px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.AssessmentToServicePlanEditor-Action {
+  margin-right: 24px;
+
+  &.CheckboxField.form-group {
+    padding-top: 0;
+  }
+
+  &.btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+
+    @media (max-width: 650px) {
+      width: 80px;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.AssessmentToServicePlanEditor-SaveBtn {
+  &.btn {
+    width: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.AssessmentToServicePlanEditor-SaveBtnOptText {
+  @media (max-width: 760px) {
+    display: none;
+  }
+}

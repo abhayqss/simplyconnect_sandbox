@@ -1,0 +1,11 @@
+@media (min-width: 576px) {
+    .DomainsSelectionEditor {
+        &.modal-dialog {
+            max-width: 600px;
+        }
+
+        .modal-content {
+            border: none;
+        }
+    }
+}

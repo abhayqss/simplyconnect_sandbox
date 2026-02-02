@@ -1,0 +1,240 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Fax {
+  @include page;
+  font-family: "Open Sans", sans-serif !important
+}
+
+.FaxListContainer {
+  font-family: "Poppins", sans-serif;
+}
+
+.FaxList-Caption {
+  padding-bottom: 10px;
+}
+
+.FaxList-CaptionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.FaxList-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.FaxList-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin-top: 20px;
+}
+
+.FaxList-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.FaxList-Filter {
+  margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   flex: 3 1;
+
+  .row {
+    width: 80%;
+  }
+}
+
+.FaxList-FilterFieldIcon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+}
+
+// col style
+.FaxList-NameColHeader {
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.FaxList-AssociationName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+
+  &_disabled {
+    cursor: default;
+  }
+}
+
+.FaxList-CommunitiesColHeader {
+  width: 15%;
+  @media (max-width: 1100px) {
+    width: 120px;
+  }
+}
+
+.FaxList-VendorsColHeader {
+  width: 10%;
+  @media (max-width: 1100px) {
+    width: 100px;
+  }
+}
+
+.FaxList-OrganizationsColHeader {
+  width: 14%;
+}
+
+
+.text-overflow-310 {
+  max-width: 310px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #1F1F1F;
+}
+
+.FaxList-OrganizationCount {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.Associations-form-not-zero {
+  color: #075AA0;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.FaxList-AffiliatedOrganizationName {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.FaxList-AffiliatedOrganizationName-List {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #4ba4e8 !important;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    border: 2px solid orange;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: purple;
+  }
+}
+
+
+.num {
+  font-size: 15px;
+  color: #075AA0;
+  font-weight: 400;
+}
+
+.success, .fail ,.send{
+  width: 74px;
+  height: 32px;
+  background: #DBF2BE;
+  border-radius: 4px;
+  color: #4C4E51;
+  text-align: center;
+  line-height: 35px;
+}
+
+.fail {
+  background: rgba(244, 86, 64, 0.2);
+  color: #F45640;
+
+}
+.send {
+  background: rgba(99, 255, 127, 0.2);
+  color: #FFFFFF;
+
+}
+
+.ButtonGroup {
+  height: 40px;
+  font-size: 16px;
+}
+
+.ButtonGroup .btn {
+  height: 40px;
+}
+
+.ButtonGroup .btnSecondary {
+  background: #fff !important;
+  color: #075AA0 !important;
+  border: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.ButtonGroup .btnSuccess {
+  color: #fff;
+  background-color: #0064ad;
+  border-color: #0064ad;
+}
+
+.pagination {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.notAllowed {
+ cursor: not-allowed;
+}

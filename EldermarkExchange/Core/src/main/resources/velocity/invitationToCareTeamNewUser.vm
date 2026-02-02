@@ -1,0 +1,8 @@
+#* @vtlvariable name="invitation" type="com.scnsoft.eldermark.shared.carecoordination.service.InvitationDto" *#
+<div>Dear ${invitation.target},</div><br/>
+<div>
+    ${invitation.creator} has invited you to join Simply Connect system and be a part of his/her care team.<br/>
+    Please click the <a href = '${invitation.url}'>"New User"</a> link and complete the information for future access to Simply Connect system.<br/>
+    #parse( "velocity/button.vm")
+    Note, that registration link will expire in 72 hours.<br/><br/>
+</div>

@@ -1,0 +1,40 @@
+.FeaturedProviders {
+	margin-bottom: 30px;
+
+	&-Settings {
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+	}
+
+	&-Tiles {
+		.d-carousel__ul {
+			display: flex;
+			padding: 10px 0;
+			flex-direction: row;
+			align-items: stretch;
+			margin: 0 -15px;
+			margin-bottom: 34px;
+			white-space: normal;
+		}
+	}
+
+	&-Tile {
+		display: flex;
+		flex-direction: column;
+		padding: 15px;
+		width: 300px;
+
+		&.Carousel-Item.d-carousel__item {
+			margin-right: 25px;
+		}
+
+		@media (min-width: 1000px) {
+			width: 350px;
+		}
+
+		@media (min-width: 1500px) {
+			width: 450px;
+		}
+	}
+}

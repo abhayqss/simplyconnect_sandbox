@@ -1,0 +1,5 @@
+export { default as BillingDetails } from './BillingDetails/BillingDetails'
+export { default as AppointmentDetails } from './AppointmentDetails/AppointmentDetails'
+export { default as ClientExpenseDetails } from './ClientExpenseDetails/ClientExpenseDetails'
+export { default as AssessmentDataDetails } from './AssessmentDataDetails/AssessmentDataDetails'
+export { default as ClientDemographicsDetails } from './ClientDemographicsDetails/ClientDemographicsDetails'

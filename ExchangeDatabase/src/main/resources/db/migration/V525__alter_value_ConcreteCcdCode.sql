@@ -1,0 +1,1 @@
+UPDATE ConcreteCcdCode SET display_name = 'Undefined' WHERE code = 'UN'

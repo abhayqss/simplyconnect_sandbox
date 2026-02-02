@@ -1,0 +1,250 @@
+UPDATE Assessment
+SET json_content = N'{
+  "pages": [
+    {
+      "name": "page1",
+      "elements": [
+            {
+              "type": "radiogroup",
+              "name": "question1",
+              "title": "Drink any alcohol (more than a few sips)? Do not count sips of alcohol taken during family or religious events",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question1} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question2",
+              "title": "Smoke any marijuana or hashish? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question2} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question3",
+              "title": "Use anything else to get high? “Anything else” includes illegal drugs, over the counter and prescription drugs, and things that you sniff or “huff.”",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question3} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question4",
+              "title": "Have you ever ridden in a CAR driven by someone (including yourself) who was “high” or had been using alcohol or drugs? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question4} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question5",
+              "visibleIf": "{question1} = \"item1\" or {question2} = \"item1\" or {question3} = \"item1\"",
+              "title": " Do you ever use alcohol or drugs to RELAX, feel better about yourself, or fit in? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question5} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question6",
+              "visibleIf": "{question1} = \"item1\" or {question2} = \"item1\" or {question3} = \"item1\"",
+              "title": "Do you ever use alcohol or drugs while you are by yourself, or ALONE? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question6} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question7",
+              "visibleIf": "{question1} = \"item1\" or {question2} = \"item1\" or {question3} = \"item1\"",
+              "title": "Do you ever FORGET things you did while using alcohol or drugs? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question7} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question8",
+              "visibleIf": "{question1} = \"item1\" or {question2} = \"item1\" or {question3} = \"item1\"",
+              "title": " Do your FAMILY or FRIENDS ever tell you that you should cut down on your drinking or drug use? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question8} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "radiogroup",
+              "name": "question9",
+              "visibleIf": "{question1} = \"item1\" or {question2} = \"item1\" or {question3} = \"item1\"",
+              "title": "Have you ever gotten into TROUBLE while you were using alcohol or drugs? ",
+              "validators": [
+                {
+                  "type": "expression",
+                  "text": "Please fill the required field",
+                  "expression": "{question9} notempty"
+                }
+              ],
+              "choices": [
+                {
+                  "value": "item1",
+                  "text": "Yes"
+                },
+                {
+                  "value": "item2",
+                  "text": "No"
+                }
+              ]
+            },
+            {
+              "type": "comment",
+              "name": "question10",
+              "title": "What substances do you use?",
+              "visibleIf": "({question1} = \"item1\" and {question2} = \"item1\") or ({question1} = \"item1\" and {question3} = \"item1\") or ({question1} = \"item1\" and {question4} = \"item1\") or ({question1} = \"item1\" and {question5} = \"item1\") or ({question1} = \"item1\" and {question6} = \"item1\") or ({question1} = \"item1\" and {question7} = \"item1\") or ({question1} = \"item1\" and {question8} = \"item1\") or ({question1} = \"item1\" and {question9} = \"item1\") or ({question2} = \"item1\" and {question3} = \"item1\") or ({question2} = \"item1\" and {question4} = \"item1\") or ({question2} = \"item1\" and {question5} = \"item1\") or ({question2} = \"item1\" and {question6} = \"item1\") or ({question2} = \"item1\" and {question7} = \"item1\") or ({question2} = \"item1\" and {question8} = \"item1\") or ({question2} = \"item1\" and {question9} = \"item1\") or ({question3} = \"item1\" and {question4} = \"item1\") or ({question3} = \"item1\" and {question5} = \"item1\") or ({question3} = \"item1\" and {question6} = \"item1\") or ({question3} = \"item1\" and {question7} = \"item1\") or ({question3} = \"item1\" and {question8} = \"item1\") or ({question3} = \"item1\" and {question9} = \"item1\") or ({question4} = \"item1\" and {question5} = \"item1\") or ({question4} = \"item1\" and {question6} = \"item1\") or ({question4} = \"item1\" and {question7} = \"item1\") or ({question4} = \"item1\" and {question8} = \"item1\") or ({question4} = \"item1\" and {question9} = \"item1\") or ({question5} = \"item1\" and {question6} = \"item1\") or ({question5} = \"item1\" and {question7} = \"item1\") or ({question5} = \"item1\" and {question8} = \"item1\") or ({question5} = \"item1\" and {question9} = \"item1\") or ({question6} = \"item1\" and {question7} = \"item1\") or ({question6} = \"item1\" and {question8} = \"item1\") or ({question6} = \"item1\" and {question9} = \"item1\") or ({question7} = \"item1\" and {question8} = \"item1\") or ({question7} = \"item1\" and {question9} = \"item1\") or ({question8} = \"item1\" and {question9} = \"item1\")",
+              "maxLength": 5000
+            },
+            {
+              "type": "comment",
+              "name": "question11",
+              "title": "How, where, and with whom do you use?",
+              "visibleIf": "({question1} = \"item1\" and {question2} = \"item1\") or ({question1} = \"item1\" and {question3} = \"item1\") or ({question1} = \"item1\" and {question4} = \"item1\") or ({question1} = \"item1\" and {question5} = \"item1\") or ({question1} = \"item1\" and {question6} = \"item1\") or ({question1} = \"item1\" and {question7} = \"item1\") or ({question1} = \"item1\" and {question8} = \"item1\") or ({question1} = \"item1\" and {question9} = \"item1\") or ({question2} = \"item1\" and {question3} = \"item1\") or ({question2} = \"item1\" and {question4} = \"item1\") or ({question2} = \"item1\" and {question5} = \"item1\") or ({question2} = \"item1\" and {question6} = \"item1\") or ({question2} = \"item1\" and {question7} = \"item1\") or ({question2} = \"item1\" and {question8} = \"item1\") or ({question2} = \"item1\" and {question9} = \"item1\") or ({question3} = \"item1\" and {question4} = \"item1\") or ({question3} = \"item1\" and {question5} = \"item1\") or ({question3} = \"item1\" and {question6} = \"item1\") or ({question3} = \"item1\" and {question7} = \"item1\") or ({question3} = \"item1\" and {question8} = \"item1\") or ({question3} = \"item1\" and {question9} = \"item1\") or ({question4} = \"item1\" and {question5} = \"item1\") or ({question4} = \"item1\" and {question6} = \"item1\") or ({question4} = \"item1\" and {question7} = \"item1\") or ({question4} = \"item1\" and {question8} = \"item1\") or ({question4} = \"item1\" and {question9} = \"item1\") or ({question5} = \"item1\" and {question6} = \"item1\") or ({question5} = \"item1\" and {question7} = \"item1\") or ({question5} = \"item1\" and {question8} = \"item1\") or ({question5} = \"item1\" and {question9} = \"item1\") or ({question6} = \"item1\" and {question7} = \"item1\") or ({question6} = \"item1\" and {question8} = \"item1\") or ({question6} = \"item1\" and {question9} = \"item1\") or ({question7} = \"item1\" and {question8} = \"item1\") or ({question7} = \"item1\" and {question9} = \"item1\") or ({question8} = \"item1\" and {question9} = \"item1\")",
+              "maxLength": 5000
+            },
+            {
+              "type": "comment",
+              "name": "question12",
+              "title": "How often do you use?",
+              "visibleIf": "({question1} = \"item1\" and {question2} = \"item1\") or ({question1} = \"item1\" and {question3} = \"item1\") or ({question1} = \"item1\" and {question4} = \"item1\") or ({question1} = \"item1\" and {question5} = \"item1\") or ({question1} = \"item1\" and {question6} = \"item1\") or ({question1} = \"item1\" and {question7} = \"item1\") or ({question1} = \"item1\" and {question8} = \"item1\") or ({question1} = \"item1\" and {question9} = \"item1\") or ({question2} = \"item1\" and {question3} = \"item1\") or ({question2} = \"item1\" and {question4} = \"item1\") or ({question2} = \"item1\" and {question5} = \"item1\") or ({question2} = \"item1\" and {question6} = \"item1\") or ({question2} = \"item1\" and {question7} = \"item1\") or ({question2} = \"item1\" and {question8} = \"item1\") or ({question2} = \"item1\" and {question9} = \"item1\") or ({question3} = \"item1\" and {question4} = \"item1\") or ({question3} = \"item1\" and {question5} = \"item1\") or ({question3} = \"item1\" and {question6} = \"item1\") or ({question3} = \"item1\" and {question7} = \"item1\") or ({question3} = \"item1\" and {question8} = \"item1\") or ({question3} = \"item1\" and {question9} = \"item1\") or ({question4} = \"item1\" and {question5} = \"item1\") or ({question4} = \"item1\" and {question6} = \"item1\") or ({question4} = \"item1\" and {question7} = \"item1\") or ({question4} = \"item1\" and {question8} = \"item1\") or ({question4} = \"item1\" and {question9} = \"item1\") or ({question5} = \"item1\" and {question6} = \"item1\") or ({question5} = \"item1\" and {question7} = \"item1\") or ({question5} = \"item1\" and {question8} = \"item1\") or ({question5} = \"item1\" and {question9} = \"item1\") or ({question6} = \"item1\" and {question7} = \"item1\") or ({question6} = \"item1\" and {question8} = \"item1\") or ({question6} = \"item1\" and {question9} = \"item1\") or ({question7} = \"item1\" and {question8} = \"item1\") or ({question7} = \"item1\" and {question9} = \"item1\") or ({question8} = \"item1\" and {question9} = \"item1\")",
+              "maxLength": 5000
+            },
+            {
+              "type": "comment",
+              "name": "question13",
+              "title": "Because of your alcohol use, how often have you had trouble at school or with grades, had arguments with family or friends, or gotten into fights?",
+              "visibleIf": "({question1} = \"item1\" and {question2} = \"item1\") or ({question1} = \"item1\" and {question3} = \"item1\") or ({question1} = \"item1\" and {question4} = \"item1\") or ({question1} = \"item1\" and {question5} = \"item1\") or ({question1} = \"item1\" and {question6} = \"item1\") or ({question1} = \"item1\" and {question7} = \"item1\") or ({question1} = \"item1\" and {question8} = \"item1\") or ({question1} = \"item1\" and {question9} = \"item1\") or ({question2} = \"item1\" and {question3} = \"item1\") or ({question2} = \"item1\" and {question4} = \"item1\") or ({question2} = \"item1\" and {question5} = \"item1\") or ({question2} = \"item1\" and {question6} = \"item1\") or ({question2} = \"item1\" and {question7} = \"item1\") or ({question2} = \"item1\" and {question8} = \"item1\") or ({question2} = \"item1\" and {question9} = \"item1\") or ({question3} = \"item1\" and {question4} = \"item1\") or ({question3} = \"item1\" and {question5} = \"item1\") or ({question3} = \"item1\" and {question6} = \"item1\") or ({question3} = \"item1\" and {question7} = \"item1\") or ({question3} = \"item1\" and {question8} = \"item1\") or ({question3} = \"item1\" and {question9} = \"item1\") or ({question4} = \"item1\" and {question5} = \"item1\") or ({question4} = \"item1\" and {question6} = \"item1\") or ({question4} = \"item1\" and {question7} = \"item1\") or ({question4} = \"item1\" and {question8} = \"item1\") or ({question4} = \"item1\" and {question9} = \"item1\") or ({question5} = \"item1\" and {question6} = \"item1\") or ({question5} = \"item1\" and {question7} = \"item1\") or ({question5} = \"item1\" and {question8} = \"item1\") or ({question5} = \"item1\" and {question9} = \"item1\") or ({question6} = \"item1\" and {question7} = \"item1\") or ({question6} = \"item1\" and {question8} = \"item1\") or ({question6} = \"item1\" and {question9} = \"item1\") or ({question7} = \"item1\" and {question8} = \"item1\") or ({question7} = \"item1\" and {question9} = \"item1\") or ({question8} = \"item1\" and {question9} = \"item1\")",
+              "maxLength": 5000
+            },
+            {
+              "type": "comment",
+              "name": "question14",
+              "title": "What types of risky behavior have you displayed while drinking?",
+              "visibleIf": "({question1} = \"item1\" and {question2} = \"item1\") or ({question1} = \"item1\" and {question3} = \"item1\") or ({question1} = \"item1\" and {question4} = \"item1\") or ({question1} = \"item1\" and {question5} = \"item1\") or ({question1} = \"item1\" and {question6} = \"item1\") or ({question1} = \"item1\" and {question7} = \"item1\") or ({question1} = \"item1\" and {question8} = \"item1\") or ({question1} = \"item1\" and {question9} = \"item1\") or ({question2} = \"item1\" and {question3} = \"item1\") or ({question2} = \"item1\" and {question4} = \"item1\") or ({question2} = \"item1\" and {question5} = \"item1\") or ({question2} = \"item1\" and {question6} = \"item1\") or ({question2} = \"item1\" and {question7} = \"item1\") or ({question2} = \"item1\" and {question8} = \"item1\") or ({question2} = \"item1\" and {question9} = \"item1\") or ({question3} = \"item1\" and {question4} = \"item1\") or ({question3} = \"item1\" and {question5} = \"item1\") or ({question3} = \"item1\" and {question6} = \"item1\") or ({question3} = \"item1\" and {question7} = \"item1\") or ({question3} = \"item1\" and {question8} = \"item1\") or ({question3} = \"item1\" and {question9} = \"item1\") or ({question4} = \"item1\" and {question5} = \"item1\") or ({question4} = \"item1\" and {question6} = \"item1\") or ({question4} = \"item1\" and {question7} = \"item1\") or ({question4} = \"item1\" and {question8} = \"item1\") or ({question4} = \"item1\" and {question9} = \"item1\") or ({question5} = \"item1\" and {question6} = \"item1\") or ({question5} = \"item1\" and {question7} = \"item1\") or ({question5} = \"item1\" and {question8} = \"item1\") or ({question5} = \"item1\" and {question9} = \"item1\") or ({question6} = \"item1\" and {question7} = \"item1\") or ({question6} = \"item1\" and {question8} = \"item1\") or ({question6} = \"item1\" and {question9} = \"item1\") or ({question7} = \"item1\" and {question8} = \"item1\") or ({question7} = \"item1\" and {question9} = \"item1\") or ({question8} = \"item1\" and {question9} = \"item1\")",
+              "maxLength": 5000
+            }
+		],
+		"title": "During the PAST 12 MONTHS, did you:"
+    }
+  ]
+}'
+WHERE code = 'CRAFFT';

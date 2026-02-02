@@ -1,0 +1,68 @@
+.AppointmentSummary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+
+  &-Info {
+    display: flex;
+    flex-direction: row;
+    margin-right: 25px;
+  }
+
+  &-Time {
+    display: flex;
+    flex-direction: row;
+    padding-right: 15px;
+    margin-right: 5px;
+    color: #222222;
+  }
+
+  &-TimeIndicator {
+    border: 3px solid #2493e5;
+    border-radius: 2px;
+    margin-right: 14px;
+    max-height: 50px;
+  }
+
+  &-StartTime {
+    color: #222222;
+    font-size: 18px;
+    white-space: nowrap;
+    min-width: 78px;
+  }
+
+  &-Duration {
+    color: #222222;
+    font-size: 13px;
+  }
+
+  &-Client {
+    margin-bottom: 3px;
+  }
+
+  &-Location {
+    color: #222222;
+    font-size: 14px;
+    margin-bottom: 7px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Type {
+    color: #222222;
+    font-size: 12px;
+    padding: 0 8px;
+    border-radius: 2px;
+  }
+
+  &-Actions {
+    padding-top: 3px;
+    padding-left: 10px
+  }
+
+  &-Action {
+    width: 100px;
+    border-radius: 2px;
+  }
+}

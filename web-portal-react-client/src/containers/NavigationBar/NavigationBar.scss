@@ -1,0 +1,186 @@
+@import "custom/_fonts";
+
+.NavigationBar {
+  width: 100%;
+  padding: 0 10px;
+  position: sticky;
+  background: white;
+  box-shadow: 0 0 10px 1px rgba(100, 117, 118, 0.2);
+  display: flex;
+  align-items: flex-start;
+  z-index: 1000;
+
+  @media (min-width: 768px) {
+    padding: 9px 36px;
+  }
+}
+
+.NavigationBar-Panel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 12px 0;
+  margin-top: 20px;
+  position: relative;
+}
+
+.NavigationBar-Logo {
+  flex: 1;
+}
+
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+
+  & + .collapse {
+    .Navigation {
+      margin-top: 26px;
+    }
+  }
+
+  & + .collapsing {
+    .Navigation {
+      margin-top: 26px;
+    }
+  }
+}
+
+.Navigation-Item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Open Sans Semibold", sans-serif;
+  position: relative;
+  flex: 0 0 auto;
+
+  & + & {
+    margin-left: 24px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $font-color_head-text;
+
+    &:hover {
+      color: #898989;
+    }
+  }
+}
+
+.Navigation-UserNavItem {
+  margin-top: 16px;
+}
+
+.Navigation-Toggler {
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+.Navigation-Indicator {
+  width: 7px;
+  height: 7px;
+  background-color: #03b6f3;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  right: -9px;
+}
+
+.NavigationBar-Notifier {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 52px;
+    margin-right: 20px;
+  }
+}
+
+.NavigationBarLoginPopup {
+  left: 0;
+  top: 0;
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+}
+
+.NavigationBarLoginPopup-Body {
+  padding: 12px 40px;
+}
+
+.NavigationBar-CloseLoginPopupBtn {
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+    cursor: pointer;
+  }
+
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  float: right;
+}
+
+.NavigationBar-LoginBtn {
+  width: 100px;
+  height: 35px;
+
+  &.btn {
+    padding: 0;
+  }
+}
+
+.NavigationBar-OldPasswordTitle {
+  width: 440px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 25px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.NavigationBar-OldPasswordInfoText {
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.NavigationBar-Detail {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.NavigationBar-DetailText {
+  font-size: 12px;
+  margin-left: 10px;
+  color: grey;
+}
+
+.NavigationBar-DetailIcon {
+  fill: #03b6f3;
+}

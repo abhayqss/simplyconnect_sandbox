@@ -1,0 +1,12 @@
+@media (min-width: 576px) {
+    .OrganizationCategoryEditor {
+        &.modal-dialog {
+            max-width: 1040px;
+        }
+
+        .modal-content {
+            border: none;
+            max-height: 430px;
+        }
+    }
+}

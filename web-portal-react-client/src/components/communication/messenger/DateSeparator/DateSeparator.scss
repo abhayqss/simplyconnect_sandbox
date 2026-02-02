@@ -1,0 +1,47 @@
+.DateSeparator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #898989;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    &:before {
+        margin-right: 8px;
+    }
+
+    &:after {
+        margin-left: 8px;
+    }
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: red;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}

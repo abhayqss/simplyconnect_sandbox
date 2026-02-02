@@ -1,0 +1,52 @@
+.DynaForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  & > .form-group.field.field-object {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 0;
+    height: calc(100% - 100px);
+  }
+
+  fieldset {
+    padding: 20px 40px 20px;
+
+    & > legend {
+      font-size: 24px;
+      font-weight: bold;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-bottom: -20px;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    fieldset {
+      padding: 20px 0;
+    }
+  }
+
+  .field.field-error.has-error {
+    .error-detail {
+      display: none;
+    }
+  }
+
+  .ScrollTopBtn-Icon {
+    cursor: pointer;
+    fill: #898989;
+    height: 32px;
+    width: 32px;
+    background-color: #f9f9f9;
+    padding: 6px;
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+  }
+}

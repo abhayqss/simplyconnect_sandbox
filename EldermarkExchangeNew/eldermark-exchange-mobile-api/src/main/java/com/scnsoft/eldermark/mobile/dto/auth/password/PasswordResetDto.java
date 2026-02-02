@@ -1,0 +1,27 @@
+package com.scnsoft.eldermark.mobile.dto.auth.password;
+
+import javax.validation.constraints.NotBlank;
+
+public class PasswordResetDto {
+
+    @NotBlank
+    private String token;
+    @NotBlank
+    private String password;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}

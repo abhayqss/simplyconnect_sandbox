@@ -1,0 +1,53 @@
+.orgDetailTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  margin: 20px 0;
+
+  display: flex;
+}
+
+.orgDetailTitleend {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  margin: 20px 0 0;
+
+  display: flex;
+}
+
+.orgDetailNum {
+  width: 27px;
+  height: 20px;
+  background-color: #5DC7EC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+
+  margin-left: 10px;
+}
+
+
+.orgCommunities {
+
+  padding: 10px 0;
+  border-bottom: 1px solid #E0E0E0;
+
+  .orgCommunitiesTitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+  }
+
+  .orgCommunitiesInfo {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #A7A7A7;
+  }
+}

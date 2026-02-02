@@ -1,0 +1,19 @@
+.CalendarScrollable {
+    height: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        width: 6px !important;
+        height: 3px !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: 6px !important;
+        height: 3px !important;
+        background-color: #e0e0e0 !important;
+    }
+}

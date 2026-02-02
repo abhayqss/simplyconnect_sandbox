@@ -1,0 +1,15 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.RegistrationConfirmationMailDto" *#
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+<div>
+    <b>Dear ${dto.fullName},</b>
+    <br><br>
+    Thank you for registering on the
+    <a href="${portalUrl}" style="text-decoration: none"><span style="color:#0064ad;">Simply Connect platform</span></a>.
+    <br><br>
+    #set($loginUsername = ${dto.username})
+    #set($loginCompanyId = ${dto.companyId})
+    #parse("velocity/loginDetails.vm")
+    <br>
+    Forgot your password? You can always reset your password.
+    #parse( "velocity/buttonList.vm")
+</div>

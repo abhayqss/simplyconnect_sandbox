@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[CareTeamMember] ALTER COLUMN [description] VARCHAR (256);

@@ -1,0 +1,14 @@
+.FilterIcon {
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.FilterIcon_rotated_90 {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.FilterIcon_rotated_0 {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}

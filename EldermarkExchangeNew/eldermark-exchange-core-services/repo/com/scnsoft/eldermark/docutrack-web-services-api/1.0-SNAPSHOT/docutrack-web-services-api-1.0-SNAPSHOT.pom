@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>docutrack-web-services-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <javax.version>2.3.0</javax.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${javax.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-ri</artifactId>
+            <version>${javax.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>${javax.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${javax.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>cached-sandbox-wsdl</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <wsdl.url>file:///${project.basedir}/src/main/resources${wsdl.location}</wsdl.url>
+                <wsdl.location>/wsdl/sandbox-documentengine.wsdl</wsdl.location>
+            </properties>
+
+        </profile>
+
+        <profile>
+            <id>sandbox-wsdl</id>
+
+            <properties>
+                <wsdl.url>https://dtpublic.integragroup.com/docutrack/directconnect/documentengine.asmx?wsdl</wsdl.url>
+                <wsdl.location>${wsdl.url}</wsdl.location>
+            </properties>
+        </profile>
+
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <packageName>com.scnsoft.eldermark.docutrack.ws.api</packageName>
+                    <sourceDestDir>
+                        ${project.build.directory}/generated-sources/
+                    </sourceDestDir>
+                    <wsdlLocation>${wsdl.location}</wsdlLocation>
+                    <wsdlUrls>
+                        <wsdlUrl>${wsdl.url}</wsdlUrl>
+                    </wsdlUrls>
+                </configuration>
+
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.jks</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.jks</include>
+                </includes>
+            </resource>
+        </resources>
+
+    </build>
+
+</project>

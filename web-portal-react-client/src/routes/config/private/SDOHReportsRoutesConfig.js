@@ -1,0 +1,41 @@
+import { lazy } from "react";
+
+import {
+  ADMINISTRATOR,
+  BEHAVIORAL_HEALTH,
+  CLINICIAN,
+  COMMUNITY_ADMINISTRATOR,
+  DOCTOR,
+  CAREGIVER,
+  PREMIUM,
+  GROUPS,
+  NAVI_GUIDE,
+  ORGANIZATION_ADMIN,
+  PHARMACIST_VENDOR,
+  QUALITY_ASSURANCE,
+  SUPER_ADMINISTRATOR,
+  VENDOR,
+} from "../Roles";
+
+const Reports = lazy(() => import("containers/Reports/Reports/SDoH/Reports"));
+
+const { PROFESSIONALS_CARE_MANAGEMENT } = GROUPS;
+
+export default {
+  component: Reports,
+  path: "/sdoh/reports",
+  permission: [
+    SUPER_ADMINISTRATOR,
+    ORGANIZATION_ADMIN,
+    VENDOR,
+    DOCTOR,
+    CLINICIAN,
+    PHARMACIST_VENDOR,
+    BEHAVIORAL_HEALTH,
+    NAVI_GUIDE,
+    QUALITY_ASSURANCE,
+    ADMINISTRATOR,
+    COMMUNITY_ADMINISTRATOR,
+    ...PROFESSIONALS_CARE_MANAGEMENT,
+  ],
+};

@@ -1,0 +1,52 @@
+.Calendar {
+  z-index: 0;
+  position: relative;
+
+  &-Header {
+    top: -1px;
+    z-index: 2;
+    position: sticky;
+    padding: 0 20px;
+    margin: 0 -20px 30px;
+    background-color: #ffffff;
+
+    &Body {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+}
+
+.CalendarEventList {
+  height: calc(100% - 21px);
+  overflow: hidden;
+
+  &-MoreBtn {
+    color: #448993;
+    font-size: 14px;
+    font-weight: 600
+  }
+}
+
+.CalendarEventDescriptionPopup {
+  .tooltip {
+    z-index: 1000;
+    max-width: 600px;
+
+    @media (min-width: 800px) {
+      min-width: 500px;
+    }
+
+    @media (min-width: 1000px) {
+      min-width: 750px;
+      max-width: 900px;
+    }
+  }
+
+  .tooltip-inner {
+    max-width: none;
+    padding: 20px 25px;
+  }
+}

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<duke>
+    <object class="no.priv.garshol.duke.comparators.Levenshtein"
+            name="Levenshtein">
+    </object>
+    <object class="no.priv.garshol.duke.comparators.QGramComparator"
+            name="AddressComparator">
+    </object>
+    <object class="com.scnsoft.eldermark.matcher.duke.cleaners.RegexpCharCleaner"
+            name="FirstNameCleaner">
+        <param name="regexp" value="[^a-z]"/>
+    </object>
+    <object class="com.scnsoft.eldermark.matcher.duke.cleaners.RegexpCharCleaner"
+            name="AddressCleaner">
+        <param name="regexp" value="[^a-z A-Z0-9]"/>
+    </object>
+
+
+    <schema>
+        <threshold>0.93</threshold>
+        <maybe-threshold>0.68</maybe-threshold>
+        <property type="id">
+            <name>id</name>
+        </property>
+        <path>testindexdir</path>
+
+
+        <database class="no.priv.garshol.duke.databases.InMemoryDatabase">
+        </database>
+
+        <property>
+            <name>firstName</name>
+            <comparator>com.scnsoft.eldermark.matcher.duke.comparators.LevenshteinOrig</comparator>
+            <low>0.15</low>
+            <high>0.69</high>
+        </property>
+        <property>
+            <name>lastName</name>
+            <comparator>com.scnsoft.eldermark.matcher.duke.comparators.LastnameComparator</comparator>
+            <low>0.125</low>
+            <high>0.775</high>
+        </property>
+        <!--<property>-->
+        <!--<name>middleName</name>-->
+        <!--<comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>-->
+        <!--<low>0.3</low>-->
+        <!--<high>0.51</high>-->
+        <!--</property>-->
+        <property>
+            <name>addrStreet</name>
+            <comparator>AddressComparator</comparator>
+            <low>0.41</low>
+            <high>0.53</high>
+        </property>
+        <property>
+            <name>addrState</name>
+            <comparator>no.priv.garshol.duke.comparators.ExactComparator</comparator>
+            <low>0.4</low>
+            <high>0.5</high>
+        </property>
+        <property>
+            <name>addrCity</name>
+            <comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>
+            <low>0.4</low>
+            <high>0.5</high>
+        </property>
+        <property>
+            <name>addrZip</name>
+            <comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>
+            <low>0.43</low>
+            <high>0.51</high>
+        </property>
+        <property>
+            <name>ssn</name>
+            <comparator>com.scnsoft.eldermark.matcher.duke.comparators.SsnComparator</comparator>
+            <low>0.05</low>
+            <high>0.9</high>
+        </property>
+        <property>
+            <name>gender</name>
+            <comparator>no.priv.garshol.duke.comparators.ExactComparator</comparator>
+            <low>0.39</low>
+            <high>0.5</high>
+        </property>
+        <!--<property>-->
+        <!--<name>phone</name>-->
+        <!--<comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>-->
+        <!--<low>0.4</low>-->
+        <!--<high>0.8</high>-->
+        <!--</property>-->
+        <!--<property>-->
+        <!--<name>email</name>-->
+        <!--<comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>-->
+        <!--<low>0.4</low>-->
+        <!--<high>0.85</high>-->
+        <!--</property>-->
+        <property>
+            <name>birthDate</name>
+            <comparator>com.scnsoft.eldermark.matcher.duke.comparators.SimpleDateComparator</comparator>
+            <!--<comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>-->
+            <low>0.23</low>
+            <high>0.51</high>
+        </property>
+    </schema>
+    <group>
+        <jdbc>
+            <param name="driver-class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></param>
+            <param name="connection-string" value="${datasource.url}"></param>
+            <param name="user-name" value="${datasource.username}"></param>
+            <param name="password" value="${datasource.password}"></param>
+            <param name="query" value="OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1;
+select r.id, r.person_id, first_name, last_name, birth_date, ssn, c.code, pa.city, pa.state, pa.postal_code, pa.street_address
+from Resident r left join CcdCode c on r.gender_id = c.id
+join Person p on r.person_id = p.id left join PersonAddress pa on pa.person_id = p.id
+join SourceDatabase sd on r.database_id = sd.id and sd.dont_auto_merge_residents != 1
+where ssn is not null and ssn != '' and (hie_consent_policy_type is null or hie_consent_policy_type='OPT_IN') and r.last_updated >= (select last_matched from MPI_log)
+CLOSE SYMMETRIC KEY SymmetricKey1"></param>
+            <column name="street_address" property="addrStreet" cleaner="AddressCleaner"></column>
+            <column name="state" property="addrState"
+                    cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>
+            <column name="city" property="addrCity"
+                    cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>
+            <column name="postal_code" property="addrZip"></column>
+            <column name="FIRST_NAME" property="firstName" cleaner="FirstNameCleaner"></column>
+            <column name="SSN" property="ssn" cleaner="no.priv.garshol.duke.cleaners.DigitsOnlyCleaner"></column>
+            <!--<column name="MIDDLE_NAME" property="middleName" cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>-->
+            <column name="ID" property="id"></column>
+            <column name="LAST_NAME" property="lastName"
+                    cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>
+            <column name="CODE" property="gender"></column>
+            <column name="BIRTH_DATE" property="birthDate"></column>
+            <!--<column name="value" property="email"></column>-->
+            <!--<column name="value_normalized" property="phone"></column>-->
+        </jdbc>
+    </group>
+    <group>
+        <jdbc>
+            <param name="driver-class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></param>
+            <param name="connection-string" value="${datasource.url}"></param>
+            <param name="user-name" value="${datasource.username}"></param>
+            <param name="password" value="${datasource.password}"></param>
+            <param name="query" value="OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1;
+select r.id, r.person_id, first_name, last_name, birth_date, ssn, c.code, pa.city, pa.state, pa.postal_code, pa.street_address
+from Resident r left join CcdCode c on r.gender_id = c.id
+join Person p on r.person_id = p.id left join PersonAddress pa on pa.person_id = p.id
+join SourceDatabase sd on r.database_id = sd.id and sd.dont_auto_merge_residents != 1
+where ssn is not null and ssn != '' and (hie_consent_policy_type is null or hie_consent_policy_type='OPT_IN')
+CLOSE SYMMETRIC KEY SymmetricKey1"></param>
+            <column name="street_address" property="addrStreet" cleaner="AddressCleaner"></column>
+            <column name="state" property="addrState"
+                    cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>
+            <column name="city" property="addrCity"
+                    cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>
+            <column name="postal_code" property="addrZip"></column>
+            <column name="FIRST_NAME" property="firstName" cleaner="FirstNameCleaner"></column>
+            <column name="SSN" property="ssn" cleaner="no.priv.garshol.duke.cleaners.DigitsOnlyCleaner"></column>
+            <!--<column name="MIDDLE_NAME" property="middleName" cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>-->
+            <column name="ID" property="id"></column>
+            <column name="LAST_NAME" property="lastName"
+                    cleaner="no.priv.garshol.duke.cleaners.LowerCaseNormalizeCleaner"></column>
+            <column name="CODE" property="gender"></column>
+            <column name="BIRTH_DATE" property="birthDate"></column>
+            <!--<column name="value" property="email"></column>-->
+            <!--<column name="value_normalized" property="phone"></column>-->
+        </jdbc>
+    </group>
+</duke>

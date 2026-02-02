@@ -1,0 +1,52 @@
+@import "custom/_fonts";
+
+.ProspectDocumentDetail {
+  padding: 16px 0;
+
+  &-TypeIcon {
+    width: 60px;
+    min-width: 60px;
+    margin-right: 12px;
+    margin-left: -6px;
+  }
+
+  &-Title {
+    color: $font-color_head-text;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Open Sans Semibold", sans-serif;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  &-Date {
+  }
+
+  &-Actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-ViewBtn {
+    margin-right: 10px;
+  }
+
+  &-ViewBtn,
+  &-DownloadBtn {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+    padding: 6px;
+
+    &:hover{
+      background-color: #0064ad;
+      border-radius: 3px;
+      transition: 0.2s;
+      fill: white;
+      stroke: white;
+    }
+  }
+}

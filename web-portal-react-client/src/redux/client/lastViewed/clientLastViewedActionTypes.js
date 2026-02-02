@@ -1,0 +1,4 @@
+export default {
+    SET: 'SET_CLIENT_LAST_VIEWED',
+    CLEAR: 'CLEAR_CLIENT_LAST_VIEWED'
+}

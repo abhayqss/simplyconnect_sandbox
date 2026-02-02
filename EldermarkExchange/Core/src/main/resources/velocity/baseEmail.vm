@@ -1,0 +1,61 @@
+#* @vtlvariable name="subject" type="java.lang.String" *#
+#* @vtlvariable name="template" type="java.lang.String" *#
+#* @vtlvariable name="appStoreUrl" type="java.lang.String" *#
+<html>
+<head>
+</head>
+
+<body style="background-color: #F2F2F2;">
+<div style="font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color: #333;background-color: #F2F2F2;text-align: center;">
+    <div style="padding-top:15px">
+        <img src="cid:logo">
+    </div>
+    <br>
+    <table width="750"
+           style="width: 750px;box-shadow: 0 3px 6px 0 #aeaeac;background: white;margin-top: 20px;margin: 0 auto;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;text-align: left;">
+        <tr style="">
+            <td style="background: #374063;font-size: 17px;color: #fff;padding:0 30px; height: 68px;">
+                ${subject}
+            </td>
+        </tr>
+        <tr style="">
+            <td style="padding:30px">
+                #parse( "velocity/${template}")
+                #if($mobileButtons)
+                    <div>
+                        Download the PHR mobile application and monitor the health conditions of your friends/family
+                        members anytime and
+                        anywhere.<br><br>
+                        Two steps registration - click the link "I have an account in Simply Connect System" on the home
+                        page and enter your
+                        credentials.
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <a href="${appStoreUrl}">
+                                    <img src="cid:appStore">
+                                </a>
+                            </td>
+                            <td>
+                                <a href='${googlePlayUrl}'>
+                                    <img width="155" height="60" alt='Get it on Google Play' src='cid:googlePlay'/></a>
+                            </td>
+                        </tr>
+                    </table>
+                #end
+                Regards,<br/>
+                Simply Connect Team
+</div>
+</td>
+</tr>
+</table>
+<div style="color: gray;">
+    <br>***Important: Please do not reply to this email. This mailbox is not set up to receive email.<br/>
+</div>
+</div>
+</body>
+</html>
+</html>
+
+

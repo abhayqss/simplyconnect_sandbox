@@ -1,0 +1,96 @@
+@import "custom/_fonts";
+
+.ContactList {
+  &-ContactName {
+    color: #0064ad;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    font-family: "Open Sans Semibold", sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+
+  &-Avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    @media (max-width: 375px) {
+      display: none !important;
+    }
+  }
+
+  &-Avatar_black-white {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+
+  &-UserName {
+    margin-left: 10px;
+  }
+
+  &-MemberRelation {
+    font-size: 14px;
+    color: #898989;
+  }
+
+  &-Status {
+    color: $font-color_head-text;
+    font-size: 14px;
+    padding: 0 8px;
+    border-radius: 2px;
+  }
+
+  &-Actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-Membership {
+    font-size: 14px;
+    float: right;
+  }
+
+  &-MembershipLink {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0064ad;
+    float: right;
+    cursor: pointer;
+  }
+
+  &-FullNameHeader {
+    @media (min-width: 1024px) {
+      width: 25%;
+    }
+
+    @media (min-width: 1450px) {
+      width: 20%;
+    }
+  }
+}
+
+
+.ChangePasswordModel .Modal-Body.modal-body{
+  padding: 20px;
+}
+
+.ChangePasswordModel  .modal-content {
+  height: 400px;
+  top:100px;
+}
+
+.changePasswordSubmit {
+  width: 100%;
+}
+
+.passwordText {
+  font-size: 12px;
+}

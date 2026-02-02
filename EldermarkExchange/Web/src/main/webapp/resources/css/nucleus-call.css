@@ -1,0 +1,89 @@
+/*volume slider*/
+
+.volume-control .tooltip {
+    position: absolute;
+    display: block;
+    top: -25px;
+    width: 35px;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    font: 10pt Tahoma, Arial, sans-serif ;
+    border-radius: 3px;
+    border: 1px solid #333;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, .3);
+    box-sizing: border-box;
+    background: linear-gradient(top, rgba(69,72,77,0.5) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.volume-control .ui-slider-handle {
+    display: none;
+}
+
+.volume-control .ui-slider-range {
+    background: linear-gradient(top, #ffffff 0%, #eaeaea 100%);
+    position: absolute;
+    border: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 18px;
+}
+
+#slider {
+    border-radius: 18px;
+    border-width: 0;
+    width: 72px;
+    height: 2px;
+    background-color: #000000;
+    cursor: pointer
+}
+
+#nucleus {
+    border-width: 0;
+    width: 500px;
+    height: 500px;
+}
+
+section.volume-control {
+    display: inline-block;
+}
+
+.action-buttons-container {
+    padding-left: 100px;
+}
+
+.draggableBox {
+    position: absolute;
+    z-index: 1059;
+    text-align: center;
+    display: none;
+}
+
+.draggableBox .boxHeader {
+    cursor: move;
+    z-index: 1060;
+}
+
+.draggableBox .boxBody {
+    background-color: #323232;
+}
+
+.draggableBox .boxHeader.panel {
+    margin-bottom: 0;
+}
+
+.ldr-ui .alert-info.nucleus-incoming-call {
+    background-color: #323232;
+    border-color: #323232;
+    color: white;
+    border-radius: 8px;
+    min-width: 390px;
+}
+
+.nucleus-incoming-call .title-container {
+    font-size: 20px;
+}
+
+.nucleus-incoming-call .message-container {
+    font-size: 15px;
+}

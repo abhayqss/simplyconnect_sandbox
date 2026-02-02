@@ -1,0 +1,7 @@
+#* @vtlvariable name="invitation" type="com.scnsoft.eldermark.shared.carecoordination.service.InvitationDto" *#
+<div>Dear ${invitation.target},</div><br/>
+<div>
+    ${invitation.creator} has invited you to be a part of his/her care team.<br/>
+    Please <a href="${invitation.url}.">accept or reject this request</a>.<br/><br/>
+    #parse( "velocity/button.vm")
+</div>

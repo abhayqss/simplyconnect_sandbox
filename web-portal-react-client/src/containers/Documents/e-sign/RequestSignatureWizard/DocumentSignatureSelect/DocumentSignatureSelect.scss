@@ -1,0 +1,31 @@
+  @media (min-width: 576px) {
+    .DocumentSignatureSelect {
+      &.modal-dialog {
+        max-width: 600px;
+        max-height: 600px;
+      }
+    }
+  }
+
+.DocumentSignatureSelect-modal-content {
+  padding: 20px;
+  max-height: 600px;
+}
+  .ModalForm-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }

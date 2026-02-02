@@ -1,0 +1,66 @@
+@import "custom/mixins.scss";
+
+.MarketplaceProviderHeader {
+  height: 80px;
+  background: white;
+  box-shadow: 0 0 10px 1px rgba(100, 117, 118, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    padding: 10px 36px;
+  }
+
+  &-OrganizationLogo {
+    height: 60px;
+  }
+
+  &-OrganizationDescription {
+    font-size: 14px;
+    text-align: center;
+    @include line-clamp(2);
+    font-family: "Open Sans Semibold", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-SignInButton {
+    color: #00ace6;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Open Sans Semibold", sans-serif;
+    white-space: nowrap;
+
+    &Icon {
+      width: 13px;
+      height: 13px;
+      fill: #00ace6;
+    }
+  }
+}
+
+.PublicMarketplaceSignInPopup {
+  &.popover {
+    max-width: 500px;
+    border: 1px solid #dddddd;
+
+    &-inner {
+      padding: 1px;
+    }
+  }
+
+  .popover-inner {
+    padding: 5px;
+  }
+}
+
+.SignInFrame {
+  width: 400px;
+  height: 275px;
+  border: none;
+}

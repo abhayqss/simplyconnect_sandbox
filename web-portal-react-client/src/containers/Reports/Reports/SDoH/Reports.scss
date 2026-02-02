@@ -1,0 +1,73 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.SDoHReports {
+  @include page;
+
+  .Loader-Backdrop {
+    z-index: 2;
+  }
+}
+
+.SDoHReportListContainer {
+  margin-top: 10px;
+}
+
+.SDoHReportList {
+  &.Table {
+    tbody {
+      & > tr {
+        & > td {
+          padding: 20px 15px;
+        }
+      }
+    }
+  }
+}
+
+.SDoHReportList-Caption {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.SDoHReportList-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.SDoHReportList-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.SDoHReportList-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.SDoHReport-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.SDoHReportList-ActionBtn {
+  margin-left: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

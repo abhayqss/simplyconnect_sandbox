@@ -1,0 +1,20 @@
+@import "custom/_fonts.scss";
+
+.AssessmentDataDetail {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.AssessmentDataDetail-Title {
+  flex: 2;
+  font-weight: 600;
+  margin-right: 15px;
+  min-width: 90px;
+}
+
+.AssessmentDataDetail-Value {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  color: $font-color_head-text;
+}

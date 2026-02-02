@@ -1,0 +1,30 @@
+@import "custom/_fonts";
+
+.NotificationPreference {
+    margin-bottom: 5px;
+
+    &-Title {
+        font-size: 14px;
+        color: $font-color_head-text;
+    }
+
+    &-SelectLabelIcon {
+        margin-left: 5px;
+        display: inline-block;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.ResponsibilityInfoHint {
+    .tooltip-inner {
+        padding: 0;
+        max-width: inherit;
+        border: none !important;
+        box-shadow: none !important;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+}

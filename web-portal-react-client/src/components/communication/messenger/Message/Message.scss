@@ -1,0 +1,303 @@
+@import "custom/_fonts";
+@import "custom/_mixins";
+
+.Message {
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+
+    &:hover {
+        .Message-EditIcon {
+            visibility: visible;
+        }
+
+        .MessageMenu-Toggle {
+            visibility: visible;
+        }
+    }
+
+    &-Avatar {
+        width: 44px;
+        height: 44px;
+
+        @media (max-width: 1024px) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &-SendBtn {
+        cursor: pointer;
+        margin-left: 16px;
+        align-self: center;
+        padding: 8px;
+        border-radius: 20px;
+        background-color: #e6edee;
+    }
+
+    &-EditIndicator {
+        width: 20px;
+        height: 20px;
+        fill: #dddddd;
+        padding: 0 5px;
+        box-sizing: content-box;
+    }
+
+    &-ResendBtn {
+        fill: #6b6b6b;
+        width: 15px;
+        height: 15px;
+        border-radius: 20px;
+        padding: 8px;
+        cursor: pointer;
+        margin-right: 8px;
+        box-sizing: content-box;
+        background-color: #f1f1f1f1;
+
+        &:hover {
+            background-color: #dddddd;
+        }
+    }
+
+    &-Box {
+        max-width: 100%;
+        padding-left: 12px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        @media (max-width: 1024px) {
+            padding-left: 10px;
+        }
+    }
+
+    &-Content {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &-Bubble {
+        display: flex;
+        flex-direction: row;
+        background-color: #f9f9f9;
+        padding: 10px 12px;
+        border-radius: 10px;
+
+        &:hover {
+            .Message-EditIcon {
+                display: block;
+            }
+        }
+
+        & + .Message-Bubble {
+            margin-top: 4px;
+        }
+
+        &_bg {
+            &_blue {
+                background-color: rgba(105, 180, 241, 0.12);
+            }
+        }
+
+        &_type {
+            &_info {
+                background-color: transparent;
+
+                .Message-Text {
+                    color: #898989;
+                }
+            }
+        }
+    }
+
+    &Menu-Toggle {
+        top: -3px;
+        right: -12px;
+        height: 14px;
+        padding: 5px 12px;
+        position: absolute;
+        cursor: pointer;
+        visibility: visible;
+        box-sizing: content-box;
+
+        &__disconnected #SimplyConnect-Messages--dots {
+            fill: #c0c2c4;
+        }
+    }
+
+    &-Author {
+        max-width: 350px;
+        margin-right: 15px;
+        font-family: "Open Sans Semibold", sans-serif;
+        font-weight: bold;
+        color: $font-color_head-text;
+        @include line-clamp(2)
+    }
+
+    &-Text {
+        white-space: pre-line;
+        word-break: break-word;
+        color: $font-color_head-text;
+    }
+
+    &-Date {
+        font-size: 12px;
+        align-self: flex-end;
+        color: #898989;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    &-MediaFile {
+        cursor: pointer;
+    }
+
+    &-Reactions {
+        .Emoji-Icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &-Actions {
+        align-self: center;
+        position: relative;
+
+        &Gutter {
+            padding: 11px;
+        }
+    }
+
+    &-EditIcon {
+        visibility: hidden;
+        padding-left: 12px;
+        padding-right: 6px;
+        align-self: center;
+        cursor: pointer;
+
+        @media (max-width: 1024px) {
+            display: none !important;
+        }
+
+        &_disabled {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &_focused {
+            visibility: visible
+        }
+
+        g {
+            fill: #0064ad;
+        }
+    }
+}
+
+.MessageMenuPopup {
+    .tooltip-inner {
+        padding: 0;
+        text-align: left;
+        background-color: #ffffff;
+        border: none !important;
+        border-radius: 2px;
+        box-sizing: content-box;
+        z-index: 1;
+        max-width: 100%;
+    }
+
+    &-Header {
+        color: #ffffff;
+        font-size: 14px;
+        padding: 7px 15px;
+        background-color: #2493e5;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    &-Body {
+        border: 1px solid #d8d8d8;
+        border-top: none;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+}
+
+.MessageMenu {
+    &-Actions {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &-Action {
+        color: #4c4e51;
+        cursor: pointer;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-family: "Open Sans Semibold", sans-serif;
+
+        &:hover {
+            background-color: #eeeeee;
+        }
+
+        &Icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &-Reactions {
+        padding: 5px 11px;
+    }
+}
+
+.MessageReactionDetails {
+    text-align: left;
+
+    padding: 6px 0;
+
+    &Tooltip {
+        .tooltip-inner {
+            padding: 0;
+        }
+    }
+
+    &-Reaction {
+        display: flex;
+        padding: 6px 16px 0 23px;
+        margin-bottom: 10px;
+
+        &Icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &-Author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &Avatar {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+
+        &Name {
+            color: #222222;
+            font-size: 14px;
+            font-family: "Open Sans", sans-serif;
+        }
+    }
+
+    &-AuthorListItem {
+        padding: 6px 16px;
+    }
+}

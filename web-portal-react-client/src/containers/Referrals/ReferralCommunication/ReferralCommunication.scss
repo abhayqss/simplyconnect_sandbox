@@ -1,0 +1,58 @@
+@import "custom/_fonts";
+
+.ReferralInfoRequestList {
+  &.Table {
+    tbody {
+      & > tr {
+        & > td {
+          padding: 20px 15px;
+        }
+      }
+    }
+  }
+}
+
+.ReferralInfoRequestList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.ReferralCommunication-Title {
+  position: relative;
+  display: inline-block;
+}
+
+.ReferralCommunication-Count {
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+
+.ReferralInfoRequest-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.ReferralInfoRequest-ViewBtn {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}

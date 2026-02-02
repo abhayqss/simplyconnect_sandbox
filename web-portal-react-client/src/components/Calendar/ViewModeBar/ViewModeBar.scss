@@ -1,0 +1,25 @@
+.ViewModeBar {
+  flex-direction: row;
+  display: inline-flex;
+
+  &-Item {
+    padding: 12px;
+    color: #0064ad;
+    cursor: pointer;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &_active {
+      color: #222222;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

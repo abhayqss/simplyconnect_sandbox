@@ -1,0 +1,7 @@
+SET XACT_ABORT ON
+GO
+
+INSERT INTO [dbo].[Role] ([name]) VALUES
+('ROLE_SCAN_SOL_MANAGER');
+
+GO

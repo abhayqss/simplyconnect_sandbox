@@ -1,0 +1,1 @@
+alter table dbo.Document add unique_id varchar(150) NULL;

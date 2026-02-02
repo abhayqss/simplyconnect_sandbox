@@ -1,0 +1,29 @@
+.ESignDocumentTemplateField {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  color: #222;
+  background: white;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.14);
+
+  &-Title {
+    padding: 4px 10px;
+  }
+
+  &-Icon {
+    width: 20px;
+    height: 20px;
+
+    &Wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+}

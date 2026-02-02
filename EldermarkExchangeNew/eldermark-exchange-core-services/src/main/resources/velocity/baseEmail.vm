@@ -1,0 +1,120 @@
+#* @vtlvariable name="mobileButtons" type="java.lang.Boolean" *#
+#* @vtlvariable name="subject" type="java.lang.String" *#
+#* @vtlvariable name="googlePlayUrl" type="java.lang.String" *#
+#* @vtlvariable name="appStoreUrl" type="java.lang.String" *#
+
+<html>
+<head>
+    #set( $linkColor = "#0064ad")
+    #set( $gradiendBorder = ["#e5e5e5", "#e8e8e8", "#ebebeb", "#efefef", "#f0f0f0", "#f1f1f1",
+        "#f2f2f2"]) ##from darker to lighter 1px step
+    #set( $gradiendBorderReverse = ["#f2f2f2", "#f1f1f1", "#f0f0f0", "#efefef", "#ebebeb", "#e8e8e8",
+        "#e5e5e5"]) ##todo reverse programatically
+</head>
+<body>
+<!--[if mso]>
+<style type="text/css">
+    body, table, td {
+        font-family: 'Open Sans', Tahoma, sans-serif
+    }
+</style>
+<![endif]-->
+
+##table layout is required emails because email clients don't understand most of CSS
+<table cellpadding="0" cellspacing="0" border="0" bgcolor="#F2F2F2"
+       style="padding:0px; margin:0px; width:100%; background-color: #F2F2F2; font-size: 14px; font-family: 'Open Sans', Tahoma, sans-serif">
+
+    <tr>
+
+    ##<div style="background-color: #F2F2F2; color: #333333; font-size: 14px; font-family: 'Open Sans', sans-serif">
+
+    ##        <table cellpadding="0" cellspacing="0" border="0" style="padding:0px; margin:0px; width:100%;">
+    ##
+    ##            <tr>
+        <td style="padding:0px;margin:0px;"></td>
+        #set( $width = 800 +  $gradiendBorder.size() * 2)
+        <td style="padding:0px;margin:0px;" width="$width">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+
+            ##logo and organge line row
+                <tr>
+                    <td colspan="7" width="$gradiendBorder.size()"></td>
+                    <td>
+                        #parse( "velocity/base/upperLogo.vm" )
+                                  #parse( "velocity/base/darkLine.vm" )
+                    </td> ##logo and organge cell
+                    <td colspan="7" width="$gradiendBorder.size()"></td>
+                </tr>
+
+            ##left and right gradient border row with main email content
+                <tr>
+                ## left border
+                    #foreach($border in $gradiendBorderReverse)
+                        <td bgcolor="$border" style="background: $border" width="1"></td>
+                    #end
+
+                ## email payload
+                    <td>
+                        #parse( "velocity/base/mainContent.vm" )
+                    </td>
+
+                ## right border
+                    #foreach($border in $gradiendBorder)
+                        <td bgcolor="$border" style="background: $border" width="1"></td>
+                    #end
+
+                </tr>
+
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+
+            ##low round border with bottom gradient border
+                <tr>
+                ##                            #set ($bottomRowspan = $gradiendBorder.size() + 1)
+                ##                            #set ($bottomColspan = $gradiendBorder.size() + 1)
+                ##left round border
+                    <td height="12" width="12">
+                        <img align="left" width="12" src="cid:bottomLeftImage" border="0"
+                             style="display: block; margin:0;">
+                    </td>
+
+
+                ##white strip and bottom border gradient
+                    <td>
+                        <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+
+                        ##white strip
+                            <tr>
+                                <td height="5" bgcolor="white" style="background-color: white"></td>
+                            </tr>
+
+                        ##bottom gradient border
+                            #foreach($border in $gradiendBorder)
+                                <tr>
+                                    <td bgcolor="$border" style="background: $border" height="1"></td>
+                                </tr>
+                            #end
+                        </table>
+                    </td>
+
+                ##right round border
+                    <td height="12" width="12">
+                        <img align="left" width="12" src="cid:bottomRightImage" border="0"
+                             style="display: block; margin:0;">
+                    </td>
+
+                </tr>
+
+            </table>
+
+            #parse("velocity/base/footer.vm")
+
+
+        </td>
+        <td style="padding:0px;margin:0px;"></td>
+
+    </tr>
+</table>
+
+</body>
+</html>

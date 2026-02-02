@@ -1,0 +1,4 @@
+package com.scnsoft.eldermark.beans.projection;
+
+public interface DocumentSignatureTemplateAuditLogDetailsAware extends DocumentSignatureTemplateSecurityFieldsAware, IsManuallyCreatedAware,TitleAware {
+}

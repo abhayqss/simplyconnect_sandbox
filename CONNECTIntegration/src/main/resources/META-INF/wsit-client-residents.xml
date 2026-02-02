@@ -1,0 +1,121 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://app.eldermarkexchange.com/residents/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+                  name="ResidentsEndpointImplService"
+                  targetNamespace="http://app.eldermarkexchange.com/residents/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://app.eldermarkexchange.com/residents/" elementFormDefault="unqualified" targetNamespace="http://app.eldermarkexchange.com/residents/" version="1.0">
+            <xs:element name="searchResidents" type="tns:searchResidents"/>
+            <xs:element name="searchResidentsResponse" type="tns:searchResidentsResponse"/>
+            <xs:complexType name="searchResidents">
+                <xs:sequence>
+                    <xs:element name="residentFilter" type="tns:ResidentFilter"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ResidentFilter">
+                <xs:sequence>
+                    <xs:element name="firstName" type="xs:string"/>
+                    <xs:element name="lastName" type="xs:string"/>
+                    <xs:element name="gender" type="tns:Gender"/>
+                    <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dateOfBirth" type="xs:date"/>
+                    <xs:element minOccurs="0" name="phone" type="xs:string"/>
+                    <xs:element minOccurs="0" name="city" type="xs:string"/>
+                    <xs:element minOccurs="0" name="state" type="xs:string"/>
+                    <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+                    <xs:element minOccurs="0" name="street" type="xs:string"/>
+                    <xs:element minOccurs="0" name="lastFourDigitsOfSsn" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="searchResidentsResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:Resident"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Resident">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:long"/>
+                    <xs:element name="firstName" type="xs:string"/>
+                    <xs:element name="lastName" type="xs:string"/>
+                    <xs:element name="gender" nillable="true" type="tns:Gender"/>
+                    <xs:element name="middleName" nillable="true" type="xs:string"/>
+                    <xs:element name="ssn" nillable="true" type="xs:string"/>
+                    <xs:element name="birthPlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dateOfBirth" type="xs:date"/>
+                    <xs:element name="phone" nillable="true" type="xs:string"/>
+                    <xs:element name="streetAddress" nillable="true" type="xs:string"/>
+                    <xs:element name="city" nillable="true" type="xs:string"/>
+                    <xs:element name="state" nillable="true" type="xs:string"/>
+                    <xs:element name="postalCode" nillable="true" type="xs:string"/>
+                    <xs:element name="email" nillable="true" type="xs:string"/>
+                    <xs:element name="facilityId" nillable="true" type="xs:string"/>
+                    <xs:element name="facilityName" nillable="true" type="xs:string"/>
+                    <xs:element name="sourceOrganizationId" nillable="true" type="xs:string"/>
+                    <xs:element name="sourceOrganizationName" nillable="true" type="xs:string"/>
+                    <xs:element name="idInSourceOrganization" nillable="true" type="xs:string"/>
+                    <xs:element name="hashKey" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="Gender">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="MALE"/>
+                    <xs:enumeration value="FEMALE"/>
+                    <xs:enumeration value="UNDIFFERENTIATED"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="searchResidentsResponse">
+        <wsdl:part element="tns:searchResidentsResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="searchResidents">
+        <wsdl:part element="tns:searchResidents" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ResidentsEndpoint">
+        <wsdl:operation name="searchResidents">
+            <wsdl:input message="tns:searchResidents" name="searchResidents"></wsdl:input>
+            <wsdl:output message="tns:searchResidentsResponse" name="searchResidentsResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ResidentsEndpointImplServiceSoapBinding" type="tns:ResidentsEndpoint">
+        <wsp:PolicyReference URI="#ExchangeWSPolicy_UT"/>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="searchResidents">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="searchResidents">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="searchResidentsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ResidentsEndpointImplService">
+        <wsdl:port binding="tns:ResidentsEndpointImplServiceSoapBinding" name="ResidentsEndpointImplPort">
+            <soap:address location="${exchange.url}/ws/residents"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" wsu:Id="ExchangeWSPolicy_UT">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:SupportingTokens>
+                    <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+                            <wsp:Policy>
+                                <sp:WssUsernameToken10/>
+                            </wsp:Policy>
+                        </sp:UsernameToken>
+                    </wsp:Policy>
+                </sp:SupportingTokens>
+                <sc:CallbackHandlerConfiguration  xmlns:sc="http://schemas.sun.com/2006/03/wss/client"
+                                                  xmlns:wspp="http://java.sun.com/xml/ns/wsit/policy" wspp:visibility="private">
+                    <sc:CallbackHandler name="usernameHandler" default="${exchange.login}"/>
+                    <sc:CallbackHandler name="passwordHandler" default="${exchange.password}"/>
+                </sc:CallbackHandlerConfiguration>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+</wsdl:definitions>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>eldermark-exchange-datasync</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <spring.framework.version>3.2.5.RELEASE</spring.framework.version>
+        <quartz.version>2.2.1</quartz.version>
+        <spring.security.version>3.1.4.RELEASE</spring.security.version>
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+        <datasync.framework.version>1.0-SNAPSHOT</datasync.framework.version>
+
+        <final.project.name>datasync</final.project.name>
+
+        <target.database.url>jdbc:sqlserver://localhost:1433;databaseName=eldermark</target.database.url>
+        <target.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</target.database.driverclass>
+        <target.database.username>sa</target.database.username>
+        <target.database.password>eldermark</target.database.password>
+
+        <rxnorm.database.url>jdbc:sqlserver://localhost:1433;databaseName=rxnorm</rxnorm.database.url>
+        <rxnorm.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</rxnorm.database.driverclass>
+        <rxnorm.database.username>sa</rxnorm.database.username>
+        <rxnorm.database.password>eldermark</rxnorm.database.password>
+
+        <!-- Every 5 minutes -->
+        <cron.expression>0 0/5 * * * ?</cron.expression>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Test</id>
+            <properties>
+                <final.project.name>datasync-demo</final.project.name>
+                <target.database.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</target.database.url>
+                <target.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</target.database.driverclass>
+                <target.database.username>sa</target.database.username>
+                <target.database.password>qp?n-ytu?</target.database.password>
+
+                <rxnorm.database.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=rxnorm</rxnorm.database.url>
+                <rxnorm.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</rxnorm.database.driverclass>
+                <rxnorm.database.username>sa</rxnorm.database.username>
+                <rxnorm.database.password>qp?n-ytu?</rxnorm.database.password>
+
+                <!-- Every 5 minutes -->
+                <cron.expression>0 0/5 * * * ?</cron.expression>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Test2</id>
+            <properties>
+                <final.project.name>datasync-demo</final.project.name>
+                <target.database.url>jdbc:sqlserver://10.240.1.120:1433;databaseName=exchange_demo</target.database.url>
+                <target.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</target.database.driverclass>
+                <target.database.username>sa</target.database.username>
+                <target.database.password>qp?n-ytu?</target.database.password>
+
+                <rxnorm.database.url>jdbc:sqlserver://10.240.1.120:1433;databaseName=rxnorm</rxnorm.database.url>
+                <rxnorm.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</rxnorm.database.driverclass>
+                <rxnorm.database.username>sa</rxnorm.database.username>
+                <rxnorm.database.password>qp?n-ytu?</rxnorm.database.password>
+
+                <!-- Every 5 minutes -->
+                <cron.expression>0 0/5 * * * ?</cron.expression>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <final.project.name>datasync</final.project.name>
+                <target.database.url>jdbc:sqlserver://10.199.1.159;databaseName=exchange</target.database.url>
+                <target.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</target.database.driverclass>
+                <target.database.username>exchange-user</target.database.username>
+                <target.database.password>4uja!9hv5n9S=hB</target.database.password>
+
+                <rxnorm.database.url>jdbc:sqlserver://10.199.1.159;databaseName=rxnorm</rxnorm.database.url>
+                <rxnorm.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</rxnorm.database.driverclass>
+                <rxnorm.database.username>exchange-user</rxnorm.database.username>
+                <rxnorm.database.password>4uja!9hv5n9S=hB</rxnorm.database.password>
+
+                <!-- Every 2 hours -->
+                <cron.expression>0 0 0/2 1/1 * ?</cron.expression>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Prod2</id>
+            <properties>
+                <final.project.name>datasync</final.project.name>
+                <target.database.url>jdbc:sqlserver://10.199.1.129;databaseName=exchange</target.database.url>
+                <target.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</target.database.driverclass>
+                <target.database.username>exchange-user</target.database.username>
+                <target.database.password>y2Ej_8D=TH6PT7v</target.database.password>
+
+                <rxnorm.database.url>jdbc:sqlserver://10.199.1.129;databaseName=rxnorm</rxnorm.database.url>
+                <rxnorm.database.driverclass>com.microsoft.sqlserver.jdbc.SQLServerDriver</rxnorm.database.driverclass>
+                <rxnorm.database.username>exchange-user</rxnorm.database.username>
+                <rxnorm.database.password>y2Ej_8D=TH6PT7v</rxnorm.database.password>
+
+                <!-- Every 2 hours -->
+                <cron.expression>0 0 0/2 1/1 * ?</cron.expression>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.jdbc.driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.framework.version}</version>
+            <exclusions>
+                <!--Exclude JCL, use SLF4J instead -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.scnsoft.eldermark</groupId>
+            <artifactId>eldermark-datasync-framework</artifactId>
+            <version>${datasync.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>15.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${final.project.name}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.scnsoft.eldermark.exchange.DataSyncMain</mainClass>
+                            <classpathPrefix>dependencies/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/dependencies</outputDirectory>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly-descriptor.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pack-archive</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>LocalRepository</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+</project>

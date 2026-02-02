@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>resident-merger</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <hibernate.search.version>5.2.1.Final</hibernate.search.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <final.project.name>resident-merger-local</final.project.name>
+                <datasource.url>jdbc:sqlserver://localhost:1433;databaseName=exchange_demo_react_2</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>15sa15sa15</datasource.password>
+              </properties>
+        </profile>
+        <profile>
+            <id>Test2</id>
+            <properties>
+                <final.project.name>resident-merger-demo</final.project.name>
+                <datasource.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>qp?n-ytu?</datasource.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <final.project.name>resident-merger</final.project.name>
+                <datasource.url>jdbc:sqlserver://10.199.1.159;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>4uja!9hv5n9S=hB</datasource.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Prod2</id>
+            <properties>
+                <final.project.name>resident-merger</final.project.name>
+                <datasource.url>jdbc:sqlserver://10.199.1.129;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>y2Ej_8D=TH6PT7v</datasource.password>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>no.priv.garshol.duke</groupId>
+            <artifactId>duke</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.jdbc.driver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.scnsoft.eldermark</groupId>-->
+<!--            <artifactId>eldermark-exchange-core</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+
+
+        <!--        &lt;!&ndash; Hibernate &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-core</artifactId>-->
+<!--            <version>${hibernate.version}</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-validator</artifactId>-->
+<!--            <version>4.3.1.Final</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-entitymanager</artifactId>-->
+<!--            <version>${hibernate.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>cglib</groupId>-->
+<!--                    <artifactId>cglib</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>dom4j</groupId>-->
+<!--                    <artifactId>dom4j</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-search-orm</artifactId>-->
+<!--            <version>${hibernate.search.version}</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Infinispan integration: &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-search-infinispan</artifactId>-->
+<!--            <version>${hibernate.search.version}</version>-->
+<!--        </dependency>-->
+    </dependencies>
+
+    <build>
+        <finalName>${final.project.name}</finalName>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.scnsoft.eldermark.matcher.ResidentMergerMain</mainClass>
+                            <classpathPrefix>dependencies/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/dependencies</outputDirectory>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.scnsoft.eldermark.matcher.ResidentMergerMain</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptors>
+                        <descriptor>src/main/assembly-descriptor.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pack-archive</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+    </build>
+</project>

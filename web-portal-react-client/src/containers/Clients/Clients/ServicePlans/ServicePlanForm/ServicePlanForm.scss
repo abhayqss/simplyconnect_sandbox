@@ -1,0 +1,164 @@
+@import "custom/_fonts";
+
+.ServicePlanForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ServicePlanForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.ServicePlanForm-CheckboxField {
+  &.form-group {
+    padding-bottom: 5px;
+  }
+
+  .CheckboxField-Label {
+    margin-top: 3px;
+  }
+}
+
+.ServicePlanForm-SectionTitle {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  white-space: nowrap;
+  font-size: 26px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ServicePlanForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.ServicePlanForm-FilterFieldIcon {
+  top: 45px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+  position: absolute;
+}
+
+.ServicePlanForm-Actions {
+  .delete {
+    fill: #0064ad;
+  }
+
+  float: right;
+}
+
+.ServicePlanForm-Anchors {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0064ad;
+  margin-right: 32px;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.AddNeedBtn {
+  &.btn {
+    padding: 0 15px;
+  }
+
+  white-space: nowrap;
+  margin-top: 7px;
+  height: 35px;
+}
+
+.AddBtn {
+  &.btn {
+    padding: 0;
+  }
+
+  margin-top: 7px;
+  width: 105px;
+  height: 35px;
+}
+
+.DeleteBtn {
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+    cursor: pointer;
+  }
+
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+}
+
+.ServicePlanForm-SectionHeader {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  @media (min-width: 650px) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ServicePlanForm-SectionTitle {
+    margin-bottom: 15px;
+  }
+}
+
+.ServicePlanForm-Scoring__ActivationTable {
+  &.Table.table {
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-bottom: 20px;
+
+    thead .Table-Header {
+      vertical-align: top;
+    }
+
+    tbody tr td {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      padding: 21px 17px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    caption {
+      display: none;
+    }
+
+    th {
+      font-size: 14px;
+      background-color: #f6f6f6;
+      color: $font-color_head-text;
+      height: 78px;
+    }
+  }
+}

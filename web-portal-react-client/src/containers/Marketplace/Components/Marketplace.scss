@@ -1,0 +1,160 @@
+.MarketplaceWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 80px);
+  padding: 35px 34px 41px;
+  margin-bottom: 40px;
+  overflow: scroll;
+}
+
+.MarketplaceHeader {
+  display: flex;
+  flex-direction: column;
+
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .MarketplaceHeadertitle {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+  }
+
+  .MarketplaceHeadertitleRight {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    .MarketplaceHeadertitleSearch {
+      display: flex;
+      margin-right: 30px;
+
+      .markplaceSearch {
+
+        .select__control {
+          min-width: 130px;
+          height: 43px !important;
+        }
+
+        .css-1u9des2-indicatorSeparator {
+          background-color: transparent;
+        }
+      }
+
+      .markplaceSearchInput {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+
+        border: 1px solid hsl(0, 0%, 80%);
+        outline: none;
+
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+
+        &::-webkit-inner-shadow {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .MarketplaceHeaderTitleButton {
+    width: 153px;
+    height: 43px;
+    background: #2962A8;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.BuildingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 41px;
+
+  .BuildingHeaderLeft {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 25px;
+      margin-left: 5px;
+    }
+  }
+
+
+  .BuildingHeaderRight {
+    cursor: pointer;
+  }
+
+}
+
+.VendorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 41px;
+
+  .VendorHeaderLeft {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 25px;
+      margin-left: 5px;
+    }
+  }
+
+  .VendorHeaderRight {
+    color: #000;
+    cursor: pointer;
+  }
+
+}
+
+
+.rotateSvg {
+  transform: rotate(-180deg);
+}
+
+
+.markplaceFooter {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1000 !important;
+}
+
+a {
+  text-decoration: none
+}
+
+.classNameOrg {
+  padding: 8px 12px !important;
+}

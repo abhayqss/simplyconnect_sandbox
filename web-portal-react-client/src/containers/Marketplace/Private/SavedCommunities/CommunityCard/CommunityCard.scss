@@ -1,0 +1,29 @@
+.CommunityCard {
+    border-radius: 2px;
+    overflow: hidden;
+
+    .card-body {
+        padding: 16px;
+        padding-bottom: 24px;
+    }
+
+    &-Head {
+        height: 150px;
+    }
+
+    &-Body {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &-CheckboxField {
+        margin-right: 12px;
+        padding-top: 0 !important;
+    }
+
+    &-Photo {
+        width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+}

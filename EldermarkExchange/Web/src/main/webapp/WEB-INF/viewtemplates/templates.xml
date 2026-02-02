@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- login -->
+    <definition name="loginPageTemplate" template="/WEB-INF/pages/tiles/content/login/content.jsp">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/login/layout.jsp"/>
+        <!--<put-attribute name="header" value="" cascade="true"/>-->
+        <!--<put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp" cascade="true"/>-->
+        <put-attribute name="errors" value="/WEB-INF/pages/tiles/content/error-messages.jsp" cascade="true"/>
+        <put-attribute name="body" value="" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="defaultMenu hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="login.loginPage" extends="loginPageTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/login/resources.jsp" cascade="true"/>
+        <!--<put-attribute name="header" value="/WEB-INF/pages/tiles/header/login/header.jsp" cascade="true"/>-->
+        <put-attribute name="body" value="/WEB-INF/pages/login/loginPage.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="marketplace" template="/WEB-INF/pages/marketplace/content.jsp">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/marketplace/marketplaceLayout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/marketplace/resources.jsp" cascade="true"/>
+        <put-attribute name="header" value="/WEB-INF/pages/marketplace/marketplaceHeader.jsp" cascade="true"/>
+        <put-attribute name="filter" value="/WEB-INF/pages/marketplace/marketplaceFilter.jsp" cascade="true"/>
+        <put-attribute name="menu" value="/WEB-INF/pages/marketplace/marketplaceMenu.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/marketplace/marketplaceMap.jsp" cascade="true"/>
+        <put-attribute name="errors" value="/WEB-INF/pages/tiles/content/error-messages.jsp" cascade="true"/>
+        <put-attribute name="footer" value=""/>
+        <!--<put-attribute name="mainCssClass" value="reportsMain ldr-center-block" type="string" cascade="true"/>-->
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="defaultMenu" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="marketplace.popup"
+                template="/WEB-INF/pages/marketplace/marketplacePopup.jsp"/>
+    <definition name="marketplace.details"
+                template="/WEB-INF/pages/marketplace/marketplaceDetails.jsp"/>
+
+    <!-- main -->
+
+    <definition name="pageTemplate" template="/WEB-INF/pages/tiles/content/base/content.jsp">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/base/layout.jsp"/>
+        <put-attribute name="header" value="" cascade="true"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp" cascade="true"/>
+        <put-attribute name="errors" value="" cascade="true"/>
+        <put-attribute name="widgets" value="/WEB-INF/pages/tiles/widgets.jsp" cascade="true"/>
+        <put-attribute name="body" value="" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="defaultMenu hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="fragmentTemplate" template="/WEB-INF/pages/tiles/content/fragment/content.jsp">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/base/layout.jsp"/>
+        <put-attribute name="header" value="" cascade="true"/>
+        <put-attribute name="footer" value="" cascade="true"/>
+        <put-attribute name="body" value="" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="defaultMenu hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="patient.patientSearch" extends="fragmentTemplate">
+        <put-attribute name="errors" value="" cascade="true"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/patient/search/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/patient/search/patientList.jsp" cascade="true"/>
+        <put-attribute name="menu" value="/WEB-INF/pages/patient/search/patientFilter.jsp" cascade="true"/>
+
+        <put-attribute name="bodyCssClass" value="patientListBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="patientFilterMenu" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="patient.patientInfo" extends="fragmentTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/patient/info/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/patient/info/patientInformation.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="secure.messaging.compose" extends="fragmentTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/secure/msg/new/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/secure/msg/new/composeMsg.jsp" cascade="true"/>
+
+        <put-attribute name="breadcrumb" value="/WEB-INF/pages/secure/msg/new/breadcrumb.jsp" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody composingMsgBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="patient-info.messaging.compose" extends="fragmentTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/secure/msg/new/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/secure/msg/new/composeMsg.jsp" cascade="true"/>
+
+        <put-attribute name="breadcrumb" value="/WEB-INF/pages/patient/msg/breadcrumb.jsp" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody composingMsgBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="carecoordination.messaging.compose" extends="fragmentTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/secure/msg/new/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/secure/msg/new/composeMsg.jsp" cascade="true"/>
+
+        <put-attribute name="breadcrumb" value="/WEB-INF/pages/care-coordination/patient/secure-message-breadcrumb.jsp"
+                       cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody composingMsgBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="config-warning.view" extends="fragmentTemplate">
+        <put-attribute name="resources" value="" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/secure/msg/config/msgConfigWarning.jsp" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="messaging.setup" extends="fragmentTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/secure/msg/setup/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/secure/msg/setup/messagingSetup.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="documents.view" template="/WEB-INF/pages/patient/info/documentList.jsp"/>
+    <definition name="patient.ccdHeaderDetails.view" template="/WEB-INF/pages/patient/info/ccdHeaderDetails.jsp"/>
+    <definition name="patient.ccdPlanOfCareDetails.view" template="/WEB-INF/pages/care-coordination/patient/docDetails.jsp"/>
+    <definition name="document.cda-viewer" template="/WEB-INF/pages/care-coordination/patient/cda-view.jsp"/>
+    <!--ccd section views-->
+    <definition name="patient.allergies.view" template="/WEB-INF/pages/patient/info/allergies.jsp"/>
+    <definition name="patient.problems.view" template="/WEB-INF/pages/patient/info/ccd/problems/problems.jsp"/>
+    <definition name="patient.medications.view" template="/WEB-INF/pages/patient/info/medications.jsp"/>
+    <definition name="patient.procedures.view" template="/WEB-INF/pages/patient/info/procedures.jsp"/>
+    <definition name="patient.results.view" template="/WEB-INF/pages/patient/info/results.jsp"/>
+    <definition name="patient.encounters.view" template="/WEB-INF/pages/patient/info/encounters.jsp"/>
+    <definition name="patient.advanceDirectives.view" template="/WEB-INF/pages/patient/info/advanceDirectives.jsp"/>
+    <definition name="patient.familyHistory.view" template="/WEB-INF/pages/patient/info/familyHistory.jsp"/>
+    <definition name="patient.vitalSigns.view" template="/WEB-INF/pages/patient/info/vitalSigns.jsp"/>
+    <definition name="patient.immunizations.view" template="/WEB-INF/pages/patient/info/immunizations.jsp"/>
+    <definition name="patient.payerProviders.view" template="/WEB-INF/pages/patient/info/payerProviders.jsp"/>
+    <definition name="patient.medicalEquipment.view" template="/WEB-INF/pages/patient/info/medicalEquipment.jsp"/>
+    <definition name="patient.socialHistory.view" template="/WEB-INF/pages/patient/info/socialHistory.jsp"/>
+    <definition name="patient.planOfCare.view" template="/WEB-INF/pages/patient/info/planOfCare.jsp"/>
+
+    <!-- Ccd section modals -->
+    <definition name="patient.problems.modal" template="/WEB-INF/pages/patient/info/ccd/problems/problems-modal.jsp"/>
+
+
+    <definition name="messaging.view" extends="fragmentTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/secure/msg/listdetail/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/secure/msg/listdetail/msgListDetail.jsp" cascade="true"/>
+        <put-attribute name="menu" value="/WEB-INF/pages/secure/msg/listdetail/msgMenu.jsp" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="secureMsgListBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="secureMsgMenu" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="messaging.details.view" template="/WEB-INF/pages/secure/msg/listdetail/msgDetails.jsp"/>
+
+    <!-- access denied -->
+    <definition name="accessDenied.view" extends="fragmentTemplate">
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header/base/header.jsp" cascade="true"/>
+        <put-attribute name="headerLinks" value="/WEB-INF/pages/tiles/header/base/links.jsp" cascade="true"/>
+        <put-attribute name="resources" value="" cascade="true"/>
+
+        <put-attribute name="body" value="/WEB-INF/pages/login/accessDenied.jsp" cascade="true"/>
+
+        <put-attribute name="mainCssClass" value="defaultMain ldr-center-block" type="string" cascade="true"/>
+        <put-attribute name="bodyCssClass" value="defaultBody" type="string" cascade="true"/>
+        <put-attribute name="menuCssClass" value="hidden" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="header.view" extends="fragmentTemplate">
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header/base/header.jsp" cascade="true"/>
+        <put-attribute name="errors" value="" cascade="true"/>
+        <put-attribute name="resources" value="" cascade="true"/>
+        <put-attribute name="body" value="" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="/WEB-INF/pages/tiles/header/base/links.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="footer.view" extends="fragmentTemplate">
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp" cascade="true"/>
+        <put-attribute name="errors" value="" cascade="true"/>
+        <put-attribute name="resources" value="" cascade="true"/>
+        <put-attribute name="body" value="" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+    </definition>
+
+    <definition name="start.view" extends="pageTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="" cascade="true"/>
+        <put-attribute name="body" value="" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="" cascade="true"/>
+    </definition>
+
+    <!--Care Coordination -->
+
+    <definition name="careCoordination" extends="fragmentTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/careCoordination.jsp" cascade="true"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/resources.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="reports" extends="fragmentTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/reports/reports.jsp" cascade="true"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/reports/resources.jsp" cascade="true"/>
+        <put-attribute name="mainCssClass" value="reportsMain ldr-center-block" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="events.log" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/event-log/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/event-log/events-log.jsp" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="" cascade="true"/>
+    </definition>
+
+    <definition name="event.new" template="/WEB-INF/pages/care-coordination/event-new.jsp"/>
+
+    <definition name="event.details" template="/WEB-INF/pages/care-coordination/event-log/event-details.jsp"/>
+    <definition name="event.description" template="/WEB-INF/pages/care-coordination/event-log/event-description.jsp"/>
+    <definition name="event.sent.notifications"
+                template="/WEB-INF/pages/care-coordination/event-log/event-notifications.jsp"/>
+
+    <definition name="care.coordination.patients" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/patient/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/patient/patients.jsp" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="" cascade="true"/>
+    </definition>
+
+    <definition name="care.coordination.patient.details"
+                template="/WEB-INF/pages/care-coordination/patient/patient-details.jsp"/>
+    <definition name="care.coordination.create.careteam.member"
+                template="/WEB-INF/pages/care-coordination/patient/create-care-team-member.jsp"/>
+    <definition name="care.coordination.delete.careteam.member"
+                template="/WEB-INF/pages/care-coordination/patient/delete-care-team-member.jsp"/>
+
+    <definition name="patient.event.details"
+                template="/WEB-INF/pages/care-coordination/patient/patient-event-details.jsp"/>
+
+    <definition name="care.coordination.communities" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/communities/resources.jsp"
+                       cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/communities/communities.jsp" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="" cascade="true"/>
+    </definition>
+
+    <definition name="care.coordination.patient.edit"
+                template="/WEB-INF/pages/care-coordination/patient/patient-edit.jsp"/>
+
+    <definition name="care.coordination.patient.matches"
+                template="/WEB-INF/pages/care-coordination/patient/patient-matches.jsp"/>
+
+    <definition name="care.coordination.community.details"
+                template="/WEB-INF/pages/care-coordination/communities/community-details.jsp"/>
+
+    <definition name="care.coordination.community.copysettings"
+                template="/WEB-INF/pages/care-coordination/communities/copy-settings.jsp"/>
+
+    <definition name="care.coordination.contacts" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/contacts/contacts.jsp" cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="" cascade="true"/>
+    </definition>
+
+    <definition name="care.coordination.contacts.edit"
+                template="/WEB-INF/pages/care-coordination/contacts/edit-contact.jsp"/>
+
+    <definition name="care.coordination.invite" extends="loginPageTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/resources.jsp" cascade="true"/>
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header/login/header.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/service/invite.jsp" cascade="true"/>
+    </definition>
+
+
+    <definition name="care.coordination.organizations" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/care-coordination/organizations/resources.jsp"
+                       cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/organizations/organizations.jsp"
+                       cascade="true"/>
+        <put-attribute name="menu" value="" cascade="true"/>
+        <put-attribute name="headerLinks" value="" cascade="true"/>
+    </definition>
+
+
+    <definition name="care.coordination.organizations.edit"
+                template="/WEB-INF/pages/care-coordination/organizations/organization-edit.jsp">
+    </definition>
+
+    <definition name="care.coordination.organizations.password.settings"
+                template="/WEB-INF/pages/care-coordination/organizations/organization-password-settings.jsp">
+    </definition>
+
+    <definition name="care.coordination.communities.edit"
+                template="/WEB-INF/pages/care-coordination/communities/community-edit.jsp"/>
+
+    <definition name="network.plan.table"
+                template="/WEB-INF/pages/care-coordination/networkPlanTable.jsp"/>
+
+    <definition name="care.coordination.reset.request" extends="loginPageTemplate">
+        <put-attribute name="resources" value="" cascade="true"/>
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header/login/header.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/service/reset-request.jsp" cascade="true"/>
+    </definition>
+
+
+    <definition name="care.coordination.reset" extends="loginPageTemplate">
+        <put-attribute name="resources" value="" cascade="true"/>
+        <put-attribute name="header" value="/WEB-INF/pages/tiles/header/login/header.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/service/reset.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="care.coordination.error" extends="loginPageTemplate">
+        <put-attribute name="resources" value="" cascade="true"/>
+        <!--<put-attribute name="header" value="/WEB-INF/pages/tiles/header/login/header.jsp" cascade="true"/>-->
+        <put-attribute name="body" value="/WEB-INF/pages/care-coordination/error.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="transportation" template="/WEB-INF/pages/transportation/transportation.jsp"/>
+
+    <definition name="care.coordination.organization.details"
+                template="/WEB-INF/pages/care-coordination/organizations/organization-details.jsp"/>
+
+    <!-- Administration -->
+
+    <definition name="administration" extends="fragmentTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/administration/administration.jsp" cascade="true"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/administration/resources.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="administration.matching.manual" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/administration/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/administration/manual-matching/patients.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="administration.matching.manual.step2"
+                template="/WEB-INF/pages/administration/manual-matching/step2.jsp"/>
+    <definition name="administration.matching.manual.confirmation"
+                template="/WEB-INF/pages/administration/manual-matching/confirmation.jsp"/>
+
+    <definition name="administration.matching.suggested" extends="fragmentTemplate">
+        <put-attribute name="appLayout" value="/WEB-INF/pages/tiles/layout/ajax/layout.jsp"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/administration/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/administration/suggested-matches/patients.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="administration.matching.suggested.step2"
+                template="/WEB-INF/pages/administration/suggested-matches/step2.jsp"/>
+    <definition name="administration.matching.suggested.confirmation"
+                template="/WEB-INF/pages/administration/suggested-matches/confirmation.jsp"/>
+
+    <!-- Nucleus -->
+
+    <!--<definition name="nucleus.call" template="/WEB-INF/pages/nucleus/call.jsp"/>-->
+
+    <!-- Profile -->
+
+    <definition name="profile.view" extends="fragmentTemplate">
+        <put-attribute name="body" value="/WEB-INF/pages/profile/user-profile.jsp" cascade="true"/>
+        <put-attribute name="resources" value="/WEB-INF/pages/profile/resources.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="profile.accounts.link"
+                template="/WEB-INF/pages/profile/link-accounts.jsp">
+        <put-attribute name="resources" value="/WEB-INF/pages/profile/resources.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="profile.accounts.linked.details"
+                template="/WEB-INF/pages/profile/linked-employees.jsp">
+    </definition>
+
+    <definition name="profile.accounts.linkcreated"
+                template="/WEB-INF/pages/profile/link-new-account.jsp">
+        <put-attribute name="resources" value="/WEB-INF/pages/profile/resources.jsp" cascade="true"/>
+    </definition>
+
+    <definition name="login.changePassword" extends="loginPageTemplate">
+        <put-attribute name="resources" value="/WEB-INF/pages/login/resources.jsp" cascade="true"/>
+        <put-attribute name="body" value="/WEB-INF/pages/login/changePassword.jsp" cascade="true"/>
+    </definition>
+
+    <!-- Notes -->
+    <definition name="patient.note.details"
+                template="/WEB-INF/pages/care-coordination/patient/patient-note-details.jsp"/>
+    <definition name="note.modal" template="/WEB-INF/pages/care-coordination/note-modal.jsp"/>
+
+    <!-- Assessments -->
+
+    <definition name="patient.assessment.select.type"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-modal.jsp"/>
+    <definition name="patient.assessment.result"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-result.jsp"/>
+    <definition name="patient.assessment.scoring"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-scoring.jsp"/>
+    <definition name="patient.assessment.view"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-view.jsp"/>
+    <definition name="patient.assessment.history.view"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-view-history.jsp"/>
+    <definition name="patient.assessment.result.edit"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-edit-modal.jsp"/>
+
+    <definition name="patient.assessment.priority.review"
+                template="/WEB-INF/pages/care-coordination/patient/patient-assessment-priority-review.jsp"/>
+
+</tiles-definitions>

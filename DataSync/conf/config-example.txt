@@ -1,0 +1,3 @@
+ignore.sync.flag=true
+run.in.background=false
+database.urls=jdbc:odbc:Eldermark

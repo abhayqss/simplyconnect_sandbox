@@ -1,0 +1,195 @@
+@import "custom/_fonts";
+
+$list-min-width: 320px;
+$list-max-width: 500px;
+
+.Conversations {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  border-right: 1px solid #e3e3e3;
+  height: 100%;
+  min-width: $list-min-width;
+  max-width: $list-max-width;
+  width: 40%;
+
+  @media (max-width: 1024px) {
+    padding-top: 16px;
+  }
+
+  @media (max-width: 667px) {
+    padding-top: 20px;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.Conversation-Fallback {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 127px;
+
+  @media (max-width: 1024px) {
+    margin: 0;
+    justify-content: center;
+  }
+
+  @media (max-width: 667px) {
+    display: none;
+  }
+}
+
+.Conversation-FallbackImg {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+}
+
+.Conversation-FallbackText {
+  font-size: 20px;
+  white-space: nowrap;
+  color: $font-color_head-text;
+  font-weight: bold;
+  font-family: "Open Sans Semibold", sans-serif;
+  user-select: none;
+}
+
+.Conversations-Container {
+  display: flex;
+}
+
+.Conversations-Conversation {
+  width: 60%;
+  max-width: calc(100% - #{$list-min-width});
+
+  @media (max-width: 667px) {
+    max-width: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    height: calc(100% - 56px);
+    background-color: white;
+    z-index: 1;
+    transition: 300ms left ease-in-out;
+    animation: open 300ms;
+
+    @keyframes open {
+      from {
+        left: 100%;
+      }
+      to {
+        left: 0;
+      }
+    }
+
+    @keyframes close {
+      from {
+        left: 0;
+      }
+      to {
+        left: 100%;
+      }
+    }
+
+    &_close {
+      animation: close 300ms;
+    }
+  }
+}
+
+.Conversations-Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 200px;
+  margin-bottom: 26px;
+
+  @media (max-width: 667px) {
+    margin-bottom: 16px;
+  }
+}
+
+.Conversations-Title {
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
+}
+
+.Conversations-Actions {
+  z-index: 1;
+  position: relative;
+  margin-right: -10px;
+}
+
+.Conversations-ActionBtn {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 20px;
+  box-sizing: content-box;
+  background-color: #e6edee;
+
+  &.IconButton {
+    &_disabled {
+      svg {
+        fill: #898989;
+      }
+    }
+  }
+
+  &.IconButton svg {
+    box-sizing: content-box;
+  }
+}
+
+.ConversationList {
+  overflow-y: auto;
+}
+
+.Conversations-MobileActionPicker {
+  max-width: 392px;
+}
+
+.Conversations-ActionPicker {
+}
+
+.ConversationFilter {
+  .ConversationFilter-Field {
+    margin-bottom: 0;
+  }
+}
+
+.Conversations-Fallback {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // margin-top: 50px;
+
+  @media (max-width: 1024px) {
+    margin: 0;
+    justify-content: center;
+  }
+}
+
+.Conversations-FallbackImg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 24px;
+}
+
+.Conversations-FallbackText {
+  font-size: 20px;
+  white-space: nowrap;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+  user-select: none;
+}

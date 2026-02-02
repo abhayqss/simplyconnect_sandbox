@@ -1,0 +1,22 @@
+.Scrollable {
+    height: 100%;
+    overflow-y: auto;
+
+    &-ScrollTopBtn {
+        position: absolute;
+        bottom: 24px;
+        right: 32px;
+
+        &Icon {
+            cursor: pointer;
+            fill: #898989;
+            height: 32px;
+            width: 32px;
+            background-color: #f9f9f9;
+            padding: 6px;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,51 @@
+.ServicePlanEditor {
+  &.modal-dialog {
+    padding: 20px 5px;
+    max-width: 1040px;
+  }
+
+  .Modal-Header {
+    .modal-title {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
+
+.ServicePlanEditor {
+  .ServicePlanScoring {
+    margin-top: 40px;
+  }
+}
+
+.ScoringHint-Icon {
+  margin-left: 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ServicePlanEditor-ArrowAnchor {
+  position: absolute;
+  right: 40px;
+  bottom: 80px;
+}
+
+.ServicePlanEditor-ArrowTopIcon {
+  &:hover {
+    cursor: pointer;
+  }
+
+  fill: #898989;
+  height: 32px;
+  width: 32px;
+  background-color: #f9f9f9;
+  padding: 6px;
+}
+
+.ServicePlanEditor-Footer {
+  .btn {
+    margin: 0 10px 0 14px;
+  }
+}

@@ -1,0 +1,24 @@
+#* @vtlvariable name="headerStyle" type="java.lang.String" *#
+#* @vtlvariable name="subHeaderStyle" type="java.lang.String" *#
+#* @vtlmacrolibrary path="../secureMessageMacroses.vm" *#
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.lab.LabEventNotificationSecureMailDto" *#
+#* @vtlvariable name="dateFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="dateTimeFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="DataUtils" type="com.scnsoft.eldermark.util.DataUtils" *#
+#* @vtlvariable name="Instant" type="java.time.Instant" *#
+
+#parse("velocity/secureMessageMacroses.vm")
+
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    You have a new COVID-19 result(s) for ${dto.clientName}.
+    <br>
+    <br>
+    For more details, please <a href="${dto.labOrderUrl}">login</a> to the Simply Connect platform.
+</div>
+
+
+
+
+

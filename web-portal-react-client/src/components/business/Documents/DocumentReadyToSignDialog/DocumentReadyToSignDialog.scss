@@ -1,0 +1,41 @@
+.DocumentReadyToSignDialog {
+  &-Text {
+    font-size: 14px;
+    margin-bottom: 48px;
+    align-self: flex-start;
+  }
+
+  &-PinLabel {
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    width: 320px;
+  }
+
+  &-PinSection {
+    width: 320px;
+  }
+
+  &-PinInput.form-control {
+    height: 35px;
+    background-color: #dee4e6;
+
+    &:focus {
+      box-shadow: none;
+      border-color: #ced4da;
+    }
+  }
+
+  &-Button {
+    height: 100%;
+  }
+
+  &-CloseButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+    color: #000;
+    cursor: pointer;
+  }
+}

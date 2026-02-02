@@ -1,0 +1,79 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Documents {
+  @include page;
+
+  &-Header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  &-HeaderItem {
+    margin-right: 20px;
+    padding-bottom: 10px;
+
+    &:first-child {
+      flex: 1
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-Title {
+    white-space: nowrap;
+    position: relative;
+  }
+
+  &-TitleText {
+    display: inline-block;
+    font-size: 26px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-ClientName {
+    font-size: 20px;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-Actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.ClientDocumentList {
+  .DocumentList-MultiDownload.Dropdown {
+    .btn.Dropdown-Toggle {
+      &:hover {
+        border: none;
+      }
+
+      padding: 0;
+      border: none;
+    }
+  }
+}
+
+.DocumentFilter-Icon {
+  cursor: pointer;
+
+  &_rotated_90 {
+    transform: rotate(90deg);
+    transition: 0.3s;
+  }
+
+  &_rotated_0 {
+    transform: rotate(0deg);
+    transition: 0.3s;
+  }
+}

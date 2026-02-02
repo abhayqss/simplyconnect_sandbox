@@ -1,0 +1,11 @@
+.ContactPermissionsInfo {
+    text-align: initial;
+
+    &-InfoText {
+        color: #333333;
+
+        &_bold {
+            font-weight: 600;
+        }
+    }
+}

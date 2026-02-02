@@ -1,0 +1,1 @@
+ALTER TABLE Employee_enc ALTER COLUMN inactive int NOT NULL;

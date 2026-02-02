@@ -1,0 +1,5 @@
+MSH|^~\&|OTHER_KIOSK|HIMSSSANDIEGO|XDSb_REG_MISYS|MISYS|${messageDate}||ADT^A40^ADT_A39|4143361005927619863|P|2.3.1
+EVN||${eventDate}
+PID|||${pid}||${lastName}^${firstName}||${birthDate}|${sex}|
+MRG|${mergePid}
+PV1||O|

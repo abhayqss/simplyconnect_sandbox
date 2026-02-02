@@ -1,0 +1,29 @@
+.HieConsentPolicyWarningDialog-ClientLink, .InvitedCareTeamMember-ClientLink, .InvitedCareTeamMember-TargerLink {
+  font-weight: 600;
+  color: #0064ad;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.InvitedCareTeamMember-Separator {
+  margin: 0 5px 0 5px;
+}
+
+.InvitedCareTeamMember-TargerLink {
+  margin-right: 5px;
+
+  &::after {
+    content: ',';
+  }
+
+  &:last-child {
+    margin-right: 0;
+    
+    &::after {
+      content: none;
+    }
+  }
+}

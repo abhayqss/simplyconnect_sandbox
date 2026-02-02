@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<duke>
+    <object class="no.priv.garshol.duke.comparators.Levenshtein"
+            name="Levenshtein">
+    </object>
+      <object class="no.priv.garshol.duke.comparators.QGramComparator"
+          name="AddressComparator">
+    </object>
+    <object class="com.scnsoft.eldermark.merger.duke.RegexpCharCleaner"
+            name="FirstNameCleaner">
+        <param name="regexp" value="[^a-z]"/>
+    </object>
+    <object class="com.scnsoft.eldermark.merger.duke.RegexpCharCleaner"
+            name="AddressCleaner">
+        <param name="regexp" value="[^a-z A-Z0-9]"/>
+    </object>
+
+    <schema>
+        <threshold>0.93</threshold>
+        <maybe-threshold>0.68</maybe-threshold>
+        <property type="id">
+            <name>id</name>
+        </property>
+        <path>testindexdir</path>
+
+        <database class="no.priv.garshol.duke.databases.InMemoryDatabase">
+        </database>
+
+        <property>
+            <name>firstName</name>
+            <comparator>com.scnsoft.eldermark.merger.duke.comparator.LevenshteinComparator</comparator>
+            <low>0.15</low>
+            <high>0.69</high>
+        </property>
+        <property>
+            <name>lastName</name>
+            <comparator>com.scnsoft.eldermark.merger.duke.comparator.LastnameComparator</comparator>
+            <low>0.125</low>
+            <high>0.775</high>
+        </property>
+        <property>
+            <name>addrStreet</name>
+            <comparator>AddressComparator</comparator>
+            <low>0.41</low>
+            <high>0.53</high>
+        </property>
+        <property>
+            <name>addrState</name>
+            <comparator>no.priv.garshol.duke.comparators.ExactComparator</comparator>
+            <low>0.4</low>
+            <high>0.5</high>
+        </property>
+        <property>
+            <name>addrCity</name>
+            <comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>
+            <low>0.4</low>
+            <high>0.5</high>
+        </property>
+        <property>
+            <name>addrZip</name>
+            <comparator>no.priv.garshol.duke.comparators.Levenshtein</comparator>
+            <low>0.43</low>
+            <high>0.51</high>
+        </property>
+        <property>
+            <name>ssn</name>
+            <comparator>com.scnsoft.eldermark.merger.duke.comparator.SsnComparator</comparator>
+            <low>0.05</low>
+            <high>0.9</high>
+        </property>
+        <property>
+            <name>gender</name>
+            <comparator>no.priv.garshol.duke.comparators.ExactComparator</comparator>
+            <low>0.39</low>
+            <high>0.5</high>
+        </property>
+        <property>
+            <name>birthDate</name>
+            <comparator>com.scnsoft.eldermark.merger.duke.comparator.SimpleDateComparator</comparator>
+            <low>0.23</low>
+            <high>0.51</high>
+        </property>
+    </schema>
+</duke>

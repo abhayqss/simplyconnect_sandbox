@@ -1,0 +1,19 @@
+@import "custom/_mixins";
+
+.CollapsibleText {
+    &-Content {
+        word-break: break-word;
+
+        &_collapsed {
+            @include line-clamp(2);
+            max-height: none;
+        }
+    }
+
+    &-Button {
+        font-weight: 600;
+        font-size: 14px;
+        color: #0064ad;
+        cursor: pointer;
+    }
+}

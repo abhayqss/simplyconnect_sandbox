@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>eldermark-exchange</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>Config</module>
+        <module>Web</module>
+        <module>Core</module>
+        <module>ApiShared</module>
+        <module>PhrWeb</module>
+        <module>ExternalApi</module>
+        <module>CdaParser</module>
+        <module>PalatiumCareIntegration</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <scm>
+        <url>https://github.com/eldermark/exchange</url>
+        <connection>scm:git:https://github.com/eldermark/exchange.git</connection>
+    </scm>
+
+    <properties>
+        <spring.framework.version>4.1.9.RELEASE</spring.framework.version>
+        <spring.security.version>3.2.10.RELEASE</spring.security.version>
+        <spring.data.version>1.9.6.RELEASE</spring.data.version>
+        <aspectj.version>1.7.4</aspectj.version>
+        <slf4j.version>1.7.22</slf4j.version>
+        <apache.commons.dbcp.version>1.4</apache.commons.dbcp.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <hibernate.search.version>5.2.1.Final</hibernate.search.version>
+        <commons.lang.version>3.7</commons.lang.version>
+        <commons.io.version>2.4</commons.io.version>
+        <commons.fileupload.version>1.3</commons.fileupload.version>
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+        <servlet.api.version>3.1.0</servlet.api.version>
+        <jaxws.rt.version>2.2.8</jaxws.rt.version>
+        <junit-version>4.12</junit-version>
+        <easymock-version>3.4</easymock-version>
+        <!-- TODO migration to Apache CXF 3+ would remove outdated ehcache-core dependency -->
+        <apache.cxf.version>2.6.4</apache.cxf.version>
+        <itext.version>5.4.2</itext.version>
+        <apache.tiles.version>3.0.0</apache.tiles.version>
+        <apache.velocity.version>1.7</apache.velocity.version>
+        <apache.velocity-tool.version>2.0</apache.velocity-tool.version>
+        <hapi.version>2.2</hapi.version>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.surefire.plugin.version>2.18.1</maven.surefire.plugin.version>
+        <wss4j.version>1.6.19</wss4j.version>
+        <jsch-extension.version>0.1.11</jsch-extension.version>
+        <commons-compress.version>1.18</commons-compress.version>
+        <opencsv.version>4.5</opencsv.version>
+
+        <skip.unit.tests>true</skip.unit.tests>
+
+        <datasource.driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</datasource.driverClassName>
+        <!-- [averazub] Database Encryption enabled -->
+        <datasource.connectionInitSqls>OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1</datasource.connectionInitSqls>
+        <hibernate.dialect>com.scnsoft.eldermark.dao.dialect.SqlServerCustomDialect</hibernate.dialect>
+
+        <nwhin.integration.enabled>false</nwhin.integration.enabled>
+        <jms.queue.residentUpdate>ResidentUpdate</jms.queue.residentUpdate>
+        <jms.queue.eventCreated>EventCreated</jms.queue.eventCreated>
+
+        <!--Invitation expiration will be handled in new backend-->
+        <invitation.expiration.disable>true</invitation.expiration.disable>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Only unit tests are run when the development profile is active -->
+                <skip.unit.tests>false</skip.unit.tests>
+
+                <requires.channel>any</requires.channel>
+
+                <web.archive.final.name>exchange</web.archive.final.name>
+                <auditReport.context>AuditReport</auditReport.context>
+
+                <!-- the properties were moved to personal.properties file -->
+                <!--<local.data.basedir>C:/_my/exchange-data</local.data.basedir>-->
+                <!--<local.jdk.folder>C:\Program Files\Java\jdk1.7.0_21</local.jdk.folder>-->
+
+                <datasource.url>${local.exchange.datasource.url}</datasource.url>
+                <datasource.username>${local.exchange.datasource.username}</datasource.username>
+                <datasource.password>${local.exchange.datasource.password}</datasource.password>
+
+                <documents.upload.basedir>${local.data.basedir}/filestore</documents.upload.basedir>
+                <keystore.upload.basedir>${local.data.basedir}/keystore</keystore.upload.basedir>
+
+                <logs.dir>${catalina.home}/logs</logs.dir>
+                <!-- the properties were moved to personal.properties file -->
+                <!--<lucene.indexes.dir>c:/lucene/indexes</lucene.indexes.dir>-->
+
+                <patient.discovery.ssn.required>true</patient.discovery.ssn.required>
+                <patient.discovery.dateOfBirth.required>true</patient.discovery.dateOfBirth.required>
+                <patient.discovery.default.first.name></patient.discovery.default.first.name>
+                <patient.discovery.default.last.name></patient.discovery.default.last.name>
+                <patient.discovery.default.gender>M</patient.discovery.default.gender>
+                <patient.discovery.default.dateOfBirth></patient.discovery.default.dateOfBirth>
+                <patient.discovery.default.ssn.last.4></patient.discovery.default.ssn.last.4>
+
+                <twillo.sid>AC8e8d4285e9e11c6b6b30875cc8ef43d5</twillo.sid>
+                <twillo.token>bcebf94108387e82907e2ea75dbbce12</twillo.token>
+                <twillo.from.number>+1 (347) 767-4454</twillo.from.number>
+
+                <fcm.server.key>AAAAdC3pBAg:APA91bHLqYi4FlPhYoAAP1F42MeadS9801we6GC0PGjnwaxhnSPO-NQ5LqUj85E4b1laU6uy3SRwiUP84vxWEXpNy2cOvmAuhbIisvJIRfjhKnt5BBZ-3gy6t2tzfid-W3syM52BTWOu</fcm.server.key>
+
+                <voip.certi.path>${local.data.basedir}\apnscert\VoIPCert.p12</voip.certi.path>
+                <voip.password>P@ssw0rd1#</voip.password>
+                <is.app.production>true</is.app.production>
+
+                <opentok.secret.key>4da142e57522d5b50b5affc27fa87d9e42c6ea04</opentok.secret.key>
+                <opentok.access.key>46239602</opentok.access.key>
+                <opentok.session.time>5400</opentok.session.time>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+                <events.xsd.file.device>xsd/Events_xml_validator_device_id.xsd</events.xsd.file.device>
+
+                <secure.email.marketplace.sender>marketplace.simplyconnect</secure.email.marketplace.sender>
+                <secure.email.domain>direct.simplyhie.com</secure.email.domain>
+                <secure.email.uuid.prefix>local</secure.email.uuid.prefix>
+
+                <portal.url>http://localhost:8080/exchange/</portal.url>
+
+                <!-- the properties were moved to personal.properties file -->
+                <!--<image.upload.basedir>d:\ExchangePics</image.upload.basedir>-->
+
+                <connect.gateway.url.patientdiscovery>https://app.eldermarkexchange.com:8143/Gateway/PatientDiscovery/1_0/EntityPatientDiscovery</connect.gateway.url.patientdiscovery>
+                <connect.gateway.url.queryfordocuments>https://app.eldermarkexchange.com:8143/Gateway/DocumentQuery/3_0/EntityService/EntityDocQueryUnsecured</connect.gateway.url.queryfordocuments>
+                <connect.gateway.url.documentretrieve>https://app.eldermarkexchange.com:8143/Gateway/DocumentRetrieve/3_0/EntityService/EntityDocRetrieve</connect.gateway.url.documentretrieve>
+
+                <!-- Add host1 to hosts (127.0.0.1) -->
+                <connect.keystore>${basedir}/src/main/resources/eex_app.jks</connect.keystore>
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.keystore.password>changeit</connect.keystore.password>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+                <connect.truststore>${local.jdk.folder}\jre\lib\security\cacerts</connect.truststore>
+                <connect.truststore.password>changeit</connect.truststore.password>
+
+                <!--<blue.stone.url>https://dkurylchyk.scnsoft.com/EventService.svc/events</blue.stone.url>-->
+                <blue.stone.url>https://test-alerts.bluestonebridge.com/EventService.svc/DoWork</blue.stone.url>
+                <blue.stone.username>dom@hemingway.com</blue.stone.username>
+                <blue.stone.password>hemingway</blue.stone.password>
+
+                <mail.server.ip>in-v3.mailjet.com</mail.server.ip>
+                <mail.server.port>587</mail.server.port>
+                <mail.user>ddc8334c636c3673366f1c45ec8ab5b3</mail.user>
+                <mail.password>2c49909b378eaf968da4e6ac2fe4f59c</mail.password>
+                <mail.from>carecoordination@simplyhie.com</mail.from>
+                <mail.replyTo>no-reply@simplyhie.com</mail.replyTo>
+
+                <tcp.ip.hl7.this.port>55555</tcp.ip.hl7.this.port>
+
+                <xds.registry.enabled>true</xds.registry.enabled>
+                <xds.registry.custom.url>https://localhost:8080/xds/xdscustom</xds.registry.custom.url>
+                <xds.exchange.keystore>${basedir}/src/main/resources/keystore_exch.jks</xds.exchange.keystore>
+                <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+                <xds.exchange.truststore>${basedir}/src/main/resources/xds_truststore.jks</xds.exchange.truststore>
+                <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+                <xds.exchange.user>xdsuser@eldermark.com</xds.exchange.user>
+                <xds.exchange.company>RBA</xds.exchange.company>
+                <xds.custom.auth.username>xds-custom-user</xds.custom.auth.username>
+                <xds.custom.auth.password>S7EtaxQc5vvBvknuHNrEa5X9</xds.custom.auth.password>
+
+                <transportation.secret>Secret key Secret key</transportation.secret>
+                <transportation.sso.url>http://concierge-01.cloudapp.net/Account/SsoLogin</transportation.sso.url>
+
+                <nucleus.enabled>true</nucleus.enabled>
+                <nucleus.service.host>https://care-dev.nucleuslife.io</nucleus.service.host>
+                <nucleus.auth.token>lXYg7kJ4e0+wsuflUbI4Dw==</nucleus.auth.token>
+                <nucleus.polling.auth.token>NDYyNDFlODMtNmUyOS00NDczLThiMTItNmYzNGYzOWRhYzFk</nucleus.polling.auth.token>
+
+                <qualifacts.sftp.disabled>true</qualifacts.sftp.disabled>
+                <qualifacts.sftp.baseDir>/SIMPLY/Inbound/</qualifacts.sftp.baseDir>
+                <qualifacts.sftp.lssi.oid>2.16.840.1.113883.3.1452.100.55</qualifacts.sftp.lssi.oid>
+                <qualifacts.sftp.hostname>localhost</qualifacts.sftp.hostname>
+                <qualifacts.sftp.port>22</qualifacts.sftp.port>
+                <qualifacts.sftp.username>cv_simply</qualifacts.sftp.username>
+                <qualifacts.sftp.password>GAU72BB4mxuKGAG</qualifacts.sftp.password>
+
+                <inboundfiles.checkPeriod>1000</inboundfiles.checkPeriod>
+                <!--<inboundfiles.run.disable>true</inboundfiles.run.disable> todo make it work -->
+
+                <data.integrationStore.baseDir>${local.data.basedir}/integrationsStore</data.integrationStore.baseDir>
+
+                <therap.sftp.disabled>true</therap.sftp.disabled>
+                <therap.sftp.hostname>localhost</therap.sftp.hostname>
+                <therap.sftp.port>22</therap.sftp.port>
+                <therap.sftp.username>simply</therap.sftp.username>
+                <therap.sftp.password>test2018!!</therap.sftp.password>
+                <therap.sftp.workingDirectory>/simplyconnect/DemographicProfileExport</therap.sftp.workingDirectory>
+                <therap.sftp.statusFolder.ok>_ok</therap.sftp.statusFolder.ok>
+                <therap.sftp.statusFolder.warn>_warn</therap.sftp.statusFolder.warn>
+                <therap.sftp.statusFolder.error>_error</therap.sftp.statusFolder.error>
+                <therap.sftp.localStorage.base>${data.integrationStore.baseDir}/therap/inboundSftp/DemographicProfileExport/</therap.sftp.localStorage.base>
+                <therap.sftp.reportfile.postfix>.report.txt</therap.sftp.reportfile.postfix>
+
+                <marco.localstorage.base>${local.data.basedir}/integrationsStore/marco/</marco.localstorage.base>
+                <marco.localstorage.assigned>_assigned</marco.localstorage.assigned>
+                <marco.localstorage.unassigned>_unassigned</marco.localstorage.unassigned>
+                <marco.metadataFile.postfix>.metadata.xml</marco.metadataFile.postfix>
+                <marco.reportfile.postfix>.report.txt</marco.reportfile.postfix>
+
+                <document.assignment.localstorage.base>${data.integrationStore.baseDir}/document-assignment/</document.assignment.localstorage.base>
+                <document.assignment.reportfile.postfix>.report.txt</document.assignment.reportfile.postfix>
+
+                <jms.enabled>${local.jms.enabled}</jms.enabled>
+                <jms.artemis.user>${local.jms.artemis.user}</jms.artemis.user>
+                <jms.artemis.password>${local.jms.artemis.password}</jms.artemis.password>
+                <jms.artemis.url>${local.jms.artemis.url}</jms.artemis.url>
+
+                <build.number.major>1</build.number.major>
+                <build.number.sequential>1</build.number.sequential>
+                <build.number.unique>Local</build.number.unique>
+
+                <koble.adt.enabled>false</koble.adt.enabled>
+                <koble.namespace>KobbleGroup</koble.namespace>
+                <koble.oid>1.2.3.4.55.6.778</koble.oid>
+                <koble.keystore.path>/security/KobleTrustStore.jks</koble.keystore.path>
+                <koble.keystore.password>gEV%C.3S</koble.keystore.password>
+                <koble.ip>66.97.224.157</koble.ip>
+                <koble.port>32085</koble.port>
+
+                <!-- Every midnight -->
+                <invitation.expiration.cron.expression>0 0 0 * * ?</invitation.expiration.cron.expression>
+                <!-- 72 hours -->
+                <invitation.expiration.time.ms>259200000</invitation.expiration.time.ms>
+
+                <spring.boot.profile>local</spring.boot.profile>
+                <swagger.enabled.scansol>true</swagger.enabled.scansol>
+
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                       <file>${maven.multiModuleProjectDirectory}/../personal.properties</file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- for debug puposes -->
+                    <!--<plugin>-->
+                        <!--<groupId>org.apache.maven.plugins</groupId>-->
+                        <!--<artifactId>maven-antrun-plugin</artifactId>-->
+                        <!--<version>1.3</version>-->
+                        <!--<executions>-->
+                            <!--<execution>-->
+                                <!--<phase>compile</phase>-->
+                                <!--<goals>-->
+                                    <!--<goal>run</goal>-->
+                                <!--</goals>-->
+                                <!--<configuration>-->
+                                    <!--<tasks>-->
+                                        <!--<echo>Displaying value of property</echo>-->
+                                        <!--<echo>[project.basedir] ${project.basedir}</echo>-->
+                                        <!--<echo>[local.data.basedir] ${local.data.basedir}</echo>-->
+                                        <!--<echo>[local.exchange.datasource.url] ${local.exchange.datasource.url}</echo>-->
+                                    <!--</tasks>-->
+                                <!--</configuration>-->
+                            <!--</execution>-->
+                        <!--</executions>-->
+                    <!--</plugin>-->
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>Test</id>
+            <properties>
+                <!-- Only unit tests are run when the test profile is active -->
+                <skip.unit.tests>false</skip.unit.tests>
+
+                <requires.channel>any</requires.channel>
+
+                <web.archive.final.name>exchange</web.archive.final.name>
+                <auditReport.context>AuditReport</auditReport.context>
+
+                <datasource.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>qp?n-ytu?</datasource.password>
+
+                <documents.upload.basedir>/home/pciadmin/demo_upload</documents.upload.basedir>
+                <keystore.upload.basedir>/home/pciadmin/demo_upload/keystore</keystore.upload.basedir>
+                <image.upload.basedir>/home/pciadmin/demo_upload/pictures</image.upload.basedir>
+                <logs.dir>${catalina.home}/logs</logs.dir>
+                <lucene.indexes.dir>/home/pciadmin/lucene/indexes</lucene.indexes.dir>
+
+                <patient.discovery.ssn.required>true</patient.discovery.ssn.required>
+                <patient.discovery.dateOfBirth.required>true</patient.discovery.dateOfBirth.required>
+                <patient.discovery.default.first.name></patient.discovery.default.first.name>
+                <patient.discovery.default.last.name></patient.discovery.default.last.name>
+                <patient.discovery.default.gender>M</patient.discovery.default.gender>
+                <patient.discovery.default.dateOfBirth></patient.discovery.default.dateOfBirth>
+                <patient.discovery.default.ssn.last.4></patient.discovery.default.ssn.last.4>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+
+                <twillo.sid>AC8e8d4285e9e11c6b6b30875cc8ef43d5</twillo.sid>
+                <twillo.token>bcebf94108387e82907e2ea75dbbce12</twillo.token>
+                <twillo.from.number>+1 (347) 767-4454</twillo.from.number>
+
+                <fcm.server.key>AAAAdC3pBAg:APA91bHLqYi4FlPhYoAAP1F42MeadS9801we6GC0PGjnwaxhnSPO-NQ5LqUj85E4b1laU6uy3SRwiUP84vxWEXpNy2cOvmAuhbIisvJIRfjhKnt5BBZ-3gy6t2tzfid-W3syM52BTWOu</fcm.server.key>
+
+                <voip.certi.path>C:\PhrWeb\apnscert\VoIPCert.p12</voip.certi.path>
+                <voip.password>P@ssw0rd1#</voip.password>
+                <is.app.production>true</is.app.production>
+
+                <opentok.secret.key>4da142e57522d5b50b5affc27fa87d9e42c6ea04</opentok.secret.key>
+                <opentok.access.key>46239602</opentok.access.key>
+                <opentok.session.time>5400</opentok.session.time>
+
+                <secure.email.marketplace.sender>marketplace.simplyconnect</secure.email.marketplace.sender>
+                <secure.email.domain>direct.simplyhie.com</secure.email.domain>
+                <secure.email.uuid.prefix>test</secure.email.uuid.prefix>
+
+                <portal.url>https://dev.simplyconnect.me:8443/exchange/</portal.url>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+                <events.xsd.file.device>xsd/Events_xml_validator_device_id.xsd</events.xsd.file.device>
+
+                <connect.gateway.url.patientdiscovery>https://app.eldermarkexchange.com:8143/Gateway/PatientDiscovery/1_0/EntityPatientDiscovery</connect.gateway.url.patientdiscovery>
+                <connect.gateway.url.queryfordocuments>https://app.eldermarkexchange.com:8143/Gateway/DocumentQuery/3_0/EntityService/EntityDocQueryUnsecured</connect.gateway.url.queryfordocuments>
+                <connect.gateway.url.documentretrieve>https://app.eldermarkexchange.com:8143/Gateway/DocumentRetrieve/3_0/EntityService/EntityDocRetrieve</connect.gateway.url.documentretrieve>
+                <connect.keystore>/var/lib/tomcat6/ssl/eex_app.jks</connect.keystore>
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.keystore.password>changeit</connect.keystore.password>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+                <connect.truststore>/var/lib/tomcat6/ssl/cacerts</connect.truststore>
+                <connect.truststore.password>changeit</connect.truststore.password>
+
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+
+                <blue.stone.url>https://test-alerts.bluestonebridge.com/EventService.svc/DoWork</blue.stone.url>
+                <blue.stone.username>dom@hemingway.com</blue.stone.username>
+                <blue.stone.password>hemingway</blue.stone.password>
+
+                <mail.server.ip>in-v3.mailjet.com</mail.server.ip>
+                <mail.server.port>587</mail.server.port>
+                <mail.user>ddc8334c636c3673366f1c45ec8ab5b3</mail.user>
+                <mail.password>2c49909b378eaf968da4e6ac2fe4f59c</mail.password>
+                <mail.from>carecoordination@simplyhie.com</mail.from>
+                <mail.replyTo>no-reply@simplyhie.com</mail.replyTo>
+
+                <tcp.ip.hl7.this.port>55555</tcp.ip.hl7.this.port>
+
+                <xds.registry.enabled>true</xds.registry.enabled>
+                <xds.registry.custom.url>https://localhost:8443/openxds-web/xdscustom</xds.registry.custom.url>
+                <xds.exchange.keystore>/var/lib/tomcat6/webapps/exchange/WEB-INF/classes/keystore_exch.jks</xds.exchange.keystore>
+                <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+                <xds.exchange.truststore>/var/lib/tomcat6/webapps/exchange/WEB-INF/classes/xds_truststore.jks</xds.exchange.truststore>
+                <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+                <xds.exchange.user>xdsuser@eldermark.com</xds.exchange.user>
+                <xds.exchange.company>RBA</xds.exchange.company>
+                <xds.custom.auth.username>xds-custom-user</xds.custom.auth.username>
+                <xds.custom.auth.password>rWmZtFbejJZAFNh8QB9bExtL</xds.custom.auth.password>
+
+                <transportation.secret>Secret key Secret key</transportation.secret>
+                <transportation.sso.url>http://concierge-01.cloudapp.net/Account/SsoLogin</transportation.sso.url>
+
+                <nucleus.enabled>true</nucleus.enabled>
+                <nucleus.service.host>https://care-dev.nucleuslife.io</nucleus.service.host>
+                <nucleus.auth.token>lXYg7kJ4e0+wsuflUbI4Dw==</nucleus.auth.token>
+                <nucleus.polling.auth.token>NDYyNDFlODMtNmUyOS00NDczLThiMTItNmYzNGYzOWRhYzFk</nucleus.polling.auth.token>
+
+                <qualifacts.sftp.disabled>true</qualifacts.sftp.disabled>
+                <qualifacts.sftp.baseDir>/SIMPLY/Inbound/</qualifacts.sftp.baseDir>
+                <qualifacts.sftp.lssi.oid>2.16.840.1.113883.3.1452.100.55</qualifacts.sftp.lssi.oid>
+                <qualifacts.sftp.hostname>sftp.cert.qualifacts.org</qualifacts.sftp.hostname>
+                <qualifacts.sftp.port>22</qualifacts.sftp.port>
+                <qualifacts.sftp.username>cv_simply</qualifacts.sftp.username>
+                <qualifacts.sftp.password>GAU72BB4mxuKGAG</qualifacts.sftp.password>
+
+                <koble.adt.enabled>false</koble.adt.enabled>
+                <koble.namespace>KobbleGroup</koble.namespace>
+                <koble.oid>1.2.3.4.55.6.778</koble.oid>
+                <koble.keystore.path>/security/KobleTrustStore.jks</koble.keystore.path>
+                <koble.keystore.password>gEV%C.3S</koble.keystore.password>
+                <koble.ip>66.97.224.157</koble.ip>
+                <koble.port>32085</koble.port>
+
+                <inboundfiles.checkPeriod>5000</inboundfiles.checkPeriod>
+
+                <data.integrationStore.baseDir>/home/pciadmin/integrationsStore</data.integrationStore.baseDir>
+
+                <therap.sftp.disabled>true</therap.sftp.disabled>
+                <therap.sftp.hostname>sftp.therapservices.net</therap.sftp.hostname>
+                <therap.sftp.port>22</therap.sftp.port>
+                <therap.sftp.username>simply</therap.sftp.username>
+                <therap.sftp.password>test2018!!</therap.sftp.password>
+                <therap.sftp.workingDirectory>/simplyconnect/DemographicProfileExport</therap.sftp.workingDirectory>
+                <therap.sftp.statusFolder.ok>_ok</therap.sftp.statusFolder.ok>
+                <therap.sftp.statusFolder.warn>_warn</therap.sftp.statusFolder.warn>
+                <therap.sftp.statusFolder.error>_error</therap.sftp.statusFolder.error>
+                <therap.sftp.localStorage.base>${data.integrationStore.baseDir}/therap/inboundSftp/DemographicProfileExport/</therap.sftp.localStorage.base>
+                <therap.sftp.reportfile.postfix>.report.txt</therap.sftp.reportfile.postfix>
+
+                <document.assignment.localstorage.base>${data.integrationStore.baseDir}/document-assignment/</document.assignment.localstorage.base>
+                <document.assignment.reportfile.postfix>.report.txt</document.assignment.reportfile.postfix>
+
+                <jms.enabled>true</jms.enabled>
+                <jms.artemis.user>artemisuser</jms.artemis.user>
+                <jms.artemis.password>7M6PwueF</jms.artemis.password>
+                <jms.artemis.url>tcp://10.240.1.166:61616</jms.artemis.url>
+
+                <!-- Every 5 minutes - for quick regression testing -->
+                <!--<invitation.expiration.cron.expression>0 0/5 * * * ?</invitation.expiration.cron.expression>-->
+                <!--<invitation.expiration.time.ms>300000</invitation.expiration.time.ms>-->
+
+                <!-- 72 hours -->
+                <!-- Every midnight -->
+                <invitation.expiration.cron.expression>0 0 0 * * ?</invitation.expiration.cron.expression>
+                <invitation.expiration.time.ms>259200000</invitation.expiration.time.ms>
+
+                <spring.boot.profile>test</spring.boot.profile>
+                <swagger.enabled.scansol>true</swagger.enabled.scansol>
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Test2</id>
+            <properties>
+                <!-- Only unit tests are run when the test profile is active -->
+                <skip.unit.tests>false</skip.unit.tests>
+
+                <requires.channel>any</requires.channel>
+
+                <web.archive.final.name>ROOT</web.archive.final.name>
+                <auditReport.context>AuditReport</auditReport.context>
+
+                <datasource.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>qp?n-ytu?</datasource.password>
+
+                <documents.upload.basedir>C:\test_upload\documents</documents.upload.basedir>
+                <keystore.upload.basedir>C:\test_upload\keystore</keystore.upload.basedir>
+                <image.upload.basedir>C:\test_upload\pictures</image.upload.basedir>
+                <logs.dir>${catalina.home}/logs</logs.dir>
+                <lucene.indexes.dir>C:\test_upload\lucene\indexes</lucene.indexes.dir>
+
+                <patient.discovery.ssn.required>true</patient.discovery.ssn.required>
+                <patient.discovery.dateOfBirth.required>true</patient.discovery.dateOfBirth.required>
+                <patient.discovery.default.first.name></patient.discovery.default.first.name>
+                <patient.discovery.default.last.name></patient.discovery.default.last.name>
+                <patient.discovery.default.gender>M</patient.discovery.default.gender>
+                <patient.discovery.default.dateOfBirth></patient.discovery.default.dateOfBirth>
+                <patient.discovery.default.ssn.last.4></patient.discovery.default.ssn.last.4>
+
+                <twillo.sid>AC8e8d4285e9e11c6b6b30875cc8ef43d5</twillo.sid>
+                <twillo.token>bcebf94108387e82907e2ea75dbbce12</twillo.token>
+                <twillo.from.number>+1 (347) 767-4454</twillo.from.number>
+
+                <fcm.server.key>AAAAdC3pBAg:APA91bHLqYi4FlPhYoAAP1F42MeadS9801we6GC0PGjnwaxhnSPO-NQ5LqUj85E4b1laU6uy3SRwiUP84vxWEXpNy2cOvmAuhbIisvJIRfjhKnt5BBZ-3gy6t2tzfid-W3syM52BTWOu</fcm.server.key>
+
+                <voip.certi.path>C:\PhrWeb\apnscert\VoIPCert.p12</voip.certi.path>
+                <voip.password>P@ssw0rd1#</voip.password>
+                <is.app.production>true</is.app.production>
+
+                <opentok.secret.key>4da142e57522d5b50b5affc27fa87d9e42c6ea04</opentok.secret.key>
+                <opentok.access.key>46239602</opentok.access.key>
+                <opentok.session.time>5400</opentok.session.time>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+                <events.xsd.file.device>xsd/Events_xml_validator_device_id.xsd</events.xsd.file.device>
+
+                <secure.email.marketplace.sender>marketplace.simplyconnect</secure.email.marketplace.sender>
+                <secure.email.domain>direct.simplyhie.com</secure.email.domain>
+                <secure.email.uuid.prefix>test</secure.email.uuid.prefix>
+
+                <portal.url>https://dev.simplyconnect.me/</portal.url>
+
+                <connect.gateway.url.patientdiscovery>https://app.eldermarkexchange.com:8143/Gateway/PatientDiscovery/1_0/EntityPatientDiscovery</connect.gateway.url.patientdiscovery>
+                <connect.gateway.url.queryfordocuments>https://app.eldermarkexchange.com:8143/Gateway/DocumentQuery/3_0/EntityService/EntityDocQueryUnsecured</connect.gateway.url.queryfordocuments>
+                <connect.gateway.url.documentretrieve>https://app.eldermarkexchange.com:8143/Gateway/DocumentRetrieve/3_0/EntityService/EntityDocRetrieve</connect.gateway.url.documentretrieve>
+                <connect.keystore>/var/lib/tomcat6/ssl/eex_app.jks</connect.keystore>
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.keystore.password>changeit</connect.keystore.password>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+                <connect.truststore>/var/lib/tomcat6/ssl/cacerts</connect.truststore>
+                <connect.truststore.password>changeit</connect.truststore.password>
+
+                <blue.stone.url>https://test-alerts.bluestonebridge.com/EventService.svc/DoWork</blue.stone.url>
+                <blue.stone.username>dom@hemingway.com</blue.stone.username>
+                <blue.stone.password>hemingway</blue.stone.password>
+
+                <mail.server.ip>in-v3.mailjet.com</mail.server.ip>
+                <mail.server.port>587</mail.server.port>
+                <mail.user>ddc8334c636c3673366f1c45ec8ab5b3</mail.user>
+                <mail.password>2c49909b378eaf968da4e6ac2fe4f59c</mail.password>
+                <mail.from>carecoordination@simplyhie.com</mail.from>
+                <mail.replyTo>no-reply@simplyhie.com</mail.replyTo>
+
+                <tcp.ip.hl7.this.port>55555</tcp.ip.hl7.this.port>
+
+                <xds.registry.enabled>false</xds.registry.enabled>
+                <xds.registry.custom.url>https://dev.simplyconnect.me/openxds-web/xdscustom</xds.registry.custom.url>
+                <xds.exchange.keystore>C:\Program Files\apache-tomcat-7.0.109\webapps\ROOT\WEB-INF\classes\keystore_exch.jks</xds.exchange.keystore>
+                <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+                <xds.exchange.truststore>C:\Program Files\apache-tomcat-7.0.109\webapps\ROOT\WEB-INF\classes\xds_truststore.jks</xds.exchange.truststore>
+                <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+                <xds.exchange.user>xdsuser@eldermark.com</xds.exchange.user>
+                <xds.exchange.company>RBA</xds.exchange.company>
+                <xds.custom.auth.username>xds-custom-user</xds.custom.auth.username>
+                <xds.custom.auth.password>rWmZtFbejJZAFNh8QB9bExtL</xds.custom.auth.password>
+
+                <transportation.secret>Secret key Secret key</transportation.secret>
+                <transportation.sso.url>http://concierge-01.cloudapp.net/Account/SsoLogin</transportation.sso.url>
+
+                <nucleus.enabled>true</nucleus.enabled>
+                <nucleus.service.host>https://care-dev.nucleuslife.io</nucleus.service.host>
+                <nucleus.auth.token>lXYg7kJ4e0+wsuflUbI4Dw==</nucleus.auth.token>
+                <nucleus.polling.auth.token>NDYyNDFlODMtNmUyOS00NDczLThiMTItNmYzNGYzOWRhYzFk</nucleus.polling.auth.token>
+
+                <qualifacts.sftp.disabled>true</qualifacts.sftp.disabled>
+                <qualifacts.sftp.baseDir>/SIMPLY/Inbound/</qualifacts.sftp.baseDir>
+                <qualifacts.sftp.lssi.oid>2.16.840.1.113883.3.1452.100.55</qualifacts.sftp.lssi.oid>
+                <qualifacts.sftp.hostname>sftp.cert.qualifacts.org</qualifacts.sftp.hostname>
+                <qualifacts.sftp.port>22</qualifacts.sftp.port>
+                <qualifacts.sftp.username>cv_simply</qualifacts.sftp.username>
+                <qualifacts.sftp.password>GAU72BB4mxuKGAG</qualifacts.sftp.password>
+
+                <koble.adt.enabled>false</koble.adt.enabled>
+                <koble.namespace>KobbleGroup</koble.namespace>
+                <koble.oid>1.2.3.4.55.6.778</koble.oid>
+                <koble.keystore.path>/security/KobleTrustStore.jks</koble.keystore.path>
+                <koble.keystore.password>gEV%C.3S</koble.keystore.password>
+                <koble.ip>66.97.224.157</koble.ip>
+                <koble.port>32085</koble.port>
+
+                <inboundfiles.checkPeriod>5000</inboundfiles.checkPeriod>
+                <data.integrationStore.baseDir>${documents.upload.basedir}/integrationsStore</data.integrationStore.baseDir>
+
+                <therap.sftp.disabled>true</therap.sftp.disabled>
+                <therap.sftp.hostname>10.240.1.119</therap.sftp.hostname>
+                <therap.sftp.port>9998</therap.sftp.port>
+                <therap.sftp.username>simply</therap.sftp.username>
+                <therap.sftp.password>test2018!!</therap.sftp.password>
+                <therap.sftp.workingDirectory>/simplyconnect/DemographicProfileExport</therap.sftp.workingDirectory>
+                <therap.sftp.statusFolder.ok>_ok</therap.sftp.statusFolder.ok>
+                <therap.sftp.statusFolder.warn>_warn</therap.sftp.statusFolder.warn>
+                <therap.sftp.statusFolder.error>_error</therap.sftp.statusFolder.error>
+                <therap.sftp.localStorage.base>${data.integrationStore.baseDir}\therap\inboundSftp\DemographicProfileExport\</therap.sftp.localStorage.base>
+                <therap.sftp.reportfile.postfix>.report.txt</therap.sftp.reportfile.postfix>
+
+                <marco.localstorage.base>${data.integrationStore.baseDir}/marco/</marco.localstorage.base>
+                <marco.localstorage.assigned>_assigned</marco.localstorage.assigned>
+                <marco.localstorage.unassigned>_unassigned</marco.localstorage.unassigned>
+                <marco.metadataFile.postfix>.metadata.xml</marco.metadataFile.postfix>
+                <marco.reportfile.postfix>.report.txt</marco.reportfile.postfix>
+
+                <document.assignment.localstorage.base>${data.integrationStore.baseDir}/document-assignment/</document.assignment.localstorage.base>
+                <document.assignment.reportfile.postfix>.report.txt</document.assignment.reportfile.postfix>
+
+                <jms.enabled>true</jms.enabled>
+                <jms.artemis.user>artemisuser</jms.artemis.user>
+                <jms.artemis.password>7M6PwueF</jms.artemis.password>
+                <jms.artemis.url>tcp://10.240.1.166:61616</jms.artemis.url>
+
+                <!-- Every 5 minutes - for quick regression testing -->
+                <invitation.expiration.cron.expression>0 0/5 * * * ?</invitation.expiration.cron.expression>
+                <!--<invitation.expiration.time.ms>300000</invitation.expiration.time.ms>-->
+                <!-- 72 hours -->
+                <invitation.expiration.time.ms>259200000</invitation.expiration.time.ms>
+
+                <spring.boot.profile>test2</spring.boot.profile>
+                <swagger.enabled.scansol>true</swagger.enabled.scansol>
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>H2</id>
+            <properties>
+                <requires.channel>any</requires.channel>
+
+                <web.archive.final.name>exchange</web.archive.final.name>
+                <auditReport.context>AuditReport</auditReport.context>
+
+                <datasource.driverClassName>org.h2.Driver</datasource.driverClassName>
+                <datasource.url>jdbc:h2:mem:eldermark_test;MODE=MSSQLServer;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS exchange_test</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password></datasource.password>
+                <datasource.connectionInitSqls>SET SCHEMA exchange_test;CREATE ALIAS IF NOT EXISTS hash_string DETERMINISTIC FOR "com.scnsoft.eldermark.shared.test.H2Function.sha256";</datasource.connectionInitSqls>
+
+                <hibernate.dialect>org.hibernate.dialect.H2Dialect</hibernate.dialect>
+
+                <documents.upload.basedir>${user.home}/demo_upload</documents.upload.basedir>
+                <keystore.upload.basedir>${user.home}/demo_upload/keystore</keystore.upload.basedir>
+                <image.upload.basedir>${user.home}/demo_upload/pictures</image.upload.basedir>
+                <logs.dir>${catalina.home}/logs</logs.dir>
+                <lucene.indexes.dir>${user.home}/lucene/indexes</lucene.indexes.dir>
+
+                <patient.discovery.ssn.required>true</patient.discovery.ssn.required>
+                <patient.discovery.dateOfBirth.required>true</patient.discovery.dateOfBirth.required>
+                <patient.discovery.default.first.name></patient.discovery.default.first.name>
+                <patient.discovery.default.last.name></patient.discovery.default.last.name>
+                <patient.discovery.default.gender>M</patient.discovery.default.gender>
+                <patient.discovery.default.dateOfBirth></patient.discovery.default.dateOfBirth>
+                <patient.discovery.default.ssn.last.4></patient.discovery.default.ssn.last.4>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+
+                <twillo.sid>AC8e8d4285e9e11c6b6b30875cc8ef43d5</twillo.sid>
+                <twillo.token>bcebf94108387e82907e2ea75dbbce12</twillo.token>
+                <twillo.from.number>+1 (347) 767-4454</twillo.from.number>
+
+                <fcm.server.key>AAAAdC3pBAg:APA91bHLqYi4FlPhYoAAP1F42MeadS9801we6GC0PGjnwaxhnSPO-NQ5LqUj85E4b1laU6uy3SRwiUP84vxWEXpNy2cOvmAuhbIisvJIRfjhKnt5BBZ-3gy6t2tzfid-W3syM52BTWOu</fcm.server.key>
+
+                <voip.certi.path>C:\PhrWeb\apnscert\VoIPCert.p12</voip.certi.path>
+                <voip.password>P@ssw0rd1#</voip.password>
+                <is.app.production>true</is.app.production>
+
+                <opentok.secret.key>4da142e57522d5b50b5affc27fa87d9e42c6ea04</opentok.secret.key>
+                <opentok.access.key>46239602</opentok.access.key>
+                <opentok.session.time>5400</opentok.session.time>
+
+                <secure.email.marketplace.sender>marketplace.simplyconnect</secure.email.marketplace.sender>
+                <secure.email.domain>direct.simplyhie.com</secure.email.domain>
+                <secure.email.uuid.prefix>test</secure.email.uuid.prefix>
+
+                <portal.url>http://localhost:8080/exchange/</portal.url>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+                <events.xsd.file.device>xsd/Events_xml_validator_device_id.xsd</events.xsd.file.device>
+
+                <connect.gateway.url.patientdiscovery>https://app.eldermarkexchange.com:8143/Gateway/PatientDiscovery/1_0/EntityPatientDiscovery</connect.gateway.url.patientdiscovery>
+                <connect.gateway.url.queryfordocuments>https://app.eldermarkexchange.com:8143/Gateway/DocumentQuery/3_0/EntityService/EntityDocQueryUnsecured</connect.gateway.url.queryfordocuments>
+                <connect.gateway.url.documentretrieve>https://app.eldermarkexchange.com:8143/Gateway/DocumentRetrieve/3_0/EntityService/EntityDocRetrieve</connect.gateway.url.documentretrieve>
+                <connect.keystore>${basedir}/src/main/resources/eex_app.jks</connect.keystore>
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.keystore.password>changeit</connect.keystore.password>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+                <connect.truststore>${java.home}/lib/security/cacerts</connect.truststore>
+                <connect.truststore.password>changeit</connect.truststore.password>
+
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+
+                <blue.stone.url>https://test-alerts.bluestonebridge.com/EventService.svc/DoWork</blue.stone.url>
+                <blue.stone.username>dom@hemingway.com</blue.stone.username>
+                <blue.stone.password>hemingway</blue.stone.password>
+
+                <mail.server.ip>in-v3.mailjet.com</mail.server.ip>
+                <mail.server.port>587</mail.server.port>
+                <mail.user>ddc8334c636c3673366f1c45ec8ab5b3</mail.user>
+                <mail.password>2c49909b378eaf968da4e6ac2fe4f59c</mail.password>
+                <mail.from>carecoordination@simplyhie.com</mail.from>
+                <mail.replyTo>no-reply@simplyhie.com</mail.replyTo>
+
+                <tcp.ip.hl7.this.port>55555</tcp.ip.hl7.this.port>
+
+                <xds.registry.enabled>true</xds.registry.enabled>
+                <xds.registry.custom.url>http://localhost:8080/xds/xdscustom</xds.registry.custom.url>
+                <xds.exchange.keystore>${basedir}/src/main/resources/keystore_exch.jks</xds.exchange.keystore>
+                <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+                <xds.exchange.truststore>${basedir}/src/main/resources/xds_truststore.jks</xds.exchange.truststore>
+                <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+                <xds.exchange.user>xdsuser@eldermark.com</xds.exchange.user>
+                <xds.exchange.company>RBA</xds.exchange.company>
+                <xds.custom.auth.username>xds-custom-user</xds.custom.auth.username>
+                <xds.custom.auth.password>rWmZtFbejJZAFNh8QB9bExtL</xds.custom.auth.password>
+
+                <transportation.secret>Secret key Secret key</transportation.secret>
+                <transportation.sso.url>http://concierge-01.cloudapp.net/Account/SsoLogin</transportation.sso.url>
+
+                <nucleus.enabled>true</nucleus.enabled>
+                <nucleus.service.host>https://care-dev.nucleuslife.io</nucleus.service.host>
+                <nucleus.auth.token>lXYg7kJ4e0+wsuflUbI4Dw==</nucleus.auth.token>
+                <nucleus.polling.auth.token>NDYyNDFlODMtNmUyOS00NDczLThiMTItNmYzNGYzOWRhYzFk</nucleus.polling.auth.token>
+
+                <qualifacts.sftp.disabled>true</qualifacts.sftp.disabled>
+                <qualifacts.sftp.baseDir>/SIMPLY/Inbound/</qualifacts.sftp.baseDir>
+                <qualifacts.sftp.lssi.oid>2.16.840.1.113883.3.1452.100.55</qualifacts.sftp.lssi.oid>
+                <qualifacts.sftp.hostname>sftp.cert.qualifacts.org</qualifacts.sftp.hostname>
+                <qualifacts.sftp.port>22</qualifacts.sftp.port>
+                <qualifacts.sftp.username>cv_simply</qualifacts.sftp.username>
+                <qualifacts.sftp.password>GAU72BB4mxuKGAG</qualifacts.sftp.password>
+
+                <inboundfiles.checkPeriod>15000</inboundfiles.checkPeriod>
+
+                <data.integrationStore.baseDir>${user.home}/integrationsStore</data.integrationStore.baseDir>
+
+                <therap.sftp.disabled>true</therap.sftp.disabled>
+                <therap.sftp.hostname>sftp.therapservices.net</therap.sftp.hostname>
+                <therap.sftp.port>22</therap.sftp.port>
+                <therap.sftp.username>simply</therap.sftp.username>
+                <therap.sftp.password>test2018!!</therap.sftp.password>
+                <therap.sftp.workingDirectory>/simplyconnect/DemographicProfileExport</therap.sftp.workingDirectory>
+                <therap.sftp.statusFolder.ok>_ok</therap.sftp.statusFolder.ok>
+                <therap.sftp.statusFolder.warn>_warn</therap.sftp.statusFolder.warn>
+                <therap.sftp.statusFolder.error>_error</therap.sftp.statusFolder.error>
+                <therap.sftp.localStorage.base>${data.integrationStore.baseDir}/therap/inboundSftp/DemographicProfileExport/</therap.sftp.localStorage.base>
+                <therap.sftp.reportfile.postfix>.report.txt</therap.sftp.reportfile.postfix>
+
+                <marco.localstorage.base>${data.integrationStore.baseDir}/marco/</marco.localstorage.base>
+                <marco.localstorage.assigned>_assigned</marco.localstorage.assigned>
+                <marco.localstorage.unassigned>_unassigned</marco.localstorage.unassigned>
+                <marco.metadataFile.postfix>.metadata.xml</marco.metadataFile.postfix>
+                <marco.reportfile.postfix>.report.txt</marco.reportfile.postfix>
+
+                <document.assignment.localstorage.base>${data.integrationStore.baseDir}/document-assignment/</document.assignment.localstorage.base>
+                <document.assignment.reportfile.postfix>.report.txt</document.assignment.reportfile.postfix>
+
+                <jms.enabled>false</jms.enabled>
+                <jms.artemis.user>artemisuser</jms.artemis.user>
+                <jms.artemis.password>7M6PwueF</jms.artemis.password>
+                <jms.artemis.url>tcp://10.240.1.166:61616</jms.artemis.url>
+
+                <koble.adt.enabled>false</koble.adt.enabled>
+                <koble.namespace>KobbleGroup</koble.namespace>
+                <koble.oid>1.2.3.4.55.6.778</koble.oid>
+                <koble.keystore.path>/security/KobleTrustStore.jks</koble.keystore.path>
+                <koble.keystore.password>gEV%C.3S</koble.keystore.password>
+                <koble.ip>66.97.224.157</koble.ip>
+                <koble.port>32085</koble.port>
+
+                <!-- Every 5 minutes - for quick regression testing -->
+                <invitation.expiration.cron.expression>0 0/5 * * * ?</invitation.expiration.cron.expression>
+                <invitation.expiration.time.ms>300000</invitation.expiration.time.ms>
+
+                <spring.boot.profile>h2</spring.boot.profile>
+                <swagger.enabled.scansol>false</swagger.enabled.scansol>
+
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>${maven.surefire.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>integration-test</phase>
+                                <!-- Invokes both the integration-test and the verify goals of the Failsafe Maven plugin -->
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                                <configuration>
+                                    <encoding>UTF-8</encoding>
+                                    <!-- Includes integration tests -->
+                                    <includes>
+                                        <include>**/*IT.java</include>
+                                    </includes>
+                                    <!-- Excludes failing tests -->
+                                    <excludes>
+                                        <exclude>**/CcdHL7OperationsIT.java</exclude>
+                                        <exclude>**/ConsolCcdOperationsIT.java</exclude>
+                                    </excludes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <!-- Only unit tests are run when the staging profile is active -->
+                <skip.unit.tests>false</skip.unit.tests>
+
+                <requires.channel>http</requires.channel>
+
+                <web.archive.final.name>ROOT</web.archive.final.name>
+                <auditReport.context>AuditReport</auditReport.context>
+
+                <datasource.url>jdbc:sqlserver://10.199.1.159;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>4uja!9hv5n9S=hB</datasource.password>
+
+                <documents.upload.basedir>\\\\sciscsi.simplyconnect.local\\Staging\\filestore</documents.upload.basedir>
+                <keystore.upload.basedir>e:/ses-keystores</keystore.upload.basedir>
+                <image.upload.basedir>\\\\sciscsi.simplyconnect.local\\Staging\\pictureStore</image.upload.basedir>
+                <logs.dir>E:/Logs</logs.dir>
+                <lucene.indexes.dir>E:/lucene/indexes</lucene.indexes.dir>
+
+                <patient.discovery.ssn.required>true</patient.discovery.ssn.required>
+                <patient.discovery.dateOfBirth.required>true</patient.discovery.dateOfBirth.required>
+                <patient.discovery.default.first.name></patient.discovery.default.first.name>
+                <patient.discovery.default.last.name></patient.discovery.default.last.name>
+                <patient.discovery.default.gender>M</patient.discovery.default.gender>
+                <patient.discovery.default.dateOfBirth></patient.discovery.default.dateOfBirth>
+                <patient.discovery.default.ssn.last.4></patient.discovery.default.ssn.last.4>
+
+                <twillo.sid>AC8e8d4285e9e11c6b6b30875cc8ef43d5</twillo.sid>
+                <twillo.token>bcebf94108387e82907e2ea75dbbce12</twillo.token>
+                <twillo.from.number>+1 (347) 767-4454</twillo.from.number>
+
+                <fcm.server.key>AAAAdC3pBAg:APA91bHLqYi4FlPhYoAAP1F42MeadS9801we6GC0PGjnwaxhnSPO-NQ5LqUj85E4b1laU6uy3SRwiUP84vxWEXpNy2cOvmAuhbIisvJIRfjhKnt5BBZ-3gy6t2tzfid-W3syM52BTWOu</fcm.server.key>
+
+                <voip.certi.path>C:\PhrWeb\apnscert\VoIPCert.p12</voip.certi.path>
+                <voip.password>P@ssw0rd1#</voip.password>
+                <is.app.production>false</is.app.production>
+
+                <opentok.secret.key>4da142e57522d5b50b5affc27fa87d9e42c6ea04</opentok.secret.key>
+                <opentok.access.key>46239602</opentok.access.key>
+                <opentok.session.time>5400</opentok.session.time>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+                <events.xsd.file.device>xsd/Events_xml_validator_device_id.xsd</events.xsd.file.device>
+
+                <secure.email.marketplace.sender>marketplace.simplyconnect</secure.email.marketplace.sender>
+                <secure.email.domain>direct.simplyhie.com</secure.email.domain>
+                <secure.email.uuid.prefix>stg</secure.email.uuid.prefix>
+
+                <portal.url>https://stg.simplyconnect.me/</portal.url>
+
+                <connect.gateway.url.patientdiscovery>https://app.eldermarkexchange.com:8143/Gateway/PatientDiscovery/1_0/EntityPatientDiscovery</connect.gateway.url.patientdiscovery>
+                <connect.gateway.url.queryfordocuments>https://app.eldermarkexchange.com:8143/Gateway/DocumentQuery/3_0/EntityService/EntityDocQueryUnsecured</connect.gateway.url.queryfordocuments>
+                <connect.gateway.url.documentretrieve>https://app.eldermarkexchange.com:8143/Gateway/DocumentRetrieve/3_0/EntityService/EntityDocRetrieve</connect.gateway.url.documentretrieve>
+                <connect.keystore>c:/Program Files/apache-tomcat-7.0.65/ssl/eex_app.jks</connect.keystore>
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.keystore.password>changeit</connect.keystore.password>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+                <connect.truststore>c:/Program Files/Java/jdk1.7.0_79/jre/lib/security/cacerts</connect.truststore>
+                <connect.truststore.password>changeit</connect.truststore.password>
+
+                <blue.stone.url>https://test-alerts.bluestonebridge.com/EventService.svc/DoWork</blue.stone.url>
+                <blue.stone.username>dom@hemingway.com</blue.stone.username>
+                <blue.stone.password>hemingway</blue.stone.password>
+
+                <mail.server.ip>in-v3.mailjet.com</mail.server.ip>
+                <mail.server.port>587</mail.server.port>
+                <mail.user>ddc8334c636c3673366f1c45ec8ab5b3</mail.user>
+                <mail.password>2c49909b378eaf968da4e6ac2fe4f59c</mail.password>
+                <mail.from>carecoordination@simplyhie.com</mail.from>
+                <mail.replyTo>no-reply@simplyhie.com</mail.replyTo>
+
+                <tcp.ip.hl7.this.port>55555</tcp.ip.hl7.this.port>
+
+                <xds.registry.enabled>false</xds.registry.enabled>
+                <xds.registry.custom.url>https://stg.simplyconnect.me/openxds-web/xdscustom</xds.registry.custom.url>
+                <xds.exchange.keystore>C:\Program Files\apache-tomcat-7.0.65\webapps\ROOT\WEB-INF\classes\keystore_exch.jks</xds.exchange.keystore>
+                <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+                <xds.exchange.truststore>C:\Program Files\apache-tomcat-7.0.65\webapps\ROOT\WEB-INF\classes\xds_truststore.jks</xds.exchange.truststore>
+                <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+                <xds.exchange.user>xdsuser@eldermark.com</xds.exchange.user>
+                <xds.exchange.company>RBA</xds.exchange.company>
+                <xds.custom.auth.username>xds-custom-user</xds.custom.auth.username>
+                <xds.custom.auth.password>wNfawBurhGnvbFN2qAEy2Xma</xds.custom.auth.password>
+
+                <transportation.secret>Secret key Secret key</transportation.secret>
+                <transportation.sso.url>http://concierge-01.cloudapp.net/Account/SsoLogin</transportation.sso.url>
+
+                <nucleus.enabled>false</nucleus.enabled>
+                <nucleus.service.host>https://care-dev.nucleuslife.io</nucleus.service.host>
+                <nucleus.auth.token>lXYg7kJ4e0+wsuflUbI4Dw==</nucleus.auth.token>
+                <nucleus.polling.auth.token>NDYyNDFlODMtNmUyOS00NDczLThiMTItNmYzNGYzOWRhYzFk</nucleus.polling.auth.token>
+
+                <!--Marco and Qualifacts integration is disabled, CCN-4739 -->
+                <qualifacts.sftp.disabled>true</qualifacts.sftp.disabled>
+                <qualifacts.sftp.baseDir>/SIMPLY/Inbound/</qualifacts.sftp.baseDir>
+                <qualifacts.sftp.lssi.oid>2.16.840.1.113883.3.1452.100.55</qualifacts.sftp.lssi.oid>
+                <qualifacts.sftp.hostname>sftp.cert.qualifacts.org</qualifacts.sftp.hostname>
+                <qualifacts.sftp.port>22</qualifacts.sftp.port>
+                <qualifacts.sftp.username>cv_simply</qualifacts.sftp.username>
+                <qualifacts.sftp.password>GAU72BB4mxuKGAG</qualifacts.sftp.password>
+
+                <inboundfiles.checkPeriod>5000</inboundfiles.checkPeriod>
+                <data.integrationStore.baseDir>e:/integrationsStore</data.integrationStore.baseDir>
+
+                <!--Therap integration is disabled, CCN-4739 -->
+                <therap.sftp.disabled>true</therap.sftp.disabled>
+                <therap.sftp.hostname>unknown</therap.sftp.hostname>
+                <therap.sftp.port>9998</therap.sftp.port>
+                <therap.sftp.username>simply</therap.sftp.username>
+                <therap.sftp.password>test2018!!</therap.sftp.password>
+                <therap.sftp.workingDirectory>/simplyconnect/DemographicProfileExport</therap.sftp.workingDirectory>
+                <therap.sftp.statusFolder.ok>_ok</therap.sftp.statusFolder.ok>
+                <therap.sftp.statusFolder.warn>_warn</therap.sftp.statusFolder.warn>
+                <therap.sftp.statusFolder.error>_error</therap.sftp.statusFolder.error>
+                <therap.sftp.localStorage.base>${data.integrationStore.baseDir}/therap/inboundSftp/DemographicProfileExport/</therap.sftp.localStorage.base>
+                <therap.sftp.reportfile.postfix>.report.txt</therap.sftp.reportfile.postfix>
+
+                <marco.localstorage.base>${data.integrationStore.baseDir}/marco/</marco.localstorage.base>
+                <marco.localstorage.assigned>_assigned</marco.localstorage.assigned>
+                <marco.localstorage.unassigned>_unassigned</marco.localstorage.unassigned>
+                <marco.metadataFile.postfix>.metadata.xml</marco.metadataFile.postfix>
+                <marco.reportfile.postfix>.report.txt</marco.reportfile.postfix>
+
+                <document.assignment.localstorage.base>${data.integrationStore.baseDir}/document-assignment/</document.assignment.localstorage.base>
+                <document.assignment.reportfile.postfix>.report.txt</document.assignment.reportfile.postfix>
+
+                <jms.enabled>true</jms.enabled>
+                <jms.artemis.user>artemisuser</jms.artemis.user>
+                <jms.artemis.password>TmhjXPevtL#nxEE</jms.artemis.password>
+                <jms.artemis.url>tcp://10.199.1.159:61616</jms.artemis.url>
+
+                <!-- Every midnight -->
+                <invitation.expiration.cron.expression>0 0/5 * * * ?</invitation.expiration.cron.expression>
+                <!-- 72 hours -->
+                <invitation.expiration.time.ms>259200000</invitation.expiration.time.ms>
+
+                <spring.boot.profile>stg</spring.boot.profile>
+                <swagger.enabled.scansol>true</swagger.enabled.scansol>
+
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Prod2</id>
+            <properties>
+                <!-- Only unit tests are run when the production profile is active -->
+                <skip.unit.tests>false</skip.unit.tests>
+
+                <requires.channel>http</requires.channel>
+
+                <web.archive.final.name>ROOT</web.archive.final.name>
+                <auditReport.context>AuditReport</auditReport.context>
+
+                <datasource.url>jdbc:sqlserver://10.199.1.129;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>y2Ej_8D=TH6PT7v</datasource.password>
+
+                <documents.upload.basedir>\\\\sciscsi.simplyconnect.local\\CloudStorage\\filestore</documents.upload.basedir>
+                <keystore.upload.basedir>e:/ses-keystores</keystore.upload.basedir>
+                <image.upload.basedir>\\\\sciscsi.simplyconnect.local\\CloudStorage\\pictureStore</image.upload.basedir>
+                <logs.dir>E:/Logs</logs.dir>
+                <lucene.indexes.dir>E:/lucene/indexes</lucene.indexes.dir>
+
+                <patient.discovery.ssn.required>true</patient.discovery.ssn.required>
+                <patient.discovery.dateOfBirth.required>true</patient.discovery.dateOfBirth.required>
+                <patient.discovery.default.first.name></patient.discovery.default.first.name>
+                <patient.discovery.default.last.name></patient.discovery.default.last.name>
+                <patient.discovery.default.gender>M</patient.discovery.default.gender>
+                <patient.discovery.default.dateOfBirth></patient.discovery.default.dateOfBirth>
+                <patient.discovery.default.ssn.last.4></patient.discovery.default.ssn.last.4>
+
+                <twillo.sid>AC8e8d4285e9e11c6b6b30875cc8ef43d5</twillo.sid>
+                <twillo.token>bcebf94108387e82907e2ea75dbbce12</twillo.token>
+                <twillo.from.number>+1 (347) 767-4454</twillo.from.number>
+
+                <fcm.server.key>AAAAdC3pBAg:APA91bHLqYi4FlPhYoAAP1F42MeadS9801we6GC0PGjnwaxhnSPO-NQ5LqUj85E4b1laU6uy3SRwiUP84vxWEXpNy2cOvmAuhbIisvJIRfjhKnt5BBZ-3gy6t2tzfid-W3syM52BTWOu</fcm.server.key>
+
+                <voip.certi.path>C:\PhrWeb\apnscert\VoIPCert.p12</voip.certi.path>
+                <voip.password>P@ssw0rd1#</voip.password>
+                <is.app.production>true</is.app.production>
+
+                <opentok.secret.key>4da142e57522d5b50b5affc27fa87d9e42c6ea04</opentok.secret.key>
+                <opentok.access.key>46239602</opentok.access.key>
+                <opentok.session.time>5400</opentok.session.time>
+
+                <events.xsd.file>xsd/Events_xml_validator.xsd</events.xsd.file>
+                <events.xsd.file.device>xsd/Events_xml_validator_device_id.xsd</events.xsd.file.device>
+
+                <secure.email.marketplace.sender>marketplace.simplyconnect</secure.email.marketplace.sender>
+                <secure.email.domain>direct.simplyhie.com</secure.email.domain>
+                <secure.email.uuid.prefix></secure.email.uuid.prefix>
+
+                <portal.url>https://app.simplyconnect.me/</portal.url>
+
+                <connect.gateway.url.patientdiscovery>http://localhost:8088/Gateway/PatientDiscovery/1_0/EntityPatientDiscovery</connect.gateway.url.patientdiscovery>
+                <connect.gateway.url.queryfordocuments>http://localhost:8088/Gateway/DocumentQuery/3_0/EntityService/EntityDocQueryUnsecured</connect.gateway.url.queryfordocuments>
+                <connect.gateway.url.documentretrieve>http://localhost:8088/Gateway/DocumentRetrieve/3_0/EntityService/EntityDocRetrieve</connect.gateway.url.documentretrieve>
+                <connect.keystore>c:/Program Files/apache-tomcat-7.0.65/ssl/eex_app.jks</connect.keystore>
+                <connect.keystore.password>changeit</connect.keystore.password>
+                <connect.encrypt.alias>app.eldermarkexchange.com</connect.encrypt.alias>
+                <connect.sign.alias>eex-app</connect.sign.alias>
+                <connect.truststore>c:/Program Files/Java/jdk1.7.0_79/jre/lib/security/cacerts</connect.truststore>
+                <connect.truststore.password>changeit</connect.truststore.password>
+
+                <blue.stone.url>https://alerts.bluestonebridge.com/EventService.svc/DoWork</blue.stone.url>
+                <blue.stone.username>dom@hemingway.com</blue.stone.username>
+                <blue.stone.password>hemingway</blue.stone.password>
+
+                <mail.server.ip>in-v3.mailjet.com</mail.server.ip>
+                <mail.server.port>587</mail.server.port>
+                <mail.user>88497f6f06c2689475fce18cb96a3ac8</mail.user>
+                <mail.password>0bb45df67d104667bda5a28271ca623d</mail.password>
+                <mail.from>carecoordination@simplyhie.com</mail.from>
+                <mail.replyTo>no-reply@simplyhie.com</mail.replyTo>
+
+                <tcp.ip.hl7.this.port>55555</tcp.ip.hl7.this.port>
+
+                <xds.registry.enabled>false</xds.registry.enabled>
+                <xds.registry.custom.url>https://app.simplyconnect.me/openxds-web/xdscustom</xds.registry.custom.url>
+                <xds.exchange.keystore>C:\Program Files\apache-tomcat-7.0.65\webapps\ROOT\WEB-INF\classes\keystore_exch.jks</xds.exchange.keystore>
+                <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+                <xds.exchange.truststore>C:\Program Files\apache-tomcat-7.0.65\webapps\ROOT\WEB-INF\classes\xds_truststore.jks</xds.exchange.truststore>
+                <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+                <xds.exchange.user>xdsuser@eldermark.com</xds.exchange.user>
+                <xds.exchange.company>RBA</xds.exchange.company>
+                <xds.custom.auth.username>xds-custom-user</xds.custom.auth.username>
+                <xds.custom.auth.password>ukkVqqE7rWfvLhmcL4VMRaWs</xds.custom.auth.password>
+
+                <transportation.secret>F3klDFuao38cmShj389dj3l9al</transportation.secret>
+                <transportation.sso.url>https://members.click2track.com/Account/SsoLogin</transportation.sso.url>
+
+                <nucleus.enabled>true</nucleus.enabled>
+                <nucleus.service.host>https://care.nucleuslife.io</nucleus.service.host>
+                <nucleus.auth.token>MEJr6uWe1UjIVHOcOK2ZRalU9B05GEaj</nucleus.auth.token>
+                <nucleus.polling.auth.token>A4aTXrme1Uh3Xd025CmqTYAgpxhsphcc</nucleus.polling.auth.token>
+
+                <!--Marco and Qualifacts integration is disabled, CCN-4739 -->
+                <qualifacts.sftp.disabled>true</qualifacts.sftp.disabled>
+                <qualifacts.sftp.baseDir>/SIMPLY/Inbound/</qualifacts.sftp.baseDir>
+                <qualifacts.sftp.lssi.oid>2.16.840.1.113883.3.1452.100.55</qualifacts.sftp.lssi.oid>
+                <qualifacts.sftp.hostname>sftp.qualifacts.org</qualifacts.sftp.hostname>
+                <qualifacts.sftp.port>22</qualifacts.sftp.port>
+                <qualifacts.sftp.username>pv_simply</qualifacts.sftp.username>
+                <qualifacts.sftp.password>t4RQ85B8Djm04qI</qualifacts.sftp.password>
+
+                <koble.adt.enabled>false</koble.adt.enabled>
+                <koble.namespace>KobbleGroup</koble.namespace>
+                <koble.oid>1.2.3.4.55.6.778</koble.oid>
+                <koble.keystore.path>/security/KobleTrustStore.jks</koble.keystore.path>
+                <koble.keystore.password>gEV%C.3S</koble.keystore.password>
+                <koble.ip>66.97.224.157</koble.ip>
+                <koble.port>32085</koble.port>
+
+                <inboundfiles.checkPeriod>5000</inboundfiles.checkPeriod>
+
+                <data.integrationStore.baseDir>e:/integrationsStore</data.integrationStore.baseDir>
+
+                <!--Therap integration is disabled, CCN-4739 -->
+                <therap.sftp.disabled>true</therap.sftp.disabled>
+                <therap.sftp.hostname>sftp.therapservices.net</therap.sftp.hostname>
+                <therap.sftp.port>22</therap.sftp.port>
+                <therap.sftp.username>simply</therap.sftp.username>
+                <therap.sftp.password>test2018!!</therap.sftp.password>
+                <therap.sftp.workingDirectory>/simplyconnect/DemographicProfileExport</therap.sftp.workingDirectory>
+                <therap.sftp.statusFolder.ok>_ok</therap.sftp.statusFolder.ok>
+                <therap.sftp.statusFolder.warn>_warn</therap.sftp.statusFolder.warn>
+                <therap.sftp.statusFolder.error>_error</therap.sftp.statusFolder.error>
+                <therap.sftp.localStorage.base>${data.integrationStore.baseDir}/therap/inboundSftp/DemographicProfileExport/</therap.sftp.localStorage.base>
+                <therap.sftp.reportfile.postfix>.report.txt</therap.sftp.reportfile.postfix>
+
+                <marco.localstorage.base>${data.integrationStore.baseDir}/marco/</marco.localstorage.base>
+                <marco.localstorage.assigned>_assigned</marco.localstorage.assigned>
+                <marco.localstorage.unassigned>_unassigned</marco.localstorage.unassigned>
+                <marco.metadataFile.postfix>.metadata.xml</marco.metadataFile.postfix>
+                <marco.reportfile.postfix>.report.txt</marco.reportfile.postfix>
+
+                <document.assignment.localstorage.base>${data.integrationStore.baseDir}/document-assignment/</document.assignment.localstorage.base>
+                <document.assignment.reportfile.postfix>.report.txt</document.assignment.reportfile.postfix>
+
+                <jms.enabled>true</jms.enabled>
+                <jms.artemis.user>artemisuser</jms.artemis.user>
+                <jms.artemis.password>AaFuVfrZL3juQFB</jms.artemis.password>
+                <jms.artemis.url>tcp://10.199.1.129:61616</jms.artemis.url>
+
+                <!-- Every midnight -->
+                <invitation.expiration.cron.expression>0 0 0 * * ?</invitation.expiration.cron.expression>
+                <!-- 72 hours -->
+                <invitation.expiration.time.ms>259200000</invitation.expiration.time.ms>
+
+                <spring.boot.profile>prod</spring.boot.profile>
+                <swagger.enabled.scansol>false</swagger.enabled.scansol>
+
+            </properties>
+        </profile>
+    </profiles>
+
+
+    <dependencies>
+        <!-- Adapter for Spring Core (replaces JCL) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Use JDK logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <skipTests>${skip.unit.tests}</skipTests>
+                    <!-- Excludes integration tests when unit tests are run -->
+                    <excludes>
+                        <exclude>**/*IT.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.jks</exclude>
+                    <exclude>**/*.pdf</exclude>
+                    <exclude>**/known_hosts</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.jks</include>
+                    <include>**/*.pdf</include>
+                    <include>**/known_hosts</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>

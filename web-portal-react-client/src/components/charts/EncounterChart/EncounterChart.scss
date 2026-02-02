@@ -1,0 +1,11 @@
+@import "custom/_fonts";
+
+.EncounterChart {
+  .recharts-surface {
+    position: relative;
+  }
+
+  .recharts-legend-item-text {
+    color: $font-color_head-text !important;
+  }
+}

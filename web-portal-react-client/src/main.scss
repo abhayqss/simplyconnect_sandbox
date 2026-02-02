@@ -1,0 +1,111 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+@import "~@trendmicro/react-sidenav/dist/react-sidenav.min.css";
+@import "~react-rater/lib/react-rater.css";
+@import "~survey-core/defaultV2.min.css";
+@import "~pretty-checkbox/dist/pretty-checkbox.min.css";
+@import "~react-resizable/css/styles.css";
+@import "~d-carousel/dist/css/d-carousel.css";
+@import "~react-phone-input-2/lib/style.css";
+@import "~react-tooltip/dist/react-tooltip.css";
+@import "~react-pdf/dist/esm/Page/TextLayer.css";
+@import "~react-pdf/dist/esm/Page/AnnotationLayer.css";
+
+@import "custom/grid";
+@import "custom/common";
+@import "custom/tooltip";
+@import "custom/buttons";
+@import "custom/badge";
+@import "custom/form";
+@import "custom/scrollbar";
+@import "custom/list";
+@import "custom/margins";
+@import "custom/paddings";
+@import "custom/flexbox";
+@import "custom/border";
+
+@import "components/Badge/Badge";
+@import "components/charts/Chart/Chart";
+@import "components/MainLayout/MainLayout";
+@import "components/FilterIcon/FilterIcon";
+@import "components/business/Documents/DocumentCategory/DocumentCategory";
+
+html,
+body,
+.root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $font-color_head-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+svg:focus {
+  outline: none;
+}
+
+// Override default variables before the import
+
+// Import Bootstrap and its default variables
+
+$font-family-sans-serif: "Open Sans", sans-serif;
+
+$green: #0064ad;
+
+$react-rater-active: #03b6f3 !default;
+
+$breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+
+.btn-orange {
+  background-color: $orange;
+  border-color: $orange;
+}
+
+.btn-orange:hover {
+  background-color: darken($orange, 6%);
+  border-color: darken($orange, 6%);
+}
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+caption {
+  color: $font-color_head-text;
+}
+
+// "SurveyJS" Style configuration
+.sd-element--with-frame.sd-element--compact {
+  border: none !important;
+  border-bottom: 1px dashed !important;
+  border-radius: 0px !important;
+}
+
+.sd-title.sd-container-modern__title {
+  box-shadow: 0px 16px 0px #f4f5f5 !important;
+}
+
+.sd-header__text .sd-title {
+  color: #000000 !important;
+}
+
+.sd-root-modern .sd-container-modern__title .sd-description {
+  color: #4c4e51 !important;
+}
+
+.sd-element__title .sd-element__num {
+  color: #1f1f1f !important;
+}
+
+.sv_main.sv_default_css input[type="button"]:hover,
+.sv_main.sv_default_css button:hover {
+  background-color: #0064ad !important;
+}

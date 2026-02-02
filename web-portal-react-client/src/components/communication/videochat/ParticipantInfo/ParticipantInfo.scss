@@ -1,0 +1,22 @@
+@import 'custom/_mixins';
+
+.ParticipantInfo {
+    display: flex;
+    align-items: center;
+
+    &-FullName {
+        color: #ffffff;
+        font-size: 16px;
+        margin-right: 8px;
+        font-family: "Open Sans Semibold", sans-serif;
+        
+        @media (max-width: 667px) {
+            @include line-clamp(2);
+            max-height: auto;
+        }
+    }
+
+    &-Status {
+        flex: 0 0 auto;
+    }
+}

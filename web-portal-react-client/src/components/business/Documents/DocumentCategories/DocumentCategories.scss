@@ -1,0 +1,21 @@
+.DocumentCategories {
+  position: relative;
+
+  $btn-font-size: 14px;
+
+  &-Button {
+    font-weight: 600;
+    font-size: $btn-font-size;
+    color: #0064ad;
+    cursor: pointer;
+    position: absolute;
+    top: calc(50% - (#{$btn-font-size} + 8px) / 2);
+    right: 0;
+  }
+
+  .DocumentCategory {
+    & + & {
+      margin-top: 6px;
+    }
+  }
+}

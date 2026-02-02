@@ -1,0 +1,43 @@
+.QrCode {
+  width: 500px;
+  top: 150px;
+
+  .modal-content {
+    height: 396px;
+  }
+
+}
+
+.QrCodeBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .QrcodeImg {
+    width: 229px;
+    height: 229px;
+    padding: 9px;
+    margin-top: 27px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .QrTitle {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+  }
+
+  .QrButtonBox {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    cursor: pointer;
+  }
+}
+
+

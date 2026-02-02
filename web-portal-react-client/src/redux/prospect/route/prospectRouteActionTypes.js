@@ -1,0 +1,4 @@
+export default {
+    CLEAR: 'CLEAR_PROSPECT_ROUTE',
+    CHANGE: 'CHANGE_PROSPECT_ROUTE'
+}

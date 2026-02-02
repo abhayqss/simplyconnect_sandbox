@@ -1,0 +1,37 @@
+@import "custom/_fonts";
+
+.CollapsibleSection {
+
+}
+
+.CollapsibleSection-Header {
+  &:hover {
+    cursor: pointer;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.CollapsibleSection-Title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: $font-color_head-text;
+}
+
+.CollapsibleSection-Icon {
+  vertical-align: baseline;
+}
+
+.CollapsibleSection-MinusIcon {
+  transform: rotate(90deg);
+}
+
+.CollapsibleSection-Body {
+  background-color: #ffffff;
+}

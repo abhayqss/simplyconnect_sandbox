@@ -1,0 +1,27 @@
+# Copy all db migrations
+ssh pciadmin@207.250.113.236 'rm -f /home/pciadmin/codeship_upload/flyway-4.0.3/sql/*'
+scp -c blowfish -C ./ExchangeDatabase/src/main/resources/db/migration/*.sql pciadmin@207.250.113.236:/home/pciadmin/codeship_upload/flyway-4.0.3/sql
+# Build Open XDS
+cd ./openxds
+#rm -rf ~/.m2/repository
+mvn clean install -DskipITs -DskipTests -P Test
+# Build Exchange
+cd ../EldermarkExchange
+# Get sequential build number that is stored in file in server and increase it
+scp pciadmin@207.250.113.236:/home/pciadmin/current_deployed_exchange_version/build_number.txt ./
+source ./build_number.txt
+build_number=$((build_number + 1))
+#sed -i "1s/.*/build_number=$build_number/" pciadmin@207.250.113.236:/home/pciadmin/current_deployed_exchange_version/build_number.txt
+mvn clean install -DskipITs -Dmaven.test.skip=true -T 1C -P Test -Dbuild.number.major=1 -Dbuild.number.unique=$CI_BUILD_NUMBER -Dbuild.number.sequential=$build_number
+# Build AuditReport
+cd ../AuditReport
+mvn clean install -DskipITs -Dmaven.test.skip=true -T 1C -P Test
+# Build adt-sender
+cd ../openxds/adt-sender
+mvn clean install -DskipITs -Dmaven.test.skip=true -T 1C -P Test
+# Copy all packages
+scp -c blowfish -C ~/src/github.com/eldermark/exchange/EldermarkExchange/Web/target/exchange.war ~/src/github.com/eldermark/exchange/EldermarkExchange/PhrWeb/target/PhrWeb.jar ~/src/github.com/eldermark/exchange/EldermarkExchange/ExternalApi/target/ExternalAPI.jar ~/src/github.com/eldermark/exchange/EldermarkExchange/PalatiumCareIntegration/target/PalatiumCareIntegration.jar ~/src/github.com/eldermark/exchange/AuditReport/target/AuditReport.war ~/src/github.com/eldermark/exchange/openxds/openxds-web/target/openxds-web.war ~/src/github.com/eldermark/exchange/openxds/adt-sender/target/adtsender.war pciadmin@207.250.113.236:/home/pciadmin/codeship_upload/
+# Run flyway:migrate
+ssh pciadmin@207.250.113.236 'bash /home/pciadmin/codeship_upload/flyway-4.0.3/flyway migrate'
+# Restart Tomcat
+ssh pciadmin@207.250.113.236 'bash /home/pciadmin/codeship_upload/deploy.sh'

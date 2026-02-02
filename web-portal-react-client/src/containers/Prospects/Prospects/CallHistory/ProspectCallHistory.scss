@@ -1,0 +1,10 @@
+@import "custom/_page";
+
+.ProspectCallHistory {
+  @include page;
+
+  &-Header {
+    margin-top: 33px;
+    margin-bottom: 20px;
+  }
+}

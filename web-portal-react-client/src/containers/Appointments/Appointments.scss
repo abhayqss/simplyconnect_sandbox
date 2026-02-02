@@ -1,0 +1,70 @@
+@import "custom/_page";
+
+.Appointments {
+  @include page;
+  display: flex;
+  flex-direction: column;
+}
+
+.Appointments-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.Appointments-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.Appointments-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.Appointments-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: #222222;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Appointments-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Appointments-Action {
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.AppointmentFilter-Icon {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+}
+
+.Appointments-Dropdown {
+}
+
+.AddAppointmentBtn-OptText {
+  @media (max-width: 350px) {
+    display: none;
+  }
+}

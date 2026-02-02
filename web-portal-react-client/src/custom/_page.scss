@@ -1,0 +1,71 @@
+@import '_fonts';
+
+@mixin page {
+  flex: 1;
+  position: relative;
+
+  padding: 20px 10px 0;
+
+  @media (min-width: 450px) {
+    padding: 20px 15px 0;
+  }
+
+  @media (min-width: 550px) {
+    padding: 20px 35px 0;
+  }
+}
+
+.page-title-main-text {
+  font-size: 26px;
+  display: inline-block;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.page-title-second-text {
+  font-size: 20px;
+  white-space: nowrap;
+  display: inline-block;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.page-header-item {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.page-title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.page-title-text {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

@@ -1,0 +1,36 @@
+package com.scnsoft.eldermark.web.entity;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.annotation.Generated;
+
+
+@Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-18T18:33:44.967+03:00")
+public class RegistrationAnswerDto {
+
+    @JsonProperty("comments")
+    private String comments;
+
+    @JsonProperty("flowId")
+    private String flowId;
+
+    @ApiModelProperty
+    public String getFlowId() {
+        return flowId;
+    }
+
+    public void setFlowId(String flowId) {
+        this.flowId = flowId;
+    }
+
+    @ApiModelProperty
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+}
+

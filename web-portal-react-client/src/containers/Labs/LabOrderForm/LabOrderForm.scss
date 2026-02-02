@@ -1,0 +1,129 @@
+@import "custom/_fonts";
+
+.LabOrderForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.LabOrderForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.LabOrderForm-SectionTitle {
+  line-height: 1;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.LabOrderForm-SectionSubTitle {
+  line-height: 1;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.LabOrderForm-TextArea {
+  .TextField-Input {
+    height: 80px;
+  }
+}
+
+.LabOrderForm-Button {
+  width: 100px;
+  height: 35px;
+  margin-top: 30px;
+
+  &.btn {
+    padding: 0;
+  }
+}
+
+.LabOrderForm-FilterFieldIcon {
+  top: 45px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4c4e51;
+  position: absolute;
+}
+
+.LabOrderForm-LabelIcon {
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+.LabOrderForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.LabOrderForm-BackBtn {
+  cursor: pointer;
+  color: #0064ad;
+  font-family: "Open Sans Semibold", sans-serif;
+  font-size: 14px;
+  padding: 0 10px;
+  display: inline-block;
+  margin: 0;
+  width: auto;
+
+  &.btn {
+    margin-right: auto;
+  }
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.LabOrderForm-CheckboxField {
+  .CheckboxField-Error {
+    left: 0;
+  }
+}
+
+.LabOrderForm-RadioGroupField {
+  .Radio {
+    padding-left: 40px;
+    margin-right: 25px;
+  }
+}
+
+.LabOrderForm-FieldLabel {
+  font-size: 13px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+
+  &__Error {
+    color: #dc3545;
+  }
+}
+
+.LabOrderForm-CodeCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+}

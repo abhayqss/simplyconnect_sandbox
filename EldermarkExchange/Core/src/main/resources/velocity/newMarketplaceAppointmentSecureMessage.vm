@@ -1,0 +1,95 @@
+<html>
+<head>
+    <style type="text/css">
+        .eventSection + .sectionHead, .sectionHead + .eventSection {
+        }
+
+        .eventSection {
+            padding: 20px 15px 10px 20px;
+            padding-left: 20px !important;
+        }
+
+        .sectionHead {
+            padding-top: 20px;
+            font-weight: bolder;
+            font-size: 18px;
+            padding-left: 0px !important;
+            padding-bottom: 15px;
+        }
+
+        .eventSection.no-border {
+            border-top: 0px;
+            padding-top: 0px;
+        }
+
+        .col-md-4 {
+            width: 33.33333333%;
+            font-weight: bold;
+        }
+
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+
+        .col-md-12 {
+            width: 100%;
+        }
+
+        .footer {
+            float: left;
+            padding-top: 20px;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+    </style>
+    #set( $sectionHeadClassAndStyle = "class=""sectionHead col-md-12"" style=""color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; padding-top: 35px; float: left;""" )
+    #set( $sectionClassAndStyle = "class=""col-md-12  eventSection no-border"" style=""float: left; padding: 20px 15px; position: relative; min-height: 1px; padding-right: 15px; padding-left: 20px; width: 100%; float: left""")
+    #set( $labelClassAndStyle = "class=""col-md-4"" style=""font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left""" )
+    #set( $valueClassAndStyle = "class=""col-md-8"" style=""position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left""" )
+</head>
+<body>
+<div>
+    <br/>
+A new appointment has been requested via Simply Connect app.
+    <span $sectionHeadClassAndStyle>Request Details</span>
+    <div $sectionClassAndStyle>
+        <p $labelClassAndStyle>Request Date&Time</p><p $valueClassAndStyle>$date.format('MM/dd/yyyy hh:mm a', $appointment.requestDate) (CST)</p>
+        <p $labelClassAndStyle>Organization</p><p $valueClassAndStyle>${marketplace.organizationName}</p>
+        <p $labelClassAndStyle>Community</p><p $valueClassAndStyle>${marketplace.communityName}</p>
+        <p $labelClassAndStyle>Patient name</p><p $valueClassAndStyle>${patientName}</p>
+        #if($StringUtils.isNotEmpty(${ssnLast4}))
+            <p $labelClassAndStyle>SSN</p><p $valueClassAndStyle>#[[####]]#${ssnLast4}</p>
+        #end
+        #if($dateOfBirth)
+            <p $labelClassAndStyle>DOB</p><p $valueClassAndStyle>$date.format('MM/dd/yyyy', $dateOfBirth)</p>
+        #end
+        #if($StringUtils.isNotEmpty(${gender}))
+            <p $labelClassAndStyle>Gender</p><p $valueClassAndStyle>${gender}</p>
+        #end
+        <p $labelClassAndStyle>Phone number</p><p $valueClassAndStyle>${appointment.phone}</p>
+        #if($StringUtils.isNotEmpty(${patientEmail}))
+            <p $labelClassAndStyle>Email</p><p $valueClassAndStyle>${patientEmail}</p>
+        #end
+        #if($StringUtils.isNotEmpty(${services}))
+            <p $labelClassAndStyle>Services</p><p $valueClassAndStyle>${services}</p>
+        #end
+        <p $labelClassAndStyle>Appointment date/time</p><p $valueClassAndStyle>$date.format('MM/dd/yyyy hh:mm a', $appointment.appointmentDate) (CST)</p>
+        <p $labelClassAndStyle>Urgent Care</p><p $valueClassAndStyle>#if(${appointment.emergencyVisit})Yes#{else}No#end</p>
+        #if($StringUtils.isNotEmpty(${appointment.comment}))
+            <p $labelClassAndStyle>Comment</p><p $valueClassAndStyle>${appointment.comment}</p>
+        #end
+    </div>
+
+</div>
+<div class="footer" style="float: left; padding-top: 20px; width: 100%; padding-bottom: 20px;">
+    Please contact the Client within ${daysToContact} business days.
+</div>
+<div style="float: left; padding-top: 20px; width: 100%; padding-bottom: 20px;">
+    Regards,<br/>
+    Simply Connect Team
+    <br/><br/>
+    ***Important: Please do not reply to this email. This mailbox is not set up to receive email.
+</div>
+<div></div>
+</body>
+</html>

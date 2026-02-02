@@ -1,0 +1,14 @@
+###
+POST /consana/sync/submit HTTP/1.1
+Host: localhost:9696
+Authorization: Basic Y29uc2FuYV91c2VyOmNvbnNhbmFfcGFzc3dvcmQ=
+Content-Type: application/json
+
+{
+  "identifier" : "12ab6d16-3f76-4c2f-b9a6-8463a7291a7c",
+  "organizationOID": "1.22.333.4.55555.6.00001",
+  "communityOID": "52100",
+  "updateType": "PatientUpdate"
+}
+###
+

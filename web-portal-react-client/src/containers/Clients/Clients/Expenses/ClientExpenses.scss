@@ -1,0 +1,7 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.ClientExpenses {
+  @include page;
+  height: auto;
+}

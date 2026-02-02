@@ -1,0 +1,92 @@
+#* @vtlmacrolibrary path="../secureMessageMacroses.vm" *#
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.note.NoteNotificationSecureMailDto" *#
+#* @vtlvariable name="dateFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="dateTimeFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="timeFromFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="timeToFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="Instant" type="java.time.Instant" *#
+#* @vtlvariable name="DataUtils" type="com.scnsoft.eldermark.util.DataUtils" *#
+
+
+#parse("velocity/secureMessageMacroses.vm")
+
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    A note has been ${dto.action} the Simply Connect platform for ${dto.clientName}.
+    <br><br>
+    Note Details:
+    <br>
+    <br>
+
+    #if (!${dto.details.groupNote})
+        #set( $client = ${dto.details.clientInfo})
+        #parse("velocity/clientInfo.vm")
+    #end
+
+
+    <p $headerStyle>Summary</p>
+    #set( $details = ${dto.details})
+    #display('Client', ${details.clientName}, false)
+    #display('Type', ${details.typeTitle}, true)
+    #display('Subtype', ${details.subTypeTitle}, true)
+    #display('Note name', ${details.noteName}, true)
+    #displayDateTimeLong('Admit date', ${details.admitDate}, true)
+    #if ($DataUtils.hasData($details.eventId))
+        #display('Event', "${details.eventTypeTitle} #formatDateTimeLong($details.eventDate)", true)
+    #end
+    #display('Status', ${details.statusTitle}, true)
+    #if ($details.new)
+        #displayDateTimeLong('Date created', ${details.lastModified}, true)
+    #else
+        #displayDateTimeLong('Last modified Date', ${details.lastModified}, true)
+    #end
+    #display('Person submitting note', ${details.author}, true)
+    #display('Role', ${details.authorRoleTitle}, true)
+
+    #set( $encounter = ${details.encounter})
+    #if ($DataUtils.hasData($encounter))
+        <p $headerStyle>Encounter</p>
+        #if ($DataUtils.hasData($encounter.clinicianTitle))
+            #display('Person Completing the Encounter', ${encounter.clinicianTitle}, false)
+        #else
+            #display('Person Completing the Encounter', ${encounter.otherClinician}, false)
+        #end
+        #display('Encounter type', ${encounter.typeTitle}, true)
+        #displayDateTimeLong('Encounter date', ${encounter.fromDate}, true)
+
+        #if (${encounter.fromDate})
+            #if (${encounter.toDate})
+                #display('Encounter time', "$timeFromFormatter.format($Instant.ofEpochMilli($encounter.fromDate)) - $timeToFormatter.format($Instant.ofEpochMilli($encounter.toDate))", true)
+            #end
+        #end
+        #display('Total time spent', ${encounter.totalTime}, true)
+        #display('Range', ${encounter.range}, true)
+        #display('Units', ${encounter.units}, true)
+
+    #end
+
+    <p $headerStyle>Description</p>
+    #set( $serviceStatusCheck = ${details.serviceStatusCheck})
+    #if ($DataUtils.hasData($serviceStatusCheck))
+        #displayDateTimeLong('Service Plan', ${serviceStatusCheck.servicePlanCreatedDate}, true)
+        #if ($DataUtils.hasData($serviceStatusCheck.providerName))
+            #display('Resource name', "${serviceStatusCheck.providerName},  ${serviceStatusCheck.resourceName}", true)
+        #else
+            #display('Resource name', ${serviceStatusCheck.resourceName}, true)
+        #end
+        #display('Person who did the the audit/check', ${serviceStatusCheck.auditPerson}, true)
+        #displayDateTimeLong('Date of check', ${serviceStatusCheck.checkDate}, true)
+        #displayDateTimeLong('Next date of check', ${serviceStatusCheck.nextCheckDate}, true)
+        #displayYesNo('Is the service being provided?', ${serviceStatusCheck.serviceProvided}, true)
+    #end
+    #display('Subjective', ${details.subjective}, true)
+    #display('Objective', ${details.objective}, true)
+    #display('Assessment', ${details.assessment}, true)
+    #display('Plan', ${details.plan}, true)
+
+    <div style="clear: both"></div>
+    <br><br>
+    Please login to the Simply Connect platform to view the details of the note.
+    #parse( "velocity/button.vm")
+</div>

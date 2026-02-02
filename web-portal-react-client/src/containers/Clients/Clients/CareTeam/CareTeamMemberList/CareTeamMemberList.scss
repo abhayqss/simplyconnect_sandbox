@@ -1,0 +1,171 @@
+@import "custom/_fonts";
+
+.CareTeamMemberListContainer {
+    margin-top: 20px;
+}
+
+.CareTeamMemberList {
+
+    &-Caption {
+        // margin-bottom: 5px;
+        margin-top: 32px;
+    }
+
+    &-CaptionHeader {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &-Title {
+        flex: 1;
+        position: relative;
+        margin-right: 20px;
+    }
+
+    &-TitleText {
+        position: relative;
+        font-size: 26px;
+        color: $font-color_head-text;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    &-ControlPanel {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+    }
+
+    &-ClientName {
+        font-weight: normal;
+        font-size: 20px;
+        white-space: nowrap;
+        font-family: "Open Sans", sans-serif;
+        color: $font-color_head-text;
+    }
+
+    &-Title {
+        position: relative;
+        display: inline-block;
+    }
+
+    &-CareTeamMemberCount {
+        position: absolute;
+        right: -27px;
+        top: 3px;
+
+        &.badge {
+            color: #ffffff;
+            font-size: 12px;
+        }
+    }
+
+    &-MemberAvatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+        @media (max-width: 414px) {
+            display: none !important;
+        }
+    }
+
+    &-Member {
+        overflow: hidden;
+    }
+
+    &-MemberName {
+        font-weight: 600;
+        color: #0064ad;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .CareTeamMemberList-MemberName_disabled {
+        cursor: default;
+        color: $font-color_head-text;
+    }
+
+    &-MemberRelation {
+        color: #898989;
+    }
+
+    &-Label {
+        color: $font-color_head-text;
+    }
+
+    &-Email {
+        word-break: break-all;
+    }
+
+    &-Tooltip {
+        .tooltip {
+            z-index: 1049;
+        }
+    }
+
+    .Table-Header {
+        $radius: 3px;
+
+        th:first-of-type {
+            border-radius: $radius 0 0 $radius;
+        }
+
+        th:last-of-type {
+            border-radius: 0 $radius $radius 0;
+        }
+    }
+
+    &-OrganizationLogo,
+    &-CommunityLogo {
+        max-width: 48px;
+        max-height: 48px;
+    }
+}
+
+.AddCareMemberBtn {
+    &.btn {
+        height: 35px;
+        padding: 0 15px;
+    }
+}
+
+.CareTeamMember-Action {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    svg {
+        overflow: visible;
+    }
+
+    &_disabled {
+        svg,
+        path {
+            fill: #bfbdbd;
+            cursor: default;
+
+            &:hover {
+                fill: #bfbdbd;
+                stroke: initial;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.CareTeamMember-HintOnHold .tooltip-inner {
+    max-width: 400px;
+    white-space: pre-line;
+
+    p {
+        margin-bottom: 0;
+    }
+}

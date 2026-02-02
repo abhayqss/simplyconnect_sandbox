@@ -1,0 +1,43 @@
+@import "custom/_fonts.scss";
+
+.BillingDetail {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.BillingItemDetail {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.BillingDetail-Title,
+.BillingItemDetail-Title {
+    flex: 1;
+    font-weight: 600;
+    margin-right: 15px;
+    min-width: 90px;
+}
+
+.BillingDetail-Value,
+.BillingItemDetail-Value {
+    flex: 6;
+    display: flex;
+    justify-content: left;
+    color: $font-color_head-text;
+}
+
+.ClientBilling-Item {
+    background-color: #f6f6f6;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+
+    &.list-group-item {
+        border: none;
+        border-radius: 2px;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

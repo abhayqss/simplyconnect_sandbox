@@ -1,0 +1,136 @@
+@import "custom/_fonts";
+
+.Modal {
+  height: 100%;
+
+  &.modal-dialog {
+    margin: 0 auto;
+    padding: 25px 5px;
+  }
+
+  .modal-content {
+    height: 100%;
+    border: 0;
+  }
+
+  .modal-body :where(.Scrollable-ScrollTopBtn) {
+    bottom: 120px;
+  }
+}
+
+.Modal-FooterWrapper {
+  position: relative;
+}
+
+.Modal-Footer{
+  position: relative;
+
+  &.modal-footer {
+    padding: 20px 25px 40px;
+
+    @media (max-width: 720px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    @media (max-height: 450px) {
+      padding: 10px;
+    }
+  }
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.Modal-Header {
+  &.modal-header {
+    padding: 20px 25px;
+    align-items: center;
+    border-bottom: none;
+  }
+
+  background-color: #F1F1F1;
+  font-size: 22px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+  border-bottom: none;
+
+  .modal-title {
+    flex: 1;
+    color: $font-color_head-text;
+    font-size: 22px;
+  }
+
+  .btn {
+    margin: 0;
+    width: auto;
+    height: auto;
+    line-height: 1;
+  }
+
+  .Modal-CloseBtn {
+    &.btn {
+      padding: 0;
+      margin: 0;
+      width: auto;
+      height: auto;
+      line-height: 1;
+      cursor: pointer;
+    }
+  }
+}
+
+.Modal-CloseIcon {
+  width: 20px;
+  height: 20px;
+  fill: #4C4E51;
+}
+
+.Modal-Body {
+  height: 100%;
+
+  &.modal-body {
+    padding: 0;
+    min-height: 0;
+    overflow-x: hidden;
+  }
+}
+
+.Modal-ScrollTopBtn {
+  position: absolute;
+  bottom: 128px;
+  right: 32px;
+  z-index: 2;
+
+  @media (max-height: 450px) {
+    bottom: 80px;
+  }
+}
+
+.Modal-ScrollTopBtnIcon {
+  cursor: pointer;
+  fill: #898989;
+  height: 32px;
+  width: 32px;
+  background-color: #f9f9f9;
+  padding: 6px;
+}
+
+.modal-open {
+  .modal.show {
+    overflow-x: hidden;
+  }
+}
+
+.modal-backdrop_tone_light {
+  background-color: #ffffff;
+}

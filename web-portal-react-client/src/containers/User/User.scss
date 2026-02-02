@@ -1,0 +1,30 @@
+@import "custom/_fonts";
+
+.User {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  &.is-expanded {
+    .User-Avatar {
+      padding: 0.30px;
+      box-shadow: 0 0 6px 0 #b9b9b9;
+    }
+  }
+}
+
+.User-Avatar {
+  margin-right: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.User-UserProfile {
+  top: 67px;
+  right: 15px;
+  position: absolute;
+  z-index: 1;
+}

@@ -1,0 +1,16 @@
+#* @vtlvariable name="formattedDate" type="java.lang.String" *#
+#* @vtlvariable name="escapedMessage" type="java.lang.String" *#
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.SupportTicketSubmittedNotificationDto" *#
+<div>
+    <b>Dear Support Team,</b>
+    <br><br>
+    A new ticket has been submitted:
+    <ul>
+        <li>Date & Time: ${formattedDate}</li>
+        <li>Organization name: ${dto.authorOrganizationName}</li>
+        <li>Name: ${dto.authorName}</li>
+        <li>Phone number: ${dto.authorPhoneNumber}</li>
+        <li>How can we help you: ${dto.howCanWeHelpYouMessage}</li>
+        <li>Message: ${escapedMessage}</li>
+    </ul>
+</div>

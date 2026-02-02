@@ -1,0 +1,1 @@
+export { default as InquiryEditor } from './InquiryEditor/InquiryEditor'

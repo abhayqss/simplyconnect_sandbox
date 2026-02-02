@@ -1,0 +1,87 @@
+@import "custom/_fonts";
+
+.ClientRecentEvents {}
+
+.ClientEventList {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.ClientEventList-ItemWrapper {
+  border-bottom: 1px solid #dddddd;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.ClientEventList-Item {
+  &.list-group-item {
+    border: none;
+    padding: 10px 0;
+  }
+}
+
+.ClientEvent {}
+
+.ClientEvent-Type {
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: $font-size_list-item-text;
+  color: #0064ad !important;
+  text-decoration: none !important;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientEvent-SubmittedBy {
+  font-size: $font-size_list-item-text;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientEvent-Group {
+  display: inline-block;
+  color: #000000;
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 0 8px;
+  font-weight: normal;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientEvent-Date {
+  font-size: 14px;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientEvent-IrStatus {
+  &.badge {
+    color: #000000;
+    font-size: 13px;
+    border-radius: 2px;
+    padding: 4px 8px;
+    font-weight: normal;
+    font-family: "Open Sans", sans-serif;
+  }
+  &.badge-danger {
+    color: #000000;
+    background-color: #ffd3c0;
+  }
+  &.badge-success {
+    color: #000000;
+    background-color: #d5f3b8;
+  }
+  &.badge-default {
+    color: #000000;
+    background-color: #e0e0e0;
+  }
+}
+
+.ClientEvent-Time {
+  font-size: 14px;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}

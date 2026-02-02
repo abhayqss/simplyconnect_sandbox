@@ -1,0 +1,259 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.AssociationDetail {
+  @include page;
+
+  &-Section {
+    font-size: 26px;
+    margin-bottom: 50px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-SectionHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &-Category {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid;
+    padding: 3px 10px;
+    font-size: 14px;
+    border-radius: 14px;
+    margin-right: 16px;
+
+    &Name {
+      font-size: 14px;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    &Indicator {
+      width: 12px;
+      height: 12px;
+      margin-right: 6px;
+    }
+  }
+}
+
+.AssociationDetail-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.AssociationDetail-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.AssociationDetail-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.AssociationDetail-Body {
+  padding-top: 30px;
+}
+
+.AssociationDetail-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.AssociationDetail-QRButton {
+  margin-left: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+
+  img {
+    margin-left: 10px;
+  }
+
+  .qrList {
+    width: 188px;
+    height: 89px;
+    position: absolute;
+    background-color: #FFFFFF;
+    color: #4C4E51;
+    line-height: 33.6px;
+    border: 1px solid #BFBDBD;
+    box-shadow: 0 4px 4px 0 #0000001A;
+    top: 38px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      flex: 1;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+}
+
+.AssociationDetail-EditButton {
+  margin-left: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.AssociationDetail-Cog {
+  width: 33px;
+  height: 33px;
+  margin: 5px;
+  cursor:pointer;
+}
+
+.OrganizationDetail-Logo {
+  height: 40px;
+}
+
+.AssociationDetail-HeaderLabel {
+  margin-bottom: 12px;
+  border-color: #00524d;
+  border: 1px solid;
+  color: #0064ad;
+  font-size: 14px;
+  padding: 7px;
+}
+
+.CommunityList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.CommunityList-CaptionHeader {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.CommunityList-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.CommunityList-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.CommunityList-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  gap: 20px;
+}
+
+.CommunityList-CommunityName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.CommunityList-Actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.AssociationDetailForm-TabsContainer {
+  margin-top: 15px;
+}
+.AssociationDetailFor-TabsContainerm {
+  text-align: left;
+}
+.association-active-btn {
+  background-color: #DBF2BE;
+  width: 54px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.association-pending-btn {
+  background: #FFFFFF;
+  color:#898989;
+  border: 1px solid #BFBDBD;
+  width: 66px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.association-expired-btn {
+  background: #fde1d5;
+  color:#000000;
+  width: 66px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.association-inactive-btn {
+  background: #e0e0e0;
+  color:#000000;
+  width: 66px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

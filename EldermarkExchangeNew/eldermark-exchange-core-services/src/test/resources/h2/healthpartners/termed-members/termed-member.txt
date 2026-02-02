@@ -1,0 +1,4 @@
+MEMBER_IDENTIFIER|MEMBER_FIRST_NM|MEMBER_MIDDLE_NM|MEMBER_LAST_NM|MEMBER_BIRTH_DT
+client-to-term|Alex|John|Smith|19960526
+client-to-term|Alex|John|Smith|19960526
+client-to-term-2|John|Robert|Potter|20100510

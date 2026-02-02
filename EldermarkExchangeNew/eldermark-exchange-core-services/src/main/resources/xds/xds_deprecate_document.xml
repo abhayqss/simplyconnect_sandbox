@@ -1,0 +1,15 @@
+<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:axis2="http://ws.apache.org/namespaces/axis2" xmlns:axis2ns1="urn:ihe:iti:xds-b:2007" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xsi:schemaLocation="urn:ihe:iti:xds-b:2007 ../schema/IHE/XDS.b_DocumentRepository.xsd">
+    <soap12:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsa:To>$RegistryURL</wsa:To>
+        <wsa:MessageID>$MessageId</wsa:MessageID>
+        <wsa:Action>urn:ihe:iti:2007:RegisterDocumentSet-b</wsa:Action>
+    </soap12:Header>
+
+    <soap12:Body>
+        <lcm:DeprecateObjectsRequest>
+            <ObjectRefList xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0">
+                <ObjectRef id="$docUUID"/>
+            </ObjectRefList>
+        </lcm:DeprecateObjectsRequest>
+    </soap12:Body>
+</soap12:Envelope>

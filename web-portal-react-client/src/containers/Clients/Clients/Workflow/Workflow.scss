@@ -1,0 +1,144 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+
+.Workflow_Client {
+  padding: 20px 30px;
+  @include page;
+  height: auto;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .WorkflowFilter {
+    width: 100%;
+    padding: 15px 24px;
+    background-color: #f9f9f9;
+    margin-bottom: 24px;
+  }
+
+
+  .workflow-table-text {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 42px;
+    height: 42px;
+  }
+
+  .workflow-name {
+    color: #075AA0;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .workflow-create-name {
+    color: #4c4e51;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .workflow-date {
+    color: #4C4E51;
+    min-width: 170px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .workflow-timer-Icon {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+
+  .line-workflow-status {
+    //padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+  }
+
+  .submit-status {
+    background-color: #e5f7fc;
+    color: #01abe7;
+
+  }
+
+  .pending-status {
+    color: #F4B940;
+    background-color: #FEF7EA;
+  }
+
+  .in-progress-status {
+    color: #76BB9B;
+    background-color: #EDF6F1;
+  }
+
+  .approved-status {
+    color: #4C4E51;
+    background-color: #F0F2F7;
+  }
+
+  .feed-back-status {
+    color: #F45640;
+    background-color: #F7E6E2;
+  }
+
+  .qaWorkflowAction {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    img {
+      cursor: pointer;
+
+      &:last-child {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+
+.tooltips-box-show-inner {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+
+  .tooltip-content {
+    padding: 8px 10px;
+  }
+
+  .tooltips-box-show-item {
+    width: auto;
+    text-align: left;
+    z-index: 22;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #00ace6 !important;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+}
+

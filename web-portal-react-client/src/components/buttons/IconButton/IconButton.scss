@@ -1,0 +1,52 @@
+.IconButton {
+  cursor: pointer;
+  display: inline-block;
+
+  &-Body {
+    margin-left: 10px;
+  }
+
+  svg {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    fill: #0064ad;
+    outline: none;
+  }
+
+  &_highlighted {
+    svg {
+      padding: 6px;
+
+      &:hover{
+        background-color: #0064ad;
+        border-radius: 3px;
+        transition: 0.2s;
+        fill: white;
+        stroke: white;
+      }
+    }
+
+    &.IconButton_disabled {
+      svg {
+        &:hover{
+          cursor: default;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &-Body {
+    font-size: 14px;
+    font-family: Open Sans Semibold, sans-serif;
+    display: inline-block;
+  }
+
+  &.IconButton_disabled {
+    svg {
+      fill: #c0c2c4;
+      background-color: transparent;
+    }
+  }
+}

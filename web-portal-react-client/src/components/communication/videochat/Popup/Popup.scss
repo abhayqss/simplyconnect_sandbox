@@ -1,0 +1,134 @@
+.VideoChatPopupContainer {
+  z-index: 10;
+  position: fixed;
+
+  &_invisible {
+    visibility: hidden;
+  }
+
+  &.react-draggable {
+    .VideoChatPopup {
+      &-Header {
+        &:hover {
+          cursor: move;
+        }
+
+        padding: 20px 0;
+      }
+    }
+  }
+
+  &.react-resizable {
+    .react-resizable-handle {
+      background-image: url("../../../../images/resize.svg");
+
+      &-e {
+        right: -52px;
+        width: 5px;
+        height: 40px;
+        transform: none;
+        box-sizing: content-box;
+        padding-left: 50px;
+        padding-right: 50px;
+        background: #848484 none;
+        background-clip: content-box;
+      }
+
+      &-s {
+        bottom: -53px;
+        width: 40px;
+        height: 5px;
+        transform: none;
+        box-sizing: content-box;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background: #848484 none;
+        background-clip: content-box;
+      }
+    }
+  }
+
+  &_maximized {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+
+    .react-resizable-handle {
+      display: none;
+    }
+  }
+
+  &_size {
+    &_small {
+      width: 450px;
+      height: 250px;
+    }
+
+    &_medium {
+      width: 750px;
+      height: 550px;
+    }
+
+    &_big {
+      width: 950px;
+      height: 750px;
+    }
+
+    &_auto {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .VideoChatPopup {
+    height: 100%;
+  }
+}
+
+.VideoChatPopup {
+  display: flex;
+  flex-direction: column;
+  background: #333333 no-repeat url("../../../../images/sc-person-shape.svg") 100%;
+
+  &-Header {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &-Body {
+    flex: 1;
+    height: 100%;
+    position: relative;
+  }
+
+  &-MaximizeButton {
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    position: absolute;
+    background-color: #0064ad;
+    padding: 10px;
+
+    @media (max-width: 1024px) {
+      top: 12px;
+      left: 12px;
+
+      svg {
+        width: 24px !important;
+        height: 24px !important;
+      }
+    }
+  }
+
+  &-MinimizeButton {
+    top: 15px;
+    right: 15px;
+    z-index: 5;
+    position: absolute;
+  }
+}

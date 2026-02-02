@@ -1,0 +1,87 @@
+@import "../../../../custom/fonts";
+
+.MarketplaceCommunities {
+  flex: 1;
+  height: 100%;
+
+  .gm-style .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-thumb {
+    background-clip: border-box;
+  }
+
+  padding: 0 35px 20px;
+
+  @media (max-width: 667px) {
+    padding: 0 17px;
+  }
+
+  &-CommunityName {
+    font-weight: normal;
+    font-size: 18px;
+  }
+}
+
+.MarketplaceCommunities-Title,
+.FeaturedCommunities-Title {
+  flex: 1;
+  font-size: 26px;
+  color: $font-color_head-text;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-right: 15px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.MarketplaceCommunityList {
+  margin-bottom: 10px;
+  height: 100%;
+
+  &-List {
+    position: relative;
+    height: calc(100% - 55px);
+    overflow-y: auto;
+
+    &_fetching {
+      pointer-events: none;
+    }
+  }
+
+  &-Loader {
+    top: 60px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+
+    &_paginated {
+      top: initial;
+      bottom: 20px;
+    }
+  }
+
+  &-Title {
+    font-size: 26px;
+    font-weight: bold;
+    color: $font-color_head-text;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Search {
+    width: 100%;
+    display: flex;
+  }
+
+  &-SearchField {
+    flex: 1;
+  }
+
+  &-SearchBtn {
+    &.btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-left: 5px;
+    }
+  }
+}

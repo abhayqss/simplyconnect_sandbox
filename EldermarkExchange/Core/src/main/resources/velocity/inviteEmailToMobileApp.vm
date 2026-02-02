@@ -1,0 +1,2 @@
+#* @vtlvariable name="invitation" type="com.scnsoft.eldermark.shared.carecoordination.service.InvitationDto" *#
+<div>Dear ${invitation.target},<br/></div>

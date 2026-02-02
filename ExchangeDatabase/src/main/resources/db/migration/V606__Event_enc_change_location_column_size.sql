@@ -1,0 +1,2 @@
+ALTER TABLE [dbo].[Event_enc] ALTER COLUMN [location] NVARCHAR(MAX) NULL;
+GO

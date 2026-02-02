@@ -1,0 +1,41 @@
+.AppointmentCancelForm {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &-Section {
+        &:first-child {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        flex: 1;
+        padding: 20px 40px 20px;
+    }
+
+    &-Buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        border-top: 1px solid #dee2e6;
+        padding: 20px 25px 40px;
+
+        .btn {
+            padding: 0 12px;
+            min-width: 100px;
+            height: 35px;
+            margin-right: 12px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &-AlertPanel {
+        color: #333333;
+        padding: 18px 14px;
+        margin-top: 0;
+        margin-bottom: 32px;
+    }
+}

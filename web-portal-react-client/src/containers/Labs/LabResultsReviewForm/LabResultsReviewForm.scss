@@ -1,0 +1,110 @@
+@import "custom/_fonts";
+
+.LabResultsReviewForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &-Caption {
+    font-size: 26px;
+    font-weight: bold;
+    color: $font-color_head-text;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    .LabResultsReviewForm-Count {
+      color: #ffffff;
+      font-size: 12px;
+      padding: 4px 6px;
+      margin-left: 10px;
+    }
+  }
+
+  &-Section {
+    padding: 20px 40px 20px;
+
+    &Title {
+      line-height: 1;
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    &SubTitle {
+      line-height: 1;
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+  }
+
+  &-LabelIcon {
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .btn-success {
+      width: auto;
+      padding: 0 10px;
+    }
+  }
+
+  &-CheckboxField {
+    &.CheckboxField.form-group {
+      padding: 5px 0;
+      margin: 0;
+    }
+  }
+
+  &-ViewDetailsBtn {
+    cursor: pointer;
+    color: #0064ad;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 0 !important;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &:hover {
+      text-decoration: none;
+      color: #0064ad;
+    }
+  }
+
+  &-Documents {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &-DocumentIcon {
+    width: 36px;
+    margin-right: 16px;
+  }
+}
