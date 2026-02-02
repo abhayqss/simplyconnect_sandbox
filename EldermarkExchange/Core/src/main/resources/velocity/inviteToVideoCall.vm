@@ -1,0 +1,18 @@
+	
+	<br>Dear ${invitationTo},<br>
+	${invitationBy} has invited you to join Simply Connect system and be a part of his/her care team.<br>
+	Please click the <a href="${googlePlayUrl}" >"New User"</a> link and complete the information for future access to Simply Connect system<br>
+	<br><table>
+                        <tr>
+                            <td>
+                                <a href="${appStoreUrl}">
+                                    <img alt='Get it on Google Play' src="cid:appStore">
+                                </a>
+                            </td>
+                            <td>
+                                <a href='${googlePlayUrl}'>
+                                    <img width="155" height="60" alt='Get it on Google Play' src='cid:googlePlay'/></a>
+                            </td>
+                        </tr>
+                    </table>	<br>
+	Note, that registration link expire in 72 hours <br><br>

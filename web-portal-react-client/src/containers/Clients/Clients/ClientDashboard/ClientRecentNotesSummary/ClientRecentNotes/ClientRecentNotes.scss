@@ -1,0 +1,65 @@
+@import "custom/_fonts";
+
+.ClientRecentNotes {}
+
+.ClientNoteList {
+  max-height: 400px;
+  margin-bottom: 30px;
+}
+
+.ClientNoteList-ItemWrapper {
+  border-bottom: 1px solid #dddddd;
+
+  &:last-child {
+    border: none;
+  }
+}
+
+.ClientNoteList-Item {
+  &.list-group-item {
+    border: none;
+    padding: 10px 0;
+  }
+}
+
+.ClientNote {}
+
+.ClientNote-SubType {
+  display: block;
+  cursor: pointer;
+  font-size: $font-size_list-item-text;
+  color: #0064ad !important;
+  text-decoration: none !important;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientNote-Description {
+  color: $font-color_head-text;
+  font-size: $font-size_list-item-text;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientNote-Type {
+  display: inline-block;
+  color: #000000;
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 0 8px;
+  font-weight: normal;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientNote-Date {
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientNote-Time {
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}

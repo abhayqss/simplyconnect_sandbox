@@ -1,0 +1,131 @@
+define(['keyMirror'], function (keyMirror) {
+    return {
+        SERVER_ERROR_TYPES: {
+            NO_CONNECTION: 'no.connection',
+            CONNECTION_ABORTED: 'ECONNABORTED',
+            INTERNAL_SERVER_ERROR: 'internal.server.error',
+            SERVER_IS_NOT_AVAILABLE: 'server.is.not.available',
+            NO_CONNECTION_OR_SERVER_IS_NOT_AVAILABLE: 'no.connection.or.server.is.not.available',
+
+            INVALID_TOKEN: 'token.invalid',
+            INVALID_PASSWORD: 'invalid.password',
+
+            NO_PHYSICIAN_FOUND: 'physician.not.found',
+            NO_PATIENT_INFO_FOUND: 'patient.info.not.found',
+            NO_PATIENTS_FOUND: 'no.associated.patients.found',
+
+            NO_PHONE_FOR_REGISTRATION: 'no.phone.for.registration',
+            NO_EMAIL_FOR_REGISTRATION: 'no.email.for.registration',
+            NO_PHONE_AND_EMAIL_FOR_REGISTRATION: 'no.phone.and.email.for.registration',
+
+            ACCOUNT_IS_LOCKED_OUT: 'account.is.locked.out',
+
+            BAD_CREDENTIALS: 'bad.credentials',
+
+            COMING_SOON: 'coming.soon'
+        },
+        PAGINATION: {
+            FIRST_PAGE: 1
+        },
+        actionTypes: keyMirror({
+            CLEAN_PROFILE_DETAILS: null,
+            CLEAN_PROFILE_DETAILS_ERROR: null,
+            LOAD_PROFILE_DETAILS_REQUEST: null,
+            LOAD_PROFILE_DETAILS_SUCCESS: null,
+            LOAD_PROFILE_DETAILS_FAILURE: null,
+
+            CLEAN_CLASS_MEMBER_TYPES: null,
+            CLEAN_CLASS_MEMBER_TYPE_LIST_ERROR: null,
+            LOAD_CLASS_MEMBER_TYPES_REQUEST: null,
+            LOAD_CLASS_MEMBER_TYPES_SUCCESS: null,
+            LOAD_CLASS_MEMBER_TYPES_FAILURE: null,
+            
+            CLEAN_STATES: null,
+            CLEAN_STATE_LIST_ERROR: null,
+            LOAD_STATES_REQUEST: null,
+            LOAD_STATES_SUCCESS: null,
+            LOAD_STATES_FAILURE: null,
+            
+            CLEAN_GENDERS: null,
+            CLEAN_GENDER_LIST_ERROR: null,
+            LOAD_GENDERS_REQUEST: null,
+            LOAD_GENDERS_SUCCESS: null,
+            LOAD_GENDERS_FAILURE: null,
+
+            CLEAN_RACES: null,
+            CLEAN_RACE_LIST_ERROR: null,
+            LOAD_RACES_REQUEST: null,
+            LOAD_RACES_SUCCESS: null,
+            LOAD_RACES_FAILURE: null,
+
+            CLEAN_EVENT_DETAILS: null,
+            CLEAN_EVENT_DETAILS_ERROR: null,
+            LOAD_EVENT_DETAILS_REQUEST: null,
+            LOAD_EVENT_DETAILS_SUCCESS: null,
+            LOAD_EVENT_DETAILS_FAILURE: null,
+
+            CLEAN_INCIDENT_TYPES: null,
+            CLEAN_INCIDENT_TYPE_LIST_ERROR: null,
+            LOAD_INCIDENT_TYPES_REQUEST: null,
+            LOAD_INCIDENT_TYPES_SUCCESS: null,
+            LOAD_INCIDENT_TYPES_FAILURE: null,
+
+            CLEAN_INCIDENT_PLACES: null,
+            CLEAN_INCIDENT_PLACE_LIST_ERROR: null,
+            LOAD_INCIDENT_PLACES_REQUEST: null,
+            LOAD_INCIDENT_PLACES_SUCCESS: null,
+            LOAD_INCIDENT_PLACES_FAILURE: null,
+
+            //todo figure out the meaning of this screen
+            CLEAN_INCIDENT_LEVEL_REPORTING_SETTINGS: null,
+            CLEAN_INCIDENT_LEVEL_REPORTING_SETTINGS_ERROR: null,
+            LOAD_INCIDENT_LEVEL_REPORTING_SETTINGS_REQUEST: null,
+            LOAD_INCIDENT_LEVEL_REPORTING_SETTINGS_SUCCESS: null,
+            LOAD_INCIDENT_LEVEL_REPORTING_SETTINGS_FAILURE: null,
+
+            CLEAN_PATIENT_DIAGNOSES: null,
+            CLEAN_PATIENT_DIAGNOSIS_LIST_ERROR: null,
+            LOAD_PATIENT_DIAGNOSES_REQUEST: null,
+            LOAD_PATIENT_DIAGNOSES_SUCCESS: null,
+            LOAD_PATIENT_DIAGNOSES_FAILURE: null,
+
+            CLEAN_PATIENT_ACTIVE_MEDICATIONS: null,
+            CLEAN_PATIENT_ACTIVE_MEDICATION_LIST_ERROR: null,
+            LOAD_PATIENT_ACTIVE_MEDICATIONS_REQUEST: null,
+            LOAD_PATIENT_ACTIVE_MEDICATIONS_SUCCESS: null,
+            LOAD_PATIENT_ACTIVE_MEDICATIONS_FAILURE: null,
+
+            CLEAN_PATIENT_INACTIVE_MEDICATIONS: null,
+            CLEAN_PATIENT_INACTIVE_MEDICATION_LIST_ERROR: null,
+            LOAD_PATIENT_INACTIVE_MEDICATIONS_REQUEST: null,
+            LOAD_PATIENT_INACTIVE_MEDICATIONS_SUCCESS: null,
+            LOAD_PATIENT_INACTIVE_MEDICATIONS_FAILURE: null,
+
+            CLEAN_INCIDENT_REPORT_ERROR: null,
+            SAVE_INCIDENT_REPORT_REQUEST: null,
+            SAVE_INCIDENT_REPORT_SUCCESS: null,
+            SAVE_INCIDENT_REPORT_FAILURE: null,
+            SAVE_INCIDENT_REPORT_DRAFT_REQUEST: null,
+            SAVE_INCIDENT_REPORT_DRAFT_SUCCESS: null,
+            SAVE_INCIDENT_REPORT_DRAFT_FAILURE: null,
+
+            CLEAN_INCIDENT_REPORT_CAN_CREATE: null,
+            CLEAN_INCIDENT_REPORT_CAN_CREATE_ERROR: null,
+            LOAD_INCIDENT_REPORT_CAN_CREATE_REQUEST: null,
+            LOAD_INCIDENT_REPORT_CAN_CREATE_SUCCESS: null,
+            LOAD_INCIDENT_REPORT_CAN_CREATE_FAILURE: null,
+
+            CLEAN_INCIDENT_REPORT_DETAILS: null,
+            CLEAN_INCIDENT_REPORT_DETAILS_ERROR: null,
+            LOAD_INCIDENT_REPORT_DETAILS_REQUEST: null,
+            LOAD_INCIDENT_REPORT_DETAILS_SUCCESS: null,
+            LOAD_INCIDENT_REPORT_DETAILS_FAILURE: null,
+
+            CLEAN_INCIDENT_REPORT_INITIALIZED: null,
+            CLEAN_INCIDENT_REPORT_INITIALIZED_ERROR: null,
+            LOAD_INCIDENT_REPORT_INITIALIZED_REQUEST: null,
+            LOAD_INCIDENT_REPORT_INITIALIZED_SUCCESS: null,
+            LOAD_INCIDENT_REPORT_INITIALIZED_FAILURE: null,
+        })
+    }
+});

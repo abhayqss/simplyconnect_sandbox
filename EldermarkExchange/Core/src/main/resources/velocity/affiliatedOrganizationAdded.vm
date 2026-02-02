@@ -1,0 +1,10 @@
+<div>Dear ${affOrg.recipientFullName}, </div>
+<div>
+    <br/>
+    ${affOrg.fullName} has added ${affOrg.affiliatedOrganization} as affiliated organization for ${affOrg.primaryOrganization}.
+    <br/><br/>
+    Now you will be able to receive notifications about events coming to ${affOrg.primaryOrganization}.
+    <br/><br/>
+    Please <a href="${affOrg.link}">log on</a> to the Simply Connect system and choose the users who will be notified about the events coming to ${affOrg.primaryOrganization}.
+    #parse( "velocity/button.vm")
+</div>

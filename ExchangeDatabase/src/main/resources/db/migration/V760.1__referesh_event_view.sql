@@ -1,0 +1,1 @@
+exec sp_refreshview N'Event'

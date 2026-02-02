@@ -1,0 +1,104 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Contacts {
+  @include page;
+}
+
+.Contacts-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.Contacts-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.Contacts-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.Contacts-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Contacts-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.AddContactBtn {
+  height: 35px;
+
+  &.btn {
+    padding: 0 15px;
+  }
+}
+
+.ContactMembershipHint {
+  .tooltip {
+    z-index: 0;
+  }
+}
+
+.ContactMembershipHint-Body {
+  display: flex;
+  max-width: 280px;
+  max-height: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  padding: 5px 20px;
+}
+
+.ContactMembership-Title {
+  font-size: 13px;
+  font-weight: 600;
+  color: $font-color_head-text;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ContactMembership-Client,
+.ContactMembership-Community {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0064ad;
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.MultiSelectRow {
+  margin-top:10px;
+}

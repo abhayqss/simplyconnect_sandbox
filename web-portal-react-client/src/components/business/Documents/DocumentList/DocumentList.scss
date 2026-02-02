@@ -1,0 +1,306 @@
+@import "custom/_fonts";
+@import "custom/_mixins";
+
+.DocumentList {
+  &-Caption {
+    margin-bottom: 10px;
+  }
+
+  &-Document {
+    &_deleted {
+      td:not(.DocumentList-ActionsCell) {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &-MultiDownload.Dropdown {
+    .dropdown-menu {
+      .Dropdown-Item {
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+  }
+
+  &-DownloadMode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-DownloadModeCheckbox {
+    margin-right: 10px;
+  }
+
+  &-DownloadAction {
+    &.btn {
+      padding: 0 30px;
+    }
+  }
+
+  &-DocFormatIcon, &-FolderIcon {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  &-LockIcon {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+
+  &-FolderTitle {
+    overflow: hidden;
+  }
+
+  &-FolderTitleText {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-DocTitle {
+    padding: 4px 0;
+    text-align: left;
+    width: calc(100% - 44px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: $font-color_head-text;
+
+    &:hover {
+      white-space: normal;
+      word-break: break-all;
+    }
+  }
+
+  &-DocTitleText {
+    text-decoration: none;
+    color: $font-color_head-text;
+
+    &:hover {
+      color: $font-color_head-text;
+    }
+  }
+
+  &-CategoryCol {
+    @media (min-width: 1300px) {
+      width: 13%;
+    }
+
+    @media (min-width: 1550px) {
+      width: 15%;
+    }
+  }
+
+  &-TypeCol {
+    @media (max-width: 1650px) {
+      display: none;
+    }
+  }
+
+  &-SizeCol {
+    @media (min-width: 1000px) {
+      width: 10%;
+    }
+
+    @media (min-width: 1580px) {
+      width: 9%;
+    }
+
+    @media (min-width: 1651px) {
+      width: 8%;
+    }
+  }
+
+  &-CreatedCol {
+    @media (min-width: 1300px) {
+      width: 10%;
+    }
+
+    @media (min-width: 1450px) {
+      width: 9%;
+    }
+
+    @media (min-width: 1650px) {
+      width: 8%;
+    }
+  }
+
+  &-AuthorCol {
+    @media (max-width: 1500px) {
+      display: none;
+    }
+  }
+
+  &-DescriptionCol1 {
+    width: 15%;
+
+    @media (max-width: 1650px) {
+      display: none;
+    }
+  }
+
+  &-DescriptionCol2 {
+    @media (max-width: 1650px) {
+      display: none;
+    }
+
+    @media (min-width: 1650px) {
+      width: 10%;
+    }
+
+    @media (min-width: 1830px) {
+      width: 12%;
+    }
+  }
+
+  &-Link {
+    color: #0064ad;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+
+  &-InfoHint {
+    text-align: left;
+
+    .tooltip-inner {
+      max-width: none;
+      width: 100%;
+      padding: 14px 24px;
+      text-align: left;
+    }
+
+    left: -10px !important;
+
+    .Detail {
+      margin: 0;
+    }
+  }
+
+  &-DocDetailTitle {
+    height: 21px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 12px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    box-sizing: content-box;
+
+    @media (min-width: 668px) {
+      padding-bottom: 10px;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    & + .DocumentList-DocDetailValue {
+      @media (min-width: 668px) {
+        display: none;
+      }
+    }
+  }
+
+  &-DocDetailValues {
+    @media (max-width: 667px) {
+      display: none;
+    }
+  }
+
+  &-DocDetailValue {
+    color: $font-color_head-text;
+    max-width: 300px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 10px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &-Actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &-Action {
+    margin-right: 7px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-Action-Multi {
+    margin-right: 7px;
+  }
+
+  &-InfoHint {
+    min-width: 200px;
+  }
+
+  .CheckboxField.form-group {
+    padding: 0;
+  }
+
+  &-Description {
+    position: relative;
+  }
+
+  &-DescriptionText {
+    word-break: break-word;
+
+    &_collapsed {
+      @include line-clamp(2);
+      max-height: none;
+    }
+  }
+
+  &-DescriptionBtn {
+    font-weight: 600;
+    font-size: 14px;
+    color: #0064ad;
+    cursor: pointer;
+  }
+
+  .DocumentCategories {
+    position: relative;
+
+    $btn-font-size: 14px;
+
+    &-Button {
+      font-weight: 600;
+      font-size: $btn-font-size;
+      color: #0064ad;
+      cursor: pointer;
+      position: absolute;
+      top: calc(50% - (#{$btn-font-size} + 8px) / 2);
+      right: 0;
+    }
+
+    .DocumentCategory {
+      & + & {
+        margin-top: 6px;
+      }
+    }
+  }
+}

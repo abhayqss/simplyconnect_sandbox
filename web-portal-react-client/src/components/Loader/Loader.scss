@@ -1,0 +1,43 @@
+.Loader {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+
+  &.Loader_has_backdrop {
+    padding: 0;
+  }
+}
+
+.Loader_has_backdrop {
+  .LoaderImg {
+    top: calc(50% - 15px);
+    left: calc(50% - 25px);
+    z-index: 2;
+    position: absolute;
+  }
+}
+
+.Loader_centered {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 35px);
+}
+
+.LoaderImg {
+  width: 50px;
+  height: 30px;
+}
+
+.Loader-Backdrop {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

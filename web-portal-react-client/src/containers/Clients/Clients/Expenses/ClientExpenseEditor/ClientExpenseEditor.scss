@@ -1,0 +1,13 @@
+@import "custom/_fonts";
+
+.ClientExpenseEditor {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+
+  &-Footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

@@ -1,0 +1,170 @@
+.mobileReferralsReply {
+  height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  position: relative;
+
+
+  .mobileReferralsReplyBox {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .logo {
+      margin-top: 45px;
+      height: 28.2px;
+    }
+
+    .medicineImg {
+      height: 118px;
+      margin-top: 20px;
+    }
+
+    .medicineTitle {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 24px;
+      color: #0064AD;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .scheduledTime {
+      width: 100%;
+      height: 32px;
+      background: #EDF5F8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      gap: 5px;
+      margin-top: 20px;
+
+      .scheduledTimeImg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .scheduledTimeText {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #0E2A2E;
+      }
+    }
+
+    .medicinePlaceholder {
+      margin-top: 20px;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.40799999237060547px;
+      text-align: center;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+
+      color: #93A7BF;
+    }
+
+    .button {
+      width: 100%;
+      height: 54px;
+      margin-top: 25px;
+      border-radius: 27px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+
+    .yesButton {
+      background:#2B5FAD ;
+      box-shadow: 0 8px 7.3px 0 #2B5FAD36;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .yesDisabledButton {
+      background: #8AA6CE !important;
+      cursor: none;
+      border: none!important;
+      color: #fff !important;
+      margin-top: 70px;
+    }
+
+    .noDisabledButton {
+      cursor: none;
+      border: 1px solid #8AA6CE !important;
+      color: #8AA6CE !important;
+      margin-top: 70px;
+    }
+
+    .noButton {
+      border:1px solid #2B5FAD;
+      color: #2B5FAD;
+      cursor: pointer;
+    }
+  }
+
+
+  .modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modalContent {
+      width: 283px;
+      height: 158px;
+      border-radius: 16px;
+      background: #0E2A2E;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      top: -105px;
+
+      .okImg {
+        width: 36.67px;
+        height: 36.67px;
+      }
+
+      .contentTitle {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 22px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        text-align: center;
+      }
+
+      .contentText {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        text-align: center;
+
+      }
+
+    }
+  }
+
+}

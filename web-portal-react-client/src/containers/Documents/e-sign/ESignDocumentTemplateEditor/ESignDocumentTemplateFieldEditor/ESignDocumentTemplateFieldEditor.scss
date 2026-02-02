@@ -1,0 +1,110 @@
+.ESignDocumentTemplateFieldEditor {
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &-Body {
+        padding: 10px 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &-SelectField {
+        .MultiSelect.is-invalid {
+            padding: 6px 12px !important;
+        }
+    }
+
+    &-FieldSelectSection {
+        flex: 1 1 0%;
+        overflow: hidden scroll;
+        height: calc(100vh - 245px);
+        padding: 14px 5px 0 25px;
+        position: relative;
+        max-width: 350px;
+        border-right: 1px solid #e0e0e0;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            width: 8px !important;
+            border-radius: 3px !important;
+            background-color: #e0e0e0 !important;
+        }
+    }
+
+    &-FieldLayoutSection {
+        flex: 1 1 0%;
+        margin: 0;
+        position: relative;
+        overflow: hidden scroll;
+        margin-right: 8px;
+        height: calc(100vh - 245px);
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            width: 8px !important;
+            border-radius: 3px !important;
+            background-color: #e0e0e0 !important;
+        }
+    }
+
+    &-FieldLayoutArea {
+        width: 100%;
+    }
+
+    &-Buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 20px 25px 40px;
+        border-top: 1px solid #dee2e6;
+    }
+
+    &-AutofillSection {
+        margin-bottom: 40px;
+
+        .ESignDocumentTemplateFieldEditorSection-Icon {
+            right: 197px;
+        }
+    }
+
+    &-RequesterSection {
+        margin-bottom: 40px;
+
+        .ESignDocumentTemplateFieldEditorSection-Icon {
+            right: 90px;
+        }
+    }
+
+    &-SignerSection {
+        margin-bottom: 40px;
+
+        .ESignDocumentTemplateFieldEditorSection-Icon {
+            right: 127px;
+        }
+    }
+
+    &-RulesSection {
+        margin-bottom: 40px;
+
+        .ESignDocumentTemplateFieldEditorSection-Icon {
+            right: 222px;
+            top: 2px;
+        }
+    }
+
+    &-AssignFolder_disabled {
+        color: #898989;
+        pointer-events: none;
+        cursor: default;
+    }
+}

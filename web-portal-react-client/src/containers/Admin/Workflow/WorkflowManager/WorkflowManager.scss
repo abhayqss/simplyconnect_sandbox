@@ -1,0 +1,334 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Workflow {
+  @include page;
+  font-family: "Open Sans", sans-serif !important
+}
+
+.workflow-table-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.workflow-table-search-box {
+  display: flex;
+}
+
+.status-btn {
+  background: #D8DBD5;
+  color: #4c4e51;
+  font-size: 15px;
+  width: 90px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+}
+
+.published-btn {
+  background: #DBF2BE;
+
+}
+
+.analyticsButton {
+  margin-right: 20px;
+}
+
+.AnalyticsWrap {
+  padding: 25px 30px;
+
+  .analyticsHeader {
+    color: #000;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    margin-top: 25px;
+  }
+
+  .topAnalytics {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+
+    .topAnalyticsBox {
+      aspect-ratio: 3/1;
+      flex-basis: calc(25% - 10px);
+      min-height: 99px;
+      border-radius: 4px;
+      background: var(--white, #FFF);
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      padding: 15px;
+
+      .topAnalyticsTitle {
+        color: #949494;
+        font-family: Poppins, serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      img {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        bottom: 13px;
+        right: 30px;
+      }
+
+      .topText {
+        font-family: Poppins, serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        //margin-top: 10px;
+      }
+
+      .fistBox {
+        color: #17C366;
+      }
+
+      .secBox {
+        color: #ED748C;
+      }
+
+      .thrBox {
+        color: #4C4E51;
+        font-weight: 400;
+
+        span {
+          font-size: 14px;
+          margin: 0 5px;
+        }
+      }
+
+      .fourBox {
+        color: #4C4E51;
+        font-weight: 400;
+      }
+
+    }
+  }
+}
+
+.echartsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+
+  .abcd {
+    aspect-ratio: 356/149;
+  }
+
+  .echartsBox {
+    aspect-ratio: 563/405;
+    flex-basis: calc(50% - 10px);
+    border-radius: 4px;
+    background: var(--white, #FFF);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+    min-width: 300px;
+    overflow: scroll;
+    //min-height: 400px;
+    //max-height: 422px;
+
+
+    @media (max-width: 640px) {
+      .workflowEndEcharts {
+        display: none;
+      }
+    }
+
+    .blackBg {
+      height: 8px;
+      background-color: #233250;
+    }
+
+    .echartsContent {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+
+      .echartsContentTitle {
+        color: #222;
+        font-family: Poppins, serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .progressWrapBox {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        overflow: scroll;
+
+        @media (max-width: 640px) {
+          overflow: scroll;
+        }
+      }
+
+      .workflowCenter {
+        margin-top: 18px;
+        display: flex;
+
+        .workflowCenterLeft {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding-right: 30px;
+          border-right: 1px solid #F1F1F1;
+
+          span {
+            &:first-child {
+              color: var(--sky-blue, #00ACE6);
+              text-align: center;
+              font-family: Poppins, serif;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            &:last-child {
+              color: var(--searchbox-text, #949494);
+              text-align: center;
+              font-family: Poppins, serif;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          }
+
+        }
+
+        .workflowCenterRight {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding-left: 30px;
+
+          span {
+            &:first-child {
+              color: var(--red, #F45640);
+              text-align: center;
+              font-family: Poppins, serif;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+
+            &:last-child {
+              color: var(--searchbox-text, #949494);
+              text-align: center;
+              font-family: Poppins, serif;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+          }
+        }
+      }
+
+      .workflowEndEcharts {
+        flex: 1;
+      }
+
+      .progressTitle {
+        color: var(--text-main, #4C4E51);
+        font-family: Poppins, serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .progressBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .css-kprosg-MuiLinearProgress-root {
+          flex: 1;
+        }
+
+        .progressInfo {
+          margin-left: 10px;
+          color: var(--text-main, #4C4E51);
+          font-family: Poppins, serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+.workflow-table-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  color: #0064ad !important;
+  font-weight: 600;
+}
+.workflowTable-name-Item {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  color: #0064ad !important;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+
+  &_disabled {
+    cursor: default;
+  }
+}
+
+.Workflow-Filters {
+  .ButtonGroup .btnSecondary {
+    background: #fff !important;
+    color: #075AA0 !important;
+    border: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .ButtonGroup .btnSuccess {
+    color: #fff;
+    background-color: #0064ad;
+    border-color: #0064ad;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+}

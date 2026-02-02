@@ -1,0 +1,159 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsp="http://www.w3.org/ns/ws-policy"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://app.eldermarkexchange.com/documents/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+                  name="DocumentsEndpointImplService"
+                  targetNamespace="http://app.eldermarkexchange.com/documents/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://app.eldermarkexchange.com/documents/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://app.eldermarkexchange.com/documents/">
+            <xs:element name="deleteDocument" type="tns:deleteDocument"/>
+            <xs:element name="deleteDocumentResponse" type="tns:deleteDocumentResponse"/>
+            <xs:element name="queryForDocuments" type="tns:queryForDocuments"/>
+            <xs:element name="queryForDocumentsResponse" type="tns:queryForDocumentsResponse"/>
+            <xs:complexType name="deleteDocument">
+                <xs:sequence>
+                    <xs:element name="documentId" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="deleteDocumentResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="queryForDocuments">
+                <xs:sequence>
+                    <xs:element name="residentId" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="queryForDocumentsResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:Document"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Document">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="id" type="xs:string"/>
+                    <xs:element minOccurs="0" name="documentTitle" type="xs:string"/>
+                    <xs:element minOccurs="0" name="authorId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="authorName" type="xs:string"/>
+                    <xs:element minOccurs="0" name="creationTime" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+                    <xs:element minOccurs="0" name="size" type="xs:int"/>
+                    <xs:element minOccurs="0" name="documentType" type="tns:DocumentType"/>
+                    <xs:element minOccurs="0" name="originalFileName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="DocumentType">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="CCD"/>
+                    <xs:enumeration value="CUSTOM"/>
+                    <xs:enumeration value="NWHIN"/>
+                    <xs:enumeration value="FACESHEET"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:element name="ResidentOptedOutException" type="tns:ResidentOptedOutException"/>
+            <xs:complexType name="ResidentOptedOutException">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:element name="DocumentNotFoundException" type="tns:DocumentNotFoundException"/>
+            <xs:complexType name="DocumentNotFoundException">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:element name="ResidentNotFoundException" type="tns:ResidentNotFoundException"/>
+            <xs:complexType name="ResidentNotFoundException">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="DocumentNotFoundFault">
+        <wsdl:part element="tns:DocumentNotFoundException" name="DocumentNotFoundException"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteDocument">
+        <wsdl:part element="tns:deleteDocument" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteDocumentResponse">
+        <wsdl:part element="tns:deleteDocumentResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ResidentOptedOutFault">
+        <wsdl:part element="tns:ResidentOptedOutException" name="ResidentOptedOutException"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="queryForDocumentsResponse">
+        <wsdl:part element="tns:queryForDocumentsResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="queryForDocuments">
+        <wsdl:part element="tns:queryForDocuments" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ResidentNotFoundFault">
+        <wsdl:part element="tns:ResidentNotFoundException" name="ResidentNotFoundException"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="DocumentsEndpoint">
+        <wsdl:operation name="deleteDocument">
+            <wsdl:input message="tns:deleteDocument" name="deleteDocument"></wsdl:input>
+            <wsdl:output message="tns:deleteDocumentResponse" name="deleteDocumentResponse"></wsdl:output>
+            <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+            <wsdl:fault message="tns:DocumentNotFoundFault" name="DocumentNotFoundFault"></wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="queryForDocuments">
+            <wsdl:input message="tns:queryForDocuments" name="queryForDocuments"></wsdl:input>
+            <wsdl:output message="tns:queryForDocumentsResponse" name="queryForDocumentsResponse"></wsdl:output>
+            <wsdl:fault message="tns:ResidentNotFoundFault" name="ResidentNotFoundFault"></wsdl:fault>
+            <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DocumentsEndpointImplServiceSoapBinding" type="tns:DocumentsEndpoint">
+        <wsp:PolicyReference URI="#ExchangeWSPolicy_UT"/>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="deleteDocument">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="deleteDocument">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteDocumentResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResidentOptedOutFault">
+                <soap:fault name="ResidentOptedOutFault" use="literal"/>
+            </wsdl:fault>
+            <wsdl:fault name="DocumentNotFoundFault">
+                <soap:fault name="DocumentNotFoundFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="queryForDocuments">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="queryForDocuments">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="queryForDocumentsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ResidentNotFoundFault">
+                <soap:fault name="ResidentNotFoundFault" use="literal"/>
+            </wsdl:fault>
+            <wsdl:fault name="ResidentOptedOutFault">
+                <soap:fault name="ResidentOptedOutFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DocumentsEndpointImplService">
+        <wsdl:port binding="tns:DocumentsEndpointImplServiceSoapBinding" name="DocumentsEndpointImplPort">
+            <soap:address location="PROTOCOL://HOST:PORT/exchange/ws/documentsUpload"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsp:Policy xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" wsu:Id="ExchangeWSPolicy_UT">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:SupportingTokens>
+                    <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+                            <wsp:Policy>
+                                <sp:WssUsernameToken10/>
+                            </wsp:Policy>
+                        </sp:UsernameToken>
+                    </wsp:Policy>
+                </sp:SupportingTokens>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+</wsdl:definitions>

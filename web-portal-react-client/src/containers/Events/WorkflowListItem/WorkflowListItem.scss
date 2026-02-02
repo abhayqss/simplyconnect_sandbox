@@ -1,0 +1,250 @@
+.WorkflowListItem-box {
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px 0 rgba(142, 147, 156, 0.15);
+  margin-bottom: 27px;
+}
+
+.WorkflowListItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 20px;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .WorkflowListItemLeft {
+    width: 100%;
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+
+    }
+  }
+
+
+  .WorkflowListItem-information {
+    max-width: 220px;
+    display: flex;
+    align-items: center;
+    flex: 2;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  .WorkflowListItem-avatar {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+ .WorkflowListItem-fullname {
+
+    font-size: 14px;
+    color: #000;
+
+    //margin-right: 20px;
+
+   @media (min-width: 768px) {
+     width: 103px;
+     overflow: hidden;
+     white-space: nowrap;
+     text-overflow: ellipsis;
+   }
+  }
+
+ .WorkflowListItem-workflowName {
+    color: #4c4e51;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 5;
+    font-family: "Open Sans Semibold", sans-serif;
+    cursor: pointer;
+
+   @media (min-width: 1024px) {
+     max-width: 300px;
+   }
+
+   @media (min-width: 1536px) {
+     max-width: 470px;
+   }
+  }
+
+  .WorkflowListItem-one-process {
+    width: 100%;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (min-width: 1024px) {
+      width: 200px;
+      justify-content: end;
+
+    }
+
+    @media (min-width: 1536px) {
+      width: 400px;
+      justify-content: end;
+    }
+  }
+
+  .WorkflowListItem-one-process-box {
+    //flex: 1;
+    //width: calc(100% - 82px);
+    display: flex;
+    box-sizing: border-box;
+    text-align: right;
+    height: 55px;
+    overflow-x: auto;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+
+
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: transparent; //设定轨道背景色
+      border-radius: 6px; //设定轨道圆角半径
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #CFDFF8 !important; //设定滑块颜色
+    }
+  }
+}
+
+
+.question-item {
+  box-sizing: border-box;
+  width: 26px;
+  height: 26px;
+  color: #949494;
+  line-height: 25px;
+  text-align: center;
+  border: 1px solid #ececec;
+  box-shadow: 0 2px 4px 0 rgba(142, 147, 156, 0.15);
+}
+
+.item-hasDone {
+  color: #fff;
+  background-color: #00ace6;
+  border-color: #00ace6;
+  border-right-color: #fff;
+}
+
+.item-pending {
+  color: #f45640;
+  background-color: #fcecd9;
+}
+
+.Dropper-Icon {
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.Tips-Icon {
+  cursor: default;
+  margin-right: 10px;
+}
+
+.Dropper-Icon_rotated_90 {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.Dropper-Icon_rotated_0 {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+
+.WorkflowListItem-many-process {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  margin-top: 10px;
+
+  flex-wrap: wrap;
+  
+  @media (min-width: 1280px) {
+    width: 350px;
+  }
+
+}
+
+.progress-container {
+  flex:1;
+  //width: 210px;
+  height: 10px;
+  background-color: #f4f4f6;
+  border-radius: 3px;
+  position: relative;
+  margin-right: 15px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #00ace6;
+  border-radius: 5px;
+}
+
+.progress-bar-transparent {
+  height: 40px;
+  background-color: transparent;
+  position: relative;
+}
+
+.progress-text {
+  position: absolute;
+  right: -18px;
+  z-index: 0;
+  top: -22px;
+  color: white;
+  font-size: 14px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #00ace6;
+}
+
+.progress-percentage {
+  display: inline-block;
+  font-size: 14px;
+  color: #00ace6;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin-left: 10px;
+}
+
+
+.workflow-detail-list {
+  border-top: 1px solid #ddd;
+  box-shadow: 0 2px 4px 0 rgba(142, 147, 156, 0.15);
+
+  .line-item:last-child {
+    border-bottom: none;
+  }
+}

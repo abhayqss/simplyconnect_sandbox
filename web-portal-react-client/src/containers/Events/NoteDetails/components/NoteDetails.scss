@@ -1,0 +1,126 @@
+@import "custom/_fonts";
+
+.NoteDetails {
+  border-radius: 2px;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+  min-height: calc(100% - 66px);
+  padding-bottom: 1px;
+
+  @media (max-width: 767px) {
+    box-shadow: none;
+  }
+
+  .TableMobile-Details {
+    padding: 0;
+  }
+}
+
+.NoteDetails-Header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2fbff;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  height: 50px;
+  z-index: 1;
+
+  @media (max-width: 767px) {
+    background-color: white;
+    padding: 1rem;
+    margin-top: 20px;
+  }
+}
+
+.NoteDetails-Header_fixed {
+  position: fixed;
+  box-shadow: 1px -3px 0px 1px #f7f7f7;
+}
+
+.NoteDetails-NoDataText {
+  padding: 8px;
+  text-align: center;
+}
+
+.NoteDetails-TabsContainer {
+  margin-left: 8px;
+}
+
+.NoteDetails-Tabs {
+  &.Tabs.nav-tabs {
+    box-shadow: none;
+
+    @media (max-width: 928px) {
+      display: none;
+    }
+
+    .nav-item {
+      &:hover {
+        background: transparent;
+      }
+
+      &:last-child {
+        .nav-link {
+          border: none;
+        }
+      }
+    }
+
+    .nav-link {
+      &.active {
+        border: none;
+        color: $font-color_head-text;
+        background: transparent;
+      }
+
+      &:active,
+      &:focus {
+        border: none;
+        color: #0064ad;
+        text-transform: uppercase;
+        background-color: transparent;
+      }
+
+      color: #0064ad;
+      border: none;
+      text-transform: uppercase;
+      background-color: transparent;
+
+      @media (max-width: 1199px) {
+        padding: .5rem .3rem;
+      }
+    }
+  }
+}
+
+.NoteDetails-EditNoteBtn {
+  &:hover {
+    cursor: pointer;
+  }
+
+  fill: #0064ad;
+  margin-right: 24px;
+}
+
+.NoteDetails-CreateEventNoteBtn {
+  cursor: pointer;
+  margin-right: 25px;
+  outline: none;
+}
+
+.NoteDetails-Dropdown {
+  display: none;
+  margin-left: 8px; 
+
+  @media (max-width: 928px) {
+    display: block;
+  }
+}
+
+.NoteDetailsMobile {
+  &.Modal {
+    max-width: initial;
+  }
+}

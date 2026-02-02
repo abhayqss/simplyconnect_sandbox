@@ -1,0 +1,39 @@
+.ESignDocumentTemplateFolderAssignerForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-Body {
+    flex: 1;
+    padding: 40px 14px 40px 24px;
+    max-height: 430px;
+    overflow: hidden scroll;
+  }
+
+  &-SelectField {
+    .MultiSelect.is-invalid {
+      padding: 6px 12px !important;
+    }
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

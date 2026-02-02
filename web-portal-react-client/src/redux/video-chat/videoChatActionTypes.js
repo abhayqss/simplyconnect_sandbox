@@ -1,0 +1,45 @@
+import mirror from 'key-mirror'
+
+export default mirror({
+    CLEAR_ERROR: null,
+
+    INITIATE_CALL_REQUEST: null,
+    INITIATE_CALL_SUCCESS: null,
+    INITIATE_CALL_FAILURE: null,
+
+    JOIN_CALL: null,
+    ACCEPT_CALL: null,
+    RECEIVE_CALL: null,
+    SET_ON_CALL: null,
+    UPDATE_CALL: null,
+    SET_INCOMING_CALL: null,
+    SET_OUTGOING_CALL: null,
+    CLOSE_CONNECTION: null,
+
+    CONNECT_REQUEST: null,
+    CONNECT_SUCCESS: null,
+    CONNECT_FAILURE: null,
+
+    DISCONNECT: null,
+
+    DECLINE_CALL_REQUEST: null,
+    DECLINE_CALL_SUCCESS: null,
+    DECLINE_CALL_FAILURE: null,
+
+    CANCEL_CALL: null,
+
+    CALL_WAS_DECLINED: null,
+    ADD_ON_CALL_PARTICIPANTS: null,
+    ADD_PENDING_PARTICIPANTS: null,
+    REMOVE_ON_CALL_PARTICIPANTS: null,
+    ADD_DECLINED_PARTICIPANT: null,
+    REMOVE_DECLINED_PARTICIPANTS: null,
+    ADD_TIMEOUT_PARTICIPANTS: null,
+    REMOVE_TIMEOUT_PARTICIPANTS: null,
+
+    ADD_PARTICIPANTS_REQUEST: null,
+    ADD_PARTICIPANTS_SUCCESS: null,
+    ADD_PARTICIPANTS_FAILURE: null,
+
+    ADD_INCIDENT_REPORT: null,
+})

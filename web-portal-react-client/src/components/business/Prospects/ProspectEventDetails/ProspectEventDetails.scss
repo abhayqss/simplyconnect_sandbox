@@ -1,0 +1,162 @@
+@import "custom/_fonts";
+
+.ProspectEventDetails {
+  border-radius: 2px;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+  min-height: 95px;
+  padding-bottom: 1px;
+
+  @media (max-width: 767px) {
+    box-shadow: none;
+  }
+
+  .TableMobile-Details {
+    padding: 0;
+  }
+
+  &-Header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2fbff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 50px;
+    z-index: 1;
+
+    @media (max-width: 767px) {
+      background-color: white;
+      padding: 1rem;
+      margin-top: 20px;
+    }
+
+    &_fixed {
+      position: fixed;
+      box-shadow: 1px -3px 0px 1px #f7f7f7;
+    }
+  }
+
+  &-Section {
+    padding: 24px 0;
+    position: relative;
+
+    .EventDetail {
+      display: flex;
+      margin: 0 24px;
+      padding: 16px 0;
+    }
+
+    .EventDetail-Title {
+      flex: 1;
+      display: flex;
+      word-break: break-word;
+      text-transform: uppercase;
+      font-size: $font-size_detail-title-text;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+  }
+
+  &-SectionAnchor {
+    top: -180px;
+    position: absolute;
+  }
+
+  &-SectionTitle {
+    position: relative;
+    display: inline-block;
+    padding-left: 24px;
+    font-size: 22px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Alert {
+    padding: 18px 16px;
+    margin: 24px;
+    background-color: #fff1ca;
+  }
+
+  &-AlertText {
+    color: $font-color_head-text;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &-NoDataText {
+    padding: 23px;
+    text-align: center;
+  }
+
+  &-Link {
+    &:hover {
+      color: #0064ad;
+    }
+
+    color: #0064ad;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: $font-size_link-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Type {
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+    padding: 2px 8px;
+  }
+
+  &-Status {
+    flex: 4;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+  &-Navigation {
+    padding: 24px;
+  }
+
+  &-NavLink {
+    font-size: $font-size_link-text;
+    font-weight: 600;
+    color: #0064ad;
+    font-family: "Open Sans", sans-serif;
+    margin-right: 18px;
+    text-decoration: none;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+}
+
+
+.ProspectEventSubDetail {
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+
+  &-Title {
+    text-transform: uppercase;
+    color: #898989;
+    font-size: 11px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Value {
+    color: $font-color_head-text;
+  }
+}
+
+.ProspectEventDetails-ScrollTopBtn {
+  position: fixed;
+  right: 80px;
+}

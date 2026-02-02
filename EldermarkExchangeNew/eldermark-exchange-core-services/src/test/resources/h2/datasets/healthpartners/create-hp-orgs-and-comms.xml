@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <SourceDatabase id="100" alternative_id="Health_Partners" name="Health Partners" url="Health_Partners" is_service="false" is_eldermark="false" oid="Health_Partners" receive_non_network_referrals="false" labs_enabled="false" is_labs_research_testing="false" sdoh_reports_enabled="false" is_chat_enabled="false" is_video_enabled="false" is_signature_enabled="false" is_appointments_enabled="false"  exclude_from_record_search="true"/>
+    <SourceDatabase id="101" alternative_id="Health_Partners_Test" name="Health Partners Test" url="Health_Partners_Test" is_service="false" is_eldermark="false" oid="Health_Partners_Test" receive_non_network_referrals="false" labs_enabled="false" is_labs_research_testing="false" sdoh_reports_enabled="false" is_chat_enabled="false" is_video_enabled="false" is_signature_enabled="false" is_appointments_enabled="false"  exclude_from_record_search="true"/>
+    <Organization id="200" legacy_id="200" legacy_table="Company" name="At Home" database_id="100" oid="Health_Partners_Claims" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="false" receive_non_network_referrals="false" is_sharing_data="true" is_signature_pin_enabled="true"/>
+    <Organization id="201" legacy_id="201" legacy_table="Company" name="At Home Test" database_id="101" oid="Health_Partners_Claims_Test" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="false" receive_non_network_referrals="false" is_sharing_data="true" is_signature_pin_enabled="true"/>
+    <OrganizationHieConsentPolicy id="1" archived="false" status="CREATED" organization_id="200" type="OPT_IN" last_modified_date="2022-11-14 21:40:37.7233333"/>
+    <OrganizationHieConsentPolicy id="2" archived="false" status="CREATED" organization_id="201" type="OPT_IN" last_modified_date="2022-11-14 21:40:37.7233333"/>
+    <EncryptionKey id="1" secret_key="0x5653B7EC8D1AC83461661415BF4411CD"/>
+</dataset>

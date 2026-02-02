@@ -1,0 +1,1 @@
+export { default as useCanvasObjectMovingRestrictions } from './useCanvasObjectMovingRestrictions'

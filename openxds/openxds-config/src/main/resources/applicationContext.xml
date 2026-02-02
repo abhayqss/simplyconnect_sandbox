@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 Copyright (c) 2009 Misys Open Source Solutions (MOSS) and others
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied. See the License for the specific language governing
+     permissions and limitations under the License.
+
+     Contributors:
+       Misys Open Source Solutions - initial API and implementation
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
+
+<!--
+    <task:executor id="myexecutor" pool-size="5"  />
+    <task:annotation-driven executor="myexecutor"/>-->
+
+    <context:component-scan base-package="org.openhealthtools.openxds" />
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:openxds.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- XDS Document Registry Configuration                                          -->
+    <!-- =================================================================== -->
+    <bean id="registryQueryService"
+          class="org.openhealthtools.openxds.registry.adapter.omar31.XdsRegistryQueryServiceImpl"/>
+
+    <bean id="registryLifeCycleService"
+          class="org.openhealthtools.openxds.registry.adapter.omar31.XdsRegistryLifeCycleServiceImpl">
+        <property name="mergePatientDao" ref="mergePatientDao"/>
+        <property name="xdsRegistryEexDao" ref="xdsRegistryEexDao"/>
+        <property name="xdsRepoDocumentService" ref="xdsRepoDocumentService"/>
+        <property name="exchangeRepositoryUniqueId" value="${repository.uniqueId}"/>
+    </bean>
+
+    <bean id="mergePatientDao" class="org.openhealthtools.openxds.registry.dao.MergePatientDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="xdsRegistryCustomDao" class="org.openhealthtools.openxds.registry.dao.XdsRegistryCustomDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="xdsRegistryCustomService" class="org.openhealthtools.openxds.registry.adapter.omar31.XdsRegistryCustomServiceImpl">
+        <property name="xdsRegistryCustomDao" ref="xdsRegistryCustomDao" />
+    </bean>
+
+    <bean id="xdsRepoDocumentService" class="org.openhealthtools.openxds.registry.adapter.omar31.XdsRepoDocumentServiceImpl">
+        <property name="xdsRepoDocumentDao" ref="xdsRepoDocumentDao" />
+    </bean>
+
+
+
+
+    <!-- =================================================================== -->
+    <!-- XDS Document Repository Configuration                                        -->
+    <!-- =================================================================== -->
+    <bean id="repositoryService"
+          class="org.openhealthtools.openxds.repository.exchange.ExchangeDBRepositoryServiceImpl">
+        <property name="repositoryUniqueId" value="${repository.uniqueId}"/>
+        <property name="httpSender" ref="exchangeHttpSender"/>
+    </bean>
+
+    <bean id="exchangeHttpSender"
+          class="org.openhealthtools.openxds.repository.exchange.ExchangeHttpSender">
+        <property name="exchangeHomeUrl" value="${exchange.home.url}"/>
+        <property name="authUsername" value="${xds.custom.auth.username}"/>
+        <property name="authPassword" value="${xds.custom.auth.password}"/>
+    </bean>
+
+    <bean id="ccnRestClient" class="org.openhealthtools.openxds.exchange.CcnRestClient">
+        <property name="exchangeHomeUrl" value="${exchange.home.url}"/>
+        <property name="authUsername" value="${xds.custom.auth.username}"/>
+        <property name="authPassword" value="${xds.custom.auth.password}"/>
+    </bean>
+
+    <!--bean id="repositoryService" class="org.openhealthtools.openxds.repository.FileSystemRepositoryServiceImpl">
+		<property name="repositoryUniqueId" value="${repository.uniqueId}"/>
+		
+		<repositoryRoot is required by FileSystemRepository>
+   	    <property name="repositoryRoot" value="${file.system.repository.base.dir}" />
+    </bean-->
+
+    <bean id="repositoryManagerDao" class="org.openhealthtools.openxds.repository.dao.XdsRepositoryManagerDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+<!--
+    <bean id="exchangeRepositoryManagerDao" class="org.openhealthtools.openxds.repository.dao.ExchangeRepositoryManagerDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+-->
+
+
+    <bean id="repositoryItem" scope="prototype" class="org.openhealthtools.openxds.repository.XdsRepositoryItemImpl"/>
+
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${openxds.db.driver}"/>
+        <property name="url" value="${openxds.db.url}"/>
+        <property name="username" value="${openxds.db.username}"/>
+        <property name="password" value="${openxds.db.password}"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>openxds.repository.hbm.xml</value>
+                <value>externalidentifier.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="repositoryManagerTransaction"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target" ref="repositoryService"/>
+        <property name="transactionAttributeSource">
+            <bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+        </property>
+    </bean>
+
+    <bean id="registryManagerTransaction"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="target" ref="registryLifeCycleService"/>
+        <property name="transactionAttributeSource">
+            <bean class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+        </property>
+    </bean>
+
+    <!-- =================================================================== -->
+    <!-- Patient Registry & Repo                                             -->
+    <!-- =================================================================== -->
+
+    <bean id="registryPatientService" class="org.openhealthtools.openxds.registry.patient.XdsRegistryPatientServiceImpl">
+        <property name="xdsRegistryPatientDao" ref="xdsRegistryPatientDao"/>
+        <property name="residentUpdateQueueDao" ref="residentUpdateQueueDao"/>
+        <property name="rawXdsMessageDao" ref="rawXdsMessageDao"/>
+        <property name="baseDao" ref="baseDao"/>
+        <property name="eexRepoPatient" ref="xdsRepoPatientService"/>
+        <property name="assigningAuthorityNamespace" value="EXCHANGE"/>
+        <property name="assigningAuthorityUniversal" value="2.16.840.1.113883.3.6492"/>
+        <property name="ccnRestClient" ref="ccnRestClient"/>
+        <property name="sendOutEventToExchange" value="true"/>
+
+    </bean>
+
+    <bean id="xdsRepoPatientService" class="org.openhealthtools.openxds.registry.patient.XdsRepoPatientServiceImpl">
+        <property name="ccdCodeDao" ref="ccdCodeDao"/>
+        <property name="sourceDatabaseDao" ref="sourceDatabaseDao"/>
+        <property name="organizationDao" ref="organizationDao"/>
+        <property name="xdsRepoPatientDao" ref="xdsRepoPatientDao"/>
+        <property name="residentUpdateQueueDao" ref="residentUpdateQueueDao"/>
+    </bean>
+
+    <bean id="lssiPv1PatientIdService" class="org.openhealthtools.openxds.registry.patient.LssiPv1PatientIdServiceImpl">
+        <property name="xdsRegistryPatientDao" ref="xdsRegistryPatientDao"/>
+        <property name="organizationDao" ref="organizationDao"/>
+    </bean>
+
+
+    <bean id="xdsRegistryPatientDao" class="org.openhealthtools.openxds.dao.XdsRegistryPatientDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+        <property name="organizationDao" ref="organizationDao"/>
+    </bean>
+
+    <bean id="ccdCodeDao" class="org.openhealthtools.openxds.dao.CcdCodeDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="hL7CodeTableDao" class="org.openhealthtools.openxds.dao.HL7CodeTableDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="sourceDatabaseDao" class="org.openhealthtools.openxds.dao.SourceDatabaseDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="organizationDao" class="org.openhealthtools.openxds.dao.OrganizationDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="xdsRepoPatientDao" class="org.openhealthtools.openxds.dao.XdsRepoPatientDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="residentUpdateQueueDao" class="org.openhealthtools.openxds.dao.ResidentUpdateQueueDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="rawXdsMessageDao" class="org.openhealthtools.openxds.dao.RawXdsMessageDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="baseDao" class="org.openhealthtools.openxds.dao.DaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="xdsRepoDocumentDao" class="org.openhealthtools.openxds.registry.dao.XdsRepoDocumentDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+
+    <bean id="xdsRegistryEexDao" class="org.openhealthtools.openxds.registry.dao.XdsRegistryEexDaoImpl">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+
+    <!-- Enable @Transactional support -->
+    <tx:annotation-driven transaction-manager="eexTransactionManager"/>
+
+    <bean id="eexTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="eexSessionFactory"/>
+    </bean>
+
+    <bean id="eexSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="eexDataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>org.openhealthtools.openxds.registry.Document</value>
+
+                <value>org.openhealthtools.openxds.entity.Resident</value>
+                <value>org.openhealthtools.openxds.entity.CcdCode</value>
+                <value>org.openhealthtools.openxds.entity.BasicEntity</value>
+                <value>org.openhealthtools.openxds.entity.Database</value>
+                <value>org.openhealthtools.openxds.entity.Language</value>
+                <value>org.openhealthtools.openxds.entity.LegacyIdAwareEntity</value>
+                <value>org.openhealthtools.openxds.entity.Person</value>
+                <value>org.openhealthtools.openxds.entity.Name</value>
+                <value>org.openhealthtools.openxds.entity.Organization</value>
+                <value>org.openhealthtools.openxds.entity.PersonAddress</value>
+                <value>org.openhealthtools.openxds.entity.PersonIdentifier</value>
+                <value>org.openhealthtools.openxds.entity.PersonTelecom</value>
+                <value>org.openhealthtools.openxds.entity.StringLegacyIdAwareEntity</value>
+                <value>org.openhealthtools.openxds.entity.PersonIdentifierMerged</value>
+                <value>org.openhealthtools.openxds.entity.RawXdsMessage</value>
+                <value>org.openhealthtools.openxds.entity.message.AdtMessage</value>
+                <!-- messages -->
+                <value>org.openhealthtools.openxds.entity.message.ADTA01</value>
+                <value>org.openhealthtools.openxds.entity.message.ADTA03</value>
+                <value>org.openhealthtools.openxds.entity.message.ADTA04</value>
+                <value>org.openhealthtools.openxds.entity.message.ADTA08</value>
+                <!-- segments -->
+                <value>org.openhealthtools.openxds.entity.segment.MSHMessageHeaderSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.AdtDG1DiagnosisSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.AdtGT1GuarantorSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.AdtPD1AdditionalDemographicSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.AdtAL1AllergySegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.PIDPatientIdentificationSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.PR1ProceduresSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.PV1PatientVisitSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.EVNEventTypeSegment</value>
+                <value>org.openhealthtools.openxds.entity.segment.IN1InsuranceSegment</value>
+                <!-- fields -->
+                <value>org.openhealthtools.openxds.entity.datatype.CECodedElement</value>
+                <value>org.openhealthtools.openxds.entity.datatype.CXExtendedCompositeId</value>
+                <value>org.openhealthtools.openxds.entity.datatype.DLDDischargeLocation</value>
+                <value>org.openhealthtools.openxds.entity.datatype.HDHierarchicDesignator</value>
+                <value>org.openhealthtools.openxds.entity.datatype.MSGMessageType</value>
+                <value>org.openhealthtools.openxds.entity.datatype.XADPatientAddress</value>
+                <value>org.openhealthtools.openxds.entity.datatype.XCNExtendedCompositeIdNumberAndNameForPersons</value>
+                <value>org.openhealthtools.openxds.entity.datatype.XONExtendedCompositeNameAndIdForOrganizations</value>
+                <value>org.openhealthtools.openxds.entity.datatype.XPNPersonName</value>
+                <value>org.openhealthtools.openxds.entity.datatype.XTNPhoneNumber</value>
+                <value>org.openhealthtools.openxds.entity.datatype.PLPatientLocation</value>
+                <value>org.openhealthtools.openxds.entity.datatype.ISCodedValueForUserDefinedTables</value>
+                <value>org.openhealthtools.openxds.entity.datatype.IDCodedValueForHL7Tables</value>
+                <value>org.openhealthtools.openxds.entity.datatype.DLNDriverSLicenseNumber</value>
+                <!-- hl7 tables -->
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7DefinedCodeTable</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7UserDefinedCodeTable</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0001AdministrativeSex</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0002MaritalStatus</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0004PatientClass</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0005Race</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0006Religion</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0007AdmissionType</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0009AmbulatoryStatus</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0023AdmitSource</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0052DiagnosisType</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0062EventReason</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0063Relationship</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0092ReadmissionIndicator</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0127AllergenType</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0128AllergySeverity</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0136YesNoIndicator</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0189EthnicGroup</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0190AddressType</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0230ProcedureFunctionalType</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0399CountryCode</value>
+                <value>org.openhealthtools.openxds.entity.hl7table.HL7CodeTable0465NameAddressRepresentation</value>
+
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">com.scnsoft.eldermark.dao.dialect.SqlServerCustomDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.jdbc.use_get_generated_keys">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="eexDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${patient.registry.db.driver}"/>
+        <property name="url" value="${patient.registry.db.url}"/>
+        <property name="username" value="${patient.registry.db.username}"/>
+        <property name="password" value="${patient.registry.db.password}"/>
+        <property name="connectionInitSqls" value="OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1"/>
+    </bean>
+</beans>

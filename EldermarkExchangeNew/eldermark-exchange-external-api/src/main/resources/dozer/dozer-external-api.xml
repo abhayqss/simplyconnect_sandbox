@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+              http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <configuration>
+        <custom-converters>
+            <converter type="com.scnsoft.eldermark.api.shared.converter.PersonNameConverter">
+                <class-a>com.scnsoft.eldermark.entity.Name</class-a>
+                <class-b>com.scnsoft.eldermark.api.shared.ccd.dto.NameDto</class-b>
+            </converter>
+        </custom-converters>
+    </configuration>
+
+<!--    OK-->
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Person</class-a>
+        <class-b>com.scnsoft.eldermark.api.shared.ccd.dto.PersonDto</class-b>
+        <field>
+            <a>names</a>
+            <b>names</b>
+            <a-hint>com.scnsoft.eldermark.entity.Name</a-hint>
+            <b-hint>com.scnsoft.eldermark.api.shared.ccd.dto.NameDto</b-hint>
+        </field>
+        <field>
+            <a>addresses</a>
+            <b>addresses</b>
+            <a-hint>com.scnsoft.eldermark.entity.basic.Address</a-hint>
+            <b-hint>com.scnsoft.eldermark.api.shared.ccd.dto.AddressDto</b-hint>
+        </field>
+        <field>
+            <a>telecoms</a>
+            <b>telecoms</b>
+            <a-hint>com.scnsoft.eldermark.entity.basic.Telecom</a-hint>
+            <b-hint>com.scnsoft.eldermark.api.shared.ccd.dto.TelecomDto</b-hint>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.basic.Address</class-a>
+        <class-b>com.scnsoft.eldermark.api.shared.ccd.dto.AddressDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.basic.Telecom</class-a>
+        <class-b>com.scnsoft.eldermark.api.shared.ccd.dto.TelecomDto</class-b>
+    </mapping>
+</mappings>

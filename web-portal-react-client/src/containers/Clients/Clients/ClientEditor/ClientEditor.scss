@@ -1,0 +1,100 @@
+@import "custom/_fonts";
+
+.ClientEditor {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+}
+
+.ClientEditor-Footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ClientEditor-SharingDataSwitcher {
+  &.form-group {
+    margin-left: 25px;
+    margin-bottom: 0;
+  }
+
+  .SwitchField-Label {
+    font-size: 14px;
+    margin: 0 12px 0 0;
+    vertical-align: middle;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+}
+
+.ClientEditor-Switcher {
+
+}
+
+.ClientEditor-SwitchField {
+  display: flex;
+
+}
+
+.ClientEditor-SwitchFieldTitle {
+
+}
+
+.ClientEditor-SwitchFieldValue {
+  display: flex;
+  justify-content: left;
+  font-size: 14px;
+  color: $font-color_head-text;
+}
+
+.remindUsersToFillInInformationInEdit {
+  //width: 100%;
+  height: auto;
+  background-color: #FFF1CA;
+  border-radius: 4px;
+  padding: 10px 20px;
+
+  margin: 20px 35px;
+  font-size: 14px;
+  color: #222;
+
+  position: sticky;
+  top: 0;
+  z-index: 500;
+
+  //margin-bottom: 20px;
+
+
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+  //align-items: center;
+  gap: 10px;
+
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .remindUsersToFillInInformationInfoInEditInEdit {
+    flex: 1;
+  }
+
+  .remindUsersToFillInInformationEditInEdit {
+    width: 100px;
+    font-weight: 600;
+    color: #0064AD;
+    cursor: pointer;
+  }
+
+  .remindUsersToFillInInformationDontShowInEdit {
+    //width: 300px;
+    font-weight: 600;
+    color: #0064AD;
+    cursor: pointer;
+    display: flex;
+  }
+
+}

@@ -1,0 +1,83 @@
+package com.scnsoft.eldermark.web.controller;
+
+{{^jdk8}}
+{{#imports}}import {{import}};
+{{/imports}}{{/jdk8}}
+{{^jdk8}}
+import com.scnsoft.eldermark.shared.web.entity.Response;
+import com.scnsoft.eldermark.shared.web.entity.ResponseErrorDto;
+
+import io.swagger.annotations.*;
+{{/jdk8}}
+{{^jdk8}}
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+{{#useBeanValidation}}
+import org.springframework.validation.annotation.Validated;
+import javax.validation.constraints.*;
+{{/useBeanValidation}}
+{{/jdk8}}
+{{^isDelegate}}
+{{#jdk8}}import java.util.Optional;{{/jdk8}}
+{{/isDelegate}}
+{{^jdk8-no-delegate}}{{#useOptional}}
+import java.util.Optional;
+{{/useOptional}}{{/jdk8-no-delegate}}
+{{^jdk8}}{{^isDelegate}}
+import java.io.IOException;{{/isDelegate}}
+import java.net.HttpURLConnection;
+import java.util.List;
+import java.util.logging.Logger;
+{{#async}}
+import java.util.concurrent.Callable;{{/async}}
+{{/jdk8}}
+import javax.annotation.Generated;
+
+{{>generatedAnnotation}}
+@Api(value = "{{{baseName}}}")
+@ApiResponses({
+    @ApiResponse(code = HttpURLConnection.HTTP_UNAUTHORIZED, message = "Unauthorized", response = ResponseErrorDto.class),
+    @ApiResponse(code = HttpURLConnection.HTTP_FORBIDDEN, message = "Access Forbidden", response = ResponseErrorDto.class)
+})
+{{#useBeanValidation}}
+@Validated
+{{/useBeanValidation}}
+@RestController
+@RequestMapping("")
+{{#operations}}
+public class {{classname}}Controller {
+
+    final Logger logger = Logger.getLogger({{classname}}Controller.class.getName());
+{{#isDelegate}}
+    private final {{classname}}Delegate delegate;
+
+    @org.springframework.beans.factory.annotation.Autowired
+    public {{classname}}Controller({{classname}}Delegate delegate) {
+        this.delegate = delegate;
+    }{{/isDelegate}}
+
+{{^jdk8-no-delegate}}{{#operation}}
+    @ApiOperation(value = "{{{summary}}}",{{#notes}} notes = "{{{notes}}}",{{/notes}} tags={"not-implemented"}){{#implicitHeaders}}
+        @ApiImplicitParams({
+        {{#headerParams}}{{>implicitHeader}}{{/headerParams}}
+        }){{/implicitHeaders}}
+    @RequestMapping(value = "{{{path}}}", method = RequestMethod.{{httpMethod}})
+    public {{#async}}Callable<{{/async}}Response<{{>returnTypes}}>{{#async}}>{{/async}} {{operationId}}(
+        {{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>bodyParams}}{{>formParams}}{{#hasMore}},
+        {{/hasMore}}{{/allParams}}
+    ) {
+        final {{>returnTypes}} dto = new {{>returnTypes}}();
+        // do some magic!{{^isDelegate}}{{^async}}
+        return Response.successResponse(dto);{{/async}}{{#async}}
+        return new Callable<Response<{{>returnTypes}}>>() {
+            @Override
+            public Response<{{>returnTypes}}> call() throws Exception {
+                return Response.successResponse(dto);
+            }
+        };{{/async}}{{/isDelegate}}{{#isDelegate}}
+        return delegate.{{operationId}}({{#allParams}}{{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{/isDelegate}}
+    }
+{{/operation}}{{/jdk8-no-delegate}}
+}
+{{/operations}}

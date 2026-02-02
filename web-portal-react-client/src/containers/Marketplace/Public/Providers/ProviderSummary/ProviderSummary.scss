@@ -1,0 +1,60 @@
+@import "custom/mixins.scss";
+
+.MarketplaceProviderSummary {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px 24px;
+
+  @mixin size-250 {
+    width: 250px;
+    height: 250px;
+  }
+
+  &-Picture {
+    @include size-250;
+    object-fit: cover;
+
+    &Container {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  &-Logo {
+    @include size-250;
+    object-fit: none;
+  }
+
+  &-StubIcon {
+    @include size-250;
+    fill: #dddddd;
+  }
+
+  &-Name {
+    font-size: 18px;
+    font-family: "Open Sans Semibold", sans-serif;
+    margin-bottom: 8px;
+    @include line-clamp(3);
+    cursor: pointer;
+  }
+
+  &-ServiceCategories {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 8px;
+    @include line-clamp(2);
+  }
+
+  &-Description {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 8px;
+    @include line-clamp(3);
+  }
+
+  &-ZipCode {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+  }
+}

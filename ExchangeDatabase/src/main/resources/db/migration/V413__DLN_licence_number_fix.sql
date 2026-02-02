@@ -1,0 +1,7 @@
+SET ANSI_PADDING ON
+GO
+SET XACT_ABORT ON
+GO
+
+ALTER TABLE DLN_Driver_s_License_Number ALTER COLUMN license_number varchar(100)
+GO

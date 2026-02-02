@@ -1,0 +1,40 @@
+.Checkable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &_disabled {
+    .Checkable-Checkbox {
+      background-color: #f9f9f9;
+    }
+
+    .Checkable-CheckMark {
+      border: solid #bfbdbd;
+      border-width: 0 3px 3px 0;
+    }
+  }
+
+  &-Checkbox {
+    flex: 0 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 27px;
+    width: 27px;
+    min-width: 27px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    vertical-align: middle;
+    margin-right: 15px;
+  }
+
+  &-CheckMark {
+    left: 8px;
+    position: absolute;
+    top: 4px;
+    width: 9px;
+    height: 15px;
+    border: solid #0064ad;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+}

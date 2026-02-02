@@ -1,0 +1,3 @@
+-- CCN-4739
+-- Disabling Dose Healh, Hammer, Therap access to EventApi
+-- Disabling Nucleus access to ExternalApi

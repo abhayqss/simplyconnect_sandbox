@@ -1,0 +1,16 @@
+#application-fallback {
+  height: 100%;
+  font-family: "Open Sans Semibold", sans-serif;
+  text-align: center;
+}
+
+.application-fallback {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: calc(50vh - 78px);
+}
+
+.application-fallback-title {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

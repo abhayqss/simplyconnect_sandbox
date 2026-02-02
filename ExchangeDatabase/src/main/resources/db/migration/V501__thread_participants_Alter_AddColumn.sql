@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[thread_participants] ADD [enabled] [bit] DEFAULT 0 NOT NULL;

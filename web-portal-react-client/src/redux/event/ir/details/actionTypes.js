@@ -1,0 +1,9 @@
+import { ACTION_TYPES } from 'lib/Constants'
+
+const {
+    DOWNLOAD_IR_REPORT_DOCUMENT_FAILURE
+} = ACTION_TYPES
+
+export default {
+    DOWNLOAD_FAILURE: DOWNLOAD_IR_REPORT_DOCUMENT_FAILURE
+}

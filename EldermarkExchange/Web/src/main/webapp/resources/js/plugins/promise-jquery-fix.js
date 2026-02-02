@@ -1,0 +1,1 @@
+Promise.prototype.fail = Promise.prototype.catch;

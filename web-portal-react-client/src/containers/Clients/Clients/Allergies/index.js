@@ -1,0 +1,1 @@
+export { default as AllergyViewer } from './AllergyViewer/AllergyViewer'

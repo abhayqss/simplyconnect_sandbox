@@ -1,0 +1,15 @@
+.MedicalContactDetail {
+    display: flex;
+}
+
+.MedicalContactDetail-Title {
+    flex: 1;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.MedicalContactDetail-Value {
+    flex: 3;
+    display: flex;
+    justify-content: left;
+}

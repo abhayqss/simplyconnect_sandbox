@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <mvc:resources mapping="/resources/**" location="resources/"/>
+
+    <security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled">
+        <security:expression-handler ref="methodSecurityExpressionHandler" />
+    </security:global-method-security>
+
+    <context:property-placeholder
+            location="classpath:application.properties, classpath:transportation.properties, classpath:reports.properties"/>
+
+    <mvc:annotation-driven>
+        <mvc:path-matching suffix-pattern="false" />
+        <mvc:argument-resolvers>
+            <bean class="org.springframework.data.web.PageableHandlerMethodArgumentResolver">
+                <property name="fallbackPageable" ref="defaultPageRequest"/>
+            </bean>
+            <bean class="com.scnsoft.eldermark.web.resolvers.MessagingAccountArgumentResolver"/>
+            <bean class="org.springframework.security.web.bind.support.AuthenticationPrincipalArgumentResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+
+    <context:component-scan base-package="com.scnsoft.eldermark.web.controller"/>
+    <context:component-scan base-package="com.scnsoft.scansol.web.controller"/>
+
+    <!-- Enable Swagger UI -->
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+
+    <!-- Include a swagger configuration -->
+    <bean name="/applicationSwaggerConfig" class="com.scnsoft.scansol.config.ApplicationSwaggerConfig"/>
+
+    <aop:aspectj-autoproxy/>
+
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <!--Don't add suffix or prefix like you do with .jsp files-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1000000000"/>
+    </bean>
+
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions" value="/WEB-INF/viewtemplates/templates.xml"/>
+    </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/patient-info/**"/>
+            <bean class="com.scnsoft.eldermark.web.interceptor.hashkey.HashKeyInterceptor">
+                <property name="invalidHashKeyStrategy" ref="invalidHashKeyStrategy"/>
+            </bean>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/patient-info/*/documents/custom/**"/>
+            <bean class="com.scnsoft.eldermark.web.interceptor.CustomDocumentsInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.scnsoft.eldermark.web.interceptor.GlobalPropertiesInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id="invalidHashKeyStrategy" class="com.scnsoft.eldermark.web.interceptor.hashkey.InvalidHashKeyStrategyImpl">
+        <constructor-arg name="statusCode" value="422"/>
+        <property name="hashKeyFailureUrl" value="/patient-search?hashKey=error"/>
+    </bean>
+
+    <bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource">
+        <property name="basenames"
+                  value="/WEB-INF/i18n/EldermarkExchange,/resources/application"/>
+        <property name="fallbackToSystemLocale" value="false"/>
+        <property name="cacheSeconds" value="1"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.i18n.SessionLocaleResolver" id="localeResolver">
+        <property name="defaultLocale" value="en_EN"/>
+    </bean>
+
+    <bean id="defaultPageRequest" class="org.springframework.data.domain.PageRequest">
+        <constructor-arg name="page" value="0"/>
+        <constructor-arg name="size" value="25"/>
+    </bean>
+</beans>

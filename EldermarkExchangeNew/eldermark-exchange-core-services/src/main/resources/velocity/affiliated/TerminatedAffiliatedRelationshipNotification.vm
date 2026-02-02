@@ -1,0 +1,6 @@
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    ${dto.affiliatedOrganizationName} and ${dto.primaryOrganizationName} affiliate relationship has been terminated.
+    <br><br>
+</div>

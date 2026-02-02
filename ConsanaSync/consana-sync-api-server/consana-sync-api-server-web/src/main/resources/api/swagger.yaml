@@ -1,0 +1,121 @@
+swagger: "2.0"
+info:
+  title: Sync Api for Consana Integration
+  description: Sync Api for Consana Integration
+  version: 1.0.0
+host: dev.simplyconnect.me:9696
+basePath: /consana/sync
+schemes:
+  - https
+
+securityDefinitions:
+  BasicAuth:
+    type: basic
+
+security:
+  - BasicAuth: []
+
+tags:
+  - name: submit-controller
+    description: Submit controller
+
+responses:
+  'badRequest':
+    description: Bad Request
+    schema:
+      $ref: '#/definitions/ResponseOfBadRequestResponse'
+
+### Endpoints definition ###
+
+paths:
+  /submit:
+    post:
+      tags:
+        - submit-controller
+      summary: Submit patient to be syncronized.
+      description: Submit patient to be syncronized.
+      operationId: sync
+      consumes:
+        - application/json
+      parameters:
+        - name: ConsanaSyncDto
+          in: body
+          description: Data which contains patient's information necessary for syncronization.
+          required: true
+          schema:
+            $ref: '#/definitions/ConsanaSyncDto'
+      responses:
+        202:
+          description: Accepted
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          description: Authentication information is missing or invalid
+
+### Models definition ###
+
+definitions:
+  ConsanaSyncDto:
+    type: object
+    description: This dto is is intended to represent a sync adsf
+    properties:
+      identifier:
+        type: string
+        description: Xref patient identifier
+        example: 'S12345'
+      organizationOID:
+        type: string
+        description: Organization OID specified in SC
+        example: '1.2.345677888'
+      communityOID:
+        type: string
+        description: Community OID specified in SC
+        example: '1.2.34567781234.6.7.8.9'
+      updateType:
+        type: string
+        description: Update type
+        enum:
+          - PatientUpdate
+          - MAPClosed
+        example: PatientUpdate
+
+
+### Error Response Examples ###
+
+  ResponseOfBadRequestResponse:
+    type: object
+    description: This response is returned in case of the invalid submitted data.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/ValidationErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 400
+        minimum: 100
+        maximum: 599
+
+  ValidationErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "constraint.violation"
+      message:
+        type: string
+        example: "Validation failed. 2 error(s)."
+      validationErrors:
+        type: array
+        description: A list of validation error messages
+        items:
+          type: string
+        example:
+          - "firstName size must be between 2 and 128"
+          - "eventTypeId may not be null"

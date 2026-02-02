@@ -1,0 +1,46 @@
+.steps {
+  --normal-color: #666;
+  --active-color: #06e;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  counter-reset: order;
+}
+  /* 步骤项 */
+.steps > li {
+  flex: auto;
+  display: inline-flex;
+  align-items: center;
+  counter-increment: order;
+  color: var(--active-color);
+}
+.steps > li:last-child {flex: none;}
+  /* 步骤编号（带圈数字） */
+.steps > li::before {
+  content: counter(order);
+  flex-shrink: 0;
+  width: 1.4em;
+  line-height: 1.4em;
+  margin-right: .5em;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid;
+}
+  /* 步骤项引导线 */
+.steps > li:not(:last-child)::after {
+  content: '';
+  flex: 1;
+  margin: 0 1em;
+  border-bottom: 1px solid;
+  opacity: .6;
+}
+  /* 步骤状态 */
+.steps > .active {color: var(--active-color);}
+.steps > .active::before {
+  color: #fff;
+  background: var(--active-color);
+  border-color: var(--active-color);
+}
+.steps > .active::after,
+.steps > .active ~ li {color: var(--normal-color);}

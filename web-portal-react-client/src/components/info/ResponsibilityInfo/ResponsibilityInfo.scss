@@ -1,0 +1,70 @@
+@import "custom/_fonts";
+
+.ResponsibilityInfo {
+
+  &-Header {
+    display: flex;
+    width: 100%;
+    padding: 10px 20px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #0064ad;
+  }
+
+  &-HeaderText {
+    &:first-child {
+      width: 120px;
+    }
+
+    &:nth-child(n + 2) {
+      flex: 1;
+      padding: 0 5px;
+    }
+
+    font-size: 14px;
+    color: #ffffff;
+    text-align: left;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Sections {
+    padding: 10px 20px 20px;
+    background-color: white;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &-Section {
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  &-Responsibility {
+    width: 120px;
+    font-size: 14px;
+    color: #0064ad;
+    text-align: left;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-SectionText {
+    flex: 1;
+    display: block;
+    width: 180px;
+    font-size: 14px;
+    padding: 0 5px;
+    text-align: left;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+  }
+}

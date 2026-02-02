@@ -1,0 +1,160 @@
+@import "custom/_fonts";
+
+.CommunityForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .Scrollable {
+    flex: 1 1 0%;
+  }
+
+  &-Section {
+    padding: 20px 40px 20px;
+
+    &Header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &-SwitchField {
+    margin-top: 30px;
+  }
+
+  &-SectionTitle {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &_withButton {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &-TextField {
+    &_withIcon {
+      .TextField-Input {
+        padding-right: 34px;
+      }
+    }
+
+    &_withoutError {
+      .TextField-Error {
+        display: none;
+      }
+
+      .TextField-Input.is-invalid {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &-TabsContainer {
+    margin-top: 15px;
+  }
+
+  &-TextAreaField {
+    .TextField-Input {
+      height: 75px;
+    }
+  }
+
+  &-SearchField {
+    margin-top: 2rem;
+  }
+
+  &-CheckboxFieldTitle {
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-CheckboxField {
+    margin-right: 20px;
+  }
+
+  &-Button {
+    width: 100px;
+    height: 35px;
+    margin-top: 30px;
+
+    &.btn {
+      padding: 0;
+    }
+  }
+
+  &-FilterFieldIcon {
+    top: 45px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    fill: #4C4E51;
+    position: absolute;
+  }
+
+  &-Actions {
+    float: right;
+
+    .delete {
+      fill: #0064ad;
+    }
+  }
+
+  &-LabelIcon {
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+
+  &-InfoHint {
+    margin-left: 4px;
+  }
+
+  &-PhoneTooltipBody {
+    text-align: left;
+    padding: 7px 20px;
+    margin: 0;
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-CloseIcon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 7px;
+    cursor: pointer;
+  }
+
+  &-AlertPanel {
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px,
+        xxxl: 1600px
+);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1610px,
+        xxxl: 1850px
+);
+
+.d-grid {
+  display: grid !important;
+}
+
+@for $i from 1 through 10 {
+  .grid-column-span-#{$i} {
+    grid-column: span $i;
+  }
+
+  .grid-row-span-#{$i} {
+    grid-row: span $i;
+  }
+}
+
+@for $i from 1 through 10 {
+  .grid-template-columns-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr) !important;
+  }
+}
+

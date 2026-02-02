@@ -1,0 +1,31 @@
+.PrimaryFilter {
+  &-Field {
+    max-width: 420px;
+  }
+
+  .MultiSelect-Container {
+    display: inline-block;
+  }
+
+  .MultiSelect {
+    &-SelectedText {
+      color: #0064ad;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    &-SelectedTextOnExpand {
+      color: #0064ad;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    &-ToggleChevron {
+      fill: #0064ad;
+    }
+  }
+
+  &-Field_frozen {
+    pointer-events: none;
+  }
+}

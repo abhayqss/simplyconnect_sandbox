@@ -1,0 +1,1 @@
+INSERT INTO misc (id) VALUES ('DeleteKeys_Exch_Sync_ON');

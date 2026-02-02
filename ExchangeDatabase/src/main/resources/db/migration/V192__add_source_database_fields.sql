@@ -1,0 +1,1 @@
+  ALTER TABLE [dbo].[SourceDatabase] ADD is_xml_sync bit NULL;

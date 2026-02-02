@@ -1,0 +1,21 @@
+.Pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  &-Text {
+    font-size: 16px;
+    margin: 0 15px;
+  }
+}
+
+.SinglePage {
+  margin-bottom: 60px;
+  position: relative;
+}

@@ -1,0 +1,146 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.IncidentReportDetails {
+  @include page;
+  position: static;
+
+  .EventNotifications {
+    padding: 0;
+  }
+
+  &-ChatLink {
+    font-size: 14px;
+    color: #0064ad;
+    text-transform: uppercase;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+}
+
+.IncidentReportDetails-Body {
+  padding-bottom: 20px;
+}
+
+.IncidentReportDetails-Title {
+  flex: 1 1;
+  width: 400px;
+  color: $font-color_head-text;
+  font-size: 26px;
+  font-weight: bold;
+  margin-left: -2px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.IncidentReportDetails-TitleText {
+  display: inline-block;
+}
+
+.IncidentReportDetails-Header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.IncidentReportDetails-Status.Badge {
+  font-size: 13px;
+  color: $font-color_head-text;
+}
+
+.IncidentReportDetails-Body {}
+
+.IncidentReportDetails-ActionDropdown {
+  margin-right: 15px;
+
+  .ActionButtonList-Toggle {
+    border: 1px solid #0064ad;
+  }
+
+  .ActionButtonList-Options {
+    left: inherit;
+    right: 0;
+  }
+}
+
+.IncidentReportDetails-ActionBtn {
+  &.btn {
+    width: 100px;
+  }
+}
+
+.IncidentReportDetails-Section {
+  margin-bottom: 75px;
+  &:last-child { margin-bottom: 0 }
+}
+
+.IncidentReportDetails-SectionTitle,
+.IncidentReportDetails-SubSectionTitle {
+  color: $font-color_head-text;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.IncidentReportDetails-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    text-decoration: none;
+    color: #0064ad;
+  }
+}
+
+.IncidentReportDetail-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.IncidentReportDetail-ValueItem {
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.IncidentReportSubDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.IncidentReportSubDetail-Title {
+  color: #898989;
+  text-transform: uppercase;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.IncidentReportSubDetail-Value {
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.IncidentReportDetail-BodyDiagram {
+  max-width: 400px;
+}
+
+.IncidentReportDetails-ScrollTopBtn {
+  position: fixed;
+}

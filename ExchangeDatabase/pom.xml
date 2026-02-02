@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>exchange-database</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+        <url>jdbc:sqlserver://localhost:1433;databaseName=exchange_demo</url>
+        <user>sa</user>
+        <password>280993</password>
+        <!--<url>jdbc:sqlserver://srv-ict-4751:1433;databaseName=eldermark_encrypted</url>
+        <user>testuser</user>
+        <password>testuserpassword</password>-->
+        <masterKeyPass>qwe123QWE</masterKeyPass>
+        <flyway.placeholders.masterKeyPass>${masterKeyPass}</flyway.placeholders.masterKeyPass>
+        <flyway.placeholders.project.basedir>${project.basedir}</flyway.placeholders.project.basedir>
+        <flyway.placeholders.profile>local</flyway.placeholders.profile>
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Test</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</url>
+                <user>sa</user>
+                <password>qp?n-ytu?</password>
+                <masterKeyPass>qweAlk983_OEPO2IJSW123</masterKeyPass>
+                <flyway.placeholders.masterKeyPass>${masterKeyPass}</flyway.placeholders.masterKeyPass>
+                <flyway.placeholders.profile>test</flyway.placeholders.profile>
+            </properties>
+        </profile>
+		
+		<profile>
+            <id>Test2</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo_2</url>
+                <user>sa</user>
+                <password>qp?n-ytu?</password>
+                <masterKeyPass>qweAlk983_OEPO2IJSW123</masterKeyPass>
+                <flyway.placeholders.masterKeyPass>${masterKeyPass}</flyway.placeholders.masterKeyPass>
+                <flyway.placeholders.profile>test-2</flyway.placeholders.profile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.199.1.159;databaseName=exchange</url>
+                <user>exchange-user</user>
+                <password>4uja!9hv5n9S=hB</password>
+                <masterKeyPass>mRRURT=9Gt2sRez+u6Etq</masterKeyPass>
+                <flyway.placeholders.masterKeyPass>${masterKeyPass}</flyway.placeholders.masterKeyPass>
+                <flyway.placeholders.profile>stg</flyway.placeholders.profile>
+            </properties>
+        </profile>
+
+		<profile>
+            <id>Prod2</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.199.1.129;databaseName=exchange</url>
+                <user>exchange-user</user>
+                <password>y2Ej_8D=TH6PT7v</password>
+                <masterKeyPass>phg9UI876KJLW92nxBz00</masterKeyPass>
+                <flyway.placeholders.masterKeyPass>${masterKeyPass}</flyway.placeholders.masterKeyPass>
+                <flyway.placeholders.profile>prod</flyway.placeholders.profile>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.jdbc.driver.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.1.2</version>
+
+                <configuration>
+                    <driver>${driver}</driver>
+                    <url>${url}</url>
+                    <user>${user}</user>
+                    <password>${password}</password>
+
+                    <placeholders>
+                        <masterKeyPass>${masterKeyPass}</masterKeyPass>
+                        <applicationUser>${user}</applicationUser>
+                    </placeholders>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>db/migration/V36__import_ccd_data.sql</include>
+            </includes>
+        </resource>
+
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+            <excludes>
+                <exclude>db/migration/V36__import_ccd_data.sql</exclude>
+           </excludes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>db/migration/V49__import_rxnorm_codes.sql</include>
+            </includes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+            <excludes>
+                <exclude>db/migration/V49__import_rxnorm_codes.sql</exclude>
+            </excludes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>db/migration/V215__addencryption.sql</include>
+            </includes>
+        </resource>
+    </resources>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>LocalRepository</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+</project>

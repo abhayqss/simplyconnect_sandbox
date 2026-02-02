@@ -1,0 +1,237 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Clients {
+  .Clients {
+    @include page;
+    height: auto;
+  }
+}
+
+.Clients-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.Clients-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.Clients-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.Clients-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Clients-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ClientList {
+  &.Table.table {
+    .reset-expansion-style {
+      padding: 0;
+      border: none;
+
+      .row-expansion-style {
+        padding: 0;
+      }
+    }
+
+    $radius: 5px;
+
+    tbody {
+      & > tr.ClientList-ExpandableRow {
+        box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+        background-color: #0064ad;
+        color: #ffffff;
+
+        &:hover {
+          background-color: #004182;
+        }
+
+        .ClientList-ClientName {
+          color: #ffffff;
+        }
+
+        .Actions-Item {
+          fill: #ffffff;
+          stroke: #ffffff;
+        }
+
+        border-radius: $radius;
+
+        & > td:first-child {
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+        }
+
+        & > td:last-child {
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+        }
+
+        & + tr {
+          box-shadow: none;
+          background: none;
+
+          &:hover {
+            .reset-expansion-style {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-FullName {
+    overflow: hidden;
+    justify-content: space-around;
+  }
+}
+
+.ClientList-ClientName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  font-family: "Open Sans Semibold", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+
+  &_disabled {
+    cursor: default;
+  }
+}
+
+.ClientList-ClientAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  @media (max-width: 375px) {
+    display: none !important;
+  }
+}
+
+.ClientList-Header-ClientName {
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
+}
+
+.ClientList-ClientAvatar_black-white {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.Clients-OrganizationSelect, .Clients-CommunitySelect, .Clients-TypeSelect {
+  padding: 8px 16px;
+  display: inline-block;
+  max-width: 350px;
+
+  .MultiSelect-SelectedText {
+    color: #0064ad;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-SelectedTextOnExpand {
+    color: #0064ad;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleChevron {
+    fill: #0064ad;
+  }
+}
+
+.ClientCaseLoadListContainer {
+  padding: 0 17px;
+  margin-top: 20px;
+}
+
+.ClientList-Community {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ClientList-ShowMatchesActionItem {
+  width: 36px;
+  height: 36px;
+  margin-left: -30px;
+  cursor: pointer;
+  padding: 6px;
+
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+}
+
+.ClientList-Actions {
+  &__RightAligned {
+    margin-left: 100%;
+  }
+}
+
+.Detail-Clients {
+  .Detail-Value {
+    flex-wrap: wrap;
+  }
+}
+
+.ClientList-Link {
+  color: #0064ad;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+      color: #0064ad;
+  }
+
+  &, &_Disabled {
+      &:not(:first-child) {
+          margin-left: 6px;
+      }
+  }
+
+  &_Disabled {
+      font-family: "Open Sans Semibold", sans-serif;
+  }
+}

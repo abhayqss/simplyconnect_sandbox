@@ -1,0 +1,90 @@
+@import "custom/_fonts.scss";
+
+.AppointmentDetails {
+    &-Section {
+        padding: 24px 0;
+        position: relative;
+
+        .AppointmentDetail {
+            display: flex;
+            margin: 0 9px;
+            padding: 16px 0;
+
+            &-Title {
+                flex: 1;
+                display: flex;
+                text-transform: uppercase;
+                font-size: $font-size_detail-title-text;
+                font-family: "Open Sans Semibold", sans-serif;
+                font-weight: 600;
+                margin-right: 0;
+                padding-right: 0;
+                min-width: 90px;
+            }
+
+            &-Value {
+                flex: 4;
+                display: flex;
+                justify-content: left;
+                font-size: 14px;
+                color: $font-color_head-text;
+            }
+        }
+    }
+
+    &-SectionTitle {
+        position: relative;
+        display: inline-block;
+        padding-left: 24px;
+        font-size: 26px;
+        color: $font-color_head-text;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    &-SwitchField {
+        align-self: center;
+        margin-bottom: 0;
+
+        .SwitchField-Label {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333333;
+            font-family: "Open Sans Semibold", sans-serif;
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 767px) {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+
+            .SwitchField-Label {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    &-Link {
+        color: #0064ad;
+        cursor: pointer;
+        text-decoration: none;
+        font-family: "Open Sans Semibold", sans-serif;
+
+        &:focus {
+            color: #0064ad;
+            outline: none;
+        }
+
+        &:hover {
+            color: #0064ad;
+        }
+    }
+
+    &-AlertPanel {
+        color: #333333;
+        padding: 18px 14px;
+        margin-top: 0;
+        margin-bottom: 32px;
+    }
+}

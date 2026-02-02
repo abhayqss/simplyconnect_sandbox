@@ -1,0 +1,192 @@
+@import "custom/_fonts";
+
+.ContactList {
+  &-ContactName {
+    color: #0064ad;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    font-family: "Open Sans Semibold", sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+
+  &-Avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    @media (max-width: 375px) {
+      display: none !important;
+    }
+  }
+
+  &-Avatar_black-white {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+
+  &-UserName {
+    margin-left: 10px;
+  }
+
+  &-MemberRelation {
+    font-size: 14px;
+    color: #898989;
+  }
+
+  &-Status {
+    color: $font-color_head-text;
+    font-size: 14px;
+    padding: 0 8px;
+    border-radius: 2px;
+  }
+
+  &-Actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-Membership {
+    font-size: 14px;
+    float: right;
+  }
+
+  &-MembershipLink {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0064ad;
+    float: right;
+    cursor: pointer;
+  }
+
+  &-FullNameHeader {
+    @media (min-width: 1024px) {
+      width: 25%;
+    }
+
+    @media (min-width: 1450px) {
+      width: 20%;
+    }
+  }
+}
+
+.ChangePasswordModel .Modal-Body.modal-body {
+  padding: 20px;
+}
+
+.ChangePasswordModel .modal-content {
+  height: 570px;
+  top: 80px;
+}
+
+.changePasswordSubmit {
+  width: 100%;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.passwordText {
+  font-size: 12px;
+}
+
+// Modern Password Requirements Styling
+.PasswordRequirements {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+
+  &-Item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+
+    &--met {
+      opacity: 1;
+
+      .PasswordRequirements-Text {
+        color: #28a745;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &-Checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    flex-shrink: 0;
+
+    &--checked {
+      background: #28a745;
+      border-color: #28a745;
+      animation: checkboxPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+
+  &-CheckIcon {
+    width: 12px;
+    height: 10px;
+    animation: checkIconAppear 0.3s ease;
+  }
+
+  &-Text {
+    font-size: 14px;
+    color: #495057;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+  }
+}
+
+@keyframes checkboxPop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes checkIconAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,7 @@
+@import "custom/_fonts";
+
+.BarChart {
+    .recharts-legend-item-text {
+        color: $font-color_head-text !important;
+    }
+}

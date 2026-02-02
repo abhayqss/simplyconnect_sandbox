@@ -1,0 +1,89 @@
+.Tabs {
+  &.nav-tabs {
+    display: inline-flex;
+    justify-content: stretch;
+    border-radius: 5px;
+    border-bottom-color: transparent;
+    box-shadow: 0 0 8px 0 rgba(39, 39, 39, 0.18);
+  }
+}
+
+.TabsContainer {
+  text-align: center;
+}
+
+.Tabs-Tab {
+  border: none;
+  outline: none;
+  position: relative;
+
+  &.nav-item {
+    flex: 1 0 auto;
+  }
+
+  &.nav-item.show {
+    .nav-link {
+      color: #495057;
+      background-color: #27638F;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+  }
+}
+
+.Tabs-TabLink {
+  &.nav-link {
+    color: #0064ad;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    padding: 6px 16px;
+    font-weight: 600;
+    font-family: "Open Sans Bold", sans-serif;
+
+    &:hover {
+      background-color: #f6f6f6;
+    }
+  }
+
+  &.nav-link.active {
+    color: #ffffff;
+    background-color: #0064ad;
+  }
+}
+
+.Tabs-TabIndicator {
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.Tabs-TabIndicatorIcon {
+  width: 10px;
+  height: 12px;
+  fill: #0064ad;
+  display: block;
+}
+
+.Tabs-TabError {
+  &.Tabs-TabLink.nav-link {
+    color: white;
+    border: 1px solid #f33232 !important;
+    background-color: #f33232 !important;
+  }
+}
+
+.Tabs-TabDisabled {
+  &.Tabs-TabLink.nav-link {
+    background-color: #e0e0e0;
+    color: white;
+    border-color: #e0e0e0 !important;
+    
+    &:hover {
+      color: white;
+    }
+  }
+}

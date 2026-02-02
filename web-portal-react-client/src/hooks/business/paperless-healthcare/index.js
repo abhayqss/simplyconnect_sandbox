@@ -1,0 +1,2 @@
+export { default as useCanViewPaperlessHealthcareQuery } from './useCanViewPaperlessHealthcareQuery'
+export { default as usePaperlessHealthcareDemoRequestSubmit } from './usePaperlessHealthcareDemoRequestSubmit'

@@ -1,0 +1,16 @@
+.ContactToIndividualConfirmPopup {
+  &.modal-dialog {
+    max-width: 700px;
+  }
+
+  .modal-content {
+    border: none;
+    max-height: 550px;
+  }
+
+  &-Footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

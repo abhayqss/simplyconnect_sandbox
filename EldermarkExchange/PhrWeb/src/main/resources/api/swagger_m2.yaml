@@ -1,0 +1,5254 @@
+swagger: '2.0'
+info:
+  description: SimplyConnect PHR API for mobile
+  version: API Version 0.2 (Phase 2 M2)
+  title: PHR API
+  termsOfService: 'urn:tos'
+  contact: {}
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: info-controller
+    description: General information
+  - name: physicians-controller
+    description: Physicians
+  - name: registration-controller
+    description: Registration
+  - name: health-provider-controller
+    description: Health Provider of Personal Health Record
+  - name: phr-info-controller
+    description: Personal Health Record information
+  - name: events-controller
+    description: Events log
+  - name: login-controller
+    description: Authentication
+  - name: video-call-controller
+    description: Video conferences
+  - name: care-team-controller
+    description: Care Team Member information
+  - name: care-receivers-controller
+    description: Care Receivers information
+  - name: profile-controller
+    description: User Profile
+  - name: documents-controller
+    description: 'CCD, Facesheet report, custom documents'
+  - name: notifications-controller
+    description: Notification settings and Push Notifications
+schemes:
+  - http
+consumes:
+  - application/x-www-form-urlencoded
+produces:
+  - application/json
+paths:
+  /auth/login:
+    post:
+      tags:
+        - login-controller
+      summary: login
+      operationId: loginUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: formData
+          description: token
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseWithToken«UserDTO»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+  /auth/validateToken:
+    post:
+      tags:
+        - login-controller
+      summary: validateToken
+      operationId: validateTokenUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: formData
+          description: token
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+  /info/eventtypes:
+    get:
+      tags:
+        - info-controller
+      summary: Get a list of event types
+      operationId: getEventTypesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«EventTypeDto»»'
+  /info/licenceInfo:
+    get:
+      tags:
+        - info-controller
+      summary: Get the licence text
+      operationId: getLicenceInfoUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«string»'
+  /info/notificationChannels:
+    get:
+      tags:
+        - info-controller
+      summary: Get a list of Notification Channels
+      operationId: getNotificationChannelsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Set«string»»'
+  /info/physicians/specialities:
+    get:
+      tags:
+        - info-controller
+      summary: Get a list of physician specialities
+      operationId: getPhysicianSpecialitiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«SpecialityDto»»'
+  /info/updateRequest/servePeriod:
+    get:
+      tags:
+        - info-controller
+      summary: Get a handling time for Update Request
+      operationId: getUpdateRequestServePeriodUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«int»'
+  /info/usStates:
+    get:
+      tags:
+        - info-controller
+      summary: Get a list of US states
+      operationId: getUSStatesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«StateDto»»'
+  '/info/vitalSigns/{vitalSignType}/referenceInfo':
+    get:
+      tags:
+        - info-controller
+      summary: Get reference information on a vital sign
+      operationId: getVitalSignReferenceInfoUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: vitalSignType
+          in: path
+          description: Type of Vital Sign
+          required: true
+          type: string
+          enum:
+            - RESP
+            - HEART_BEAT
+            - O2_SAT
+            - INTR_SYSTOLIC
+            - INTR_DIASTOLIC
+            - TEMP
+            - HEIGHT
+            - HEIGHT_LYING
+            - CIRCUMFERENCE
+            - WEIGHT
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«string»'
+  /phr/physicians:
+    get:
+      tags:
+        - physicians-controller
+      summary: Get a list of physicians
+      operationId: getPhysiciansUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«PhysicianDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/physicians/{physicianId}':
+    get:
+      tags:
+        - physicians-controller
+      summary: Get a specific physician
+      operationId: getPhysicianUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: physicianId
+          in: path
+          description: physician id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PhysicianExtendedDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/allergies/active':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get active Allergies
+      operationId: getActiveAllergiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«AllergyInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/allergies/inactive':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get inactive Allergies
+      operationId: getInactiveAllergiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«AllergyInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/allergies/resolved':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get resolved Allergies
+      operationId: getResolvedAllergiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«AllergyInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careReceivers':
+    get:
+      tags:
+        - care-receivers-controller
+      summary: Get care receivers
+      operationId: getCareReceiversUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«CareReceiverDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careReceivers/{receiverId}':
+    get:
+      tags:
+        - care-receivers-controller
+      summary: Get care receiver
+      operationId: getCareReceiverUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: receiverId
+          in: path
+          description: care receiver id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CareReceiverDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam':
+    get:
+      tags:
+        - care-team-controller
+      summary: Get a list of care team members
+      operationId: getCareteamMembersUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«CareteamMemberDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam/friend':
+    post:
+      tags:
+        - care-team-controller
+      summary: Invite a friend or family member to join your care team
+      description: >-
+        NOTE! `relation` attribute should be uppercase.<br/>The invited person
+        should accept the invitation and go through the registration process
+        implemented in WEB Simply Connect.
+      operationId: inviteFriendUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: phone
+          in: formData
+          description: mobile phone number
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email
+          required: true
+          type: string
+        - name: firstName
+          in: formData
+          description: first name
+          required: true
+          type: string
+        - name: lastName
+          in: formData
+          description: last name
+          required: true
+          type: string
+        - name: relation
+          in: formData
+          description: >-
+            the nature of the relationship between a patient and a contact
+            person for that patient
+          required: true
+          type: string
+          enum:
+            - FAMILY
+            - FRIEND
+            - GUARDIAN
+            - PARENT
+            - PARTNER
+            - WORK
+        - name: ssn
+          in: formData
+          description: social security number
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CareteamMemberDto»'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam/physician':
+    post:
+      tags:
+        - care-team-controller
+      summary: Invite a physician to join your care team
+      operationId: invitePhysicianUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: physicianId
+          in: formData
+          description: physician id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CareteamMemberDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam/{contactId}':
+    get:
+      tags:
+        - care-team-controller
+      summary: Get a specific care team member
+      operationId: getCareteamMemberUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CareteamMemberDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    put:
+      tags:
+        - care-team-controller
+      summary: Edit a specific care team member (allowed for some friend contacts)
+      operationId: editCareteamMemberUsingPUT
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          description: CareteamMember object that needs to be updated
+          required: true
+          schema:
+            $ref: '#/definitions/CareteamMemberDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CareteamMemberDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+      deprecated: true
+    delete:
+      tags:
+        - care-team-controller
+      summary: Delete a specific member from user's care team
+      operationId: deleteCareteamMemberUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam/{contactId}/accessRights':
+    get:
+      tags:
+        - care-team-controller
+      summary: Get access rights of a specific care team member
+      operationId: getCareteamMemberAccessRightsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Map«string,boolean»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - care-team-controller
+      summary: Change access rights of a specific care team member
+      description: >-
+        Patient can manage the access rights only for people added by themselves
+        both family/friend member and medical staff
+      operationId: editCareteamMemberAccessRightsUsingPOST
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: accessRightsMap
+          description: 'map of access rights (Map<String, Boolean>)'
+          required: true
+          schema:
+            type: object
+            additionalProperties:
+              type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Map«string,boolean»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam/{contactId}/activitylog':
+    get:
+      tags:
+        - care-team-controller
+      summary: Get a list of recent activities with read/unread status.
+      description: >-
+        (Implementation Notes) See 4 possible ActivityDTOs in the Models
+        section. Due to limitations of Swagger API it's not possible to specify
+        polymorphic models in a response.<br>Read/unread status works for events
+        only.
+      operationId: getCareteamMemberActivitiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: >-
+            Maximum results to appear in activity log (if not specified, system
+            will return last 100 activities)
+          required: false
+          type: integer
+          default: 100
+          format: int32
+        - name: page
+          in: query
+          description: 'Activity log page. The first page is 0, the second page is 1, etc.'
+          required: false
+          type: integer
+          default: 0
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ActivityDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - care-team-controller
+      summary: Request to log a new activity
+      description: >-
+        (Implementation Notes) See ActivityDTOs in the Models section. Due to
+        limitations of Swagger API it's not possible to specify polymorphic
+        models in a response.
+      operationId: logCareteamMemberActivityUsingPOST
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: activityDto
+          description: Activity (Should be either CALL activity or VIDEO activity)
+          required: true
+          schema:
+            $ref: '#/definitions/ActivityDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ActivityDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/careteam/{contactId}/emergency':
+    put:
+      tags:
+        - care-team-controller
+      summary: Mark a specific care team member as an emergency contact
+      operationId: markCareteamMemberEmergencyUsingPUT
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    delete:
+      tags:
+        - care-team-controller
+      summary: Unmark a specific care team member as an emergency contact
+      operationId: unmarkCareteamMemberEmergencyUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/demographics':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Demographics
+      description: Get user demographics info. This endpoint doesn't return guardians.
+      operationId: getDemographicsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CcdHeaderPatientDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/demographics/guardians':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Guardians
+      operationId: getGuardiansUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«GuardianDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/documents':
+    get:
+      tags:
+        - documents-controller
+      summary: Get Documents
+      operationId: getDocumentsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«DocumentInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/documents/ccd':
+    get:
+      tags:
+        - documents-controller
+      summary: Get CCD Content
+      description: >-
+        Download Continuity of Care Document (XML)<br/>You should pass "Accept:
+        text/xml" in headers.
+      operationId: getCcdContentUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/documents/facesheet':
+    get:
+      tags:
+        - documents-controller
+      summary: Get Facesheet Report Content
+      description: >-
+        Download Facesheet report (PDF)<br/>You should pass "Accept:
+        application/pdf" in headers.
+      operationId: getFacesheetContentUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/documents/{documentId}':
+    get:
+      tags:
+        - documents-controller
+      summary: Get Document Content
+      description: >-
+        Download custom Document by its ID. <br/>You should pass appropriate
+        content type in headers.
+      operationId: getDocumentContentUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: documentId
+          in: path
+          description: document id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/events':
+    get:
+      tags:
+        - events-controller
+      summary: Get a filtered list of events
+      operationId: getEventsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: User ID
+          required: true
+          type: integer
+          format: int64
+        - name: eventTypeId
+          in: query
+          description: >-
+            Event type id (GET /info/eventtypes). If not specified, events of
+            Any type are returned
+          required: false
+          type: integer
+          format: int64
+        - name: dateFrom
+          in: query
+          description: From date (example 1463270400000 or 05/15/2016)
+          required: false
+          type: integer
+          format: int64
+        - name: dateTo
+          in: query
+          description: >-
+            To date (example 1494806400000 or 05/15/2017). If not specified,
+            defaults to current date
+          required: false
+          type: integer
+          format: int64
+        - name: accountType
+          in: query
+          description: >-
+            Current account type. This parameter is used when `userId` = current
+            user id. It might be either `provider` or `consumer` at "CTM view"
+            events screen or at "More options for patient" events screen
+            accordingly.
+          required: false
+          type: string
+          default: consumer
+          enum:
+            - PROVIDER
+            - CONSUMER
+            - provider
+            - consumer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«EventListItemDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - events-controller
+      summary: Create a new event
+      description: >-
+        EventCreateDto is similar to EventDto, except that it contains no excess
+        information, and required sections are marked with asterisk
+      operationId: createEventUsingPOST
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: User ID
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          description: Event
+          required: true
+          schema:
+            $ref: '#/definitions/EventCreateDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/events/{eventId}':
+    get:
+      tags:
+        - events-controller
+      summary: Get event description
+      operationId: getEventUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: >-
+            User ID. Either ID of the current user-provider or ID of a
+            user-consumer associated with the patient in event.
+          required: true
+          type: integer
+          format: int64
+        - name: eventId
+          in: path
+          description: Event ID
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«EventDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/events/{eventId}/sentNotifications':
+    get:
+      tags:
+        - events-controller
+      summary: Get a list of notifications for a specific event
+      operationId: getEventNotificationsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: User ID
+          required: true
+          type: integer
+          format: int64
+        - name: eventId
+          in: path
+          description: Event ID
+          required: true
+          type: integer
+          format: int64
+        - name: maxResults
+          in: query
+          description: >-
+            Maximum results to appear in event notifications list (if not
+            specified, system will return last 100 event notifications)
+          required: false
+          type: integer
+          default: 100
+          format: int32
+        - name: page
+          in: query
+          description: >-
+            Event notifications page. The first page is 0, the second page is 1,
+            etc.
+          required: false
+          type: integer
+          default: 0
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«EventNotificationDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/healthProvider':
+    get:
+      tags:
+        - health-provider-controller
+      summary: Get a list of Health Providers
+      description: >-
+        (Notes) When 'Display Merged Data' mode is active, the `current`
+        attribute is true for all returned health providers.
+      operationId: getHealthProvidersUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«HealthProviderDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/healthProvider/{residentId}':
+    post:
+      tags:
+        - health-provider-controller
+      summary: Change Health Provider
+      description: >-
+        (Notes) Use special value of {residentId} = 0 to turn on 'Display Merged
+        Data' mode
+      operationId: changeHealthProviderUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+        - name: residentId
+          in: path
+          description: residentId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«HealthProviderDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/immunizations':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Immunizations
+      operationId: getImmunizationsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ImmunizationInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/immunizations/{immunizationId}':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Immunization details
+      operationId: getImmunizationDetailsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: immunizationId
+          in: path
+          description: immunization id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«ImmunizationInfoDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/medications/active':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Active Medications
+      operationId: getActiveMedicationsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«MedicationInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/medications/inactive':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Medications History
+      operationId: getMedicationsHistoryUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«MedicationInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/notifications/registerpush':
+    post:
+      tags:
+        - notifications-controller
+      summary: Register for push notifications
+      description: >-
+        Submit a push notifications token after registration in Android GCM or
+        iOS APNS.
+      operationId: registerPushNotificationsUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: token
+          in: formData
+          description: Push notification token
+          required: true
+          type: string
+        - name: service
+          in: formData
+          description: A service used for registration
+          required: true
+          type: string
+          enum:
+            - GCM
+            - APNS
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/notifications/settings':
+    get:
+      tags:
+        - notifications-controller
+      summary: Get notification settings
+      description: >-
+        Returns a map of notification channels to status (enabled/disabled) + a
+        list of event types with their status (enabled/disabled). <h3>Sorting
+        rules</h3><ul><li>The event types (see `eventTypes` list) are sorted
+        alphabetically by the name (from A to Z).</li><li>The notification
+        channels (see `notificationChannels` map) are sorted alphabetically by
+        the name (from A to Z).</li></ul>
+      operationId: getNotificationSettingsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NotificationSettingsDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - notifications-controller
+      summary: Change notification settings
+      operationId: editNotificationSettingsUsingPOST
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          description: body
+          required: true
+          schema:
+            $ref: '#/definitions/NotificationSettingsDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NotificationSettingsDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/payers':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Payers
+      operationId: getPayersUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«PayerInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/problems/active':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Active Problems
+      operationId: getActiveProblemsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ProblemInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/problems/other':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Other Problems
+      operationId: getOtherProblemsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ProblemInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/problems/resolved':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Resolved Problems
+      operationId: getResolvedProblemsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ProblemInfoDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/problems/{problemId}':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Problem details
+      operationId: getProblemDetailsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: problemId
+          in: path
+          description: problem id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«ProblemInfoDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile':
+    delete:
+      tags:
+        - profile-controller
+      summary: Deactivate profile
+      operationId: deactivateProfileUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile/accountType':
+    get:
+      tags:
+        - profile-controller
+      summary: Get profile types
+      description: >-
+        Get a list of profile types for the specified user with their status
+        (just one profile is marked as current).
+      operationId: getActiveProfileUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«AccountTypeDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile/accountType/{type}':
+    post:
+      tags:
+        - profile-controller
+      summary: Set active profile
+      description: >-
+        Switch between account types (care team / patient). The state is stored
+        at backend.
+      operationId: changeActiveProfileUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: type
+          in: path
+          description: Account type
+          required: true
+          type: string
+          enum:
+            - provider
+            - consumer
+            - PROVIDER
+            - CONSUMER
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«AccountTypeDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile/avatar':
+    get:
+      tags:
+        - profile-controller
+      summary: Get avatar (Base64)
+      description: Get avatar as Base64 encoded image
+      operationId: getAvatarInBase64UsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«string»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - profile-controller
+      summary: Upload avatar (Base64)
+      description: Upload avatar photo as Base64 encoded image
+      operationId: uploadAvatarInBase64UsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: photo
+          in: formData
+          description: >-
+            new avatar photo (Base64 encoded image). max length is 65536
+            characters
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    delete:
+      tags:
+        - profile-controller
+      summary: Delete avatar
+      operationId: deleteAvatarUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile/avatar.raw':
+    get:
+      tags:
+        - profile-controller
+      summary: Get avatar
+      description: 'WARNING! Doesn''t work in Swagger UI, try in POSTMAN.'
+      operationId: getAvatarUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - profile-controller
+      summary: Upload avatar
+      description: Upload avatar photo
+      operationId: uploadAvatarUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: photo
+          in: formData
+          description: new avatar photo. file size limit = 64 KB
+          required: false
+          type: file
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile/personal':
+    get:
+      tags:
+        - profile-controller
+      summary: Get personal profile
+      operationId: getPersonalProfileUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PersonalProfileDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    put:
+      tags:
+        - profile-controller
+      summary: Edit personal profile
+      operationId: editPersonalProfileUsingPUT
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          description: body
+          required: true
+          schema:
+            $ref: '#/definitions/PersonalProfileEditDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PersonalProfileDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/profile/professional':
+    get:
+      tags:
+        - profile-controller
+      summary: Get professional profile
+      description: Returns a map of professional data (field name / field value approach).
+      operationId: getProfessionalProfileUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«ProfessionalProfileDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+    put:
+      tags:
+        - profile-controller
+      summary: Edit professional profile
+      operationId: editProfessionalProfileUsingPUTUsingPUT
+      consumes:
+        - application/json
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: body
+          description: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProfessionalProfileDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«ProfessionalProfileDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+      deprecated: true
+  '/phr/{userId}/sections':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get sections with amount of the items
+      operationId: getSectionsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Map«string,long»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/videocall/{userId2}':
+    post:
+      tags:
+        - not-implemented
+      summary: Conduct a video conference between two users
+      description: >-
+        (Implementation Notes) This request creates a new session in TokBox, one
+        generated token is sent in response to this request and another one is
+        sent via push notification. The other side should be listening for the
+        push notification with token.
+      operationId: createVideoConferenceUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: userId2
+          in: path
+          description: another user id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«TokBoxTokenDto»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/vitalSigns/earliestMeasurementDates':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get a map of vital signs to their earliest measurement dates
+      description: |+
+        Response type is {{   'body': {      'success': true,
+              'data': { ::VitalSignObservationEarliestDate:: }
+           },
+           'statusCode': '200'
+        }}
+        ::VitalSignObservationEarliestDate:: = {
+          “RESP” : ::VitalSignObservationDate::,
+          “HEART_BEAT ” : ::VitalSignObservationDate::,
+          “O2_SAT ” : ::VitalSignObservationDate::,
+          “INTR_SYSTOLIC ” : ::VitalSignObservationDate::,
+          “INTR_DIASTOLIC ” : ::VitalSignObservationDate::,
+          “TEMP ” : ::VitalSignObservationDate::,
+          “HEIGHT ” : ::VitalSignObservationDate::,
+          “HEIGHT_LYING ” : ::VitalSignObservationDate::,
+          “CIRCUMFERENCE ” : ::VitalSignObservationDate::,
+          “WEIGHT” : ::VitalSignObservationDate::
+        }
+
+      operationId: getEarliestMeasurementDatesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Map«string,DateDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/vitalSigns/latestResults':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get a map of vital signs to their latest observation results
+      description: |
+        Response type is {{   'body': {      'success': true,
+              'data': { ::VitalSignObservationLatestResultsType:: }
+           },
+           'statusCode': '200'
+        }}
+        ::VitalSignObservationLatestResultsType:: = {
+          “RESP” : ::VitalSignObservationType::,
+          “HEART_BEAT ” : ::VitalSignObservationType::,
+          “O2_SAT ” : ::VitalSignObservationType::,
+          “INTR_SYSTOLIC ” : ::VitalSignObservationType::,
+          “INTR_DIASTOLIC ” : ::VitalSignObservationType::,
+          “TEMP ” : ::VitalSignObservationType::,
+          “HEIGHT ” : ::VitalSignObservationType::,
+          “HEIGHT_LYING ” : ::VitalSignObservationType::,
+          “CIRCUMFERENCE ” : ::VitalSignObservationType::,
+          “WEIGHT” : ::VitalSignObservationType::
+        }
+      operationId: getVitalSignLatestResultsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«Map«string,VitalSignObservationDto»»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/vitalSigns/{vitalSignType}':
+    get:
+      tags:
+        - phr-info-controller
+      summary: Get Vital Sign details
+      operationId: getVitalSignDetailsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: userId
+          required: true
+          type: integer
+          format: int64
+        - name: vitalSignType
+          in: path
+          description: vitalSignType
+          required: true
+          type: string
+          enum:
+            - RESP
+            - HEART_BEAT
+            - O2_SAT
+            - INTR_SYSTOLIC
+            - INTR_DIASTOLIC
+            - TEMP
+            - HEIGHT
+            - HEIGHT_LYING
+            - CIRCUMFERENCE
+            - WEIGHT
+        - name: period
+          in: query
+          description: period
+          required: false
+          type: string
+          enum:
+            - WEEK
+            - MONTH
+            - YEAR
+        - name: maxResults
+          in: query
+          description: maxResults
+          required: false
+          type: integer
+          format: int32
+        - name: page
+          in: query
+          description: page
+          required: false
+          type: integer
+          default: 0
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«VitalSignObservationReport»'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  '/phr/{userId}/{section}/updateRequest':
+    post:
+      tags:
+        - phr-info-controller
+      summary: Request to update data
+      operationId: sectionUpdateRequestUsingPOST
+      consumes:
+        - multipart/form-data
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: user id
+          required: true
+          type: integer
+          format: int64
+        - name: section
+          in: path
+          description: section
+          required: true
+          type: string
+          enum:
+            - allergies
+            - medications
+            - problems
+            - vitalSigns
+            - immunizations
+            - payers
+            - documents
+        - name: comment
+          in: formData
+          description: free text comment
+          required: true
+          type: string
+        - name: sendToAll
+          in: formData
+          description: send request to all providers
+          required: true
+          type: boolean
+        - name: requestType
+          in: formData
+          description: Request type
+          required: true
+          type: string
+          enum:
+            - ADD_NEW
+            - UPDATE
+            - DELETE
+        - name: files
+          in: formData
+          description: file attachment (limited to 2MB)
+          required: false
+          type: array
+          items:
+            type: file
+          collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+        '403':
+          description: Access Forbidden
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+      security:
+        - X-Auth-Token: []
+  /register/confirm:
+    post:
+      tags:
+        - registration-controller
+      summary: Confirm phone number
+      description: Once phone number is confirmed the account becomes active.
+      operationId: confirmRegistrationUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: ssn
+          in: formData
+          description: >-
+            social security number. May be null in case of physician (provider)
+            registration
+          required: false
+          type: string
+        - name: phone
+          in: formData
+          description: phone number
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset (not used)
+          required: false
+          type: string
+        - name: code
+          in: formData
+          description: confirmation code
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+  /register/regenerate:
+    post:
+      tags:
+        - registration-controller
+      summary: Resend registration code
+      description: >-
+        Generate a new random code and send it via SMS in order to confirm the
+        phone number used during registration.
+      operationId: resendRegistrationCodeUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: ssn
+          in: formData
+          description: >-
+            social security number. May be null in case of physician (provider)
+            registration
+          required: false
+          type: string
+        - name: phone
+          in: formData
+          description: phone number
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset (not used)
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+  /register/savepass:
+    post:
+      tags:
+        - registration-controller
+      summary: Save password
+      description: Generate access token.
+      operationId: savePasswordUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: ssn
+          in: formData
+          description: >-
+            social security number. May be null in case of physician (provider)
+            registration
+          required: false
+          type: string
+        - name: phone
+          in: formData
+          description: phone number
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset (not used)
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseWithToken«UserDTO»'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+  /register/signup:
+    post:
+      tags:
+        - registration-controller
+      summary: Register new user (Sign Up as Patient)
+      description: >-
+        This method creates a new Mobile User account with non-active status
+        (active = false), generates a random code and sends it via SMS to
+        confirm the user phone number submitted during registration.
+      operationId: registerUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: ssn
+          in: formData
+          description: social security number
+          required: true
+          type: string
+        - name: phone
+          in: formData
+          description: phone number
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: timeZoneOffset
+          required: true
+          type: string
+        - name: firstName
+          in: formData
+          description: first name
+          required: false
+          type: string
+        - name: lastName
+          in: formData
+          description: last name
+          required: false
+          type: string
+        - name: signupWithoutResident
+          in: formData
+          description: >-
+            if set to false, request will throw “no.associated.patients.found”
+            error, user will not be registered. Otherwise, user will be
+            registered without any associated records
+          required: false
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+  /register/signup/provider:
+    post:
+      tags:
+        - registration-controller
+      summary: Register new user (Sign Up as Provider)
+      description: >-
+        This method creates a new Mobile User account with non-active status
+        (active = false) and account type of PROVIDER, generates a random code
+        and sends it via SMS to confirm the user phone number submitted during
+        registration. <br/>The registered user (if approved) will have access to
+        WEB Simply Connect system.
+      operationId: registerProviderUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: phone
+          in: formData
+          description: phone number
+          required: true
+          type: string
+        - name: email
+          in: formData
+          description: email
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset
+          required: true
+          type: string
+        - name: fax
+          in: formData
+          description: fax
+          required: false
+          type: string
+        - name: firstName
+          in: formData
+          description: first name
+          required: false
+          type: string
+          default: Gregory
+        - name: lastName
+          in: formData
+          description: last name
+          required: false
+          type: string
+          default: House
+        - name: address.street
+          in: formData
+          description: street address
+          required: false
+          type: string
+        - name: address.city
+          in: formData
+          description: city
+          required: false
+          type: string
+        - name: address.postalCode
+          in: formData
+          description: USA zip code (5 digits)
+          required: false
+          type: string
+          default: '55343'
+        - name: address.state
+          in: formData
+          description: US state (abbreviation)
+          required: false
+          type: string
+          enum:
+            - AL
+            - AZ
+            - CA
+            - CT
+            - FL
+            - GA
+            - ID
+            - IN
+            - KS
+            - NH
+            - NM
+            - ND
+            - OK
+            - OR
+            - RI
+            - SD
+            - TN
+            - UT
+            - VA
+            - WV
+            - WY
+            - ME
+            - MA
+            - MN
+            - MO
+            - NE
+            - NV
+            - NJ
+            - NY
+            - NC
+            - OH
+            - PA
+            - SC
+            - VT
+            - WA
+            - WI
+            - AK
+            - AR
+            - CO
+            - DE
+            - HI
+            - IL
+            - IA
+            - KY
+            - LA
+            - MD
+            - MI
+            - MS
+            - MT
+            - TX
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ResponseValidationErrorDto'
+        '409':
+          description: Conflict
+          schema:
+            $ref: '#/definitions/ResponseErrorDto'
+securityDefinitions:
+  X-Auth-Token:
+    type: apiKey
+    name: X-Auth-Token
+    in: header
+definitions:
+  AccountTypeDto:
+    type: object
+    properties:
+      current:
+        type: boolean
+        example: false
+      name:
+        type: string
+        example: Consumer
+      type:
+        type: string
+        example: CONSUMER
+        enum:
+          - CONSUMER
+          - PROVIDER
+  ActivityDto:
+    type: object
+    required:
+      - type
+    properties:
+      date:
+        type: integer
+        format: int64
+      type:
+        type: string
+        enum:
+          - CALL
+          - VIDEO
+          - EVENT
+          - INVITATION
+    description: >-
+      This DTO is intended to represent a Care Team Member activity. (Note that
+      Secure Messages are not tracked!)
+  AddressDto:
+    type: object
+    properties:
+      city:
+        type: string
+      cityStateAndPostalCode:
+        type: string
+      cityStatePostalCodeAndCountry:
+        type: string
+      country:
+        type: string
+      postalAddressUse:
+        type: string
+      postalCode:
+        type: string
+      state:
+        type: string
+      streetAddress:
+        type: string
+  AddressEditDto:
+    type: object
+    required:
+      - city
+      - postalCode
+      - state
+      - streetAddress
+    properties:
+      city:
+        type: string
+        example: Minnetonka
+      postalCode:
+        type: string
+        example: '55343'
+        description: USA zip code (5 digits)
+      state:
+        type: string
+      streetAddress:
+        type: string
+        example: 38 Blueside Road Nomes
+    description: This DTO is intended to represent editable postal addresses (personal)
+  AllergyInfoDto:
+    type: object
+    properties:
+      allergenType:
+        type: string
+        description: Allergen type
+        enum:
+          - DRUG
+          - FOOD
+          - ENVIRONMENT
+      allergyType:
+        type: string
+        example: Drug allergy
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      endDate:
+        type: integer
+        format: int64
+      productText:
+        type: string
+        example: Amoxicillin
+      reaction:
+        type: string
+        example: Rash
+    description: This DTO is intended to represent allergies
+  CareReceiverDto:
+    type: object
+    properties:
+      accessRights:
+        type: object
+        additionalProperties:
+          type: boolean
+      age:
+        type: integer
+        format: int32
+        example: 65
+        description: Age
+      careTeamRole:
+        type: string
+        enum:
+          - ROLE_CASE_MANAGER
+          - ROLE_CARE_COORDINATOR
+          - ROLE_PARENT_GUARDIAN
+          - ROLE_PERSON_RECEIVING_SERVICES
+          - ROLE_PRIMARY_PHYSICIAN
+          - ROLE_BEHAVIORAL_HEALTH
+          - ROLE_COMMUNITY_MEMBERS
+          - ROLE_SERVICE_PROVIDER
+          - ROLE_ADMINISTRATOR
+          - ROLE_SUPER_ADMINISTRATOR
+          - ROLE_COMMUNITY_ADMINISTRATOR
+      community:
+        type: string
+        example: Minnesota Assisted Living
+      communityId:
+        type: integer
+        format: int64
+      contactEmail:
+        type: string
+        example: cpatnode@test.com
+        description: primary email
+      contactPhone:
+        type: string
+        example: '6458765432'
+        description: primary phone
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      gender:
+        type: string
+        enum:
+          - Male
+          - Female
+          - Undifferentiated
+      id:
+        type: integer
+        format: int64
+        description: Contact id
+      person:
+        $ref: '#/definitions/PersonDto'
+      photoUrl:
+        type: string
+        description: >-
+          url. [NOTE] Do we need this attribute? Photo url can be constructed
+          like /phr/{userId}/profile/avatar
+      relation:
+        type: string
+        description: >-
+          This attribute indicates the nature of the relationship between a
+          patient and a CTM
+        enum:
+          - Family
+          - Friend
+          - Guardian
+          - Partner
+          - Work
+          - Parent
+      ssnLastFourDigits:
+        type: string
+        example: '5678'
+        description: Last 4 digits of SSN
+      userId:
+        type: integer
+        format: int64
+        description: >-
+          User id. May be null if this Care Receiver has not completed
+          registration in Mobile app.
+    description: >-
+      This DTO is intended to represent a Care Receiver.<br>[NOTE] Do we need
+      `dataSource` attribute here?
+  CareteamMemberDto:
+    type: object
+    properties:
+      careTeamRole:
+        type: string
+      contactEmail:
+        type: string
+      contactPhone:
+        type: string
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      editable:
+        type: boolean
+        example: false
+        description: >-
+          Is it allowed to edit this CTM object? Usually it's `true` for CTMs
+          with "FRIEND_FAMILY" role added by the current user.
+      emergencyContact:
+        type: boolean
+        example: false
+        description: Is this CTM set as "Emergency contact"?
+      id:
+        type: integer
+        format: int64
+        description: Contact id
+      invitationStatus:
+        type: string
+        description: Invitation status
+        enum:
+          - PENDING
+          - ACTIVE
+          - DECLINED
+      person:
+        $ref: '#/definitions/PersonDto'
+      photoUrl:
+        type: string
+        description: >-
+          url. [NOTE] Do we need this attribute? Photo url can be constructed
+          like /phr/{userId}/profile/avatar
+      physicianInfo:
+        $ref: '#/definitions/PhysicianDto'
+      relation:
+        type: string
+        description: >-
+          This attribute indicates the nature of the relationship between a
+          patient and a CTM
+        enum:
+          - Family
+          - Friend
+          - Guardian
+          - Partner
+          - Work
+          - Parent
+      relationship:
+        type: string
+        description: >-
+          Member role. MEDICAL_STAFF = Doctor, FRIEND_FAMILY = Relative = Friend
+          or Family Member
+        enum:
+          - FRIEND_FAMILY
+          - MEDICAL_STAFF
+      ssn:
+        type: string
+        example: '123456789'
+        description: Social security number (SSN). This field is used in Contact Edit
+      ssnLastFourDigits:
+        type: string
+        example: '5678'
+        description: Last 4 digits of SSN
+      userId:
+        type: integer
+        format: int64
+        description: >-
+          User id. May be null if this CTM has not completed registration in
+          Mobile app.
+    description: >-
+      This DTO is intended to represent a Care Team Member (CTM =
+      Contact).<br>[NOTE] The `physicianInfo` attribute is populated only when
+      Care Team Member is of type "MEDICAL_STAFF".<br>[NOTE2] Remove unused
+      `dataSource` attribute?
+  CcdHeaderPatientDto:
+    type: object
+    properties:
+      birthDate:
+        type: string
+      ethnicGroup:
+        type: string
+      firstName:
+        type: string
+      fullName:
+        type: string
+      gender:
+        type: string
+      guardians:
+        type: array
+        items:
+          $ref: '#/definitions/GuardianDto'
+      languages:
+        type: array
+        items:
+          $ref: '#/definitions/LanguageDto'
+      lastName:
+        type: string
+      maritalStatus:
+        type: string
+      person:
+        $ref: '#/definitions/PersonDto'
+      providerOrganization:
+        $ref: '#/definitions/OrganizationDto'
+      race:
+        type: string
+      religion:
+        type: string
+      socialSecurity:
+        type: string
+      ssnLastFourDigits:
+        type: string
+  DataSourceDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: Allina Health
+      residentId:
+        type: integer
+        format: int64
+  DateDto:
+    type: object
+    properties:
+      dateTime:
+        type: integer
+        format: int64
+        example: 1336338000000
+      dateTimeStr:
+        type: string
+  DocumentInfoDto:
+    type: object
+    properties:
+      createdOn:
+        $ref: '#/definitions/DateDto'
+      dataSource:
+        type: string
+        example: EMTest_21250
+        description: Data source name
+      extension:
+        type: string
+        example: pdf
+      hash:
+        type: string
+        example: 91ec9e2b8a356e0232f0087927926a30
+        description: File hash sum. It is null for CCD.xml and FACESHEET.pdf
+      id:
+        type: integer
+        format: int64
+        description: Document ID. It is null for CCD.xml and FACESHEET.pdf
+      mimeType:
+        type: string
+        example: application/pdf
+      sizeKb:
+        type: number
+        format: double
+        example: 1.82
+        description: File size in kilobytes. It is null for CCD.xml and FACESHEET.pdf
+      title:
+        type: string
+        example: FACESHEET
+      type:
+        type: string
+    description: This DTO is intended to represent document metadata
+  EmployeeDto:
+    type: object
+    properties:
+      displayName:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      middleName:
+        type: string
+      role:
+        type: string
+      roleId:
+        type: integer
+        format: int64
+  EventAddressEditDto:
+    type: object
+    required:
+      - city
+      - state
+      - street
+      - zip
+    properties:
+      city:
+        type: string
+        example: Minnetonka
+      state:
+        $ref: '#/definitions/KeyValueDto'
+      street:
+        type: string
+        example: 38 Blueside Road Nomes
+      zip:
+        type: string
+        example: '55343'
+        description: USA zip code (5 digits)
+    description: This DTO is intended to represent postal addresses
+  EventCreateDto:
+    type: object
+    required:
+      - includeHospital
+      - includeManager
+      - includeResponsible
+      - includeTreatingPhysician
+    properties:
+      eventDetails:
+        $ref: '#/definitions/EventDetailsDto'
+      includeHospital:
+        type: boolean
+        example: false
+      includeManager:
+        type: boolean
+        example: false
+      includeResponsible:
+        type: boolean
+        example: false
+      includeTreatingPhysician:
+        type: boolean
+        example: false
+      manager:
+        $ref: '#/definitions/ManagerDto'
+      responsible:
+        $ref: '#/definitions/NameWithAddressEditDto'
+      treatingHospital:
+        $ref: '#/definitions/HospitalEditDto'
+      treatingPhysician:
+        $ref: '#/definitions/NameWithAddressEditDto'
+    description: >-
+      This DTO is intended to represent submitted events. [NOTE] `responsible`
+      represents Details of Registered Nurse (RN); `treatingPhysician`
+      represents Details of Treating Physician
+  EventDetailsDto:
+    type: object
+    properties:
+      assessment:
+        type: string
+      background:
+        type: string
+      emergencyVisit:
+        type: boolean
+      eventDatetime:
+        type: integer
+        format: int64
+      eventType:
+        type: string
+      eventTypeId:
+        type: integer
+        format: int64
+      followUpDetails:
+        type: string
+      followUpExpected:
+        type: boolean
+      injury:
+        type: boolean
+      location:
+        type: string
+      overnightPatient:
+        type: boolean
+      situation:
+        type: string
+  EventDto:
+    type: object
+    properties:
+      employee:
+        $ref: '#/definitions/EmployeeDto'
+      eventDetails:
+        $ref: '#/definitions/EventDetailsDto'
+      includeHospital:
+        type: boolean
+      includeManager:
+        type: boolean
+      includeResponsible:
+        type: boolean
+      includeTreatingPhysician:
+        type: boolean
+      manager:
+        $ref: '#/definitions/ManagerDto'
+      patient:
+        $ref: '#/definitions/PatientDto'
+      responsible:
+        $ref: '#/definitions/NameWithAddressDto'
+      treatingHospital:
+        $ref: '#/definitions/HospitalDto'
+      treatingPhysician:
+        $ref: '#/definitions/NameWithAddressDto'
+  EventListItemDto:
+    type: object
+    properties:
+      eventDate:
+        type: integer
+        format: int64
+        example: 1495028820000
+        description: Date of event
+      eventId:
+        type: integer
+        format: int64
+        description: event id
+      eventType:
+        type: string
+        example: Accident requiring treatment
+      residentName:
+        type: string
+        example: Charles Xavier
+        description: Patient's full name
+      unread:
+        type: boolean
+        example: false
+        description: list item status. true if current user hasn't seen this item yet.
+    description: This DTO is intended to represent a brief info about events.
+  EventNotificationDto:
+    type: object
+    properties:
+      careTeamRole:
+        type: string
+      contactId:
+        type: integer
+        format: int64
+        description: Contact id
+      contactName:
+        type: string
+        example: Charles Xavier
+      dateTime:
+        type: integer
+        format: int64
+        example: 1490952527600
+      description:
+        type: string
+        example: 'Affiliated CT Member, RBA/Altair'
+      destination:
+        type: string
+        example: rba.cxavier@direct.simplyhie.com
+      details:
+        type: string
+        example: >-
+          A new event has been logged to the Simply Connect system and you are
+          Informed for this type of event.
+      editableContact:
+        type: boolean
+        example: false
+        description: >-
+          true for care team members added by a patient him/herself (if current
+          user is the patient), otherwise false
+      notificationType:
+        type: string
+        enum:
+          - SMS
+          - EMAIL
+          - SECURITY_MESSAGE
+          - BLUE_STONE
+          - FAX
+          - PUSH_NOTIFICATION
+      photoUrl:
+        type: string
+        description: >-
+          Contact photo url. Photo url can be constructed like
+          /phr/{userId}/profile/avatar
+      responsibility:
+        type: string
+        enum:
+          - Responsible
+          - Accountable
+          - Consulted
+          - Informed
+          - Viewable
+          - Not Viewable
+    description: This DTO is intended to represent event notifications.
+  EventTypeDto:
+    type: object
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+        example: Accident requiring treatment
+        description: Event type description
+      enabled:
+        type: boolean
+        example: false
+        description: >-
+          Is notification enabled for this event type? This attribute is null if
+          the list of Event Types is requested from /info/eventtypes
+      id:
+        type: integer
+        format: int64
+        description: Event type ID
+  GuardianDto:
+    type: object
+    properties:
+      person:
+        $ref: '#/definitions/PersonDto'
+      relationship:
+        type: string
+  HealthProviderDto:
+    type: object
+    properties:
+      current:
+        type: boolean
+      providerId:
+        type: integer
+        format: int64
+      providerName:
+        type: string
+      residentId:
+        type: integer
+        format: int64
+  HospitalDto:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/AddressDto'
+      includeAddress:
+        type: boolean
+      name:
+        type: string
+      phone:
+        type: string
+  HospitalEditDto:
+    type: object
+    required:
+      - includeAddress
+      - name
+    properties:
+      address:
+        $ref: '#/definitions/EventAddressEditDto'
+      includeAddress:
+        type: boolean
+        example: true
+      name:
+        type: string
+        description: Hospital / Clinic name
+      phone:
+        type: string
+        example: '6458765432'
+    description: >-
+      This DTO is intended to represent Hospital / Clinic contact info (Details
+      of Treating Hospital).
+  ImmunizationInfoDto:
+    type: object
+    properties:
+      administeredBy:
+        type: string
+        example: 'Administered By: DWeber, RN'
+        description: Immunization administrator
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      doseQuantity:
+        type: number
+        format: double
+        example: 90
+      doseUnit:
+        type: string
+        example: ml
+      id:
+        type: integer
+        format: int64
+      immunizationName:
+        type: string
+        example: 'Typhoid vaccine, live, oral'
+        description: Immunization name
+      indications:
+        type: object
+        description: >-
+          A map of key-value pairs representing indications. An indication
+          describes the rationale for the immunization.
+        additionalProperties:
+          type: string
+      instructions:
+        type: string
+        description: >-
+          A list of instructions. The patient instructions are additional
+          information provided to a patient related to this immunization.
+      period:
+        $ref: '#/definitions/PeriodDto'
+      reaction:
+        type: string
+        example: Nausea And Vomiting
+        description: Reaction to immunization (if any)
+      refusal:
+        type: boolean
+        example: false
+      refusalReason:
+        type: string
+        description: Immunization refusal reason (text)
+      repeat:
+        type: integer
+        format: int32
+        example: 3
+      route:
+        type: string
+        description: Route of administration (Medication delivery method)
+      site:
+        type: string
+      status:
+        type: string
+        example: Completed
+        description: Immunization status
+    description: This DTO is intended to represent immunizations
+  KeyValueDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      label:
+        type: string
+  LanguageDto:
+    type: object
+    properties:
+      abilityMode:
+        type: string
+      abilityProficiency:
+        type: string
+      code:
+        type: string
+      preferenceInd:
+        type: boolean
+  ManagerDto:
+    type: object
+    properties:
+      displayName:
+        type: string
+      email:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      middleName:
+        type: string
+      phone:
+        type: string
+  'Map«string,DateDto»':
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/DateDto'
+  'Map«string,VitalSignObservationDto»':
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/VitalSignObservationDto'
+  'Map«string,boolean»':
+    type: object
+    additionalProperties:
+      type: boolean
+  'Map«string,long»':
+    type: object
+    additionalProperties:
+      type: integer
+      format: int64
+  MedicationInfoDto:
+    type: object
+    properties:
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      directions:
+        type: string
+        example: >-
+          Give 30 ml by mouth daily as needed for Constipation. Also has routine
+          order.
+      indications:
+        type: array
+        items:
+          type: string
+      medicationName:
+        type: string
+        example: Milk of Magnesia 7.75 % SUSP
+      startedDate:
+        type: integer
+        format: int64
+        example: 1326862800000
+      startedDateStr:
+        type: string
+      stoppedDate:
+        type: integer
+        format: int64
+      stoppedDateStr:
+        type: string
+  NameDto:
+    type: object
+    properties:
+      fullName:
+        type: string
+      useCode:
+        type: string
+  NameWithAddressDto:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/AddressDto'
+      displayName:
+        type: string
+      firstName:
+        type: string
+      includeAddress:
+        type: boolean
+      lastName:
+        type: string
+      middleName:
+        type: string
+      phone:
+        type: string
+  NameWithAddressEditDto:
+    type: object
+    required:
+      - firstName
+      - includeAddress
+      - lastName
+    properties:
+      address:
+        $ref: '#/definitions/EventAddressEditDto'
+      firstName:
+        type: string
+        example: Donald
+        description: First name
+      includeAddress:
+        type: boolean
+        example: true
+      lastName:
+        type: string
+        example: Duck
+        description: Last name
+      phone:
+        type: string
+        example: '6458765432'
+        description: >-
+          Phone number. Nullable. Moreover `responsible` (registered nurse)
+          doesn't have any associated phone, so you can omit this field for
+          `responsible`.
+    description: This DTO is intended to represent contact info.
+  NotificationSettingsDto:
+    type: object
+    properties:
+      eventTypes:
+        type: array
+        items:
+          $ref: '#/definitions/EventTypeDto'
+      notificationChannels:
+        type: object
+        additionalProperties:
+          type: boolean
+  OrganizationDto:
+    type: object
+    properties:
+      addresses:
+        type: array
+        items:
+          $ref: '#/definitions/AddressDto'
+      name:
+        type: string
+      telecom:
+        $ref: '#/definitions/TelecomDto'
+  PatientDto:
+    type: object
+    properties:
+      active:
+        type: boolean
+      address:
+        $ref: '#/definitions/AddressDto'
+      birthDate:
+        type: integer
+        format: int64
+      community:
+        type: string
+      communityId:
+        type: integer
+        format: int64
+      displayName:
+        type: string
+      editable:
+        type: boolean
+      email:
+        type: string
+      firstName:
+        type: string
+      gender:
+        type: string
+      hashKey:
+        type: string
+      id:
+        type: integer
+        format: int64
+      lastName:
+        type: string
+      maritalStatus:
+        type: string
+      middleName:
+        type: string
+      organization:
+        type: string
+      organizationId:
+        type: integer
+        format: int64
+      phone:
+        type: string
+      ssn:
+        type: string
+  PayerInfoDto:
+    type: object
+    properties:
+      companyName:
+        type: string
+        example: Aetna
+      coveragePeriod:
+        $ref: '#/definitions/PeriodDto'
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      memberId:
+        type: string
+        example: '6547841'
+  PeriodDto:
+    type: object
+    properties:
+      endDate:
+        type: integer
+        format: int64
+      endDateStr:
+        type: string
+      startDate:
+        type: integer
+        format: int64
+        example: 1336338000000
+      startDateStr:
+        type: string
+  PersonDto:
+    type: object
+    properties:
+      addresses:
+        type: array
+        items:
+          $ref: '#/definitions/AddressDto'
+      code:
+        type: string
+      names:
+        type: array
+        items:
+          $ref: '#/definitions/NameDto'
+      telecoms:
+        type: array
+        items:
+          $ref: '#/definitions/TelecomDto'
+  PersonalProfileDto:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/AddressDto'
+      email:
+        type: string
+        example: cpatnode@test.com
+        description: Primary email. Non editable.
+      lastFourDigitsOfSsn:
+        type: string
+        example: '6789'
+        description: >-
+          Last 4 digits of social security number (SSN). May be null if not
+          specified by inviter.
+      phone:
+        type: string
+        example: '6458765432'
+        description: Primary phone. Non editable.
+      secondaryEmail:
+        type: string
+        example: public.cpatnode@test.com
+        description: Secondary email.
+      secondaryPhone:
+        type: string
+        example: '6452345678'
+        description: Secondary phone.
+    description: This DTO is intended to represent all fields in personal profile.
+  PersonalProfileEditDto:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/AddressEditDto'
+      secondaryEmail:
+        type: string
+        example: public.cpatnode@test.com
+        description: >-
+          Secondary email. Leave blank to delete. Set null or omit to keep
+          without changes.
+      secondaryPhone:
+        type: string
+        example: '6452345678'
+        description: >-
+          Secondary phone. Leave blank to delete. Set null or omit to keep
+          without changes.
+      ssn:
+        type: string
+        example: '123456789'
+        description: Social security number (SSN). Editable if not specified by inviter.
+    description: This DTO is intended to represent editable fields in personal profile.
+  PhysicianDto:
+    type: object
+    properties:
+      fullName:
+        type: string
+        example: Roy Stevens
+      id:
+        type: integer
+        format: int64
+        description: physician id
+      photoUrl:
+        type: string
+        description: 'url. Photo url can be constructed like /phr/{userId}/profile/avatar'
+      speciality:
+        type: string
+        example: Behavioral health
+      userId:
+        type: integer
+        format: int64
+        description: user id
+    description: Physician object (brief info)
+  PhysicianExtendedDto:
+    type: object
+    properties:
+      fullName:
+        type: string
+        example: Roy Stevens
+      id:
+        type: integer
+        format: int64
+      photoUrl:
+        type: string
+        description: 'url. Photo url can be constructed like /phr/{userId}/profile/avatar'
+      professionalInfo:
+        description: A map of professional data (field name / field value approach).
+        $ref: '#/definitions/ProfessionalProfileDto'
+      speciality:
+        type: string
+        example: Behavioral health
+      userId:
+        type: integer
+        format: int64
+        description: user id
+    description: Extended physician object.
+  ProblemInfoDto:
+    type: object
+    properties:
+      ageObservationUnit:
+        type: string
+        example: a
+        description: Age observation unit
+      ageObservationValue:
+        type: integer
+        format: int32
+        example: 75
+        description: Age observation value
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      diagnosisCode:
+        type: string
+        example: A50.01
+        description: Diagnosis code. It contains a single value.
+      diagnosisCodeSet:
+        type: string
+        example: ICD 10 CM
+        description: Diagnosis code set (Code system name). It contains a single value.
+      healthStatusObservation:
+        type: string
+        example: Alive and well
+        description: >-
+          Health status. The status of the patient overall as a result of a
+          particular problem. (It's not widely used)
+      id:
+        type: integer
+        format: int64
+      period:
+        $ref: '#/definitions/PeriodDto'
+      problemName:
+        type: string
+        example: Early congenital syphilitic oculopathy
+        description: Problem name. It contains a display name of the Diagnosis code.
+      problemType:
+        type: string
+        description: Problem type. It contains a single value.
+      status:
+        type: string
+        description: Problem status
+      translations:
+        type: object
+        description: >-
+          A collection of translations for the Diagnosis code. It's a map of
+          Codes to Code system names.
+        additionalProperties:
+          type: string
+  ProfessionalProfileDto:
+    type: object
+    properties:
+      Board of Certifications:
+        type: string
+      Education:
+        type: string
+      Hospital:
+        type: string
+      In-Network Insurances:
+        type: string
+      Professional Memberships:
+        type: string
+      Professional Statement:
+        type: string
+      Specialities:
+        type: array
+        items:
+          type: string
+      fax:
+        type: string
+    description: >-
+      This DTO is intended to represent professional profile. It's a map of
+      physician's professional data (field name / field value approach).
+  Profile:
+    type: object
+    properties:
+      birthDate:
+        type: integer
+        format: int64
+        example: 1336338000000
+      firstName:
+        type: string
+        example: Donald
+      gender:
+        type: string
+      lastName:
+        type: string
+        example: Duck
+  Response:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«object»'
+      statusCode:
+        type: integer
+        format: int32
+  ResponseBody«CareReceiverDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CareReceiverDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«CareteamMemberDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CareteamMemberDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«CcdHeaderPatientDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CcdHeaderPatientDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«EventDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/EventDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«ImmunizationInfoDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/ImmunizationInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«AccountTypeDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/AccountTypeDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«ActivityDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ActivityDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«AllergyInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/AllergyInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«CareReceiverDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/CareReceiverDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«CareteamMemberDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/CareteamMemberDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«DocumentInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/DocumentInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«EventListItemDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EventListItemDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«EventNotificationDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EventNotificationDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«EventTypeDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EventTypeDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«GuardianDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/GuardianDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«HealthProviderDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/HealthProviderDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«ImmunizationInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ImmunizationInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«MedicationInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/MedicationInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«PayerInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/PayerInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«PhysicianDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/PhysicianDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«ProblemInfoDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ProblemInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«SpecialityDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/SpecialityDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«List«StateDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/StateDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  'ResponseBody«Map«string,DateDto»»':
+    type: object
+    properties:
+      data:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/DateDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  'ResponseBody«Map«string,VitalSignObservationDto»»':
+    type: object
+    properties:
+      data:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/VitalSignObservationDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  'ResponseBody«Map«string,boolean»»':
+    type: object
+    properties:
+      data:
+        type: object
+        additionalProperties:
+          type: boolean
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  'ResponseBody«Map«string,long»»':
+    type: object
+    properties:
+      data:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int64
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«NotificationSettingsDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/NotificationSettingsDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«PersonalProfileDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/PersonalProfileDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«PhysicianExtendedDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/PhysicianExtendedDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«ProblemInfoDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/ProblemInfoDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«ProfessionalProfileDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/ProfessionalProfileDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«Set«string»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: string
+          enum:
+            - SMS
+            - EMAIL
+            - SECURITY_MESSAGE
+            - BLUE_STONE
+            - FAX
+            - PUSH_NOTIFICATION
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«TokBoxTokenDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/TokBoxTokenDto'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«UserDTO»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/UserDTO'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«VitalSignObservationReport»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/VitalSignObservationReport'
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«boolean»:
+    type: object
+    properties:
+      data:
+        type: boolean
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«int»:
+    type: object
+    properties:
+      data:
+        type: integer
+        format: int32
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«object»:
+    type: object
+    properties:
+      data:
+        type: object
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseBody«string»:
+    type: object
+    properties:
+      data:
+        type: string
+      editable:
+        type: boolean
+      error:
+        $ref: '#/definitions/ResponseErrorDto'
+      minimumDate:
+        type: integer
+        format: int64
+      success:
+        type: boolean
+      totalCount:
+        type: integer
+        format: int64
+  ResponseErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+  ResponseValidationErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      validationErrors:
+        type: array
+        description: A list of validation error messages
+        items:
+          type: string
+  ResponseWithToken«UserDTO»:
+    type: object
+    properties:
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/AccountTypeDto'
+      body:
+        $ref: '#/definitions/ResponseBody«UserDTO»'
+      statusCode:
+        type: integer
+        format: int32
+      token:
+        type: string
+  Response«CareReceiverDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CareReceiverDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«CareteamMemberDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CareteamMemberDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«CcdHeaderPatientDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CcdHeaderPatientDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«EventDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«EventDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«ImmunizationInfoDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«ImmunizationInfoDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«AccountTypeDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«AccountTypeDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«ActivityDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«ActivityDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«AllergyInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«AllergyInfoDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«CareReceiverDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CareReceiverDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«CareteamMemberDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CareteamMemberDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«DocumentInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«DocumentInfoDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«EventListItemDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«EventListItemDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«EventNotificationDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«EventNotificationDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«EventTypeDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«EventTypeDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«GuardianDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«GuardianDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«HealthProviderDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«HealthProviderDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«ImmunizationInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«ImmunizationInfoDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«MedicationInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«MedicationInfoDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«PayerInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«PayerInfoDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«PhysicianDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«PhysicianDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«ProblemInfoDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«ProblemInfoDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«SpecialityDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«SpecialityDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«List«StateDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«StateDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  'Response«Map«string,DateDto»»':
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Map«string,DateDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  'Response«Map«string,VitalSignObservationDto»»':
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Map«string,VitalSignObservationDto»»'
+      statusCode:
+        type: integer
+        format: int32
+  'Response«Map«string,boolean»»':
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Map«string,boolean»»'
+      statusCode:
+        type: integer
+        format: int32
+  'Response«Map«string,long»»':
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Map«string,long»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«NotificationSettingsDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«NotificationSettingsDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«PersonalProfileDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«PersonalProfileDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«PhysicianExtendedDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«PhysicianExtendedDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«ProblemInfoDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«ProblemInfoDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«ProfessionalProfileDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«ProfessionalProfileDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«Set«string»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«Set«string»»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«TokBoxTokenDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«TokBoxTokenDto»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«VitalSignObservationReport»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«VitalSignObservationReport»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«boolean»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«boolean»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«int»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«int»'
+      statusCode:
+        type: integer
+        format: int32
+  Response«string»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«string»'
+      statusCode:
+        type: integer
+        format: int32
+  SpecialityDto:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: Primary physician
+        description: Speciality description
+      id:
+        type: integer
+        format: int64
+        description: Speciality ID
+  StateDto:
+    type: object
+    properties:
+      abbr:
+        type: string
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  TelecomDto:
+    type: object
+    properties:
+      useCode:
+        type: string
+      value:
+        type: string
+  TokBoxTokenDto:
+    type: object
+    properties:
+      calleeUserId:
+        type: integer
+        format: int64
+        description: Callee user ID
+      callerUserId:
+        type: integer
+        format: int64
+        description: Caller user ID
+      token:
+        type: string
+        example: 'YWJjMTIzIT8kKiYoKSctPUB-&#x3D;&#x3D;'
+        description: Access token
+    description: This DTO is intended to represent TokBox tokens
+  UserDTO:
+    type: object
+    properties:
+      profile:
+        $ref: '#/definitions/Profile'
+      type:
+        type: string
+        description: User role
+        enum:
+          - CONSUMER
+          - PROVIDER
+      userId:
+        type: integer
+        format: int64
+        description: user id
+  VitalSignObservationDto:
+    type: object
+    properties:
+      dataSource:
+        $ref: '#/definitions/DataSourceDto'
+      dateTime:
+        type: integer
+        format: int64
+        example: 1435234244000
+      dateTimeStr:
+        type: string
+        example: '1336338000000'
+      value:
+        type: number
+        format: double
+        example: 82
+  VitalSignObservationReport:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/VitalSignObservationDto'
+      unit:
+        type: string
+      vitalSignType:
+        type: string
+        description: Type of Vital Sign to report
+      vitalSignTypeDisplayName:
+        type: string
+        description: Human readable description of Vital Sign type

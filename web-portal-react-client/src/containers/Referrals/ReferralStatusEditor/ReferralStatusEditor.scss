@@ -1,0 +1,12 @@
+@media (min-width: 576px) {
+  .ReferralStatusEditor {
+    &.modal-dialog {
+      max-width: 1040px;
+    }
+
+    .modal-content {
+      border: none;
+      max-height: 500px;
+    }
+  }
+}

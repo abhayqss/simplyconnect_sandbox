@@ -1,0 +1,17 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.AppointmentEmailNotificationDto" *#
+<div>
+    <b>Dear ${dto.receiverFullName},</b> <br/>
+    <br/>
+    This email serves as a notification that your appointment on ${dto.appointmentDate} at ${dto.appointmentTime} has been cancelled.<br/>
+    Location: ${dto.communityName} ${dto.location}<br/>
+    <br/>
+    For more information regarding your appointment, please log on to Simply Connect Portal.
+    #set($buttonLabel = "Sign In")
+    #set($buttonUrl = ${dto.appointmentUrl})
+    #parse("velocity/button.vm")
+    <br/>
+    <br/>
+    If you don't currently have an active Simply Connect account or you have any questions, please contact your Service Provider.
+    <br/>
+    <br/>
+</div>

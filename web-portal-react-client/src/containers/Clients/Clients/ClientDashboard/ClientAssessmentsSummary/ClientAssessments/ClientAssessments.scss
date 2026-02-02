@@ -1,0 +1,55 @@
+@import "custom/_fonts";
+
+.ClientAssessments {
+  @media (max-width: 1000px) {
+    margin-top: 30px;
+  }
+}
+
+.ClientAssessmentList {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.ClientAssessmentList-Item {
+  &.list-group-item {
+    border: none;
+    border-radius: 5px;
+    padding: 15px 16px;
+  }
+}
+
+.ClientAssessment-Type {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: $font-size_list-item-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientAssessment-Date {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientAssessment-Time {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientAssessment-Status {
+  font-size: $font-size_list-item-text;
+  font-family: "Open Sans", sans-serif;
+  margin-right: 8px;
+}
+
+.ClientAssessment-Points {
+  &.badge {
+    color: #ffffff;
+    font-size: 13px;
+    border-radius: 2px;
+    padding: 4px 8px;
+    font-family: "Open Sans", sans-serif;
+  }
+}

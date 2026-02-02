@@ -1,0 +1,40 @@
+@import "custom/_fonts";
+
+.workflow-modal {
+  &.modal-dialog {
+    max-width: 840px;
+    max-height: 600px;
+  }
+}
+
+.workflow-modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  height: 400px;
+}
+
+.workflow-category-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 25px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.WorkflowForm-SelectField {
+  .MultiSelect-Options {
+    height: 200px;
+  }
+}

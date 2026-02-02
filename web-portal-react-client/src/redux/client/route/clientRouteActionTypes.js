@@ -1,0 +1,4 @@
+export default {
+    CLEAR: 'CLEAR_CLIENT_ROUTE',
+    CHANGE: 'CHANGE_CLIENT_ROUTE'
+}

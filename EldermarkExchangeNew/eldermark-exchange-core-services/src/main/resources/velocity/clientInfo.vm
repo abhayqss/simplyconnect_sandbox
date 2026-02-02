@@ -1,0 +1,26 @@
+#* @vtlvariable name="headerStyle" type="java.lang.String" *#
+#* @vtlmacrolibrary path="secureMessageMacroses.vm" *#
+#* @vtlvariable name="client" type="com.scnsoft.eldermark.dto.notification.event.ClientInfoNotificationDto" *#
+
+<p $headerStyle>Client Info</p>
+#display('Client name', ${client.fullName}, false)
+#displayList('Client Aliase', ${client.aliases}, true)
+#displayList('Client Identifier', ${client.identifiers}, true)
+#display('Social Security Number', ${client.ssn}, true)
+#display("Date of Birth", ${client.birthDate}, true)
+#display("Gender", $client.gender, true)
+#display("Marital Status", $client.maritalStatus, true)
+#display("Primary Language", $client.primaryLanguage, true)
+#display("Client Account Number", $client.clientAccountNumber, true)
+#display("Race", $client.race, true)
+#display("Ethnic Group", $client.ethnicGroup, true)
+#display("Nationality", $client.nationality, true)
+#display("Religion", $client.religion, true)
+#displayList("Citizenship", $client.citizenships, true)
+#display("Veterans Military Status", $client.veteranStatus, true)
+#display("Home Phone Number", $client.homePhone, true)
+#display("Business Phone Number", $client.businessPhone, true)
+#displayAddress("Address", $client.address, true)
+#display("Organization", $client.organizationTitle, true)
+#display("Community", $client.communityTitle, true)
+#displayDateTimeLong("Death Date and Time", $client.deathDate, true)

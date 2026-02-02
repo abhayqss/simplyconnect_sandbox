@@ -1,0 +1,45 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.UserManuals {
+  @include page;
+
+  .DocumentDetail-Actions {
+    justify-content: flex-end;
+  }
+}
+
+.UserManuals-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.UserManuals-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.UserManuals-Title {
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+  position: relative;
+}
+
+.UserManuals-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

@@ -1,0 +1,8 @@
+SET XACT_ABORT ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+ALTER TABLE XTN_PhoneNumber
+  ADD [telephone_number] VARCHAR(200) NULL

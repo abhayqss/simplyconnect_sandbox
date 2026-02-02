@@ -1,0 +1,224 @@
+#* @vtlvariable name="headerStyle" type="java.lang.String" *#
+#* @vtlvariable name="subHeaderStyle" type="java.lang.String" *#
+#* @vtlmacrolibrary path="../secureMessageMacroses.vm" *#
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.event.EventNotificationSecureMailDto" *#
+#* @vtlvariable name="dateFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="dateTimeFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="DataUtils" type="com.scnsoft.eldermark.util.DataUtils" *#
+#* @vtlvariable name="Instant" type="java.time.Instant" *#
+
+#parse("velocity/secureMessageMacroses.vm")
+
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    A new ${dto.eventType} event has been logged to the <span style="color:#0064ad;">Simply Connect platform</span> for
+    ${dto.clientName} at ${dto.communityName} and you are ${dto.responsibility} for this type of event.
+    <br><br>
+    Event Details:
+    <br>
+    <br>
+    #set( $client = ${dto.details.client})
+    #parse("velocity/clientInfo.vm")
+
+    <p $headerStyle>Event description</p>
+    #set( $description = ${dto.details.description})
+    #display('Location', ${description.location}, false)
+    #displayYesNo('Injury', ${description.hasInjury}, true)
+    #display('Situation', ${description.situation}, true)
+    #display('Background', ${description.background}, true)
+    #display('Assessment', ${description.assessment}, true)
+    #displayYesNo('Follow Up Expected', ${description.isFollowUpExpected}, true)
+    #display('Follow Up Details', ${description.followUpDetails}, true)
+
+    <p $headerStyle>Event Essentials</p>
+    #set( $essentials = ${dto.details.essentials})
+    #display('Person submitting event', ${essentials.author}, false)
+    #display('Care team role', ${essentials.authorRole}, true)
+    #displayDateTimeLong('Event Date and Time', ${essentials.date}, true)
+    #display('Event Type', ${essentials.typeTitle}, true)
+    #displayYesNo('Emergency department Visit', ${essentials.isEmergencyDepartmentVisit}, true)
+    #displayYesNo('Overnight In-patient', ${essentials.isOvernightInpatient}, true)
+    #display('Client device ID', ${essentials.deviceId}, true)
+    #display('Event type code', ${essentials.typeCode}, true)
+    #displayDateTimeLong('Recorded date/time', ${essentials.recordedDate}, true)
+
+    #set( $treatment = ${dto.details.treatment})
+    #if ($DataUtils.hasData($treatment))
+        <p $headerStyle>Treatment Details</p>
+
+        #if ($DataUtils.hasData($treatment.physician))
+            <p $subHeaderStyle>Details of treating physician</p>
+            #display('Physician Name', ${treatment.physician.fullName}, false)
+            #displayAddress('Address', ${treatment.physician.address}, true)
+            #display('Phone', ${treatment.physician.phone}, true)
+        #end
+
+        #if ($DataUtils.hasData($treatment.hospital))
+            <p $subHeaderStyle>Details of treating hospital</p>
+            #display('Hospital/Clinic', ${treatment.hospital.name}, true)
+            #displayAddress('Address', ${treatment.hospital.address}, true)
+            #display('Phone', ${treatment.hospital.phone}, true)
+        #end
+    #end
+
+    #set( $responsibleManager = ${dto.details.responsibleManager})
+    #if ($DataUtils.hasData($responsibleManager))
+        <p $headerStyle>Responsible manager</p>
+        #display('Name', ${responsibleManager.name}, false)
+        #display('Phone', ${responsibleManager.phone}, true)
+        #display('Email', ${responsibleManager.email}, true)
+    #end
+
+
+    #set( $registeredNurse = ${dto.details.registeredNurse})
+    #if ($DataUtils.hasData($registeredNurse))
+        <p $headerStyle>Registered nurse (RN)</p>
+        #display('Name', ${registeredNurse.name}, false)
+        #displayAddress('Address', ${registeredNurse.address}, true)
+    #end
+
+    #set( $procedures = ${dto.details.procedures})
+    #if ($DataUtils.hasData($procedures))
+        <p $headerStyle>Procedures</p>
+        #set( $procedureCount = 1)
+        #foreach($procedure in $procedures)
+            #if ($DataUtils.hasData($procedure))
+                <p $subHeaderStyle>PROCEDURE #$procedureCount</p>
+                #display('Set ID', ${procedure.setId}, false)
+                #display('Procedure coding method', ${procedure.procedureCodingMethod}, true)
+                #displayCE('Procedure code', ${procedure.procedureCode}, true)
+                #display('Procedure description', ${procedure.procedureDescription}, true)
+                #displayDateTimeLong('Procedure date/time', ${procedure.procedureDatetime}, true)
+                #display('Procedure functional type', ${procedure.procedureFunctionalType}, true)
+                #displayCE('Associated Diagnosis Code', ${procedure.associatedDiagnosisCode}, true)
+                #set( $procedureCount = $procedureCount + 1)
+            #end
+        #end
+    #end
+
+    #set( $visit = ${dto.details.patientVisit})
+    #if ($DataUtils.hasData($procedures))
+        <p $headerStyle>Patient visit</p>
+        #display('Patient Class', ${visit.patientClass}, false)
+        #displayPL('Assigned patient location', ${visit.assignedPatientLocation}, true)
+        #display('Admission type', ${visit.admissionType}, true)
+        #displayPL('Prior Patient Location', ${visit.priorPatientLocation}, true)
+        #displayXCNList('Attending Doctors', ${visit.attendingDoctors}, true)
+        #displayXCNList('Referring Doctors', ${visit.referringDoctors}, true)
+        #displayXCNList('Consulting Doctors', ${visit.consultingDoctors}, true)
+        #display('Preadmit Test Indicator', ${visit.preadmitTestIndicator}, true)
+        #display('Readmission Indicator', ${visit.readmissionIndicator}, true)
+        #display('Admit Source', ${visit.admitSource}, true)
+        #displayList('Ambulatory Statuses', ${visit.ambulatoryStatuses}, true)
+        #displayXCNList('Admitting Doctors', ${visit.admittingDoctors}, true)
+        #display('Discharge Disposition', ${visit.dischargeDisposition}, true)
+        #displayDL('Discharged to Location', ${visit.dischargedToLocation}, true)
+        #display('Servicing facility', ${visit.servicingFacility}, true)
+        #displayDateTimeLong('Admit Date/Time', ${visit.admitDate}, true)
+        #displayDateTimeLong('Discharge Date/Time', ${visit.dischargeDate}, true)
+        #displayXCNList('Other Healthcare Providers', ${visit.otherHealthcareProviders}, true)
+    #end
+
+    #set( $diagnoses = ${dto.details.diagnoses})
+    #if ($DataUtils.hasData($diagnoses))
+        <p $headerStyle>Diagnosis</p>
+        #set( $diagnosisCount = 1)
+        #foreach($diagnosis in $diagnoses)
+            #if ($DataUtils.hasData($diagnosis))
+                <p $subHeaderStyle>DIAGNOSIS #$diagnosisCount</p>
+                #display('Set ID', ${diagnosis.setId}, false)
+                #display('Diagnosis coding method', ${diagnosis.diagnosisCodingMethod}, true)
+                #displayCE('Diagnosis code', ${diagnosis.diagnosisCode}, true)
+                #display('Diagnosis Description', ${diagnosis.diagnosisDescription}, true)
+                #displayDateTimeLong('Diagnosis Date/Time', ${diagnosis.diagnosisDateTime}, true)
+                #display('Diagnosis type', ${diagnosis.diagnosisType}, true)
+                #displayXCNList('Diagnosing clinician', ${diagnosis.diagnosingClinicians}, true)
+                #set( $diagnosisCount = $diagnosisCount + 1)
+            #end
+        #end
+    #end
+
+    #set( $guarantors = ${dto.details.guarantors})
+    #if ($DataUtils.hasData($guarantors))
+        <p $headerStyle>Guarantor</p>
+        #set( $guarantorsCount = 1)
+        #foreach($guarantor in $guarantors)
+            #if ($DataUtils.hasData($guarantor))
+                <p $subHeaderStyle>GUARANTOR #$guarantorsCount</p>
+                #display('Set ID', ${guarantor.setId}, false)
+                #displayCXList('Guarantor Numbers', ${guarantor.guarantorNumbers}, true)
+                #displayXPNList('Guarantor name', ${guarantor.guarantorNames}, true)
+                #displayAddressList('Guarantor address', ${guarantor.guarantorAddresses}, true)
+                #displayXTNList('Guarantor Ph Num-Home', ${guarantor.guarantorHomePhones}, true)
+                #displayDateTimeLong('Guarantor Date/Time Of Birth', ${guarantor.guarantorDatetimeOfBirth}, true)
+                #display('Guarantor Administrative Sex', ${guarantor.guarantorAdministrativeSex}, true)
+                #display('Guarantor Type', ${guarantor.guarantorType}, true)
+                #displayCE('Guarantor Relationship', ${guarantor.guarantorRelationship}, true)
+                #display('Guarantor Employment Status', ${guarantor.guarantorEmploymentStatus}, true)
+                #displayCE('Guarantor primary language', ${guarantor.primaryLanguage}, true)
+                #set( $guarantorsCount = $guarantorsCount + 1)
+            #end
+        #end
+    #end
+
+    #set( $insurances = ${dto.details.insurances})
+    #if ($DataUtils.hasData($insurances))
+        <p $headerStyle>Insurance</p>
+        #set( $insurancesCount = 1)
+        #foreach($insurance in $insurances)
+            #if ($DataUtils.hasData($insurance))
+                <p $subHeaderStyle>INSURANCE #$insurancesCount</p>
+                #display('Set ID', ${insurance.setId}, false)
+                #displayCE('Insurance Plan ID', ${insurance.insurancePlanId}, true)
+                #displayCXList('Insurance Company ID', ${insurance.insuranceCompanyIds}, true)
+                #displayXONList('Insurance Company Name', ${insurance.insuranceCompanyNames}, true)
+                #displayXTNList('Insurance Co Phone Number', ${insurance.insuranceCoPhoneNumbers}, true)
+                #displayAddressList('Insurance Company Addresses', ${insurance.insuranceCompanyAddresses}, true)
+                #display('Group Number', ${insurance.groupNumber}, true)
+                #displayXONList('Group Name', ${insurance.groupNames}, true)
+                #displayDateTimeLong('Plan Effective Date', ${insurance.planEffectiveDate}, true)
+                #displayDateTimeLong('Plan Expiration Date', ${insurance.planExpirationDate}, true)
+                #display('Plan Type', ${insurance.planType}, true)
+                #displayXPNList('Name of Insured', ${insurance.namesOfInsured}, true)
+                #displayCE("Insured's Relationship to Patient", ${insurance.insuredsRelationshipToPatient}, true)
+                #displayDateTimeLong("Insured's Date Of Birth", ${insurance.insuredsDateOfBirth}, true)
+                #displayAddressList("Insured's Addresses", ${insurance.insuredsAddresses}, true)
+                #display('Pre-Admit Cert (PAC)', ${insurance.preAdmitCert}, true)
+                #display('Type Of Agreement Code', ${insurance.typeOfAgreementCode}, true)
+                #display('Policy Number', ${insurance.policyNumber}, true)
+
+                #set( $insurancesCount = $insurancesCount + 1)
+            #end
+        #end
+    #end
+
+    #set( $allergies = ${dto.details.allergies})
+    #if ($DataUtils.hasData($allergies))
+        <p $headerStyle>Allergies</p>
+        #set( $allergiesCount = 1)
+        #foreach($allergy in $allergies)
+            #if ($DataUtils.hasData($allergy))
+                <p $subHeaderStyle>ALLERGY #$allergiesCount</p>
+                #display('Set ID', ${allergy.setId}, false)
+                #display('Type', ${allergy.allergyType}, true)
+                #displayCE('Code/Mnemonic/Description', ${allergy.allergyCode}, true)
+                #display('Severity', ${allergy.allergySeverity}, true)
+                #displayList('Reaction', ${allergy.allergyReactions}, true)
+                #displayDateTimeLong('Identification Date', ${allergy.identificationDate}, true)
+
+                #set( $allergiesCount = $allergiesCount + 1)
+            #end
+        #end
+    #end
+
+    <div style="clear: both"></div>
+    <br><br>
+    Please login to the Simply Connect platform to view the details of this event.
+    #parse( "velocity/button.vm")
+</div>
+
+
+
+
+

@@ -1,0 +1,72 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Documents {
+  @include page;
+
+  &-Header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  &-HeaderItem {
+    margin-right: 20px;
+    padding-bottom: 10px;
+
+    &:first-child {
+      flex: 1
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-Title {
+    white-space: nowrap;
+    position: relative;
+  }
+
+  &-TitleText {
+    display: inline-block;
+    font-size: 26px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &-Action {
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-FolderBreadcrumbs {
+    padding: 6px 0;
+
+    .Breadcrumbs-ItemTitle {
+      padding: 8px;
+      font-size: 14px;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+  }
+}
+
+.CommunityDocumentList {
+  .DocumentList-Caption {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

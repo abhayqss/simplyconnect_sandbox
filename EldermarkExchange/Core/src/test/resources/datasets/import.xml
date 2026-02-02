@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <AnyCcdCode id="2" />
+  <AnyCcdCode id="3" />
+  <AnyCcdCode id="10" />
+  <AnyCcdCode id="13" />
+  <AnyCcdCode id="72" />
+  <AnyCcdCode id="53" />
+  <AnyCcdCode id="975" />
+  <ConcreteCcdCode id="2" value_set_name="AdministrativeGender" value_set="2.16.840.1.113883.1.11.1" code="F" code_system="2.16.840.1.113883.5.1" display_name="Female" inactive="0"/>
+  <ConcreteCcdCode id="3" value_set_name="AdministrativeGender" value_set="2.16.840.1.113883.1.11.1" code="M" code_system="2.16.840.1.113883.5.1" display_name="Male" inactive="0"/>
+  <ConcreteCcdCode id="10" value_set_name="MaritalStatus" value_set="2.16.840.1.113883.1.11.12212" code="M" code_system="2.16.840.1.113993.5.2" display_name="Married" inactive="0"/>
+  <ConcreteCcdCode id="13" value_set_name="MaritalStatus" value_set="2.16.840.1.113883.1.11.12212" code="W" code_system="2.16.840.1.113993.5.2" display_name="Widowed" inactive="0"/>
+  <ConcreteCcdCode id="72" value_set_name="ReligiousAffiliation" value_set="2.16.840.1.113883.1.11.19185" code="1041" code_system="2.16.840.1.113883.5.1076" display_name="Roman Catholic Church" inactive="0"/>
+  <ConcreteCcdCode id="53" value_set_name="ReligiousAffiliation" value_set="2.16.840.1.113883.1.11.19185" code="1028" code_system="2.16.840.1.113883.5.1076" display_name="Lutheran" inactive="0"/>
+  <ConcreteCcdCode id="975" value_set_name="Race" value_set="2.16.840.1.113883.1.11.14914" code="2106-3" code_system="2.16.840.1.113883.6.238" display_name="White" inactive="0"/>
+  <SourceDatabase id="2" alternative_id="rba" name="RBA" url="rba_url" is_service="false" is_eldermark="false" oid="RBA"/>
+  <SourceDatabase id="3" alternative_id="ADT_Repo" name="ADT Repo" url="ADT_Repo_url" is_service="false" is_eldermark="false"/>
+  <SourceDatabase id="4" alternative_id="AllinaHealth" name="Allina Health" url="Allina_url" is_service="false" is_eldermark="false"/>
+  <SourceDatabase id="5" alternative_id="EMTest_21250" name="EMTest_21250" url="jdbc:odbc:EMTest_21250" is_service="false" is_eldermark="true" oid="EMTEST"/>
+  <Organization id="2" legacy_id="1" legacy_table="Company" name="ADT Organization" database_id="3" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="false"/>
+  <Organization id="3" legacy_id="2" legacy_table="Company" name="Allina Health" database_id="4" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="false"/>
+  <Organization id="23" legacy_id="100" legacy_table="Company" logo_pict_id="2" name="Minnesota Assisted Living" sales_region="B Group" database_id="5" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="true"/>
+  <Organization id="25" legacy_id="300" legacy_table="Company" logo_pict_id="0" name="Florida Assisted Living" sales_region="C Group" database_id="5" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="false"/>
+  <Organization id="244" legacy_id="244" legacy_table="COMPANY" name="Comm2" database_id="2" testing_training="false" inactive="false" module_hie="true" module_cloud_storage="false" oid="30051" created_automatically="false" email="xxxxxx@scnsoft.com" phone="+375295914444"/>
+</dataset>

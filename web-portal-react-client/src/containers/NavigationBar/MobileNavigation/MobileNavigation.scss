@@ -1,0 +1,159 @@
+@import "custom/_fonts";
+
+.NavigationMobile {
+    position: sticky;
+    z-index: 2;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+}
+
+.NavigationMobile-User {
+    .User-Container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .User-Info {
+        color: $font-color_head-text;
+        font-size: 15px;
+        font-weight: bold;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    .User-Avatar {
+        margin-right: 0;
+    }
+
+    .User-Profile {
+        right: -16px;
+        top: 47px;
+    }
+}
+
+.NavigationMobile-Bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid #dddddd;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+
+    @media (max-width: 499px) {
+        padding: 6px 16px;
+    }
+}
+
+.NavigationMobile-Logo {
+    height: 48px;
+
+    @media (max-width: 499px) {
+        height: 44px;
+    }
+}
+
+.NavigationMobile-Navs {
+    width: 100%;
+    height: 100vh;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.3s ease-in-out;
+    background: white;
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
+    position: absolute;
+
+    &_open {
+        @media (max-width: 1024px) {
+            max-width: 280px;
+        }
+    
+        @media (max-width: 499px) {
+            max-width: 100%;
+        }
+    }
+}
+
+.NavigationMobile-Navs-Buttons {
+    padding: 20px 16px;
+    display: flex;
+    position: relative;
+    margin-bottom: 24px;
+
+    @media (max-width: 499px) {
+        margin-bottom: 0;
+    }
+
+    .NavigationMobile-Logo {
+        display: none;
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        @media (max-width: 499px) {
+            display: block;
+        }
+    }
+}
+
+.NavigationMobile-CrossIcon {
+    width: 20px;
+    height: 20px;
+
+    path {
+        fill: #0064ad;
+    }
+}
+
+.NavigationMobile-Items {
+    height: calc(100% - 84px);
+    overflow-y: auto;
+}
+
+.NavigationMobile-Item {
+    cursor: pointer;
+    font-family: "Open Sans Semibold", sans-serif;
+    position: relative;
+
+    a {
+        display: block;
+        color: $font-color_head-text;
+        padding: 16px 40px;
+        font-size: 15px;
+        text-decoration: none;
+
+        @media (max-width: 499px) {
+            padding: 16px 50%;
+            transform: translate(-64px, 0);
+        }
+    }
+
+    &__Active {
+        background-color: #f9f9f9;
+    }
+
+    .Navigation-Indicator {
+        left: 83px;
+
+        @media (max-width: 500px) {
+            left: calc(50% - 22px);
+        }
+    }
+}
+
+.NavigationMobile-Icon {
+    fill: #0064ad;
+    overflow: hidden;
+    transition-duration: 0.5s;
+    transition-property: transform;
+
+    svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    &__Transformed {
+        transform: rotate(180deg);
+    }
+}

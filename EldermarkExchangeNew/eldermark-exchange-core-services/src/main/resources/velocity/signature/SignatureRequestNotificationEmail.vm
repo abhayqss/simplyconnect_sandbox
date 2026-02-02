@@ -1,0 +1,13 @@
+<div>
+    <b>Dear ${dto.recipientName},</b>
+    <br><br>
+    We are pleased to notify you that your document ${dto.communityName} ${dto.templateName} is ready for review.<br>
+    For your convenience, this document is being delivered in a format that allows for you to review/sign the
+    document electronically.
+    <br><br>
+    #if($dto.dateExpires && !$dto.dateExpires.empty)
+        Note, that the document will expire by $dto.dateExpires.
+        <br><br>
+    #end
+    #parse("velocity/base/baseButton.vm")
+</div>

@@ -1,0 +1,63 @@
+.Features {
+  &-Title {
+    padding: 10px 34px 20px;
+    color: #00ace6;
+    font-size: 22px;
+    font-family: Poppins Light, sans-serif;
+  }
+}
+
+.FeatureCardList {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &-Item {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 20px;
+
+    @media (min-width: 665px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+.FeatureSummaryViewer {
+  &.Modal {
+    height: auto;
+  }
+
+  &.modal-dialog {
+    max-width: 830px;
+  }
+
+  .modal-content {
+    border-radius: 4px;
+    box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.29);
+  }
+
+  .Modal-Header {
+    padding-bottom: 0;
+    background-color: #ffffff;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom: none;
+
+    .Modal-CloseIcon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .Modal-Body {
+    top: -5px;
+    padding: 0 8px 6px;
+    position: relative;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+}

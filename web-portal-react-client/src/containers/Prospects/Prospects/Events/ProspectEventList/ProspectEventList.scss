@@ -1,0 +1,108 @@
+.ProspectEventList {
+  $radius: 5px;
+
+  &.table-hover {
+    tbody {
+      tr {
+        &:hover {
+          border-left: 8px solid;
+          margin-bottom: 5px;
+          border-radius: $radius;
+          transform: scale(1);
+          -moz-transform: scale(1);
+          -webkit-transform: scale(1);
+          box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+
+          td {
+            .Event-Type {
+              white-space: normal;
+            }
+          }
+
+          td:first-child {
+            border: none;
+          }
+
+          td:last-child {
+            border: none;
+            text-align: right;
+          }
+
+          td {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+
+    caption {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        border-radius: $radius;
+
+        td {
+          border: 0;
+          padding: 12px 16px;
+          vertical-align: middle;
+          font-size: $font-size_list-item-text;
+
+          &:first-child {
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
+            width: 65%;
+
+            @media (min-width: 1542px) {
+              width: 75%;
+            }
+          }
+
+          &:last-child {
+            border: none;
+            text-align: right;
+            padding-right: 23px;
+            border-top-right-radius: $radius;
+            border-bottom-right-radius: $radius;
+
+            &.react-bs-table-no-data {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    thead {
+      display: none;
+    }
+  }
+
+  &Container {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+
+    .react-bootstrap-table {
+      height: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+    .react-bootstrap-table-pagination {
+      padding-top: 14px;
+      background-color: white;
+
+      .react-bootstrap-table-pagination-list {
+        .react-bootstrap-table-page-btns-ul {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

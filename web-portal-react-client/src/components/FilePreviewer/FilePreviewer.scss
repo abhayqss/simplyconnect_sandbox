@@ -1,0 +1,50 @@
+.FilePreviewer {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+
+  &-File {
+    width: 100%;
+  }
+
+  &-Fallback {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans Semibold', sans-serif;
+    font-size: 15px;
+    color: #4c4e51;
+    padding-left: 32px;
+    padding-right: 32px;
+    background-color: #f1f1f1;
+  }
+
+  &-DownloadBtn {
+    border: none;
+    color: #0064ad;
+    display: flex;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px !important;
+
+    &.btn:hover {
+      color: #0064ad;
+      background-color: transparent !important;
+    }
+
+    &.btn:active {
+      color: #0064ad !important;
+      box-shadow: none !important;
+      background-color: transparent !important;
+    }
+
+    &Icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.workflow-modal {
+  max-height: 630px;
+
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+}
+
+.workflow-modal-content {
+  padding: 20px;
+}
+
+.workflow-data-type {
+  .CheckboxField {
+    padding: 12px 0 !important;
+  }
+}
+
+.form-group {
+  margin-bottom: 0 !important;
+}

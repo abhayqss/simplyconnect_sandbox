@@ -1,0 +1,8 @@
+@import "custom/_mixins";
+
+.CalendarEvent {
+  &-StartTime {
+    font-size: 10px;
+    @include line-clamp();
+  }
+}

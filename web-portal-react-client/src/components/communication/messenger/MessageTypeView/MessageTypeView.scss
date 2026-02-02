@@ -1,0 +1,24 @@
+@import "custom/_fonts";
+
+.MessageTypeView {
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  word-break: break-word;
+  white-space: pre-line;
+
+  @media (max-width: 1024px) {
+    -webkit-line-clamp: 2;
+  }
+
+  &-HighlightedText {
+    background-color: #fff1ca;
+    padding: 0;
+    border-radius: 2px;
+  }
+}

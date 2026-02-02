@@ -1,0 +1,40 @@
+.SignInForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &-Section {
+    padding: 20px 25px;
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px 25px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-ForgetPasswordLink {
+    color: #0064ad;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    text-decoration: none;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+}

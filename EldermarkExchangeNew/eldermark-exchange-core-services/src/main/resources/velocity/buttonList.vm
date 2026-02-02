@@ -1,0 +1,9 @@
+#* @vtlvariable name="buttons" type="java.util.List<com.scnsoft.eldermark.service.mail.EmailButtonDto> *#
+<div><br/>
+    #foreach($button in $buttons)
+        #set($buttonLabel = $button.label)
+        #set($buttonUrl = $button.url)
+        #parse("velocity/base/baseButton.vm")
+    #end
+    <br/><br>
+</div>

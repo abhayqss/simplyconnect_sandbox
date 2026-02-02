@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.scnsoft.eldermark.consana.sync.common.config.jms.JmsConverterTypesMappingAutoConfiguration

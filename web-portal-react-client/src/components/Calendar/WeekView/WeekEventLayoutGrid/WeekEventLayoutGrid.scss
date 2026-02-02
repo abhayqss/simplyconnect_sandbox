@@ -1,0 +1,16 @@
+.WeekEventLayoutGrid {
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  padding-left: 75px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .DayEventLayoutGrid {
+    position: relative;
+    padding-left: 0;
+    margin-right: 1px;
+  }
+}

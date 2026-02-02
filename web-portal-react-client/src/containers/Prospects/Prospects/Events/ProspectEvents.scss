@@ -1,0 +1,124 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.ProspectEvents {
+  @include page;
+
+  &-Header {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+
+}
+
+
+.Events-ClientName {
+  font-weight: normal;
+  font-size: 20px;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.Event-ClientName,
+.Note-ClientName {
+  cursor: pointer;
+  line-height: 1.5;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Note-ClientName {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Event-Type,
+.Note-Subtype {
+  color: $font-color_head-text;
+  font-size: $font-size_list-item-text;
+  line-height: 1.8;
+  border-radius: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Note-Entity,
+.Event-Entity {
+  color: $font-color_head-text;
+  font-size: 13px;
+  padding: 0 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.EventFilter-Icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.EventFilter-Icon_rotated_90 {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.EventFilter-Icon_rotated_0 {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+
+.Events-NavigationContainer {
+  margin-bottom: 15px;
+
+  @media (max-width: 767px) {
+    .Events-DetailsContainer {
+      display: none;
+    }
+
+    .Events-Navigation {
+      max-width: 100%;
+      flex: auto;
+    }
+  }
+
+  .Events-Navigation {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.Events-Navigation {
+  height: calc(100vh - 189px);
+
+  &.Events-Navigation_fixed {
+    position: fixed;
+  }
+
+  .Events-NavHeader_fixed {
+    position: fixed;
+    box-shadow: 1px -3px 0px 1px #f7f7f7;
+    z-index: 1;
+  }
+}
+
+.Events-NavHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  background-color: #f2fbff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 50px;
+}
+
+.Events-NavBody {
+  height: 100%;
+}

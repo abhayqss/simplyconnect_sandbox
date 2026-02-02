@@ -1,0 +1,41 @@
+@import "custom/_fonts";
+
+@media (min-width: 576px) {
+  .RequestViewer {
+    &.modal-dialog {
+      max-width: 1040px;
+    }
+  }
+}
+
+.RequestViewer-Section {
+  padding: 20px 40px 20px;
+
+  .Detail {
+    display: flex;
+    margin: 0 24px;
+    padding: 16px 0;
+  }
+
+  .Detail-Title {
+    flex: 2;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 14px;
+  }
+
+  .Detail-Value {
+    flex: 4;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+  }
+}
+
+.RequestViewer-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 20px 24px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}

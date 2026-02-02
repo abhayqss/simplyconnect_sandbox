@@ -1,0 +1,125 @@
+@import "custom/_fonts";
+
+.CareTeamMemberListContainer {
+  margin-top: 0 !important;
+}
+
+.CareTeamMemberList {
+    .Table-Header {
+        $radius: 3px;
+
+        th:first-of-type {
+            border-radius: $radius 0 0 $radius;
+        }
+
+        th:last-of-type {
+            border-radius: 0 $radius $radius 0;
+        }
+    }
+}
+
+.CareTeamMemberList-Caption {
+    margin-bottom: 5px;
+}
+
+.CareTeamMemberList-CaptionHeader {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.CareTeamMemberList-Title {
+    flex: 1;
+    white-space: nowrap;
+    position: relative;
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+.CareTeamMemberList-TitleText {
+    font-size: 26px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+}
+
+.CareTeamMemberList-ControlPanel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+
+.CareTeamMemberList-MemberAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    @media (max-width: 414px) {
+        display: none !important;
+    }
+}
+
+.CareTeamMemberList-MemberName {
+    font-weight: 600;
+    color: #0064ad;
+    cursor: pointer;
+}
+
+.CareTeamMemberList {
+    .CareTeamMemberList-MemberName_disabled {
+        pointer-events: none;
+        color: $font-color_head-text;
+    }
+}
+
+.CareTeamMemberList-MemberRelation {
+    color: #898989;
+}
+
+.CareTeamMemberList-Label {
+    color: $font-color_head-text;
+}
+
+.CareTeamMember-Action {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    svg {
+        overflow: visible;
+    }
+
+    &_disabled {
+        svg,
+        path {
+            fill: #bfbdbd;
+            cursor: default;
+
+            &:hover {
+                fill: #bfbdbd;
+                stroke: initial;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.AddCareMemberBtn {
+    height: 35px;
+}
+
+.CareTeamMemberList-Tooltip {
+    .tooltip {
+        z-index: 1049;
+    }
+}
+
+.CareTeamMemberList-OrganizationLogo,
+.CareTeamMemberList-CommunityLogo {
+    max-width: 48px;
+    max-height: 48px;
+}

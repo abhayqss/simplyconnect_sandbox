@@ -1,0 +1,59 @@
+@import "custom/_fonts";
+
+.EventNotes {
+    .TableContainer {
+        .Table {
+            @media (max-width: 1199px) {
+                display: none;
+            }
+        }
+        
+        .TableMobile {
+            display: none;
+        
+            @media (max-width: 1199px) {
+              display: table;
+            }
+        }
+    }
+}
+
+.EventNoteList {
+    .TableMobile-Detail {
+        div {
+            max-width: initial;
+            flex: 1 0 auto;
+            padding: 0 15px;
+        }
+    }
+}
+
+.EventNoteListContainer {
+    padding: 12px 24px 24px 24px;
+}
+
+.EventNote-Status {
+    color: $font-color_head-text;
+    padding: 0 8px;
+    border-radius: 2px;
+}
+
+.EventNote-ViewBtn {
+    &.btn-link {
+        cursor: pointer;
+        color: #0064ad;
+        text-decoration: none;
+        font-family: "Open Sans Semibold", sans-serif;
+        width: auto;
+        padding: 8px 0px;
+
+        &:hover {
+            color: #0064ad;
+            text-decoration: none;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+    }
+}

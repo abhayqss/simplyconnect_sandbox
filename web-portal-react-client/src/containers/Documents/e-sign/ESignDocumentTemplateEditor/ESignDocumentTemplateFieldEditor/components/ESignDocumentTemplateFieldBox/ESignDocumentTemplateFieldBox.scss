@@ -1,0 +1,223 @@
+$blue: #e5f2fc;
+$dark-blue: #7cbef0;
+$yellow: #fff9c4;
+$dark-yellow: #fdd835;
+$green: #e8f7ef;
+$dark-green: #89d6a9;
+$red: #fdeaea;
+$dark-red: #f99898;
+$deep-red: #f33232;
+
+@mixin box-color($background-color, $border-color) {
+  background-color: $background-color;
+  border: 1px solid $border-color;
+}
+
+.ESignDocumentTemplateFieldBox {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  .react-resizable-handle {
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    padding: 0;
+    transform: rotate(0);
+    border: 1px solid;
+    background-color: #ffffff;
+    background-image: none;
+  }
+
+  .react-resizable-handle-n {
+    top: -3px;
+    left: calc(50% - 3px);
+  }
+
+  .react-resizable-handle-w {
+    left: -3px;
+    top: calc(50% - 3px);
+  }
+
+  .react-resizable-handle-e {
+    right: -3px;
+    top: calc(50% - 3px);
+  }
+
+  .react-resizable-handle-s {
+    bottom: -3px;
+    left: calc(50% - 3px);
+  }
+
+  .react-resizable-handle-nw {
+    left: -3px;
+    top: -3px;
+  }
+
+  .react-resizable-handle-ne {
+    right: -3px;
+    top: -3px;
+  }
+
+  .react-resizable-handle-sw {
+    left: -3px;
+    bottom: -3px;
+  }
+
+  .react-resizable-handle-se {
+    right: -3px;
+    bottom: -3px;
+  }
+
+  &_color {
+    &_blue {
+      @include box-color($blue, $dark-blue);
+
+      .react-resizable-handle {
+        border-color: $dark-blue;
+      }
+
+      .ESignDocumentTemplateFieldBox-Actions {
+        border: 1px solid $dark-blue;
+
+        &:before {
+          border-color: $dark-blue;
+        }
+      }
+    }
+
+    &_yellow {
+      @include box-color($yellow, $dark-yellow);
+
+      .react-resizable-handle {
+        border-color: $dark-yellow;
+      }
+
+      .ESignDocumentTemplateFieldBox-Actions {
+        border: 1px solid $dark-yellow;
+
+        &:before {
+          border-color: $dark-yellow;
+        }
+      }
+    }
+
+    &_green {
+      @include box-color($green, $dark-green);
+
+      .react-resizable-handle {
+        border-color: $dark-green;
+      }
+
+      .ESignDocumentTemplateFieldBox-Actions {
+        border: 1px solid $dark-green;
+
+        &:before {
+          border-color: $dark-green;
+        }
+      }
+    }
+
+    &_red {
+      @include box-color($red, $dark-red);
+
+      .react-resizable-handle {
+        border-color: $dark-red;
+      }
+
+      .ESignDocumentTemplateFieldBox-Actions {
+        border: 1px solid $dark-red;
+
+        &:before {
+          border-color: $dark-red;
+        }
+      }
+    }
+
+    &_deep-red {
+      @include box-color($deep-red, $deep-red);
+
+      .react-resizable-handle {
+        border-color: $deep-red;
+      }
+
+      .ESignDocumentTemplateFieldBox-Body {
+        color: #ffffff;
+      }
+
+      .ESignDocumentTemplateFieldBox-Actions {
+        border: 1px solid $deep-red;
+
+        &:before {
+          border-color: $deep-red;
+        }
+      }
+    }
+  }
+
+  &-Body {
+    flex: 1;
+    font-size: 14px;
+    color: #222222;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Actions {
+    right: -35px;
+    top: calc(50% - 12px);
+    position: absolute;
+    display: flex;
+    padding: 4px;
+    cursor: pointer;
+    background-color: #ffffff;
+
+    &:before {
+      content: '';
+      height: 1px;
+      width: 9px;
+      top: calc(50% - 1px);
+      border-top: 1px solid;
+      position: absolute;
+      left: -9px;
+    }
+  }
+
+  &-Action {
+    &Icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &-ActionPopup {
+    .tooltip-inner {
+      padding: 10px 15px;
+      background-color: #ffffff !important;
+      border-radius: 2px;
+    }
+  }
+
+  &-ActionPopupToggle {
+    display: flex;
+  }
+
+  &-ActionPopupToggleIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &-ActionPopupItem {
+    padding: 5px;
+    cursor: pointer;
+    color: #0064ad;
+    font-size: 14px;
+    text-align: left;
+    font-family: "Open Sans Semibold", sans-serif;
+    outline: none;
+  }
+}

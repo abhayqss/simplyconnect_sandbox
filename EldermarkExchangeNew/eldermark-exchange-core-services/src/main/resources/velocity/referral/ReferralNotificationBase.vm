@@ -1,0 +1,10 @@
+<div>
+    <b>Dear ${dto.recipientName},</b>
+    <br><br>
+    The referral request for ${dto.clientName} ${dto.typePhrase}.
+        <br><br>
+    #if(${dto.url})
+        Please login to the Simply Connect platform to view the details of this referral request.
+        #parse( "velocity/button.vm")
+    #end
+</div>

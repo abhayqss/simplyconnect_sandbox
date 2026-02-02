@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sample--1-8-05---Schedule-an-Appointment---Occurs-Weekly-View-Copy" transform="translate(-1284.000000, -225.000000)" fill="#A7A7A7" fill-rule="nonzero">
+            <g id="Schedule-an-Appointment" transform="translate(324.000000, 80.000000)">
+                <g id="Appointmnets-detail" transform="translate(46.000000, 78.000000)">
+                    <g id="Patient-Name*" transform="translate(0.000000, 39.000000)">
+                        <g id="search" transform="translate(914.000000, 28.000000)">
+                            <path d="M6.93846154,13.8769231 C8.63076923,13.8769231 10.1692308,13.2769231 11.3692308,12.2615385 L16.7538462,17.6461538 C16.8769231,17.7692308 17.0307692,17.8307692 17.2,17.8307692 C17.3692308,17.8307692 17.5230769,17.7692308 17.6461538,17.6461538 C17.8923077,17.4 17.8923077,17 17.6461538,16.7538462 L12.2615385,11.3692308 C13.2615385,10.1692308 13.8769231,8.61538462 13.8769231,6.93846154 C13.8769231,3.10769231 10.7692308,0 6.93846154,0 C3.12307692,-1.09314267e-15 0,3.12307692 0,6.93846154 C0,10.7692308 3.12307692,13.8769231 6.93846154,13.8769231 Z M6.93846154,1.26153846 C10.0769231,1.26153846 12.6153846,3.81538462 12.6153846,6.93846154 C12.6153846,10.0769231 10.0769231,12.6153846 6.93846154,12.6153846 C3.8,12.6153846 1.26153846,10.0615385 1.26153846,6.93846154 C1.26153846,3.81538462 3.81538462,1.26153846 6.93846154,1.26153846 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,35 @@
+.SavedCommunityList {
+    max-height: calc(100vh - 130px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &-Scrollable {
+        padding: 20px;
+    }
+
+    &-Item {
+        & + & {
+            margin-top: 32px;
+        }
+    }
+
+    &-Col {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &-CheckboxField {
+        margin-right: 12px;
+        padding-top: 0 !important;
+    }
+
+    &-Buttons {
+        border-top: 1px solid #dee2e6;
+        padding: 20px 16px;
+
+        .btn {
+            width: 100%;
+        }
+    }
+}

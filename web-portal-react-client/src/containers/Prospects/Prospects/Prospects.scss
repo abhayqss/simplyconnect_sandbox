@@ -1,0 +1,119 @@
+@import "custom/_page";
+
+.Prospects {
+  .Prospects {
+    @include page;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.Prospects-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.Prospects-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.Prospects-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.Prospects-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: #222222;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Prospects-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Prospects-Action {
+  margin-right: 30px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.ProspectFilter-Icon {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+}
+
+.AddProspectBtn-OptText {
+  @media (max-width: 350px) {
+    display: none;
+  }
+}
+
+.ProspectList-ProspectName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.ProspectList-EditIcon {
+  cursor: pointer;
+  fill: #0064ad;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:only-child {
+    margin-left: auto;
+  }
+
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  @media (max-width: 1200px){
+    width: 35px;
+    height: 35px;
+  }
+
+  @media (max-width: 1100px){
+    width: 34px;
+    height: 34px;
+  }
+}

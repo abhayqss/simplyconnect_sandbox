@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s3="http://microsoft.com/wsdl/types/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.7" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://IntegraGroup.com/Architecture/Protocols/Soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s2="http://IntegraGroup.com/DocMgmt/DirectConnect/LinkedServer/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.7" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DocuTrack Server Services Director for Direct Connect 2.7</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/">
+      <s:import namespace="http://IntegraGroup.com/DocMgmt/DirectConnect/LinkedServer/" />
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="AssociateEntities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlAssociationDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssociateEntitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AssociateEntitiesResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssociateDocumentEntities">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="documentID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlAssociationDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssociateDocumentEntitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AssociateDocumentEntitiesResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DirectConnectExecute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="command" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametersXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DirectConnectExecuteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DirectConnectExecuteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDirectConnectVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDirectConnectVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDirectConnectVersionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fieldId" type="s2:DciFieldType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="documentId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentFileResult" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5Hash" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDocumentIDResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="documentId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInsertDocuments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="batchId" type="s3:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInsertDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInsertDocumentsResult" type="s0:ArrayOfLong" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLong">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="long" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlAssociationDoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mimeType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documentFile" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertDocumentResult" type="s3:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEMARs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlEMARDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEMARsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertEMARsResult" type="s3:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertManifest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlManifestEntitiesDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertManifestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsApplicationLoaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsApplicationLoadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsApplicationLoadedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsDocumentLoaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsDocumentLoadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsDocumentLoadedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsModified">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsModifiedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsModifiedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="documentID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadDocumentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentAndDirect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="documentID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="entityType" type="s2:DciEntityType" />
+            <s:element minOccurs="0" maxOccurs="1" name="entityUniqueID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentAndDirectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadDocumentAndDirectResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentIDs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="documentIDs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadFirst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentIDsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadDocumentIDsResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentIDsAsynchronous">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="documentIDs" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadFirst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentIDsAsynchronousResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadDocumentList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterType" type="s2:DciFilterType" />
+            <s:element minOccurs="0" maxOccurs="1" name="filterValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadFirst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoadDocumentListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentListAsynchronous">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterType" type="s2:DciFilterType" />
+            <s:element minOccurs="0" maxOccurs="1" name="filterValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loadFirst" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadDocumentListAsynchronousResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Register">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientIPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveDocumentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDocumentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fieldId" type="s2:DciFieldType" />
+            <s:element minOccurs="0" maxOccurs="1" name="fieldValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDocumentDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetDocumentDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Unregister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnregisterResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateAssociationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlAssociationDoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssociationDataResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://IntegraGroup.com/Architecture/Protocols/Soap/">
+      <s:element name="AuthenticationHeader" type="s1:AuthenticationHeader" />
+      <s:complexType name="AuthenticationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:long" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://IntegraGroup.com/DocMgmt/DirectConnect/LinkedServer/">
+      <s:simpleType name="DciFieldType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DciFieldTypeStart" />
+          <s:enumeration value="DocumentNumber" />
+          <s:enumeration value="Department" />
+          <s:enumeration value="DocumentType" />
+          <s:enumeration value="Status" />
+          <s:enumeration value="Priority" />
+          <s:enumeration value="CustomList3" />
+          <s:enumeration value="CustomField1" />
+          <s:enumeration value="CustomField2" />
+          <s:enumeration value="CustomField3" />
+          <s:enumeration value="CustomField4" />
+          <s:enumeration value="UserId" />
+          <s:enumeration value="DocumentLockType" />
+          <s:enumeration value="AuditSessionId" />
+          <s:enumeration value="CustomList4" />
+          <s:enumeration value="DciFieldTypeEnd" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DciEntityType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DciEntityTypeStart" />
+          <s:enumeration value="Facility" />
+          <s:enumeration value="Physician" />
+          <s:enumeration value="Patient" />
+          <s:enumeration value="Rx" />
+          <s:enumeration value="Ancillary" />
+          <s:enumeration value="Manifest" />
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="DciEntityTypeEnd" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DciFilterType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DciFilterTypeStart" />
+          <s:enumeration value="RxId1" />
+          <s:enumeration value="RxId2" />
+          <s:enumeration value="PatientId1" />
+          <s:enumeration value="PatientId2" />
+          <s:enumeration value="FacilityId1" />
+          <s:enumeration value="FacilityId2" />
+          <s:enumeration value="PhysicianId1" />
+          <s:enumeration value="PhysicianId2" />
+          <s:enumeration value="ManifestId1" />
+          <s:enumeration value="ManifestId2" />
+          <s:enumeration value="AncillaryId1" />
+          <s:enumeration value="AncillaryId2" />
+          <s:enumeration value="RxId3" />
+          <s:enumeration value="RxId4" />
+          <s:enumeration value="DciFilterTypeEnd" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AssociateEntitiesSoapIn">
+    <wsdl:part name="parameters" element="s0:AssociateEntities" />
+  </wsdl:message>
+  <wsdl:message name="AssociateEntitiesSoapOut">
+    <wsdl:part name="parameters" element="s0:AssociateEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssociateEntitiesAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AssociateDocumentEntitiesSoapIn">
+    <wsdl:part name="parameters" element="s0:AssociateDocumentEntities" />
+  </wsdl:message>
+  <wsdl:message name="AssociateDocumentEntitiesSoapOut">
+    <wsdl:part name="parameters" element="s0:AssociateDocumentEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssociateDocumentEntitiesAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DirectConnectExecuteSoapIn">
+    <wsdl:part name="parameters" element="s0:DirectConnectExecute" />
+  </wsdl:message>
+  <wsdl:message name="DirectConnectExecuteSoapOut">
+    <wsdl:part name="parameters" element="s0:DirectConnectExecuteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DirectConnectExecuteAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDirectConnectVersionSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDirectConnectVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetDirectConnectVersionSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDirectConnectVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDirectConnectVersionAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentDataSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDocumentData" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentDataSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDocumentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentDataAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentFileSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDocumentFile" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentFileSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDocumentFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentFileAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentIDSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDocumentID" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentIDSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDocumentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentIDAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentInformationSoapIn">
+    <wsdl:part name="parameters" element="s0:GetDocumentInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentInformationSoapOut">
+    <wsdl:part name="parameters" element="s0:GetDocumentInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentInformationAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetInsertDocumentsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetInsertDocuments" />
+  </wsdl:message>
+  <wsdl:message name="GetInsertDocumentsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetInsertDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInsertDocumentsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertDocumentSoapIn">
+    <wsdl:part name="parameters" element="s0:InsertDocument" />
+  </wsdl:message>
+  <wsdl:message name="InsertDocumentSoapOut">
+    <wsdl:part name="parameters" element="s0:InsertDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertDocumentAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertEMARsSoapIn">
+    <wsdl:part name="parameters" element="s0:InsertEMARs" />
+  </wsdl:message>
+  <wsdl:message name="InsertEMARsSoapOut">
+    <wsdl:part name="parameters" element="s0:InsertEMARsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertEMARsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertManifestSoapIn">
+    <wsdl:part name="parameters" element="s0:InsertManifest" />
+  </wsdl:message>
+  <wsdl:message name="InsertManifestSoapOut">
+    <wsdl:part name="parameters" element="s0:InsertManifestResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertManifestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="IsApplicationLoadedSoapIn">
+    <wsdl:part name="parameters" element="s0:IsApplicationLoaded" />
+  </wsdl:message>
+  <wsdl:message name="IsApplicationLoadedSoapOut">
+    <wsdl:part name="parameters" element="s0:IsApplicationLoadedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsApplicationLoadedAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="IsDocumentLoadedSoapIn">
+    <wsdl:part name="parameters" element="s0:IsDocumentLoaded" />
+  </wsdl:message>
+  <wsdl:message name="IsDocumentLoadedSoapOut">
+    <wsdl:part name="parameters" element="s0:IsDocumentLoadedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsDocumentLoadedAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="IsModifiedSoapIn">
+    <wsdl:part name="parameters" element="s0:IsModified" />
+  </wsdl:message>
+  <wsdl:message name="IsModifiedSoapOut">
+    <wsdl:part name="parameters" element="s0:IsModifiedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsModifiedAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentSoapIn">
+    <wsdl:part name="parameters" element="s0:LoadDocument" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentSoapOut">
+    <wsdl:part name="parameters" element="s0:LoadDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentAndDirectSoapIn">
+    <wsdl:part name="parameters" element="s0:LoadDocumentAndDirect" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentAndDirectSoapOut">
+    <wsdl:part name="parameters" element="s0:LoadDocumentAndDirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentAndDirectAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentIDsSoapIn">
+    <wsdl:part name="parameters" element="s0:LoadDocumentIDs" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentIDsSoapOut">
+    <wsdl:part name="parameters" element="s0:LoadDocumentIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentIDsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentIDsAsynchronousSoapIn">
+    <wsdl:part name="parameters" element="s0:LoadDocumentIDsAsynchronous" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentIDsAsynchronousSoapOut">
+    <wsdl:part name="parameters" element="s0:LoadDocumentIDsAsynchronousResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentIDsAsynchronousAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentListSoapIn">
+    <wsdl:part name="parameters" element="s0:LoadDocumentList" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentListSoapOut">
+    <wsdl:part name="parameters" element="s0:LoadDocumentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentListAsynchronousSoapIn">
+    <wsdl:part name="parameters" element="s0:LoadDocumentListAsynchronous" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentListAsynchronousSoapOut">
+    <wsdl:part name="parameters" element="s0:LoadDocumentListAsynchronousResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadDocumentListAsynchronousAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapIn">
+    <wsdl:part name="parameters" element="s0:Register" />
+  </wsdl:message>
+  <wsdl:message name="RegisterSoapOut">
+    <wsdl:part name="parameters" element="s0:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentSoapIn">
+    <wsdl:part name="parameters" element="s0:SaveDocument" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentSoapOut">
+    <wsdl:part name="parameters" element="s0:SaveDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentDataSoapIn">
+    <wsdl:part name="parameters" element="s0:SetDocumentData" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentDataSoapOut">
+    <wsdl:part name="parameters" element="s0:SetDocumentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentDataAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="UnregisterSoapIn">
+    <wsdl:part name="parameters" element="s0:Unregister" />
+  </wsdl:message>
+  <wsdl:message name="UnregisterSoapOut">
+    <wsdl:part name="parameters" element="s0:UnregisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssociationDataSoapIn">
+    <wsdl:part name="parameters" element="s0:UpdateAssociationData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssociationDataSoapOut">
+    <wsdl:part name="parameters" element="s0:UpdateAssociationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssociationDataAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="s1:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:portType name="DocumentEngineSoap">
+    <wsdl:operation name="AssociateEntities">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Associate entities to the currently loaded document.</wsdl:documentation>
+      <wsdl:input message="tns:AssociateEntitiesSoapIn" />
+      <wsdl:output message="tns:AssociateEntitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssociateDocumentEntities">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Associate entities to the document specified.</wsdl:documentation>
+      <wsdl:input message="tns:AssociateDocumentEntitiesSoapIn" />
+      <wsdl:output message="tns:AssociateDocumentEntitiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DirectConnectExecute">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generic method to execute a Direct Connect call using XML.</wsdl:documentation>
+      <wsdl:input message="tns:DirectConnectExecuteSoapIn" />
+      <wsdl:output message="tns:DirectConnectExecuteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectConnectVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the installed Direct Connect version.</wsdl:documentation>
+      <wsdl:input message="tns:GetDirectConnectVersionSoapIn" />
+      <wsdl:output message="tns:GetDirectConnectVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a string representing the requested document field.</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentDataSoapIn" />
+      <wsdl:output message="tns:GetDocumentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a document as a byte array.</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentFileSoapIn" />
+      <wsdl:output message="tns:GetDocumentFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the Document ID that is current loaded within DocuTrack's update viewer.</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentIDSoapIn" />
+      <wsdl:output message="tns:GetDocumentIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a xml string representing the requested document information.</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentInformationSoapIn" />
+      <wsdl:output message="tns:GetDocumentInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInsertDocuments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve document numbers from the  system based on a batch id.</wsdl:documentation>
+      <wsdl:input message="tns:GetInsertDocumentsSoapIn" />
+      <wsdl:output message="tns:GetInsertDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert a new document into the system.</wsdl:documentation>
+      <wsdl:input message="tns:InsertDocumentSoapIn" />
+      <wsdl:output message="tns:InsertDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEMARs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserts EMAR information into the system.</wsdl:documentation>
+      <wsdl:input message="tns:InsertEMARsSoapIn" />
+      <wsdl:output message="tns:InsertEMARsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertManifest">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserts a manifest entity and its associated entities into the system.</wsdl:documentation>
+      <wsdl:input message="tns:InsertManifestSoapIn" />
+      <wsdl:output message="tns:InsertManifestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationLoaded">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query to determine if DocuTrack is currently loaded.</wsdl:documentation>
+      <wsdl:input message="tns:IsApplicationLoadedSoapIn" />
+      <wsdl:output message="tns:IsApplicationLoadedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsDocumentLoaded">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query to determine if a document is currently loaded in DocuTrack.</wsdl:documentation>
+      <wsdl:input message="tns:IsDocumentLoadedSoapIn" />
+      <wsdl:output message="tns:IsDocumentLoadedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsModified">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries to see if a document has been modified since being loaded.</wsdl:documentation>
+      <wsdl:input message="tns:IsModifiedSoapIn" />
+      <wsdl:output message="tns:IsModifiedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load the specified document.</wsdl:documentation>
+      <wsdl:input message="tns:LoadDocumentSoapIn" />
+      <wsdl:output message="tns:LoadDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentAndDirect">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load the specified document and focus on the specified entity.</wsdl:documentation>
+      <wsdl:input message="tns:LoadDocumentAndDirectSoapIn" />
+      <wsdl:output message="tns:LoadDocumentAndDirectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentIDs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load a private queue/list with the specified documents.</wsdl:documentation>
+      <wsdl:input message="tns:LoadDocumentIDsSoapIn" />
+      <wsdl:output message="tns:LoadDocumentIDsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentIDsAsynchronous">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load a private queue/list with the specified documents asynchronously.</wsdl:documentation>
+      <wsdl:input message="tns:LoadDocumentIDsAsynchronousSoapIn" />
+      <wsdl:output message="tns:LoadDocumentIDsAsynchronousSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load a private queue/list with the specified documents.</wsdl:documentation>
+      <wsdl:input message="tns:LoadDocumentListSoapIn" />
+      <wsdl:output message="tns:LoadDocumentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentListAsynchronous">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load a private queue/list with the specified documents asynchronously.</wsdl:documentation>
+      <wsdl:input message="tns:LoadDocumentListAsynchronousSoapIn" />
+      <wsdl:output message="tns:LoadDocumentListAsynchronousSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Register client process to the Document Engine Server.</wsdl:documentation>
+      <wsdl:input message="tns:RegisterSoapIn" />
+      <wsdl:output message="tns:RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Will save the current document.</wsdl:documentation>
+      <wsdl:input message="tns:SaveDocumentSoapIn" />
+      <wsdl:output message="tns:SaveDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates a requested document field with a new value.</wsdl:documentation>
+      <wsdl:input message="tns:SetDocumentDataSoapIn" />
+      <wsdl:output message="tns:SetDocumentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Unregister">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Unregister client process from the Document Engine Server.</wsdl:documentation>
+      <wsdl:input message="tns:UnregisterSoapIn" />
+      <wsdl:output message="tns:UnregisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssociationData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update association data.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateAssociationDataSoapIn" />
+      <wsdl:output message="tns:UpdateAssociationDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentEngineSoap" type="tns:DocumentEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AssociateEntities">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/AssociateEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AssociateEntitiesAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociateDocumentEntities">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/AssociateDocumentEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AssociateDocumentEntitiesAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectConnectExecute">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v5.0/DirectConnectExecute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DirectConnectExecuteAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectConnectVersion">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.8/GetDirectConnectVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDirectConnectVersionAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFile">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentFileAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentID">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentIDAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentInformation">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentInformationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsertDocuments">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.2/GetInsertDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInsertDocumentsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDocument">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.2/InsertDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertDocumentAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEMARs">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.4/InsertEMARs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertEMARsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertManifest">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.3/InsertManifest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertManifestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationLoaded">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/IsApplicationLoaded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:IsApplicationLoadedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsDocumentLoaded">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/IsDocumentLoaded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:IsDocumentLoadedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsModified">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/IsModified" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:IsModifiedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocument">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadDocumentAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentAndDirect">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocumentAndDirect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadDocumentAndDirectAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentIDs">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocumentIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadDocumentIDsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentIDsAsynchronous">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.7/LoadDocumentIDsAsynchronous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadDocumentIDsAsynchronousAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentList">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocumentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadDocumentListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentListAsynchronous">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.7/LoadDocumentListAsynchronous" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadDocumentListAsynchronousAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/SaveDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveDocumentAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentData">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/SetDocumentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetDocumentDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unregister">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/Unregister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssociationData">
+      <soap:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/UpdateAssociationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateAssociationDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocumentEngineSoap12" type="tns:DocumentEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AssociateEntities">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/AssociateEntities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AssociateEntitiesAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssociateDocumentEntities">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/AssociateDocumentEntities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AssociateDocumentEntitiesAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectConnectExecute">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v5.0/DirectConnectExecute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DirectConnectExecuteAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDirectConnectVersion">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.8/GetDirectConnectVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDirectConnectVersionAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentData">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDocumentDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFile">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDocumentFileAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentID">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDocumentIDAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentInformation">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/GetDocumentInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDocumentInformationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsertDocuments">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.2/GetInsertDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetInsertDocumentsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDocument">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.2/InsertDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertDocumentAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEMARs">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.4/InsertEMARs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertEMARsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertManifest">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.3/InsertManifest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertManifestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationLoaded">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/IsApplicationLoaded" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:IsApplicationLoadedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsDocumentLoaded">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/IsDocumentLoaded" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:IsDocumentLoadedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsModified">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/IsModified" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:IsModifiedAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocument">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadDocumentAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentAndDirect">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocumentAndDirect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadDocumentAndDirectAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentIDs">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocumentIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadDocumentIDsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentIDsAsynchronous">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.7/LoadDocumentIDsAsynchronous" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadDocumentIDsAsynchronousAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentList">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/LoadDocumentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadDocumentListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDocumentListAsynchronous">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/v2.7/LoadDocumentListAsynchronous" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadDocumentListAsynchronousAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/SaveDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveDocumentAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentData">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/SetDocumentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetDocumentDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unregister">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/Unregister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssociationData">
+      <soap12:operation soapAction="http://IntegraGroup.com/DocMgmt/DirectConnect/DocumentEngine/UpdateAssociationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAssociationDataAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentEngine">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">DocuTrack Server Services Director for Direct Connect 2.7</wsdl:documentation>
+    <wsdl:port name="DocumentEngineSoap" binding="tns:DocumentEngineSoap">
+      <soap:address location="https://dtpublic.integragroup.com/docutrack/directconnect/documentengine.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocumentEngineSoap12" binding="tns:DocumentEngineSoap12">
+      <soap12:address location="https://dtpublic.integragroup.com/docutrack/directconnect/documentengine.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

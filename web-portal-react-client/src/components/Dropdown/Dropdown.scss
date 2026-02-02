@@ -1,0 +1,124 @@
+@import "custom/_fonts";
+
+.Dropdown {
+  &.dropdown {
+    & > .btn-outline-success {
+      color: #0064ad;
+      border-color: #0064ad;
+      background-color: #ffffff;
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:active {
+        color: #0071bb;
+        border-color: #0071bb;
+        background-color: #ffffff;
+        box-shadow: none;
+      }
+
+      &:not(:disabled):not(.disabled):active {
+        &:focus {
+          box-shadow: none;
+        }
+        color: #0071bb;
+        background-color: #ffffff;
+        border-color: #0071bb;
+      }
+
+      &:hover {
+        color: #004182;
+        background-color: white;
+        border: 1px solid #004182;
+      }
+    }
+
+    & > .dropdown-menu {
+      padding: 0;
+
+      & > div > .dropdown-item {
+        color: $font-color_head-text;
+        font-size: 15px;
+        padding: 12px 16px;
+        font-family: "Open Sans Semibold", sans-serif;
+
+        &:active {
+          outline: none;
+          background-color: #f1f1f1;
+        }
+      }
+    }
+  }
+
+  &.Dropdown_theme_blue {
+    &.Dropdown.dropdown {
+      & > .btn-outline-success {
+        color: #0064ad;
+        border: 1px solid #0064ad;
+        background-color: #ffffff;
+        box-shadow: none;
+      }
+
+      & > .dropdown-menu {
+        & > div > .dropdown-item {
+          text-decoration: none;
+
+          &.active, &:active {
+            color: #fff;
+            text-decoration: none;
+            background-color: #0064ad;
+          }
+        }
+      }
+    }
+
+    .Dropdown-ToggleChevron {
+      fill: #0064ad;
+    }
+  }
+}
+
+.Dropdown.dropdown.Dropdown_disabled {
+  & > .btn.Dropdown-Toggle {
+    color: #a6a6a6;
+    border-color: #a6a6a6;
+
+    & > .Dropdown-ToggleChevron {
+      fill: #a6a6a6
+    }
+  }
+}
+
+.Dropdown-ToggleChevron {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  fill: #0064ad;
+}
+
+.Dropdown-Item {
+  position: relative;
+
+  &_has_separator {
+    border-bottom: 1px dashed #bfbdbd;
+  }
+
+  &_disabled {
+    opacity: .5;
+  }
+}
+
+.Dropdown-ItemIndicator {
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.Dropdown-ItemIndicatorIcon {
+  width: 10px;
+  height: 12px;
+  fill: #27638F;
+  display: block;
+}

@@ -1,0 +1,78 @@
+<Configuration>
+    <!--Defines the configuration of Audit Repository Server for Audit Client-->
+    <ConnectionFile file="AuditRepositoryConnections.xml" />
+    <!--Defines the configuration of XDS Registry -->
+    <ConnectionFile file="XdsRegistryConnections.xml" />
+    <!--Defines the configuration of XDS Repository-->
+    <ConnectionFile file="XdsRepositoryConnections.xml" />
+    <!--Defines the configuration of XCA Responding Gateway-->
+    <ConnectionFile file="XcaRespondingGatewayConnections.xml" />
+    <!--Defines the configuration of XCA Initiating Gateway-->
+    <ConnectionFile file="XcaInitiatingGatewayConnections.xml" />
+    <!--The XDS Registry actor configuration-->
+    <Actor name="xdsreg" type="XdsRegistry">
+      <Description>XDS Registry</Description>
+      <Server connection="xds-registry" />
+      <PixServer connection="pix-registry" />
+    </Actor>
+    <Actor name="xdsreg_secure" type="XdsRegistry">
+      <Description>Secure XDS Registry </Description>
+      <Server connection="secure-xds-registry" />
+      <PixServer connection="secure-pix-registry" />
+    </Actor>
+    <!--The XDS Repository actor configuration-->
+    <Actor name="xdsrep" type="XdsRepository">
+      <Description>XDS Repository</Description>
+      <Server connection="xds-repository" />
+      <Registry connection="xds-registry-client" />
+    </Actor>
+    <Actor name="xdsrep_secure" type="XdsRepository">
+      <Description>Secure XDS Repository</Description>
+      <Server connection="secure-xds-repository" />
+      <Registry connection="secure-xds-registry-client" />
+    </Actor>
+    <!--The XCA Responding Gateway actor configuration-->
+    <Actor name="xcarg" type="XcaRG">
+      <Description>XCA Responding Gateway</Description>
+      <Server connection="xca-rg" />
+      <Registry connection="misys-registry" />
+      <Repository connection="misys-repository" />
+    </Actor>
+    <Actor name="xcasrg" type="XcaRG">
+      <Description>Secure XCA Responding Gateway</Description>
+      <Server connection="xca-secure-rg" />
+      <Registry connection="misys-registry" />
+      <Repository connection="misys-repository" />
+    </Actor>
+    <!--The XCA Initiating Gateway actor configuration-->
+    <Actor name="xcaig" type="XcaIG">
+      <Description>XCA Initiating Gateway</Description>
+      <Server connection="xca-ig" />
+      <Registry connection="local-registry" />
+      <Repository connection="local-repository" />
+      <RespondingGateways>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2050" query="ibm-rg-query" retrieve="ibm-rg-retrieve"/>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2025" query="vangent-rg" retrieve="vangent-rg"/>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2010" query="spirit-rg" retrieve="spirit-rg"/>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2040" query="hxti-rg" retrieve="hxti-rg"/>
+      </RespondingGateways>
+    </Actor>
+    <Actor name="xcasig" type="XcaIG">
+      <Description>Secure XCA Initiating Gateway</Description>
+      <Server connection="xca-secure-ig" />
+      <Registry connection="local-secure-registry" />
+      <Repository connection="local-secure-repository" />
+      <RespondingGateways>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2050" query="ibm-secure-rg-query" retrieve="ibm-secure-rg-retrieve"/>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2025" query="vangent-secure-rg" retrieve="vangent-secure-rg"/>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2010" query="spirit-rg" retrieve="spirit-rg"/>
+        <RespondingGateway homeId="urn:oid:1.3.6.1.4.1.21367.2010.1.2.2040" query="hxti-rg" retrieve="hxti-rg"/>
+      </RespondingGateways>
+    </Actor>
+    <!--Audit Repository Actor-->
+    <Actor name="localaudit" type="SecureNode">
+      <Description>LOCAL AUDIT</Description>
+      <AuditTrail consumer="log4j_audittrail" />
+      <AuditTrail consumer="misys_arr_udp" />
+    </Actor>
+</Configuration>    

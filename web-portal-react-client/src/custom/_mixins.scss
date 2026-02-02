@@ -1,0 +1,15 @@
+@mixin line-clamp($numLines : 1, $lineHeight: 1.412) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  /* autoprefixer: off */
+  display: -webkit-box;
+  -webkit-line-clamp: $numLines;
+  -webkit-box-orient: vertical;
+  max-height: $numLines * $lineHeight + unquote('em');
+}
+
+@mixin clear-image() {
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering:  optimizeQuality !important;
+}

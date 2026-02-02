@@ -1,0 +1,116 @@
+@import "custom/_fonts";
+
+.NoteDetails-Section {
+    padding: 24px 0;
+
+    .Detail {
+        &:last-child {
+            border-bottom: none;
+        }
+
+        display: flex;
+        border-bottom: 1px dashed #dddddd;
+        margin: 0 24px;
+        padding: 16px 0;
+    }
+
+    .Detail-Title {
+        flex: 3;
+        color: $font-color_head-text;
+        font-family: "Open Sans Semibold", sans-serif;
+        font-size: 14px;
+    }
+
+    .Detail-Value {
+        flex: 4;
+        color: $font-color_head-text;
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+    }
+}
+
+.NoteDescription {
+    padding-bottom: 24px;
+}
+
+.NoteDescription-Title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.NoteDescription-TitleText {
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    color: $font-color_head-text;
+    padding-left: 24px;
+    font-family: "Open Sans Semibold", sans-serif;
+}
+
+.NoteDescription-Detail {
+    &:last-child {
+        border-bottom: none;
+    }
+
+    display: flex;
+    border-bottom: 2px dashed #f1f1f1;
+    padding: 16px 0;
+}
+
+.NoteDescription-DetailTitle {
+    flex: 3;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 14px;
+}
+
+.NoteDescription-DetailValue {
+    flex: 4;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.NoteDescription-Link {
+    color: #0064ad;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &:hover {
+        text-decoration: none;
+        color: #0064ad;
+    }
+
+    &, &_Disabled {
+        &:not(:first-child) {
+            margin-left: 6px;
+        }
+    }
+
+    &_Disabled {
+        color: #222222;
+        pointer-events: none;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+}
+
+.NoteDescription-Subtype {
+    font-family: "Open Sans Semibold", sans-serif;
+    padding: 0 8px;
+}
+
+.NoteDescription-Status {
+    flex: 4;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    padding: 0 8px;
+}
+
+.NoteDescription-ScrollTopBtn {
+    position: fixed;
+    right: 80px;
+  }

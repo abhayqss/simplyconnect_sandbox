@@ -1,0 +1,18 @@
+#* @vtlvariable name="invitation" type="com.scnsoft.eldermark.dto.notification.careteam.CareTeamMemberExistingUserInviteNotificationDto" *#
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+<div
+##        style="margin-left: 25px; margin-right: 25px; width:573px;"
+>
+    <b>Dear ${invitation.receiverName},</b> <br/>
+    <br/>
+    ${invitation.clientName} has invited you to join his/her Care Team at
+    <a href="${portalUrl}" style="text-decoration: none"><span style="color:#0064ad;">the Simply Connect platform</span></a>.<br><br>
+
+    Please sign in if you want to accept or decline the invitation.<br/>
+    #set($buttonLabel = 'Sign in and view invitation')
+    #set($buttonUrl = ${invitation.invitationLink})
+    #parse("velocity/button.vm")
+
+    Note, that the invitation will expire in ${invitation.invitationExpiresInHours} hours.
+    <br/><br/>
+</div>

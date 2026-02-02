@@ -1,0 +1,32 @@
+.ContactPermissionList {
+    &-InfoIcon {
+        margin-left: 8px;
+
+        path {
+            fill: #ffffff;
+        }
+    }
+
+    &-PermissionsInfo {
+        .ContactPermissionsInfo-Row {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &-PermissionsInfoTooltip {
+        .tooltip-inner {
+            max-width: initial;
+            padding: 16px 20px;
+        }
+    }
+
+    &-MultiSelect {
+        border: 1px solid #e0e0e0;
+
+        .MultiSelect-Options {
+            width: stretch;
+        }
+    }
+}

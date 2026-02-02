@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c8d4eb33-9cc4-4de5-a9b9-0d0bb21e9af1" activeEnvironment="Default" name="Events WS" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="fcc36c2c-b40d-48a0-afaa-7b4fc214de89" wadlVersion="http://wadl.dev.java.net/2009/02" name="Events WebService API" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        
+        <con:definitionCache type="TEXT" rootPart=""/><con:endpoints>
+            <con:endpoint>http://localhost:8081</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Events" path="/events" id="416b8222-92ec-4b53-8bd8-1ca52f49cb1b">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>body</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+                
+            </con:parameters>
+            <con:method name="submitEventUsingPOST" id="6bfcacd0-8449-4b3e-b746-d04e32471d57" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                    <con:element>Events</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/xml</con:mediaType>
+                    <con:status>401</con:status>
+                    <con:params/>
+                    <con:element>errorResponse</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>text/plain;charset=ISO-8859-1</con:mediaType>
+                    <con:status>415</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/xml</con:mediaType>
+                    <con:params/>
+                    <con:element>Events</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/xml</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>response</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="96046083-c0d6-4ab8-b921-80ecc0fe518a" mediaType="application/xml" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                    </con:settings>
+                    <con:endpoint>${#Project#host}</con:endpoint>
+                    <con:request><![CDATA[<?xml version="1.0" encoding="utf-16"?>
+<Events xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Event>
+    <Organization>
+      <Name>ADT Repo</Name>
+      <ID>ADT_Repo</ID>
+      <Phone>9529385511</Phone>
+      <Email>info@opportunities.org</Email>
+    </Organization>
+    <Community>
+      <Name>4 Sum</Name>
+      <ID>52500</ID>
+      <Email>info@opportunities.org</Email>
+      <Phone>9529385511</Phone>
+    </Community>
+    <Patient>
+      <Name>
+        <FirstName>Amy</FirstName>
+        <LastName>Shelstad</LastName>
+      </Name>
+      <DateOfBirth>1930-06-04</DateOfBirth>
+      <SSN>473-40-8622</SSN>
+      <Address>
+        <Street>5545 Cannondale Court</Street>
+        <City>Red Wing</City>
+        <State>MN</State>
+        <Zip>55066-1145</Zip>
+      </Address>
+      <Gender>F</Gender>
+      <MaritalStatus>Married</MaritalStatus>
+    </Patient>
+    <FormAuthor>
+      <Name>
+        <FirstName>Ryan</FirstName>
+        <LastName>Johnk</LastName>
+      </Name>
+      <Role>Business Analyst I</Role>
+      <Organization>Opportunity Partners Inc</Organization>
+    </FormAuthor>
+    <Manager>
+      <Name>
+        <FirstName>Donald</FirstName>
+        <LastName>Flower</LastName>
+      </Name>
+    </Manager>
+    <EventDetails>
+      <Date>2017-07-25</Date>
+      <Location>Earth</Location>
+      <Type>GENERAL</Type>
+      <SituationNarrative>Amy felt ill</SituationNarrative>
+      <BackgroundNarrative>Amy feels ill often</BackgroundNarrative>
+      <AssessmentNarrative>Amy felt ill so decided to go home</AssessmentNarrative>
+      <FollowUp IsExpected="false">
+        <Details>Amy is resting comfortably.</Details>
+      </FollowUp>
+      <ERVisit>false</ERVisit>
+      <OvernightInPatient>false</OvernightInPatient>
+    </EventDetails>
+  </Event>
+</Events>]]></con:request>
+                    <con:originalUri>http://localhost/exchange/events</con:originalUri>
+                    <con:credentials>
+                        <con:username>test_events_provider</con:username><con:password>exchange</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                    <con:parameterOrder><con:entry>body</con:entry></con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="9659612b-2b29-4d95-bf1b-f7feb697d286" name="Events WebService API TestSuite">
+        <con:description>TestSuite generated for REST Service [Events WebService API]</con:description>
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="553a2976-78af-4049-ac0d-b52d515693a9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Events TestCase" searchProperties="true">
+            <con:description>TestCase generated for REST Resource [Events] located at [/events]</con:description>
+            <con:settings/>
+            <con:testStep type="restrequest" name="POST Request 1 - 200" id="7809d92b-4345-4501-b103-e4784bbaa643">
+                <con:settings/>
+                <con:config service="Events WebService API" resourcePath="/events" methodName="submitEventUsingPOST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="POST Request 1 - 200" id="96046083-c0d6-4ab8-b921-80ecc0fe518a" mediaType="application/xml" postQueryString="false">
+                        <con:description>configurable test step</con:description><con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding xsi:nil="true"/><con:endpoint>${#Project#host}</con:endpoint>
+                        <con:request><![CDATA[<Events>
+    <Event>
+        <Organization>
+            <Name>${#TestCase#org.name}</Name>
+            <ID>${#TestCase#org.id}</ID>
+            <Phone>${#TestCase#org.phone}</Phone>
+            <Email>${#TestCase#org.email}</Email>
+        </Organization>
+        <Community>
+            <Name>${#TestCase#comm.name}</Name>
+            <ID>${#TestCase#comm.id}</ID>
+            <Phone>${#TestCase#comm.phone}</Phone>
+            <Email>${#TestCase#comm.email}</Email>
+        </Community>
+        <Patient>
+            <Name>
+                <FirstName>${#TestCase#patient.name.first}</FirstName>
+                <LastName>${#TestCase#patient.name.last}</LastName>
+            </Name>
+            <DateOfBirth>${#TestCase#patient.dob}</DateOfBirth>
+            <SSN>${#TestCase#patient.ssn}</SSN>
+            <Address>
+                <Street>${#TestCase#patient.addr.street}</Street>
+                <City>${#TestCase#patient.addr.city}</City>
+                <State>${#TestCase#patient.addr.state}</State>
+                <Zip>${#TestCase#patient.addr.zip}</Zip>
+            </Address>
+            <Gender>${#TestCase#patient.gender}</Gender>
+            <MaritalStatus>${#TestCase#patient.maritalStatus}</MaritalStatus>
+        </Patient>
+        <FormAuthor>
+            <Name>
+                <FirstName>Automated</FirstName>
+                <LastName>TestCase</LastName>
+            </Name>
+            <Role>DSP</Role>
+            <Organization>Test Services ScienceSoft</Organization>
+        </FormAuthor>
+        <Manager>
+            <Name>
+                <FirstName>${#TestCase#manager.name.first}</FirstName>
+                <LastName>${#TestCase#manager.name.last}</LastName>
+            </Name>
+        </Manager>
+        <EventDetails>
+            <Date>${#TestCase#eventDetails.date}</Date>
+            <ResultedInInjury>false</ResultedInInjury>
+            <Location>${#TestCase#eventDetails.location}</Location>
+            <Type>${#TestCase#eventDetails.type}</Type>
+            <SituationNarrative>${#TestCase#eventDetails.situation}</SituationNarrative>
+            <BackgroundNarrative>${#TestCase#eventDetails.background}</BackgroundNarrative>
+            <FollowUp IsExpected="false"></FollowUp>
+            <ERVisit>false</ERVisit>
+            <OvernightInPatient>false</OvernightInPatient>
+        </EventDetails>
+    </Event>
+</Events>]]></con:request>
+                        <con:originalUri>http://localhost/exchange/events</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="ea9bd095-45ba-4475-9141-1ea8f200af86" name="Valid HTTP Status Codes - 200">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - code is 0">
+                            <con:configuration>
+                                <path>//response/status/code</path>
+                                <content>0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - details">
+                            <con:configuration>
+                                <path>//response/status/details</path>
+                                <content>New Events was created</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:username>test_events_provider</con:username><con:password>exchange</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>false</con:preemptive><con:authType>Global HTTP Settings</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                        <con:parameterOrder><con:entry>body</con:entry></con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="POST Request 1 - 200 (copy)" id="cdc1c703-3cf7-4b8b-814e-8febb5ca5de8">
+                <con:settings/>
+                <con:config service="Events WebService API" resourcePath="/events" methodName="submitEventUsingPOST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="POST Request 1 - 200 (copy)" id="96046083-c0d6-4ab8-b921-80ecc0fe518a" mediaType="application/xml" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>${#Project#host}</con:endpoint>
+                        <con:request><![CDATA[<Events>
+    <Event>
+        <Organization>
+            <Name>${#TestCase#org.name}</Name>
+            <ID>${#TestCase#org.id}</ID>
+            <Phone>${#TestCase#org.phone}</Phone>
+            <Email>${#TestCase#org.email}</Email>
+        </Organization>
+        <Community>
+            <Name>${#TestCase#comm.name}</Name>
+            <ID>${#TestCase#comm.id}</ID>
+            <Phone>${#TestCase#comm.phone}</Phone>
+            <Email>${#TestCase#comm.email}</Email>
+        </Community>
+        <Patient>
+            <Name>
+                <FirstName>${#TestCase#patient.name.first}</FirstName>
+                <LastName>${#TestCase#patient.name.last}</LastName>
+            </Name>
+            <DateOfBirth>${#TestCase#patient.dob}</DateOfBirth>
+            <SSN>${#TestCase#patient.ssn}</SSN>
+            <Address>
+                <Street>${#TestCase#patient.addr.street}</Street>
+                <City>${#TestCase#patient.addr.city}</City>
+                <State>${#TestCase#patient.addr.state}</State>
+                <Zip>${#TestCase#patient.addr.zip}</Zip>
+            </Address>
+            <Gender>${#TestCase#patient.gender}</Gender>
+            <MaritalStatus>${#TestCase#patient.maritalStatus}</MaritalStatus>
+        </Patient>
+        <FormAuthor>
+            <Name>
+                <FirstName>Automated</FirstName>
+                <LastName>TestCase</LastName>
+            </Name>
+            <Role>DSP</Role>
+            <Organization>Test Services ScienceSoft</Organization>
+        </FormAuthor>
+        <Manager>
+            <Name>
+                <FirstName>${#TestCase#manager.name.first}</FirstName>
+                <LastName>${#TestCase#manager.name.last}</LastName>
+            </Name>
+        </Manager>
+        <EventDetails>
+            <Date>${#TestCase#eventDetails.date}</Date>
+            <ResultedInInjury>false</ResultedInInjury>
+            <Location>${#TestCase#eventDetails.location}</Location>
+            <Type>${#TestCase#eventDetails.type}</Type>
+            <SituationNarrative>${#TestCase#eventDetails.situation}</SituationNarrative>
+            <BackgroundNarrative>${#TestCase#eventDetails.background}</BackgroundNarrative>
+            <FollowUp IsExpected="false"></FollowUp>
+            <ERVisit>false</ERVisit>
+            <OvernightInPatient>false</OvernightInPatient>
+        </EventDetails>
+    </Event>
+</Events>]]></con:request>
+                        <con:originalUri>http://localhost/exchange/events</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="ea9bd095-45ba-4475-9141-1ea8f200af86" name="Valid HTTP Status Codes - 200">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - code is 0">
+                            <con:configuration>
+                                <path>//response/status/code</path>
+                                <content>0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - details">
+                            <con:configuration>
+                                <path>//response/status/details</path>
+                                <content>New Events was created</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:username>test_events_provider</con:username><con:password>exchange</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>false</con:preemptive><con:authType>Global HTTP Settings</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                        <con:parameterOrder><con:entry>body</con:entry></con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="POST Request 2 - 200" id="84b255b8-6b97-407b-87ee-8b5e6e68adac" disabled="true">
+                <con:settings/>
+                <con:config service="Events WebService API" resourcePath="/events" methodName="submitEventUsingPOST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="POST Request 2 - 200" id="96046083-c0d6-4ab8-b921-80ecc0fe518a" mediaType="application/xml" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>${#Project#host}</con:endpoint>
+                        <con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Events>
+    <Event>
+        <Organization>
+            <Name>Test Health</Name>
+            <ID>TH_189</ID>
+            <Phone>18443006212</Phone>
+            <Email>info@testhealth.com</Email>
+        </Organization>
+        <Community>
+            <Name>Test Health</Name>
+            <ID>TH_189</ID>
+            <Email>info@testhealth.com</Email>
+            <Phone>18443006212</Phone>
+        </Community>
+        <Patient>
+            <Name>
+                <FirstName>Phewrtew</FirstName>
+                <LastName>Weertrew</LastName>
+            </Name>
+            <DateOfBirth>2000-05-14</DateOfBirth>
+            <SSN>444-44-4444</SSN>
+            <Gender>M</Gender>
+        </Patient>
+        <FormAuthor>
+            <Name>
+                <FirstName>Pawer</FirstName>
+                <LastName>Hirt</LastName>
+            </Name>
+            <Role>CEO</Role>
+            <Organization>Test Health</Organization>
+        </FormAuthor>
+        <EventDetails>
+            <Date>2017-12-25</Date>
+            <Time>21:26:50</Time>
+            <Location>163753</Location>
+            <Type>MEDAL</Type>
+            <SituationNarrative>Unplugged</SituationNarrative>
+            <FollowUp IsExpected="false"/>
+            <ERVisit>false</ERVisit>
+            <OvernightInPatient>false</OvernightInPatient>
+        </EventDetails>
+    </Event>
+</Events>]]></con:request>
+                        <con:originalUri>http://localhost/exchange/events</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="ea9bd095-45ba-4475-9141-1ea8f200af86" name="Valid HTTP Status Codes - 200">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - code is 0">
+                            <con:configuration>
+                                <path>//response/status/code</path>
+                                <content>0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - details">
+                            <con:configuration>
+                                <path>//response/status/details</path>
+                                <content>New Events was created</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:username>test_events_provider</con:username><con:password>exchange</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                        <con:parameterOrder><con:entry>body</con:entry></con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="POST Request 3 - 200" id="6502b1f9-6cb7-4743-b1e5-766b1124bdfb" disabled="true">
+                <con:settings/>
+                <con:config service="Events WebService API" resourcePath="/events" methodName="submitEventUsingPOST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="POST Request 3 - 200" id="96046083-c0d6-4ab8-b921-80ecc0fe518a" mediaType="application/xml" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>${#Project#host}</con:endpoint>
+                        <con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Events>
+    <Event>
+        <Organization>
+            <Name>Test Health</Name>
+            <ID>TH_189</ID>
+            <Phone>18443006212</Phone>
+            <Email>info@testhealth.com</Email>
+        </Organization>
+        <Community>
+            <Name>Test Health</Name>
+            <ID>TH_189</ID>
+            <Email>info@testhealth.com</Email>
+            <Phone>18443006212</Phone>
+        </Community>
+        <Patient>
+            <Name>
+                <FirstName>Philip</FirstName>
+                <LastName>Wesner</LastName>
+            </Name>
+            <DateOfBirth>2000-05-14</DateOfBirth>
+            <SSN>444-44-4444</SSN>
+            <Gender>M</Gender>
+        </Patient>
+        <FormAuthor>
+            <Name>
+                <FirstName>Pawer</FirstName>
+                <LastName>Hirt</LastName>
+            </Name>
+            <Role>CEO</Role>
+            <Organization>Test Health</Organization>
+        </FormAuthor>
+        <EventDetails>
+            <Date>2017-12-25</Date>
+            <Time>23:05:21</Time>
+            <Location>163753</Location>
+            <Type>MEDAL</Type>
+            <SituationNarrative>Unplugged</SituationNarrative>
+            <FollowUp IsExpected="false"/>
+            <ERVisit>false</ERVisit>
+            <OvernightInPatient>false</OvernightInPatient>
+        </EventDetails>
+    </Event>
+</Events>]]></con:request>
+                        <con:originalUri>http://localhost/exchange/events</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="ea9bd095-45ba-4475-9141-1ea8f200af86" name="Valid HTTP Status Codes - 200">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - code is 0">
+                            <con:configuration>
+                                <path>//response/status/code</path>
+                                <content>0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="XPath Match" id="78606291-49fb-4bae-b6ba-a91f280d583c" name="XPath Match - details">
+                            <con:configuration>
+                                <path>//response/status/details</path>
+                                <content>New Events was created</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:username>test_events_provider</con:username><con:password>exchange</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                        <con:parameterOrder><con:entry>body</con:entry></con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep><con:loadTest id="cce75bc2-3c46-4b43-9526-ae39d40fdc93" name="LoadTest 1">
+                <con:description>stress test</con:description><con:settings/>
+                <con:threadCount>5</con:threadCount>
+                <con:startDelay>0</con:startDelay>
+                <con:sampleInterval>250</con:sampleInterval>
+                <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
+                <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
+                <con:historyLimit>-1</con:historyLimit>
+                <con:testLimit>20</con:testLimit>
+                <con:limitType>TIME</con:limitType>
+                <con:loadStrategy>
+                    <con:type>Simple</con:type>
+                <con:config><testDelay>700</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy>
+                <con:assertion type="Step Status" name="Step Status"/>
+                <con:maxAssertionErrors>100</con:maxAssertionErrors>
+                <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
+                <con:strategyInterval>500</con:strategyInterval>
+            </con:loadTest>
+            <con:properties><con:property><con:name>org.name</con:name><con:value>XML Organization</con:value></con:property><con:property><con:name>org.id</con:name><con:value>XMLO</con:value></con:property><con:property><con:name>org.phone</con:name><con:value>1234567891</con:value></con:property><con:property><con:name>org.email</con:name><con:value>testorg1@eldermarkexchange.com</con:value></con:property><con:property><con:name>comm.name</con:name><con:value>XML Community Four</con:value></con:property><con:property><con:name>comm.id</con:name><con:value>XMLC4</con:value></con:property><con:property><con:name>comm.phone</con:name><con:value>1234567890</con:value></con:property><con:property><con:name>comm.email</con:name><con:value>democommunity1@eldermarkexchange.com</con:value></con:property><con:property><con:name>patient.name.first</con:name><con:value>Linda</con:value></con:property><con:property><con:name>patient.name.last</con:name><con:value>Mint</con:value></con:property><con:property><con:name>patient.dob</con:name><con:value>1955-04-20</con:value></con:property><con:property><con:name>patient.ssn</con:name><con:value>987-98-7654</con:value></con:property><con:property><con:name>patient.addr.street</con:name><con:value>Test</con:value></con:property><con:property><con:name>patient.addr.city</con:name><con:value>New York</con:value></con:property><con:property><con:name>patient.addr.state</con:name><con:value>NY</con:value></con:property><con:property><con:name>patient.addr.zip</con:name><con:value>12345</con:value></con:property><con:property><con:name>patient.gender</con:name><con:value>F</con:value></con:property><con:property><con:name>patient.maritalStatus</con:name><con:value>Married</con:value></con:property><con:property><con:name>manager.name.first</con:name><con:value>Ann</con:value></con:property><con:property><con:name>manager.name.last</con:name><con:value>Smith</con:value></con:property><con:property><con:name>eventDetails.date</con:name><con:value>2018-01-04</con:value></con:property><con:property><con:name>eventDetails.location</con:name><con:value>111 stoner ave NE, bemidji, USA, MS, 56666</con:value></con:property><con:property><con:name>eventDetails.type</con:name><con:value>MERR</con:value></con:property><con:property><con:name>eventDetails.situation</con:name><con:value>Pill discovered xxxxxxxxxxxxxxxxxxxxxx. xxxxxxxxxxxxxxxxxxxxxx at 3pm on 12-25-17</con:value></con:property><con:property><con:name>eventDetails.background</con:name><con:value>When this xxxxxxxxxxxxxxxxxxxxx at 3pm I discovered a pill xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                 found 12-25-17". There xxxxxxxxxxxxxxxxxx. xxxxxxxxxxxxxxxxxxxxxxxxxxxx the pill was Oreedgfbdfskjb.</con:value></con:property></con:properties>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:properties>
+        <con:property>
+            <con:name>host</con:name>
+            <con:value>https://app.simplyhie.com</con:value>
+        </con:property>
+        <con:property>
+            <con:name>host.test</con:name>
+            <con:value>https://dev.simplyhie.com:8081/exchange</con:value>
+        </con:property>
+    <con:property><con:name>host.prod</con:name><con:value>https://app.simplyhie.com</con:value></con:property></con:properties>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>

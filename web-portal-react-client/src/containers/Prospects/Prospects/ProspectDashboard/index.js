@@ -1,0 +1,2 @@
+export { default as ProspectDetails } from './ProspectDetails/ProspectDetails'
+export { default as ProspectDocumentsDevicesSummary } from './ProspectDocumentsDevicesSummary/ProspectDocumentsDevicesSummary'

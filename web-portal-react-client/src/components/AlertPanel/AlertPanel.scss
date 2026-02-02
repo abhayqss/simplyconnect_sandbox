@@ -1,0 +1,15 @@
+@import "custom/_fonts";
+
+.AlertPanel {
+  &-Alert {
+    padding: 18px 16px;
+    margin: 16px 0;
+    background-color: #fff1ca;
+    border-radius: 3px;
+  }
+
+  &-AlertText {
+    color: $font-color_head-text;
+    font-size: 14px;
+  }
+}

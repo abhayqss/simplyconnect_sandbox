@@ -1,0 +1,44 @@
+@import "custom/_fonts";
+
+.SelfSignUp {
+  display: flex;
+  flex-direction: row;
+  padding: 0 16px;
+
+  @media (max-width: 869px) {
+    flex-direction: column;
+  }
+  
+  &-LogoImage {
+    width: 220px;
+    height: 76px;
+    margin-right: 50px
+  }
+
+  &-Title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-InfoText {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-AppLinks {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .SelfSignUp-AppLinks {
+    flex-direction: column;
+  }
+}

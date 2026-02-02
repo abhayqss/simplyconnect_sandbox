@@ -1,0 +1,246 @@
+@import "custom/fonts";
+
+.MarketplaceProviderDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  &-Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 24px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  &-Title {
+    font-size: 26px;
+    margin-bottom: 7px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Body {
+    flex: 1;
+    padding: 0 20px 20px 11px;
+
+    @media (max-width: 667px) {
+      padding: 0 17px;
+    }
+  }
+
+  &-Details {
+
+  }
+
+  &-OrganizationName {
+    font-size: 18px;
+    margin-bottom: 18px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-ServiceCategories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  &-ServiceCategory {
+    color: #ffffff;
+    border-radius: 16px;
+    background-color: #2493e5;
+    font-size: 12px;
+    padding: 3px 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-ServicesSummaryDescription {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-Logo {
+    width: 144px;
+    height: 108px;
+    padding: 8px;
+    object-fit: contain;
+    border-radius: 2px;
+    border: 2px solid #efefef;
+
+    &.Picture_fallback {
+      display: none;
+    }
+
+    &:nth-child(2n) {
+      display: none;
+    }
+  }
+
+  &-Address {
+    font-size: $font-size_detail-value-text;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+  }
+
+  &-Icon {
+    height: 24px;
+    width: 20px;
+    margin-right: 12px;
+  }
+
+  &-Description {
+    font-family: "Open Sans", sans-serif;
+    font-size: $font-size_detail-value-text;
+    color: $font-color_head-text;
+  }
+
+  &-Section {
+    flex: 1;
+    max-width: 600px;
+
+    &Title {
+      display: block;
+      font-size: 20px;
+      color: $font-color_head-text;
+      font-weight: bold;
+      font-family: "Open Sans", sans-serif;
+    }
+  }
+
+  &-CommunityPhotosContainer {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  &-CommunityPhoto {
+    height: 95px;
+  }
+
+  &-Summary {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 10px;
+
+    @media(min-width: 768px) {
+      overflow-y: auto;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      width: 8px !important;
+      height: 3px !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      width: 8px !important;
+      height: 3px !important;
+      background-color: #e0e0e0 !important;
+    }
+  }
+
+  &-NumberOfBeds {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 5px;
+    border: 1px solid #dfdfdf;
+    background-color: #dfdfdf;
+    grid-gap: 2px 2px;
+    margin-bottom: 24px;
+
+    & > div {
+      background-color: #ffffff;
+    }
+  }
+
+  &-NumberOfBedsTitle {
+    border-top-left-radius: 5px;
+  }
+
+  &-NumberOfVacantBedsTitle {
+    border-top-right-radius: 5px;
+  }
+
+  &-NumberOfBedsValue {
+    border-bottom-left-radius: 5px;
+  }
+
+  &-NumberOfVacantBedsValue {
+    border-bottom-right-radius: 5px;
+  }
+
+  &-NumberOfBeds, &-NumberOfVacantBeds {
+    &Title {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      color: $font-color_head-text;
+      font-weight: bold;
+      font-family: "Open Sans", sans-serif;
+      padding: 8px 17px;
+    }
+
+    &Value {
+      padding: 8px;
+      font-size: 18px;
+      text-align: center;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+  }
+
+  &-Service, &-Language {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    padding: 6px 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-OrganizationPhone {
+    color: #00ace6;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  @each $i in 'Services' 'Languages' {
+    &-#{$i}Section {
+      margin-bottom: 24px;
+
+      &Header {
+        padding: 10px 16px;
+        background-color: #ffffff;
+        border: 1px solid #dfdfdf;
+      }
+
+      &Title {
+        font-size: 14px;
+        font-family: "Open Sans Semibold", sans-serif;
+      }
+
+      &Icon {
+        width: 14px;
+        height: 14px;
+        fill: #0064ad;
+      }
+    }
+  }
+
+  &-Container {
+    overflow: auto;
+  }
+}

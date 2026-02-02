@@ -1,0 +1,77 @@
+"use strict";
+// only for debugging
+// const debug = require('../../../lib/debug');
+const {Router}			= require('express');
+const SessionController = require('../../../controllers/NAME');
+const JwtAuth 			= require('../../../lib/JwtAuth');
+const ApiRouteUtilities = require('../../../lib/ApiRouteUtilities');
+
+/* NAME Router Class */
+class routerNAME  extends ApiRouteUtilities{
+	constructor(){
+		// execute parent constructor
+		super();
+
+		// the router itself to export
+		this.router = Router();
+
+		this.router.get("/",this.getNAMEs.bind(this));
+		this.router.get("/:id",this.getNAME.bind(this));
+		this.router.post("/",this.postNAME.bind(this));
+		this.router.put("/:id",this.putNAME.bind(this));
+		this.router.delete("/:id",this.deleteNAME.bind(this));
+	}
+
+	getNAMEs(req,res,next){
+		this.middlewareParams = arguments;
+		let params = this.getRequestParams('body,query,decodedToken,orAnyOtherKeyInRequest');
+		let ctrl	= new NAMEController();
+
+		return ctrl.METHOD(params)
+		.then( this.getSuccessResponse.bind(this) )
+		.catch( this.getErrorResponse.bind(this) );
+	}
+
+	getNAME(req,res,next){
+		this.middlewareParams = arguments;
+		let params = this.getRequestParams('body,query,decodedToken,orAnyOtherKeyInRequest');
+		let ctrl	= new NAMEController();
+
+		return ctrl.METHOD(params)
+		.then( this.getSuccessResponse.bind(this) )
+		.catch( this.getErrorResponse.bind(this) );
+	}
+
+	postNAME(req,res,next){
+		this.middlewareParams = arguments;
+		let params = this.getRequestParams('body,query,decodedToken,orAnyOtherKeyInRequest');
+		let ctrl	= new NAMEController();
+
+		return ctrl.METHOD(params)
+		.then( this.postSuccessResponse.bind(this) )
+		.catch( this.postErrorResponse.bind(this) );
+	}
+
+	putNAME(req,res,next){
+		this.middlewareParams = arguments;
+		let params = this.getRequestParams('body,query,decodedToken,orAnyOtherKeyInRequest');
+		let ctrl	= new NAMEController();
+
+		return ctrl.METHOD(params)
+		.then( this.putSuccessResponse.bind(this) )
+		.catch( this.putErrorResponse.bind(this) );
+	}
+
+	deleteNAME(req,res,next){
+		this.middlewareParams = arguments;
+		let params = this.getRequestParams('body,query,decodedToken,orAnyOtherKeyInRequest');
+		let ctrl	= new NAMEController();
+
+		return ctrl.METHOD(params)
+		.then( this.deleteSuccessResponse.bind(this) )
+		.catch( this.deleteErrorResponse.bind(this) );
+	}
+}
+
+let route = new routerNAME;
+module.exports = route.router;

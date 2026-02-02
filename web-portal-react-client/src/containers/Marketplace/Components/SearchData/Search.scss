@@ -1,0 +1,161 @@
+.backToHome {
+  font-size: 13px;
+  color: #0064ad;
+  cursor: pointer;
+}
+
+.paginationBox {
+  .MuiPagination-ul {
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+
+    li:first-child {
+      .MuiButtonBase-root {
+        border-radius: 6px 0 0 6px !important;
+      }
+    }
+
+    li:last-child {
+      .MuiButtonBase-root {
+        border-radius: 0 6px 6px 0 !important;
+      }
+    }
+  }
+
+  .MuiPaginationItem-root {
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .MuiPaginationItem-page {
+    border-radius: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+
+  .Mui-selected.MuiPaginationItem-page {
+    background-color: #f9f9f9 !important;
+    color: #000000;
+    font-weight: 700;
+    //font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  .Mui-disabled {
+    background-color: #e9ecef !important;
+    color: #cdcdcd !important;
+  }
+}
+
+.empty-page {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  padding-top: 120px;
+}
+
+.empty-Img {
+  width: 120px;
+  height: 120px;
+}
+
+.marketplaceSearchList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+
+
+  .SearchBox {
+    .SearchBoxImgBox {
+      height: 155px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-height: 155px;
+      }
+    }
+
+    @media (min-width: 640px) {
+      flex: 1 0 calc((100% - 20px) / 2);
+      max-width: calc((100% - 20px) / 2);
+    }
+
+    @media (min-width: 1024px) {
+      flex: 1 0 calc((100% - 60px) / 4);
+      max-width: calc((100% - 60px) / 4);
+    }
+
+    @media (min-width: 1536px) {
+      flex: 1 0 calc((100% - 100px) / 6);
+      max-width: calc((100% - 100px) / 6);
+    }
+  }
+
+
+}
+
+.marketplaceSearchButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  div {
+    //flex: 1;
+    //width: 117px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #222;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .searchSend {
+    height: 35px;
+    background-color: #222;
+    color: #fff;
+    border-color: #9d9d9d;
+    //cursor: not-allowed;
+  }
+
+  .searchSendVendor {
+    background-color: #9d9d9d !important;
+    cursor: not-allowed;
+  }
+
+  .searchRefer {
+    background-color: #fff;
+    color: #004182;
+    border-color: #004182;
+    //cursor: not-allowed;
+    //width: 100%;
+  }
+
+  @media (min-width: 1536px) {
+    gap: 2px;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .searchRefer {
+      flex: 1 0 calc((100% - 55px) / 2);
+    }
+
+    .searchSend {
+
+      flex: 1 0 calc((100% - 5px) / 2);
+    }
+  }
+
+}
+

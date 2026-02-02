@@ -1,0 +1,178 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.ReferralDetails {
+  @include page;
+}
+
+.ReferralDetails-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.ReferralDetails-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ReferralDetails-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.ReferralDetails-ActionDropdown {
+  .ActionButtonList-Toggle {
+    border: 1px solid #0064ad;
+  }
+
+  .ActionButtonList-Options {
+    left: inherit;
+    right: 0;
+  }
+}
+
+.ReferralDetails-Section {
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ReferralDetails-SectionTitle {
+  color: $font-color_head-text;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.edit-btn {
+  &:hover{
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  fill: #0064ad;
+  height: 30px;
+  width: 30px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.ReferralDetail-CancelAssigningBtn {
+  @extend .edit-btn;
+  padding: 6px;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 2px;
+}
+
+.ReferralDetail-EditAssigneeBtn {
+  @extend .edit-btn;
+  position: relative;
+  top: -5px;
+}
+
+.ReferralDetail-AssigneeSelect {
+  position: relative;
+
+  &.MultiSelect {
+    background: white;
+    height: 35px;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    min-width: 230px;
+
+    &:hover {
+      border-color: #bfbdbd;
+    }
+
+    .MultiSelect-Options {
+      width: 100%;
+    }
+  }
+}
+
+.ReferralDetails-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.ReferralDetail-Reason,
+.ReferralDetail-Category,
+.ReferralDetail-Diagnosis {
+  .ReferralDetail-Value {
+    flex-direction: column;
+  }
+}
+
+.ReferralDetail-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.ReferralDetails-Btn {
+  &.btn {
+    padding: 0 15px;
+    height: 35px;
+  }
+
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.ReferralResponseList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.ReferralResponses-Title {
+  position: relative;
+  display: inline-block;
+}
+
+.Responses-Count {
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+
+.ReferralDetails-ScrollTopBtn {
+  position: fixed;
+}

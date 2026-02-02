@@ -1,0 +1,13 @@
+@for $i from 1 through 10 {
+  .border-radius-#{$i} {
+    border-radius: #{$i}px !important;
+  }
+
+  @each $v in 'top' 'bottom' {
+    @each $h in 'left' 'right' {
+      .border-#{$v}-#{$h}-radius-#{$i} {
+        border-#{$v}-#{$h}-radius: #{$i}px !important;
+      }
+    }
+  }
+}
