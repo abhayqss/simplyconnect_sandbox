@@ -1,0 +1,172 @@
+@import "custom/_common";
+
+.DropzoneField {
+  &.isDisabled {
+    .DropzoneField-DropArea {
+      opacity: 0.7;
+      cursor: default;
+
+      &:hover {
+        border-color: #dddddd;
+      }
+    }
+
+    .DropzoneField-Link {
+      cursor: default;
+    }
+  }
+
+  &-Label {
+    font-size: 13px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-DropArea {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border: 1px dashed #dddddd;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #bfbdbd;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &-HintText {
+      font-size: 13px;
+      margin: 0 auto;
+    }
+  }
+
+  &-Files {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-File {
+    position: relative;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+
+    &.form-control {
+      height: inherit;
+      padding: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: inherit;
+      background-color: inherit;
+      background-clip: inherit;
+      border: inherit;
+      border-radius: inherit;
+      transition: inherit;
+      background: none;
+
+      &.is-invalid {
+        padding-right: 0 !important;
+      }
+    }
+  }
+
+  &-MessageBox  {
+    min-width: 0;
+  }
+
+  &-FileName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    font-family: "Open Sans Semibold", sans-serif;
+
+    &.is-invalid {
+      color: #dc3545;
+    }
+  }
+
+  &-Image {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+  }
+
+  &-Link {
+    color: #0064ad;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  &-CrossIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    flex: 0 0 auto;
+
+    g {
+      stroke: #0064ad;
+
+      &:hover {
+        stroke: #235c65;
+      }
+    }
+  }
+
+  &-ErrorHint {
+    font-size: 12px;
+    color: #dc3545;
+  }
+
+  &-HintText {
+    @extend .DropzoneField-ErrorHint;
+    color: #898989;
+    margin-top: 4px;
+  }
+
+  &-SingleError {
+    border: none !important;
+    padding: 0 !important;
+    background-image: none !important;
+    margin-top: 4px;
+  }
+
+  &-BrowserPopup {
+    .tooltip {
+      z-index: 1050;
+    }
+
+    .tooltip-inner {
+      text-align: left;
+      background-color: #ffffff;
+      border: 2px solid #e8e8e8;
+      border-radius: 5px;
+      padding: 10px 0;
+      box-sizing: content-box;
+      max-width: none;
+    }
+  }
+
+  &-BrowserList {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-BrowserListItem {
+    padding: 5px 25px;
+  }
+
+  &-BrowserTitle {
+    @extend .link;
+    padding: 0;
+  }
+}

@@ -1,0 +1,9 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.note.NoteNotificationMailDto" *#
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    A note has been ${dto.action} the Simply Connect platform for ${dto.clientName} at ${dto.communityName}.
+    <br><br>
+    Please login to the Simply Connect platform to view the details of the note.
+    #parse( "velocity/button.vm")
+</div>

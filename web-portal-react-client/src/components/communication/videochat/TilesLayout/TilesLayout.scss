@@ -1,0 +1,6 @@
+.VideoChatTilesLayout {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  grid-template-rows: repeat(var(--row-count), 1fr);
+}

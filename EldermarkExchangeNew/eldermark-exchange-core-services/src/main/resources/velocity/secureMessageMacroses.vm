@@ -1,0 +1,377 @@
+#* @vtlvariable name="dateFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="dateTimeFormatter" type="java.time.format.DateTimeFormatter" *#
+#* @vtlvariable name="DataUtils" type="com.scnsoft.eldermark.util.DataUtils" *#
+#* @vtlvariable name="Instant" type="java.time.Instant" *#
+
+#set($headerStyle =
+    "style=""color: #[[#]]#4c4e51; font-size: 26px; font-family: Open Sans Semibold,sans-serif; font-weight: 600; position: relative; min-height: 1px; width: 100%; float: left; margin: 20px 0;""" )
+
+#set($subHeaderStyle =
+    "style=""color: #[[#]]#4c4e51; font-size: 16px; font-family: Open Sans Semibold,sans-serif; font-weight: 600; position: relative; min-height: 1px; width: 100%; float: left; margin: 20px 0;""" )
+
+#set( $labelStyle =
+    "style=""margin: 0px; font-weight: 600; position: relative; min-height: 1px; width: 35%; float: left; font-family: 'Open Sans Semibold', sans-serif""" )
+
+#set( $valueStyle =
+    "style=""margin: 0px; position: relative; min-height: 1px; width: 60%; float: left;""" )
+
+#set( $rowStyle = "style=""float: left;position: relative;width: 100%; margin: 16px 0;""")
+
+#macro(line)
+<div style="border-bottom: 2px dashed #f1f1f1; position: relative; width: 100%; float: left; max-height: 0px"></div>
+#end
+
+#macro(display $label $value $displayLine)
+    #if( $DataUtils.hasData($value) )
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <p $valueStyle>$value</p>
+    </div>
+
+    #end
+#end
+
+#macro(displayAddressList $label $addressList $displayLine)
+    #if( $DataUtils.hasData($addressList) )
+        #if ($displayLine)
+            #line()
+        #end
+        #foreach( $address in $addressList )
+        <div $rowStyle>
+            <p $labelStyle>$label #$velocityCount</p>
+            <p $valueStyle>$address.displayAddress</p>
+        </div>
+        #end
+    #end
+#end
+
+#* @vtlvariable name="address" type="com.scnsoft.eldermark.dto.AddressDto" *#
+#macro(displayAddress $label $address $displayLine)
+    #if( $DataUtils.hasData($address) )
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <p $valueStyle>$address.displayAddress</p>
+    </div>
+    #end
+#end
+
+
+#macro(displayYesNo $label $value $displayLine)
+    #if ($displayLine)
+        #line()
+    #end
+<div $rowStyle>
+    <p $labelStyle>$label</p>
+    <p $valueStyle>
+        #if( $value )
+            Yes
+        #else
+            No
+        #end
+    </p>
+</div>
+#end
+
+#macro(formatDateTimeLong $value)
+    #if( $DataUtils.hasData($value) )
+        $dateTimeFormatter.format($Instant.ofEpochMilli($value))
+    #end
+#end
+
+#macro(displayDate $label $value $displayLine)
+    #if( $DataUtils.hasData($value) )
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <p $valueStyle>$dateFormatter.format($value)</p>
+    </div>
+
+    #end
+#end
+
+#macro(displayDateTime $label $value $displayLine)
+    #if( $DataUtils.hasData($value) )
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <p $valueStyle>$dateTimeFormatter.format($value)</p>
+    </div>
+    #end
+#end
+
+#macro(displayDateTimeLong $label $value $displayLine)
+    #if( $DataUtils.hasData($value) )
+        #displayDateTime($label, $Instant.ofEpochMilli($value), $displayLine)
+    #end
+#end
+
+#macro(displayList $label $valueList $displayLine)
+    #if( $DataUtils.hasData($valueList) )
+        #if ($displayLine)
+            #line()
+        #end
+        #foreach( $value in $valueList )
+        <div $rowStyle>
+            <p $labelStyle>$label #$velocityCount</p>
+            <p $valueStyle>$value</p>
+        </div>
+        #end
+    #end
+#end
+
+#* @vtlvariable name="ce" type="com.scnsoft.eldermark.dto.adt.datatype.CECodedElementDto" *#
+#macro(displayCE $label $ce $displayLine)
+    #if( $DataUtils.hasData($ce))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('IDENTIFIER', $ce.identifier, false)
+            #displayComplexTypeField('TEXT', $ce.text, true)
+            #displayComplexTypeField('NAME OF CODING SYSTEM', $ce.nameOfCodingSystem, true)
+        </div>
+    </div>
+    #end
+#end
+
+#* @vtlvariable name="cx" type="com.scnsoft.eldermark.dto.adt.datatype.CXExtendedCompositeIdDto" *#
+#macro(displayCX $label $cx $displayLine)
+    #if( $DataUtils.hasData($cx))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('ID', $cx.pId, false)
+            #displayComplexTypeField('Identifier Type Code', $cx.identifierTypeCode, true)
+        </div>
+    </div>
+    #end
+#end
+
+#macro(displayCXList $label $cxList $displayFirstLine)
+    #if( $DataUtils.hasData($cxList))
+        #foreach( $cx in $cxList )
+            #set ($count = 1)
+            #set ($displayLine = $displayFirstLine)
+            #if ($DataUtils.hasData($cx))
+                #displayCX( "$label #${count}", $cx, $displayLine)
+                #set ($count = $count + 1)
+                #set ($displayLine = true)
+            #end
+        #end
+    #end
+#end
+
+#* @vtlvariable name="xon" type="com.scnsoft.eldermark.dto.adt.datatype.XONExtendedCompositeNameAndIdForOrganizationsDto" *#
+#macro(displayXON $label $xon $displayLine)
+    #if( $DataUtils.hasData($xon))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('Organization Name', $xon.organizationName, false)
+            #displayComplexTypeField('Organization Name Type Code', $xon.organizationNameTypeCode, true)
+            #displayComplexTypeField('ID Number', $xon.idNumber, true)
+            #displayHDFields("Assigning Authority ", $xon.assigningAuthority, true)
+            #displayHDFields("Adssigning Facility ", $xon.assigningFacility, true)
+        </div>
+    </div>
+    #end
+#end
+
+#macro(displayXONList $label $xonList $displayFirstLine)
+    #if( $DataUtils.hasData($xonList))
+        #foreach( $xon in $xonList )
+            #set ($count = 1)
+            #set ($displayLine = $displayFirstLine)
+            #if ($DataUtils.hasData($xon))
+                #displayXON( "$label #${count}", $xon, $displayLine)
+                #set ($count = $count + 1)
+                #set ($displayLine = true)
+            #end
+        #end
+    #end
+#end
+
+
+#* @vtlvariable name="hd" type="com.scnsoft.eldermark.dto.adt.datatype.HDHierarchicDesignatorDto" *#
+#macro(displayHDFields $prefix $hd $addTopMargin)
+    #if ( $DataUtils.hasData($hd) )
+        #displayComplexTypeField("${prefix}Namespace Id", $value.assigningAuthority.namespaceID, $addTopMargin)
+        #displayComplexTypeField("${prefix}Universal Id", $value.assigningAuthority.universalID, true)
+        #displayComplexTypeField("${prefix}Universal Id Type", $value.assigningAuthority.universalIDType, true)
+    #end
+#end
+
+#* @vtlvariable name="pl" type="com.scnsoft.eldermark.dto.adt.datatype.ClientLocationDto" *#
+#macro(displayPL $label $pl $displayLine)
+    #if( $DataUtils.hasData($pl))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('Point Of Care', $pl.pointOfCare, false)
+            #displayComplexTypeField('Room', $pl.room, true)
+            #displayComplexTypeField('Bed', $pl.bed, true)
+            #displayHDFields('Facility ', $pl.facility, true)
+            #displayComplexTypeField('Location status', $pl.locationStatus, true)
+            #displayComplexTypeField('Person location status', $pl.personLocationStatus, true)
+            #displayComplexTypeField('Building', $pl.building, true)
+            #displayComplexTypeField('Floor', $pl.floor, true)
+            #displayComplexTypeField('Location description', $pl.locationDescription, true)
+        </div>
+    </div>
+    #end
+#end
+
+#* @vtlvariable name="dl" type="com.scnsoft.eldermark.dto.adt.datatype.DischargeLocationDto" *#
+#macro(displayDL $label $dl $displayLine)
+    #if( $DataUtils.hasData($dl))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('Discharge Location', $dl.dischargeLocation, false)
+            #if ( $DataUtils.hasData($dl.effectiveDate) )
+            #displayComplexTypeField(
+                'Effective Date', $!{dateTimeFormatter.format($Instant.ofEpochMilli($dl.effectiveDate))}, true)
+        #end
+        </div>
+    </div>
+    #end
+#end
+
+#* @vtlvariable name="xtn" type="com.scnsoft.eldermark.dto.adt.datatype.XTNPhoneNumberDto" *#
+#macro(displayXTN $label $xtn $displayLine)
+    #if( $DataUtils.hasData($xtn))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('Telephone Number', $xtn.telephoneNumber, false)
+            #displayComplexTypeField('Telecommunication Use Code', $xtn.telecommunicationUseCode, true)
+            #displayComplexTypeField('Telecommunication Equipment Type', $xtn.telecommunicationEquipmentType, true)
+            #displayComplexTypeField('Country Code', $xtn.countryCode, true)
+            #displayComplexTypeField('Area/city Code', $xtn.areaCode, true)
+            #displayComplexTypeField('Phone Number', $xtn.phoneNumber, true)
+            #displayComplexTypeField('Extension', $xtn.extension, true)
+            #displayComplexTypeField('Email Address', $xtn.email, true)
+        </div>
+    </div>
+    #end
+#end
+
+#macro(displayXTNList $label $xtnList $displayFirstLine)
+    #if( $DataUtils.hasData($xtnList))
+        #foreach( $xtn in $xtnList )
+            #set ($count = 1)
+            #set ($displayLine = $displayFirstLine)
+            #if ($DataUtils.hasData($xtn))
+                #displayXTN( "$label #${count}", $xtn, $displayLine)
+                #set ($count = $count + 1)
+                #set ($displayLine = true)
+            #end
+        #end
+    #end
+#end
+
+#* @vtlvariable name="xpn" type="com.scnsoft.eldermark.dto.adt.datatype.XPNDto" *#
+#macro(displayXPN $label $xpn $displayLine)
+    #if( $DataUtils.hasData($xpn))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('First name', $xpn.firstName, false)
+            #displayComplexTypeField('Last name', $xpn.lastName, true)
+            #displayComplexTypeField('Middle Initial Or Name', $xpn.middleName, true)
+        </div>
+    </div>
+    #end
+#end
+
+#macro(displayXPNList $label $xpnList $displayFirstLine)
+    #if( $DataUtils.hasData($xpnList))
+        #foreach( $xpn in $xpnList )
+            #set ($count = 1)
+            #set ($displayLine = $displayFirstLine)
+            #if ($DataUtils.hasData($xpn))
+                #displayXPN( "$label #${count}", $xpn, $displayLine)
+                #set ($count = $count + 1)
+                #set ($displayLine = true)
+            #end
+        #end
+    #end
+#end
+
+#* @vtlvariable name="xcn" type="com.scnsoft.eldermark.dto.adt.datatype.XCNDto" *#
+#macro(displayXCN $label $xcn $displayLine)
+    #if( $DataUtils.hasData($xcn))
+        #if ($displayLine)
+            #line()
+        #end
+    <div $rowStyle>
+        <p $labelStyle>$label</p>
+        <div $valueStyle>
+            #displayComplexTypeField('Family Name & Last Name Prefix', $xcn.lastName, false)
+            #displayComplexTypeField('Given name', $xcn.firstName, true)
+            #displayComplexTypeField('Middle Initial Or Name', $xcn.middleName, true)
+            #displayComplexTypeField('Degree', $xcn.degree, true)
+            #displayHDFields('Assigning Authority ', $xcn.assigningAuthority, true)
+            #displayHDFields('Assigning Facility ID ', $xcn.assigningFacility, true)
+        </div>
+    </div>
+    #end
+#end
+
+#macro(displayXCNList $label $xcnList $displayFirstLine)
+    #if( $DataUtils.hasData($xcnList))
+        #foreach( $xcn in $xcnList )
+            #set ($count = 1)
+            #set ($displayLine = $displayFirstLine)
+            #if ($DataUtils.hasData($xcn))
+                #displayXCN( "$label #${count}", $xcn, $displayLine)
+                #set ($count = $count + 1)
+                #set ($displayLine = true)
+            #end
+        #end
+    #end
+#end
+
+#macro(displayComplexTypeField $label $value $addTopMargin)
+    #if( $DataUtils.hasData($value) )
+        #if ($addTopMargin)
+            #set ( $topMargin = '24px')
+        #else  #set ( $topMargin = '0px')
+        #end
+    <div style="float: left; margin-top: $topMargin; width: 100%">
+        <p style="float: left; width: 100%; text-transform: uppercase; color: #898989; font-size: 11px; font-family: Open Sans Semibold,sans-serif; margin: 0px">$label</p>
+        <p style="float: left; width: 100%; margin: 0px">$value</p>
+    </div>
+    #end
+#end
+

@@ -1,0 +1,74 @@
+import javax.annotation.Generated;
+
+{{#description}}
+/**
+ * {{{description}}}
+ */
+@ApiModel(description = "{{{description}}}"){{/description}}
+{{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}
+public class {{classname}}{{#parent}} extends {{{parent}}}{{/parent}}{{#serializableModel}} implements Serializable{{/serializableModel}} {
+
+{{#vars}}
+    {{#isEnum}}
+    {{^isContainer}}
+{{>enumClass}}
+    {{/isContainer}}
+    {{/isEnum}}
+    {{#items.isEnum}}
+      {{#items}}
+      {{^isContainer}}
+{{>enumClass}}
+      {{/isContainer}}
+      {{/items}}
+    {{/items.isEnum}}
+    {{#jackson}}
+    @JsonProperty("{{baseName}}")
+    {{/jackson}}
+    {{#gson}}
+    @SerializedName("{{baseName}}")
+    {{/gson}}
+    {{#isEnum}}private{{#required}} final{{/required}} String {{name}} {{#defaultValue}}= {{{defaultValue}}}{{/defaultValue}};
+    {{/isEnum}}{{^isEnum}}private{{#required}} final{{/required}} {{{datatypeWithEnum}}} {{name}} {{#defaultValue}}= {{{defaultValue}}}{{/defaultValue}};
+    {{/isEnum}}
+
+{{/vars}}
+{{#vars}}
+    {{#isListContainer}}
+    public {{classname}} add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
+        this.{{name}}.add({{name}}Item);
+        return this;
+    }
+    {{/isListContainer}}
+    {{#isMapContainer}}
+    public {{classname}} put{{nameInCamelCase}}Item(String key, {{{items.datatypeWithEnum}}} {{name}}Item) {
+        this.{{name}}.put(key, {{name}}Item);
+        return this;
+    }
+    {{/isMapContainer}}
+
+    {{#description}}/**
+    * {{{description}}}
+    {{#minimum}}
+    * minimum: {{minimum}}
+    {{/minimum}}
+    {{#maximum}}
+    * maximum: {{maximum}}
+    {{/maximum}}
+    *
+    * @return {{name}}
+    */{{/description}}
+    {{#vendorExtensions.extraAnnotation}}
+    {{{vendorExtensions.extraAnnotation}}}
+    {{/vendorExtensions.extraAnnotation}}
+   {{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}
+    @ApiModelProperty({{#example}}example = "{{example}}", {{/example}}{{#required}}required = {{required}}, {{/required}}{{#isReadOnly}}readOnly = {{{isReadOnly}}}, {{/isReadOnly}}value = "{{{description}}}")
+    public {{#isEnum}}String{{/isEnum}}{{^isEnum}}{{{datatypeWithEnum}}}{{/isEnum}} {{getter}}() {
+        return {{name}};
+    }
+
+    public void {{setter}}({{#isEnum}}String{{/isEnum}}{{^isEnum}}{{{datatypeWithEnum}}}{{/isEnum}} {{name}}) {
+        this.{{name}} = {{name}};
+    }
+{{/vars}}
+
+}

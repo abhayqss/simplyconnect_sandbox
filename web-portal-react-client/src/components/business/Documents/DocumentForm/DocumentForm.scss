@@ -1,0 +1,118 @@
+.DocumentForm {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &-FileField {
+    margin-bottom: 40px;
+  }
+
+  &-RadioGroupField {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    height: auto;
+
+    &.is-invalid {
+      background-image: none;
+    }
+
+    .Radio {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-right: 12px;
+      margin-bottom: 0;
+      padding: 0.375rem 0;
+    }
+
+    .Radio-CheckMark {
+      position: initial;
+      margin-right: 8px;
+
+      &:after {
+        top: 15px;
+        left: 9px;
+      }
+    }
+  }
+
+  &-Sections {
+    flex: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &-BaseSection {
+    border-right: 1px solid #e0e0e0;
+  }
+
+  &-Section {
+    flex: 1;
+    padding: 20px 40px 20px;
+  }
+
+  &-SharingSection {
+    padding: 0;
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-FileField {
+    .FileField-SelectedFile {
+      &.is-invalid {
+        background-image: none;
+      }
+    }
+  }
+
+  &-SelectedText {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &-SelectFieldOption {
+    display: flex;
+  }
+
+  &-CategorySelect {
+    .MultiSelect-SelectedText {
+      line-height: 1;
+    }
+  }
+
+  &-SelectedColor {
+    display: inline-flex;
+    align-items: center;
+
+    & + & {
+      margin-left: 8px;
+    }
+  }
+
+  &-ColorMark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}

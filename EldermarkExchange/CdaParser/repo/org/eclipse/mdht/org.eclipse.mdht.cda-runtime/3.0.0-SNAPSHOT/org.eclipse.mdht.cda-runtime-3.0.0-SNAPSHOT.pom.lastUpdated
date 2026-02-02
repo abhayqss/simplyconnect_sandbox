@@ -1,0 +1,11 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Tue Oct 09 19:02:06 MSK 2018
+file\://C\:\\Users\\SParuchnik/.m2/repository/.lastUpdated=1539100926085
+http\://devsoap.sitenv.org\:8081/artifactory/libs-snapshot-local/.error=Could not transfer artifact org.eclipse.mdht\:org.eclipse.mdht.cda-runtime\:pom\:3.0.0-SNAPSHOT from/to MDHT.libs-snapshot-local (http\://devsoap.sitenv.org\:8081/artifactory/libs-snapshot-local)\: Connect to devsoap.sitenv.org\:8081 [devsoap.sitenv.org/54.200.55.97] failed\: Connection timed out\: connect
+@default-MDHT.libs-snapshot-local-http\://devsoap.sitenv.org\:8081/artifactory/libs-snapshot-local/.lastUpdated=1539100706767
+file\://C\:\\projects\\exchange\\EldermarkExchange\\CdaParser/repo/.error=
+http\://devsoap.sitenv.org\:8081/artifactory/ext-release-local/.error=Could not transfer artifact org.eclipse.mdht\:org.eclipse.mdht.cda-runtime\:pom\:3.0.0-SNAPSHOT from/to MDHT.ext-release-local (http\://devsoap.sitenv.org\:8081/artifactory/ext-release-local)\: Connect to devsoap.sitenv.org\:8081 [devsoap.sitenv.org/54.200.55.97] failed\: Connection timed out\: connect
+@default-MDHT.ext-release-local-http\://devsoap.sitenv.org\:8081/artifactory/ext-release-local/.lastUpdated=1539100685745
+http\://devsoap.sitenv.org\:8081/artifactory/plugins-release-local/.error=Could not transfer artifact org.eclipse.mdht\:org.eclipse.mdht.cda-runtime\:pom\:3.0.0-SNAPSHOT from/to MDHT.plugins-release-local (http\://devsoap.sitenv.org\:8081/artifactory/plugins-release-local)\: Connect to devsoap.sitenv.org\:8081 [devsoap.sitenv.org/54.200.55.97] failed\: Connection timed out\: connect
+@default-MDHT.plugins-release-local-http\://devsoap.sitenv.org\:8081/artifactory/plugins-release-local/.lastUpdated=1539100727784
+file\://C\:\\projects\\exchange\\EldermarkExchange\\CdaParser/repo/.lastUpdated=1539100664726

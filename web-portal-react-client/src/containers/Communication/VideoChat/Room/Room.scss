@@ -1,0 +1,340 @@
+@import "custom/_fonts";
+@import "custom/_mixins";
+
+.VideoChatRoomPopup {
+    .VideoChatPopup-Header {
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 4;
+        position: absolute;
+    }
+
+    &_minimized {
+        border-radius: 5px;
+
+        &.react-resizable {
+            .react-resizable-handle {
+                &-e {
+                    display: none;
+                }
+
+                &-s {
+                    display: none;
+                }
+            }
+        }
+
+        .VideoChatPopup-MaximizeButton {
+            display: none;
+        }
+
+        .VideoChatRoom {
+            &-Header {
+                display: none;
+            }
+
+            &-LocalParticipant {
+                display: none;
+            }
+
+            &-MiniView {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px;
+
+                .VideoChatRoom {
+                    &-Avatar {
+                        width: 44px;
+                        height: 44px;
+                        margin-right: 16px;
+                    }
+
+                    &-CallTime {
+                        margin-right: 16px;
+                    }
+
+                    &-CloseCallBtn {
+                        padding: 5px;
+                    }
+
+                    &-ActionDivider {
+                        top: 0;
+                        bottom: 0;
+                        position: absolute;
+                        align-self: stretch;
+                        border-left: 1px solid #525252;
+                    }
+                }
+            }
+
+            &-MiniViewSection {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            &-ShortInfo {
+                display: flex;
+                align-items: center;
+            }
+
+            &-DraggableHandler {
+                flex: 1;
+            }
+
+            &-Participants {
+                display: none;
+            }
+
+            &-Actions {
+                display: none;
+            }
+        }
+    }
+}
+
+.VideoChatPopupContainer.react-draggable {
+    .VideoChatPopup.VideoChatRoomPopup {
+        &_minimized {
+            .VideoChatPopup-Header {
+                padding: 5px 0;
+            }
+        }
+    }
+}
+
+.VideoChatRoom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    &-Header {
+        left: 80px;
+        right: 80px;
+        top: 35px;
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (max-width: 1024px) {
+            top: 24px;
+        }
+    }
+
+    &-Title {
+        color: #ffffff;
+        text-align: center;
+        font-size: 20px;
+        font-family: "Open Sans Semibold", sans-serif;
+        padding-bottom: 3px;
+
+        .ParticipantInfo-FullName {
+            font-size: 20px;
+
+            @include line-clamp(3);
+
+            @media (max-width: 1024px) {
+                font-size: 16px;
+            }
+        }
+
+        .ParticipantInfo-Status {
+            transform: scale(0.8);
+        }
+    }
+
+    &-CallTime {
+        color: #bfbdbd;
+        font-size: 14px;
+        font-family: "Open Sans Semibold", sans-serif;
+
+        @media (max-width: 1024px) {
+            font-size: 12px;
+        }
+    }
+
+    &-Body {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-MiniView {
+        display: none;
+    }
+
+    &-Participants {
+        width: 100%;
+        height: 100%;
+        background-color: #525252;
+        position: relative;
+        max-height: 100vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #4c4e51 !important;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #898989 !important;
+        }
+    }
+
+    &-Participant {
+        display: flex;
+        min-width: 150px;
+        min-height: 150px;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #333333 no-repeat url("../../../../images/sc-person-shape.svg") 100%;
+
+        &Track.Track-Video {
+            display: none;
+        }
+
+        &Status {
+            padding: 8px;
+            text-align: center;
+            box-sizing: content-box;
+        }
+
+        &_video-streaming {
+            .VideoChatRoom-Participant {
+                &Avatar {
+                    display: none;
+                }
+
+                &-ParticipantInfo {
+                    left: 24px;
+                    bottom: 16px;
+                    position: absolute;
+                }
+
+                &Track.Track-Video {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &-ParticipantAvatar {
+        &.Avatar {
+            width: fit-content;
+            height: 35%;
+            max-height: 104px;
+
+            @media (max-width: 1024px) {
+                width: 72px;
+                height: 72px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &-ParticipantInfo {
+        left: 1.5rem;
+        right: 1.5rem;
+        bottom: 1rem;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+    }
+
+    &-ParticipantFullName {
+        color: #ffffff;
+        font-size: 16px;
+        margin-right: 8px;
+        font-family: "Open Sans Semibold", sans-serif;
+
+        @include line-clamp(3);
+
+        @media (max-width: 1024px) {
+            font-size: 16px;
+        }
+    }
+
+    &-LocalParticipant {
+        position: absolute;
+        z-index: 4;
+        width: 168px;
+        height: 126px;
+
+        &_hidden {
+            iframe {
+                display: none;
+            }
+        }
+
+        video {
+            width: 168px;
+            height: auto;
+        }
+    }
+
+    &-LocalParticipantOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    &-Actions {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        z-index: 5;
+        transform: translate(-50%, 0);
+
+        @media (max-width: 1024px) {
+            bottom: 16px;
+        }
+
+        @media (max-width: 667px) {
+            bottom: 48px;
+        }
+    }
+
+    &-Action {
+        margin-right: 16px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &_disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1024px) {
+            .VideoChatControlButton {
+                padding: 8px;
+            }
+
+            svg {
+                width: 24px !important;
+                height: 24px !important;
+            }
+        }
+    }
+
+    &-AddParticipantsButton {
+        @media (max-width: 1024px) {
+            &.VideoChatControlButton {
+                padding: 11px;
+            }
+        }
+    }
+}

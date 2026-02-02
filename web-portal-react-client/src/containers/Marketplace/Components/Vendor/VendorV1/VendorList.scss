@@ -1,0 +1,139 @@
+.vendorListWrap {
+  padding: 9px 36px;
+
+  .vendorListWrapHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .vendorListTitle {
+    position: relative;
+
+
+    .vendorListTitleText {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 35.41px;
+      color: #222;
+      margin-top: 20px;
+    }
+
+    .vendorTitleBadge {
+      position: absolute;
+      left: 145px;
+      top: 0;
+    }
+  }
+
+  .vendorListCollapse {
+    background-color: #F9F9F9;
+    margin-top: 30px;
+    padding: 20px;
+  }
+}
+
+
+.vendorBoxWrap {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .vendorBox {
+    //flex: 1 0 15.74%;
+    //max-width: 15.74%;
+    //flex: 1;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #DDDDDD;
+
+    .vendorListImgBox {
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .vendorImg {
+        width: 100%;
+        max-height: 120px;
+      }
+    }
+
+
+    .vendorName {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 24.51px;
+      color: #222;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vendorAddress {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: #000;
+
+      .vendorZipCode {
+        color: #4991DF;
+      }
+    }
+
+    .vendorPhone {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      color: #222;
+    }
+
+    .vendorReferButton {
+      width: 100%;
+      margin-top: 10px;
+      color:#075AA0;
+    }
+    .disabled{
+      color:#BFBDBD
+    }
+  }
+
+
+  @media (min-width: 768px) {
+    .vendorBox {
+      flex: 1 0 calc((100% - 20px) / 2);
+      max-width: calc((100% - 20px) / 2);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .vendorBox {
+      flex: 1 0 calc((100% - 40px) / 3);
+      max-width: calc((100% - 40px) / 3);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .vendorBox {
+      flex: 1 0 calc((100% - 100px) / 6);
+      max-width: calc((100% - 100px) / 6);
+    }
+  }
+
+}
+
+.VendorsFilter-Icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.VendorsFilter-Icon_rotated_90 {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.VendorsFilter-Icon_rotated_0 {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+

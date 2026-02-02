@@ -1,0 +1,59 @@
+.Quote {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  &-Indicator {
+    border-left: 4px solid #3863ab;
+  }
+
+  &-Content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  &-Header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-Title {
+    flex: 1;
+    color: #222222;
+    font-size: 12px;
+    min-width: 100px;
+    margin-right: 12px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-Date {
+    color: #898989;
+    font-size: 12px;
+    min-width: 60px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-Body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-CloseBtn {
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    fill: #3863ab;
+    cursor: pointer;
+    position: absolute;
+  }
+}

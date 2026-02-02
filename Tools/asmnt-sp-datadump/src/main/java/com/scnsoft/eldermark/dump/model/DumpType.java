@@ -1,0 +1,12 @@
+package com.scnsoft.eldermark.dump.model;
+
+public enum DumpType {
+    TOTAL_FOR_ORGANIZATION,
+    TOTAL_FOR_COMMUNITY,
+    CLIENT_DEMOGRAPHICS,
+    CLIENT_INSURANCE,
+    MEDICAL_DIAGNOSIS,
+    RAW_COMPREHENSIVE_ASSESSMENT,
+    HOSPITALIZATIONS,
+    ER_VISITS
+}

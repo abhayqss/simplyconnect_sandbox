@@ -1,0 +1,311 @@
+@import "custom/_fonts";
+
+.MessageInput {
+    padding: 12px 24px 0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    z-index: 1;
+    background-color: white;
+
+    @media (max-width: 1024px) {
+        padding: 0;
+    }
+
+    &-RichTextarea {
+        height: 100%;
+        flex-direction: column;
+        border: 1px solid #e0e0e0;
+        border-radius: 2px;
+        display: grid;
+        grid-template-columns: min-content auto;
+        grid-auto-rows: auto;
+        margin-right: 16px;
+
+        @media (max-width: 1024px) {
+            border-left: none;
+            border-right: none;
+            margin-right: 0;
+        }
+
+        @media (max-width: 667px) {
+            min-width: 0;
+        }
+
+        &_focus-within,
+        &:focus-within {
+            border-color: #898989;
+        }
+
+        &:focus-within {
+            @media (max-width: 667px) {
+                display: flex;
+
+                .MessageInput-MediaActions {
+                    display: none;
+                }
+            }
+        }
+
+        &_isRecording {
+            @media (max-width: 1024px) {
+                display: flex;
+
+                .MessageInput-MediaActions {
+                    display: none;
+                }
+
+                .MessageInput-Audio {
+                    margin-right: 52px;
+                }
+            }
+        }
+
+        &_isEditing {
+            @media (max-width: 1024px) {
+                display: flex;
+
+                .MessageInput-MediaActions {
+                    display: none;
+                }
+
+                .MessageInput-TextInput {
+                    padding-left: 54px;
+                }
+
+                .MessageInput-CancelEditing {
+                    position: absolute;
+                    top: 50%;
+                    left: 16px;
+                    transform: translate(0, -10px);
+                }
+            }
+        }
+
+        &_isAttachingFile {
+            @media (max-width: 667px) {
+                display: flex;
+
+                .MessageInput-MediaActions,
+                .MessageInput-Text {
+                    display: none;
+                }
+
+                .MessageInput-Previews {
+                    margin-right: 52px;
+                    margin-left: 16px;
+                    padding: 10px 0;
+                }
+
+                .MessageInput-FilePreview {
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+    &-MediaActions {
+        margin: 12px 0;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border-right: 1px solid #e0e0e0;
+    }
+
+    &-MediaAction {
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 20px;
+        box-sizing: content-box;
+        background-color: #e6edee;
+
+        &.IconButton {
+            &_disabled {
+                cursor: default;
+
+                svg {
+                    cursor: default;
+                    fill: #898989;
+                }
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.MessageInput-MediaAction_active {
+            cursor: default;
+            border: 1px solid #f33232;
+
+            svg {
+                fill: #f33232;
+            }
+        }
+
+        &.MessageInput-MediaAction_disabled {
+            pointer-events: none;
+            cursor: default;
+
+            svg {
+                fill: #898989;
+            }
+        }
+
+        svg {
+            fill: #0064ad;
+        }
+
+        &Icon {
+            width: 32px;
+            height: 32px;
+            fill: #0064ad;
+        }
+    }
+
+    &-Content{
+        flex: 1;
+    }
+
+    &-Audio {
+        border: none;
+        padding: 14px 12px;
+    }
+
+    &-Text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+    }
+
+    &-CancelEditing {
+        cursor: pointer;
+        margin-right: 6px;
+        margin-left: 4px;
+    }
+
+    &-Loader {
+        position: absolute;
+        width: 100%;
+    }
+
+    &-TextInput {
+        padding: 0 12px;
+        color: $font-color_head-text;
+        margin: 14px 0;
+        resize: none;
+        line-height: normal;
+        max-height: 115px;
+        font-size: 14px;
+
+        @media (max-width: 1024px) {
+            padding-right: 40px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 667px) {
+            margin: 15px 0;
+        }
+
+        &.form-control {
+            height: 24px;
+
+            &:disabled {
+                background-color: transparent;
+                opacity: 0.5;
+            }
+        }
+
+        &, &:focus {
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+
+        &::placeholder {
+            color: #d5d5d5
+        }
+    }
+
+    &-Previews {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: auto;
+        margin-right: 12px;
+        padding: 16px 0;
+        border-top: 1px solid #e0e0e0;
+        grid-column: 2;
+        margin-left: 0;
+    }
+
+    &-Preview {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .Loader-Backdrop {
+            opacity: 0.6;
+            background-color: #e0e0e0;
+        }
+
+        & + & {
+            margin-top: 16px;
+        }
+    }
+
+    &-FilePreview {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    &-DeleteIcon {
+        cursor: pointer;
+    }
+
+    &-LoadingInfo {
+        font-size: 11px;
+    }
+
+    &-LoadingProgress {
+        color: #898989;
+    }
+
+    &-LoadingError {
+        color: #f33232;
+    }
+
+    &-SubmitAction {
+        padding: 8px;
+        flex: 0 0 auto;
+        border-radius: 20px;
+        pointer-events: none;
+        background-color: #e6edee;
+
+        svg {
+            fill: #898989;
+        }
+
+        @media (max-width: 1024px) {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 16px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &_active {
+            pointer-events: all;
+            cursor: pointer;
+
+            svg {
+                fill: #0064ad;
+            }
+        }
+    }
+}

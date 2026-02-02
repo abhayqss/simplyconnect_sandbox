@@ -1,0 +1,14 @@
+#* @vtlvariable name="confirmation" type="com.scnsoft.eldermark.shared.carecoordination.service.ConfirmationEmailDto" *#
+<div>Dear ${confirmation.user},</div><br/>
+<div>
+    Thank you for registering at <a href='${confirmation.portalUrl}'>Simply Connect system</a>. <br><br>
+
+    For future access to our website use the following credentials:<br><br>
+    <ul>
+        <li>Username: ${confirmation.login}</li>
+        <li>Company ID: ${confirmation.companyName}</li>
+    </ul>
+    Forgot your password? You can always <a href='${confirmation.resetPasswordUrl}'>Reset Password</a>.
+    #parse( "velocity/button.vm")
+</div>
+

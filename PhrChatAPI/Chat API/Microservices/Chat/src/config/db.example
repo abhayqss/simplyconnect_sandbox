@@ -1,0 +1,35 @@
+"use strict";
+const {NODE_ENV=null,NAME=null} = process.env;
+if( !(NODE_ENV) || !(NAME) ){
+	var path	= require('path');
+	var Env 	= require('dotenv').config({path: path.join(__dirname,'../../.env')});
+}
+
+const dbConfigs = {
+	"development": {
+		"username": "root",
+		"password": null,
+		"database": "database_development",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"port": 3306
+	},
+	"test": {
+		"username": "root",
+		"password": null,
+		"database": "database_test",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"port": 3306
+	},
+	"production": {
+		"username": "root",
+		"password": null,
+		"database": "database_production",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"port": 3306
+	}
+};
+
+module.exports = dbConfigs[ process.env.NODE_ENV ];

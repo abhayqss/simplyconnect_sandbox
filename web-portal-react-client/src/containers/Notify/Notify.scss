@@ -1,0 +1,39 @@
+@import "custom/_fonts";
+@import "custom/_page";
+@import "custom/_mixins";
+
+.Notify {
+  @include page;
+
+  &-Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  &-Body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-Title {
+    display: inline-block;
+    font-size: 26px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Image {
+    max-width: 350px;
+    @include clear-image;
+  }
+
+  &-Description {
+    flex: 2;
+  }
+
+  &-Actions {
+    padding: 20px 0;
+  }
+}

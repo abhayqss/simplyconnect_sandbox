@@ -1,0 +1,37 @@
+@media (min-width: 576px) {
+  .AppointmentViewer {
+    &.modal-dialog {
+      max-width: 1040px;
+    }
+  }
+}
+
+.AppointmentViewer {
+  .Details {
+    padding: 20px 40px 35px;
+  }
+}
+
+.AppointmentViewer-Tabs {
+  @media (max-width: 375px) {
+    display: none;
+  }
+}
+
+.AppointmentViewer-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .btn {
+    padding: 0 12px;
+    min-width: 100px;
+    width: auto;
+    height: 35px;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

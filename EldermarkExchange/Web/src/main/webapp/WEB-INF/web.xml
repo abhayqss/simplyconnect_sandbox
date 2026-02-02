@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <display-name>SimplyConnect system</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:spring/applicationContext.xml,
+            classpath:spring/applicationContext-quartz.xml,
+            classpath:spring/applicationContext-security.xml,
+            classpath:spring/applicationContext-cxf.xml
+        </param-value>
+    </context-param>
+
+
+    <filter>
+        <filter-name>SpringOpenEntityManagerInViewFilter</filter-name>
+        <filter-class>com.scnsoft.eldermark.web.filter.OpenEntityManagerInViewCustomFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SpringOpenEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+<!--
+
+   <filter>
+        <filter-name>OpenDbCertificateFilter</filter-name>
+        <filter-class>com.scnsoft.eldermark.web.filter.OpenDbCertificateFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OpenDbCertificateFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+-->
+    <filter>
+        <filter-name>ValidationFilter</filter-name>
+        <filter-class>com.scnsoft.eldermark.security.ValidationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ValidationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>compressHtmlResponseFilter</filter-name>
+        <filter-class>com.scnsoft.eldermark.web.filter.CompressHtmlResponseFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>compressHtmlResponseFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.scnsoft.eldermark.web.listeners.LoadCDALibsServletContextListener</listener-class>
+    </listener>
+
+
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>WEB-INF/spring/mvc-dispatcher-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>cxf</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <init-param>
+            <param-name>config-location</param-name>
+            <param-value>WEB-INF/spring/cxf-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/ws/*</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <!--<cookie-config>-->
+            <!--<secure>true</secure>-->
+        <!--</cookie-config>-->
+    </session-config>
+
+    <error-page>
+        <error-code>401</error-code>
+        <location>/events/unauthorised</location>
+    </error-page>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>/**</url-pattern>
+            <el-ignored>true</el-ignored>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+        </jsp-property-group>
+        <taglib>
+            <taglib-uri>simply-connect-taglib</taglib-uri>
+            <taglib-location>/WEB-INF/tags/simply-connect-functions.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+
+
+</web-app>

@@ -1,0 +1,25 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.deactivate.DeactivateEmployeeNotificationMailDto" *#
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    It looks like you haven't signed into Simply Connect account for a while:
+    <br><br>
+    <table>
+        <tr>
+            <td width="40"></td>
+            <td><b><span style="color:#0064ad;"> &#10004; </span>Username:</b>&nbsp;${dto.username}
+                <br><br></td>
+
+        </tr>
+        <tr>
+            <td width="40"></td>
+            <td><b><span style="color:#0064ad;">&#10004; </span>Company ID:</b>&nbsp;${dto.companyId}</td>
+        </tr>
+    </table>
+    <br><br>
+    Simply Connect accounts are deactivated after 90 days of inactivity.
+    <br><br>
+    To keep your account open, please sign in by ${dto.deactivateDate}.
+    <br><br>
+    #parse( "velocity/button.vm")
+</div>

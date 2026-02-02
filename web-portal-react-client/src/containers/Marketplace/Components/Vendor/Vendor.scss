@@ -1,0 +1,211 @@
+.VendorWrap {
+  display: flex;
+  //justify-content: space-between;
+  margin-top: 20px;
+  position: relative;
+
+  .vendorFoldImg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    z-index: 30;
+
+    @media (min-width: 1280px) {
+      display: none;
+    }
+  }
+
+  .VendorWrapLeftShow {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+  }
+
+  .VendorWrapLeftNoShow {
+    display: none;
+  }
+
+  .VendorWrapLeft {
+    width: 288px;
+    height: 523px;
+    border: 1px solid #dddddd;
+    overflow: scroll;
+    display: none;
+
+    @media (min-width: 1280px) {
+      display: block;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .navBox {
+      width: 288px;
+      height: 44px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 10px;
+      cursor: pointer;
+    }
+
+    .navBoxClick {
+      height: 44px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 10px;
+      background-color: #f4fbfe;
+      color: #4991df;
+      border-right: 2px solid #4991df;
+    }
+  }
+
+  .VendorWrapRight {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column-reverse;
+
+    @media (min-width: 1280px) {
+      width: calc(100% - 288px - 20px);
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .vendorLeftBox {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, 168px);
+      grid-column-gap: 24px;
+      grid-row-gap: 29px;
+      box-sizing: border-box;
+
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 168px);
+        margin-bottom: 10px;
+      }
+
+      @media (min-width: 1280px) {
+        margin-left: 24px;
+        //grid-template-columns: repeat(3, 228px);
+        grid-template-rows: repeat(1, 168px);
+        margin-bottom: 10px;
+      }
+
+
+      @media (min-width: 1480px) {
+        margin-left: 24px;
+        margin-bottom: 10px;
+      }
+
+      .item {
+        border: 1px solid #dadada;
+        box-sizing: border-box;
+        padding: 23px 20px 20px;
+        height: 168px;
+        //min-width: 255px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+          border-inline: 2px solid #dadada;
+        }
+
+        img {
+          width: 80%;
+          //max-width: 192px;
+          //max-height: 148px;
+          height: 75%;
+        }
+
+        .item-name {
+          font-size: 14px;
+          font-family: "Open Sans", serif;
+          margin-top: 10px;
+          max-width: 85%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .vendorRightBox {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 168px);
+      margin-bottom: 10px;
+      grid-column-gap: 24px;
+      grid-row-gap: 29px;
+
+      @media (min-width: 640px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 168px);
+        margin-bottom: 10px;
+      }
+
+      @media (min-width: 1280px) {
+        grid-template-columns: repeat(1, 305px);
+        grid-template-rows: repeat(3, 1fr);
+        margin-left: 25px;
+      }
+
+      @media (min-width: 1480px) {
+        grid-template-columns: repeat(1, 345px);
+        grid-template-rows: repeat(3, 1fr);
+        margin-left: 25px;
+      }
+
+      .item {
+        border: 1px solid #dadada;
+        min-width: 280px;
+        height: 168px;
+        min-height: 168px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 23px 20px 20px;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:hover {
+          border-inline: 2px solid #dadada;
+        }
+
+        img {
+          //height: 148px;
+          width: 80%;
+          height: 75%;
+          //max-width: 192px;
+        }
+
+        .item-name {
+          font-size: 14px;
+          font-family: "Open Sans", serif;
+          margin-top: 10px;
+          max-width: 85%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+exports.DirectoryState = Immutable.Record({
+    gender: new Immutable.Record({
+        list: new ExchangeApp.ListState()
+    }),
+    race: new Immutable.Record({
+        list: new ExchangeApp.ListState()
+    })
+})

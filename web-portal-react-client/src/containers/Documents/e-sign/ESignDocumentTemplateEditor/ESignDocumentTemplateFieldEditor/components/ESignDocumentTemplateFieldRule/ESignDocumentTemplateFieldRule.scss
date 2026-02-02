@@ -1,0 +1,35 @@
+@import "custom/_fonts";
+
+.ESignDocumentTemplateFieldRule {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  font-size: 14px;
+  font-family: Open Sans;
+  color: $font-color_head-text;
+  background: white;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.14);
+  padding: 14px 50px 14px 16px;
+
+  &-Text {
+    width: 100%;
+    height: fit-content;
+    line-height: 1.57;
+
+    &_Bold {
+      font-weight: bold;
+      font-family: "Open Sans Semibold", sans-serif;
+      display: inline-flex;
+      flex-wrap: nowrap;
+    }
+  }
+  &-DeleteAction {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+}

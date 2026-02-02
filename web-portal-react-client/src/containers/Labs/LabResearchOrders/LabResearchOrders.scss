@@ -1,0 +1,137 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.LabResearchOrders {
+  @include page;
+}
+
+.LabResearchOrders-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.LabResearchOrders-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.LabResearchOrders-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.LabResearchOrders-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.LabResearchOrders-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.LabResearchOrderFilter-Icon {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+}
+
+.AddLabResearchOrderBtn-OptText {
+  @media (max-width: 350px) {
+    display: none;
+  }
+}
+
+.ReviewLabResearchOrderBtn-OptText {
+  @media (max-width: 400px) {
+    display: none;
+  }
+}
+
+.LabResearchOrderList {
+  &.Table {
+    tbody {
+      & > tr {
+        & > td {
+          padding: 20px 15px;
+        }
+      }
+    }
+  }
+}
+
+.LabResearchOrderList-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    text-decoration: none;
+    color: #0064ad;
+  }
+}
+
+
+
+.LabResearchOrderList-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.LabResearchOrderList-Community {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.LabResearchOrder-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.LabResearchOrderList-ClientHeader {
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
+
+  @media (min-width: 1500px) {
+    width: 15%;
+  }
+}
+
+.LabResearchOrderList-ClientAvatar {
+  @media (max-width: 375px) {
+    display: none !important;
+  }
+}

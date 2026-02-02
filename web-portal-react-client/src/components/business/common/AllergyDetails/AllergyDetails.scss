@@ -1,0 +1,56 @@
+@import "../../../../custom/fonts";
+
+.AllergyDetail {
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.AllergyDetail-Title {
+  flex: 1;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+
+.AllergyDetail-Value {
+  flex: 4;
+  display: flex;
+  justify-content: left;
+  font-size: 14px;
+  color: $font-color_head-text;
+}
+
+.AllergySubDetail {
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.AllergySubDetail-Title {
+  text-transform: uppercase;
+  color: #898989;
+  font-size: 11px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.AllergySubDetail-Value {
+}
+
+.AllergyDetail-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.AllergyDetails-ScrollTopBtn {
+  position: fixed;
+}

@@ -1,0 +1,63 @@
+@import "custom/_fonts";
+
+.CreateContactFormEditor {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+}
+
+
+.CreateContactForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .Scrollable {
+    flex: 1 1 0%;
+  }
+
+  &-Section {
+    padding: 20px 40px 20px;
+  }
+
+  &-SectionTitle {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Open Sans Semibold", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &-TabsContainer {
+    margin-top: 15px;
+  }
+
+  &-TextAreaField {
+    .TextField-Input {
+      height: 75px;
+    }
+
+  }
+}
+.CreateContactForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

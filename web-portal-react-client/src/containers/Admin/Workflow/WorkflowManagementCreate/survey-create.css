@@ -1,0 +1,51 @@
+body {
+  /* SurveyJS Creator V2 */
+  --primary: #2493E5;
+  --primary-light: rgba(26, 183, 250, 0.1);
+  /*--foreground: #ededed;*/
+  --primary-foreground: #ffffff;
+  --secondary: #2493E5;
+  --background: #fff;
+  --background-dim: #fff;
+  --background-dim-light: #fff;
+  --main-color: #2493E5;
+  --sjs-general-forecolor: #000;
+  --sjs-secondary-backcolor-semi-light: rgba(0, 157, 254, 0.11);
+  --sjs-secondary-backcolor-light: rgba(0, 157, 254, 0.5);
+  --sjs-editorpanel-backcolor: #f9f9f9;
+
+  .sd-root-modern {
+    background-color: rgba(204, 204, 204, 0.2);
+  }
+
+  /*.svc-toolbox__category {*/
+  /*  gap: 5px;*/
+  /*}*/
+
+  .svc-toolbox__tool {
+    width: 100% !important;
+  }
+
+  .sv-action__content {
+    width: 100%;
+  }
+
+  .sv-popup--modal .sv-popup__container {
+    position: relative;
+  }
+
+  .svc-toolbox__item {
+    width: 100%;
+    border: 1px solid rgba(204, 204, 204, 0.76);
+    border-radius: 2px !important;
+  }
+
+  .svc-toolbox:not(.svc-toolbox--compact) .svc-toolbox__item:not(.sv-dots):hover {
+    border-radius: 2px !important;
+  }
+
+  .svc-page__footer {
+    margin: 20px 0 0 0 ;
+  }
+
+}

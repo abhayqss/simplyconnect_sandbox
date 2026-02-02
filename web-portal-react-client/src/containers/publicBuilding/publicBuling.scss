@@ -1,0 +1,239 @@
+.publicBulingWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .publicBulingWrapTop {
+    width: 100%;
+    background: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    //margin-bottom: 230px;
+
+    @media screen and (max-width: 700px) {
+      margin-bottom: 300px;
+    }
+
+    .publicBulingWrapTopBox {
+      @media screen and (max-width: 700px) {
+        width: 85%;
+      }
+
+      @media screen and (min-width: 700px) {
+        width: 600px;
+      }
+    }
+
+
+    .publicBulingHeader {
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+      font-weight: bolder;
+
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .searchBox {
+      padding: 20px 30px;
+      background: #fff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 80px;
+
+      .searchScImg {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+
+
+      .searchImg {
+        width: 25px;
+        height: 25px;
+      }
+
+    }
+
+  }
+
+  .womanImg {
+    display: none;
+    @media screen and (max-width: 700px) {
+      position: absolute;
+      display: block;
+      width: 245px;
+      height: 350px;
+      top: 270px;
+      left: 20px;
+    }
+
+  }
+
+
+  .publicBulingInfo {
+    padding: 0 20px;
+
+    @media screen and (min-width: 700px) {
+      display: none;
+    }
+
+  }
+
+  .publicBuildingInfoText {
+    display: none;
+
+    div:first-child {
+      color: #259FD9;
+      font-weight: bolder;
+    }
+
+
+    @media screen and (min-width: 700px) {
+      display: none;
+    }
+
+  }
+
+  .backgroundBox {
+
+    @media screen and (min-width: 700px) {
+      width: 100%;
+      height: 50px;
+      display: block;
+
+      background-color: #F5F5F5;
+    }
+  }
+
+  .publicBulingInfoEnd {
+    width: 100%;
+    padding: 10px 30px;
+    background-color: #9D9FA2;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+
+  .publicBulingWrapBigBox {
+    display: none;
+    @media screen and (min-width: 700px) {
+      width: 600px;
+      display: flex;
+      position: relative;
+      left: -50px;
+
+      .publicBulingWrapBigBoxWomanImg {
+        width: 290px;
+        margin-right: 20px;
+        position: relative;
+        top: -50px;
+      }
+
+      .publicBulingWrapBigBoxRight {
+        img {
+          position: relative;
+          left: -12px;
+        }
+
+        .publicBulingWrapBigBoxRightLocation {
+          color: #259FD9;
+          font-weight: bolder;
+        }
+
+      }
+
+    }
+
+  }
+}
+
+.buildingSearchLabel {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+
+  .searchImg {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+  }
+}
+
+input {
+  width: 100%;
+  height: 30px;
+  background: none;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding-left: 30px;
+}
+
+input:focus {
+  border: 1px solid #ccc;
+}
+
+input::placeholder {
+  color: #ccc;
+  font-weight: bolder;
+}
+
+.publicBulingListWrap {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .publicBulingListWrap {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.publicBulingListWrapLoading {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.publicBulingListBox {
+  width: calc(33.3333% - 20px);
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+
+  img {
+    width: 100%;
+    aspect-ratio: 6/4;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 90%;
+  }
+
+  .publicBulingListAddress {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+

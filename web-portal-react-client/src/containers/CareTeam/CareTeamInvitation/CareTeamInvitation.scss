@@ -1,0 +1,50 @@
+@import "../../../custom/fonts";
+
+.CareTeamInvitation {
+    flex: 1;
+    display: flex;
+    background: #ffffff;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5% 0;
+}
+  
+.CareTeamInvitation-InfoText {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.CareTeamInvitation-Title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 16px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+}
+
+.CareTeamInvitation-Body {
+    display: flex;
+    flex-direction: row;
+    padding: 0 16px;
+
+    @media (max-width: 869px) {
+        flex-direction: column;
+    }
+}
+  
+.CareTeamInvitation-LogoImage {
+    width: 220px;
+    height: 76px;
+    margin-right: 50px
+}
+
+.CareTeamInvitation-Download {
+    margin-right: 15px;
+
+    & > svg {
+        width: 135px;
+        height: auto;
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <Person id="50" legacy_id="1" legacy_table="Resident" database_id="5"/>
+  <PersonAddress id="47" database_id="5" person_id="50" legacy_id="1" legacy_table="Resident" city="Minnetonka" country="US" use_code="HP" state="MN" postal_code="55343" street_address="5610 Rowland Drive, Unit# 121"/>
+  <PersonTelecom id="142" sync_qualifier="0" database_id="5" person_id="50" legacy_id="1" legacy_table="Resident" use_code="EMAIL" value="" value_normalized="" value_normalized_hash="2061"/>
+  <PersonTelecom id="141" sync_qualifier="1" database_id="5" person_id="50" legacy_id="1" legacy_table="Resident" use_code="HP" value="+(234) 567-8903" value_normalized="2345678903" value_normalized_hash="511"/>
+  <PersonTelecom id="143" sync_qualifier="2" database_id="5" person_id="50" legacy_id="1" legacy_table="Resident" value="+(705) 846-2355" value_normalized="7058462355" value_normalized_hash="4374"/>
+  <name id="47" use_code="L" database_id="5" person_id="50" family="Xavier" family_normalized="xavier" family_hash="4532" given="Charles" given_normalized="charles" given_hash="728" middle="Francis" middle_normalized="francis" middle_hash="-1340" prefix="" suffix="" legacy_id="1" legacy_table="Resident" call_me="Charlie"/>
+  <Custodian id="47" database_id="5" organization_id="23" legacy_id="1"/>
+  <resident id="47" legacy_table="CCN_MANUAL" legacy_id="1" admit_date="2012-04-19 08:00:00.0" discharge_date="2012-08-31 00:00:00.0" database_id="5" custodian_id="47" facility_id="23" person_id="50" provider_organization_id="23" opt_out="false" marital_status_id="10" religion_id="72" unit_number="121" age="97" preadmission_number="" hospital_of_preference="" transportation_preference="" ambulance_preference="" veteran="" evacuation_status="Dependent" dental_insurance="" ssn="123456710" ssn_last_four_digits="1111" ssn_hash="3243" birth_date="1919-05-27" birth_date_hash="-3144" medical_record_number="" medicare_number="" medicaid_number="" ma_authorization_number="" prev_addr_street="123 Cherry St" prev_addr_city="Huntington" prev_addr_state="IN" prev_addr_zip="46750" advance_directive_free_text="" first_name="Charles" last_name="Xavier" middle_name="Francis" preferred_name="Charlie" active="true"/>
+  <MPI_merged_residents/>
+</dataset>

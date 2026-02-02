@@ -1,0 +1,70 @@
+.ESignDocumentTemplateEditor {
+  max-width: 1248px !important;
+
+  .modal-content {
+    border: none;
+  }
+
+  &-Body {
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-FormFooter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px 25px 40px;
+    border-top: 1px solid #dee2e6;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+    }
+  }
+
+  &-SubmitBtn {
+    display: inline-block;
+    position: relative;
+
+    &_disabled {
+      .btn.disabled {
+        pointer-events: none;
+      }
+    }
+
+    .btn {
+      width: 120px;
+    }
+  }
+
+}
+
+.uploadFileBox {
+  width: 100%;
+
+  padding: 20px;
+}
+
+.esignNext {
+  width: 100%;
+  height: 40px;
+  margin-top: 30px;
+}
+
+.esignSave {
+  width: 100px;
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: absolute;
+  right: 20px;
+  top: -25px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+

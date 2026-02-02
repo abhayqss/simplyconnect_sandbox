@@ -1,0 +1,1 @@
+INSERT INTO [dbo].[Privilege] ([name]) VALUES ('SPECIAL_CONSANA');

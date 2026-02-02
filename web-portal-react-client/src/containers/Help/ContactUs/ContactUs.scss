@@ -1,0 +1,56 @@
+.ContactUs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 5px;
+
+    @media (min-width: 450px) {
+        padding: 20px 10px;
+    }
+
+    @media (min-width: 550px) {
+        padding: 20px 30px;
+    }
+
+    &-Body {
+        flex: 1;
+    }
+
+    &-Header {
+        margin-bottom: 10px;
+    }
+
+    &-Title {
+        font-size: 26px;
+        color: #222222;
+        white-space: nowrap;
+        font-family: "Open Sans Semibold", sans-serif;
+        margin-top: 32px;
+        margin-bottom: 5px;
+    }
+
+    &-Info {
+        font-size: 15px;
+        margin-bottom: 16px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &-InfoTitle {
+        font-weight: bold;
+    }
+
+    &-ActionButtons {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &-Button {
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<div>
+    <b>Dear ${dto.recipientName},</b>
+    <br><br>
+    A new service request has been submitted for your evaluation and consideration:
+    <br><br>
+    <br><b>Service:</b> ${dto.service}
+    <br><b>Priority:</b> ${dto.priority}
+    <br><b>Requested by:</b> ${dto.community}.
+    <br><br>
+    Please login to the Simply Connect platform to view the details of the referral request.
+    #parse( "velocity/button.vm")
+</div>

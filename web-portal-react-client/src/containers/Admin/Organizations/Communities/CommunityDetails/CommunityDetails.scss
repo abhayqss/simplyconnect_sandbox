@@ -1,0 +1,102 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.CommunityDetails {
+  @include page;
+}
+
+.CommunityDetails-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.CommunityDetails-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.CommunityDetails-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.CommunityDetails-Body {
+  padding-top: 30px;
+}
+
+.CommunityDetails-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.CommunityDetails-HeaderLabel {
+  margin-bottom: 12px;
+  border: 1px solid #00524d;
+  color: #0064ad;
+  font-size: 14px;
+  padding: 7px;
+}
+
+.CommunityDetails-FilterFieldIcon {
+  top: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+  position: absolute;
+}
+
+.CommunityDetails-AddToSelect {
+  display: inline-block;
+  width: 180px;
+  height: 37px;
+  fill: #0064ad;
+  margin-top: 7px;
+  border-radius: 2px;
+  border: 1px solid #0064ad;
+
+  .MultiSelect-SelectedText {
+    color: #0064ad;
+    font-size: 14px;
+    margin-left: 10px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  .MultiSelect-ToggleChevron {
+    margin-right: 10px;
+  }
+}
+
+.CommunityDetail-Logo {
+  height: 40px;
+}
+
+.CommunityDetail-Photo {
+  height: 110px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.CommunityDetails-TabsContainer {
+  display: flex;
+  justify-content: start;
+}
+
+.communityTabWrap {
+  margin-top: 20px;
+}

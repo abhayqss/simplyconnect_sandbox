@@ -1,0 +1,2 @@
+-- INSERT INTO EventsProvider (login, password, name) VALUES ('consana_events_provider', '88c089f9cd86d1757b50661da17a33c22fca1e65189308957296c5593fe4b7c54657c6ec34ab453f', 'Consana Events Provider');
+delete from EventsProvider where login = 'consana_events_provider'

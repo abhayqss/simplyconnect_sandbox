@@ -1,0 +1,13 @@
+.DayTimeGrid {
+  height: 100%;
+  position: relative;
+
+  &-HighlightedTime {
+    left: 75px;
+    right: 0;
+    top: 300px;
+    position: absolute;
+    border-radius: 2px;
+    border: 2px solid #1e3352;
+  }
+}

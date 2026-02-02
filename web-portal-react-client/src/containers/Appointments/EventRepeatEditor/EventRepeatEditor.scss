@@ -1,0 +1,19 @@
+.EventRepeatEditor {
+  &.modal-dialog {
+    max-width: 600px;
+  }
+
+  .modal-header {
+    background-color: white;
+    padding: 20px 25px 20px 40px;
+  }
+
+  .modal-body {
+    overflow: initial;
+  }
+
+  .modal-content {
+    border: none;
+    height: auto;
+  }
+}

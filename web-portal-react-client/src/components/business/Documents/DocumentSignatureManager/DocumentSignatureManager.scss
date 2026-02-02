@@ -1,0 +1,96 @@
+.DocumentSignatureManager {
+  &.Modal {
+    height: auto;
+    max-width: 1100px;
+
+    @media (max-width: 1366px) {
+      max-width: 1024px;
+    }
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+    }
+  }
+
+  .Modal-Footer {
+    .btn {
+      width: auto;
+      padding: 0 15px;
+    }
+  }
+
+  &-Info {
+    padding: 0 24px;
+  }
+
+  &-Actions {
+    flex: 1;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &-Action {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.DocumentSignatureHistoryContainer {
+  padding: 0 24px;
+}
+
+.DocumentSignatureHistory {
+  .Table-Title {
+    font-size: 18px;
+  }
+
+  &-ActionCol {
+    width: 23%;
+  }
+
+  &-CommentsCol {
+    width: 30%;
+  }
+
+  &-Comment {
+    margin-bottom: 7px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-DialogCloseIcon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    fill: #4C4E51;
+    cursor: pointer;
+  }
+
+  &-ClientLink {
+    font-weight: 600;
+    color: #0064ad;
+    text-decoration: none;
+
+    &:hover {
+      color: #0064ad;
+    }
+  }
+}
+
+.CancelRequestDialog {
+  max-width: 530px;
+}
+
+.ResubmitConfirmDialog {
+  max-width: 570px;
+}

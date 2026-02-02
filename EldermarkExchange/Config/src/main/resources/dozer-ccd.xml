@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+              http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <configuration>
+        <custom-converters>
+            <converter type="com.scnsoft.eldermark.shared.ccd.converters.CcdCodeConverter">
+                <class-a>com.scnsoft.eldermark.entity.CcdCode</class-a>
+                <class-b>java.lang.String</class-b>
+            </converter>
+
+            <converter type="com.scnsoft.eldermark.shared.ccd.converters.PersonNameConverter">
+                <class-a>com.scnsoft.eldermark.entity.Name</class-a>
+                <class-b>com.scnsoft.eldermark.shared.ccd.NameDto</class-b>
+            </converter>
+        </custom-converters>
+    </configuration>
+
+    <!--Header patient-->
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Resident</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.CcdHeaderPatientDto</class-b>
+        <field>
+            <a>birthDate</a>
+            <b date-format="MM/dd/yyyy">birthDate</b>
+        </field>
+        <field>
+            <a>guardians</a>
+            <b>guardians</b>
+            <a-hint>com.scnsoft.eldermark.entity.Guardian</a-hint>
+            <b-hint>com.scnsoft.eldermark.shared.ccd.GuardianDto</b-hint>
+        </field>
+        <field>
+            <a>languages</a>
+            <b>languages</b>
+            <a-hint>com.scnsoft.eldermark.entity.Language</a-hint>
+            <b-hint>com.scnsoft.eldermark.shared.ccd.LanguageDto</b-hint>
+        </field>
+    </mapping>
+
+    <!--Header details-->
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.CcdHeaderDetails</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.CcdHeaderDetailsDto</class-b>
+    </mapping>
+
+    <mapping date-format="MM/dd/yyyy HH:mm">
+        <class-a>com.scnsoft.eldermark.entity.Author</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.AuthorDto</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.DataEnterer</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.DataEntererDto</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Informant</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.InformantDto</class-b>
+    </mapping>
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Custodian</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.CustodianDto</class-b>
+        <field custom-converter-id="custodianConverterId">
+            <a>organization</a>
+            <b>organization</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.InformationRecipient</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.InformationRecipientDto</class-b>
+    </mapping>
+    <mapping date-format="MM/dd/yyyy HH:mm">
+        <class-a>com.scnsoft.eldermark.entity.LegalAuthenticator</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.LegalAuthenticatorDto</class-b>
+    </mapping>
+    <mapping date-format="MM/dd/yyyy HH:mm">
+        <class-a>com.scnsoft.eldermark.entity.Authenticator</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.AuthenticatorDto</class-b>
+    </mapping>
+    <mapping date-format="MM/dd/yyyy HH:mm">
+        <class-a>com.scnsoft.eldermark.entity.Participant</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.ParticipantDto</class-b>
+    </mapping>
+    <mapping date-format="MM/dd/yyyy HH:mm">
+        <class-a>com.scnsoft.eldermark.entity.DocumentationOf</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.DocumentationOfDto</class-b>
+        <field>
+            <a>persons</a>
+            <b>persons</b>
+            <a-hint>com.scnsoft.eldermark.entity.Person</a-hint>
+            <b-hint>com.scnsoft.eldermark.shared.ccd.PersonDto</b-hint>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Person</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.PersonDto</class-b>
+        <field>
+            <a>names</a>
+            <b>names</b>
+            <a-hint>com.scnsoft.eldermark.entity.Name</a-hint>
+            <b-hint>com.scnsoft.eldermark.shared.ccd.NameDto</b-hint>
+        </field>
+        <field>
+            <a>addresses</a>
+            <b>addresses</b>
+            <a-hint>com.scnsoft.eldermark.entity.Address</a-hint>
+            <b-hint>com.scnsoft.eldermark.shared.ccd.AddressDto</b-hint>
+        </field>
+        <field>
+            <a>telecoms</a>
+            <b>telecoms</b>
+            <a-hint>com.scnsoft.eldermark.entity.Telecom</a-hint>
+            <b-hint>com.scnsoft.eldermark.shared.ccd.TelecomDto</b-hint>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Address</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.AddressDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>com.scnsoft.eldermark.entity.Telecom</class-a>
+        <class-b>com.scnsoft.eldermark.shared.ccd.TelecomDto</class-b>
+    </mapping>
+</mappings>

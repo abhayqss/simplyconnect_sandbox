@@ -1,0 +1,44 @@
+.question-item {
+  box-sizing: border-box;
+  width: 26px;
+  height: 26px;
+  color: #949494;
+  line-height: 25px;
+  text-align: center;
+  border: 1px solid #ececec;
+  box-shadow: 0 2px 4px 0 rgba(142, 147, 156, 0.15);
+  position: relative;
+}
+
+.item-hasDone {
+  color: #fff;
+  background-color: #00ace6;
+  border-color: #00ace6;
+  border-right-color: #fff;
+}
+
+
+.item-pending {
+  color: #f45640;
+  background-color: #fcecd9;
+}
+
+.tips-icon-question {
+  position: absolute;
+  right: -4px;
+  top: -10px;
+  z-index: 3;
+  width: 16px;
+  height: 16px;
+  //cursor: pointer;
+}
+
+.tooltips-box-show {
+  .Resign-tip {
+    color: rgba(102, 105, 107, 1);
+  }
+
+  .Resign-tip-eSign-name {
+    color: #075AA0;
+  }
+}

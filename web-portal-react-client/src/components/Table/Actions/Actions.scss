@@ -1,0 +1,220 @@
+.Actions {
+  display: flex;
+  justify-content: space-between;
+
+  svg:focus {
+    outline: none;
+  }
+}
+
+.Vendor-Actions {
+  justify-content: flex-end;
+}
+
+.Disabled-Actions-Item {
+  cursor: not-allowed;
+  fill: #a5a5a5;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-right: 10px;
+  &:only-child {
+    margin-left: auto;
+  }
+}
+.Actions-Item {
+  cursor: pointer;
+  fill: #0064ad;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:only-child {
+    margin-left: auto;
+  }
+
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  &:last-child {
+    // margin-right: 0;
+  }
+
+  @media (max-width: 1500px) {
+    // margin-right: 10px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 35px;
+    height: 35px;
+    // margin-right: 8px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 34px;
+    height: 34px;
+    // margin-right: 5px;
+  }
+}
+
+.Actions-Item-1 {
+  cursor: pointer;
+  //fill: #0064ad;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:only-child {
+    margin-left: auto;
+  }
+
+  &:hover {
+    //background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  &:last-child {
+    // margin-right: 0;
+  }
+
+  @media (max-width: 1500px) {
+    // margin-right: 10px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 35px;
+    height: 35px;
+    // margin-right: 8px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 34px;
+    height: 34px;
+    // margin-right: 5px;
+  }
+}
+
+.Actions-Item-archive {
+  cursor: pointer;
+  //fill: #0064ad;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:only-child {
+    margin-left: auto;
+  }
+
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  &:last-child {
+    // margin-right: 0;
+  }
+
+  @media (max-width: 1500px) {
+    // margin-right: 10px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 35px;
+    height: 35px;
+    // margin-right: 8px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 34px;
+    height: 34px;
+    // margin-right: 5px;
+  }
+}
+
+.cog {
+  stroke: #b3b3b3;
+}
+
+.pencil {
+  fill: #b3b3b3;
+}
+
+.notAllowed {
+  stroke: #b3b3b3;
+  cursor: not-allowed;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin-right: 10px;
+  margin-left: -3px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    //background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+  }
+
+  @media (max-width: 1500px) {
+    // margin-right: 10px;
+  }
+
+  @media (max-width: 1200px) {
+    width: 35px;
+    height: 35px;
+    // margin-right: 8px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.Actions-Item-Unlink {
+  fill: #fff;
+
+  &:hover path {
+    stroke: #fff !important;
+    transition: stroke 0.2s;
+  }
+}

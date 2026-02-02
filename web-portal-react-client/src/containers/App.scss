@@ -1,0 +1,67 @@
+@import '~react-toastify/dist/ReactToastify.min.css';
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-Content {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.PopupMessageNotification {
+  top: 5px;
+  right: 5px;
+  position: fixed;
+  z-index: 1000;
+  max-width: 360px;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+    max-width: 50%;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .MessageNotification-Body {
+    @media (max-width: 1024px) {
+      width: 50%;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+}
+
+.ToastContainer-Download {
+  bottom: 0;
+  left: 0;
+  padding: 0;
+}
+
+
+.sd-body {
+  background-color: #fff;
+}
+
+.sd-footer {
+  justify-content: center;
+  gap: 20px;
+}
+
+.sd-btn--action:hover {
+  background-color: #0064ad;
+}
+
+.sd-page {
+  padding: 0!important;
+}

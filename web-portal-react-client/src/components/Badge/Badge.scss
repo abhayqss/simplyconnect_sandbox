@@ -1,0 +1,20 @@
+.Badge.badge {
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 4px 10px;
+
+  &.badge-warning {
+    color: #ffffff;
+  }
+
+  &.badge-info {
+    color: #ffffff;
+    background-color: #03b6f3;
+  }
+}
+
+.Badge_place_top-right {
+  position: relative;
+  top: -15px;
+  left: 10px;
+}

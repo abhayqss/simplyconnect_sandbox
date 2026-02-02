@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="document-template" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8,7.5 L8,0.5 C8,0.223857625 7.77614237,-5.07265313e-17 7.5,0 L0.5,0 C0.223857625,5.07265313e-17 -3.38176876e-17,0.223857625 0,0.5 L0,7.5 C3.38176876e-17,7.77614237 0.223857625,8 0.5,8 L7.5,8 C7.77614237,8 8,7.77614237 8,7.5 Z M3.2,5.9 L1.49166667,4.1875 L2.05416667,3.625 L3.2,4.76666667 L5.94583333,2.025 L6.50833333,2.5875 L3.2,5.9 Z" id="-copy-3" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

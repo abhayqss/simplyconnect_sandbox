@@ -1,0 +1,77 @@
+@import "custom/_fonts";
+
+.SelectField {
+  position: relative;
+
+  &.mb-3 {
+    margin-bottom: 20px !important;
+  }
+
+  .was-validated {
+    border-color: #f33232;
+    background-image: none;
+  }
+
+  .MultiSelectGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    height: 35px;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
+
+    &.form-control {
+      padding: 6px 12px;
+    }
+
+    &:hover {
+      border-color: #bfbdbd;
+    }
+
+    &:invalid,
+    &.is-invalid,
+    &.form-control.is-invalid,
+    &.form-control:invalid {
+      padding: 6px 12px !important;
+      border-color: #f33232;
+      background-image: none;
+    }
+
+    &_expanded {
+      &.form-control {
+        border-color: #898989;
+
+        &:hover {
+          border-color: #898989;
+        }
+      }
+    }
+  }
+
+  .MultiSelectGroup-Options {
+    width: 100%;
+  }
+}
+
+.SelectField-Label {
+  font-size: 13px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.SelectField-Error {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #dc3545;
+}
+
+.SelectField_disabled {
+  .SelectField-Label {
+    color: #898989;
+  }
+}

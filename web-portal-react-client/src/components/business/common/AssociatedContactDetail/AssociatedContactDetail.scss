@@ -1,0 +1,14 @@
+.AssociatedContactDetail {
+  display: flex;
+
+  &-Title {
+    flex: 1;
+    font-weight: 600;
+    min-width: 120px;
+    text-transform: uppercase;
+  }
+
+  &-Value {
+    flex: 3;
+  }
+}

@@ -1,0 +1,30 @@
+
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.workflow-category-name {
+  color: #075AA0;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: Poppins, sans-serif;
+}
+
+.Workflow-Management {
+  @include page;
+  font-family: "Open Sans", sans-serif !important
+}
+.workflow-categories-list{
+
+}
+.workflow-category-captionHeader{
+  .workflow-category-title{
+    display: inline-block;
+    font-size: 26px;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  .workflow-category-ad-new{
+
+  }
+}

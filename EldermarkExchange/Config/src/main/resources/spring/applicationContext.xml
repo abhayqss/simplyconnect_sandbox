@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        ">
+
+    <import resource="classpath:spring/applicationContext-dozer.xml"/>
+
+    <task:annotation-driven/>
+
+    <context:property-placeholder
+            location="classpath:application.properties"/>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.scnsoft">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <aop:aspectj-autoproxy/>
+
+    <bean id="reportGeneratorFactory" class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+        <property name="serviceLocatorInterface" value="com.scnsoft.eldermark.services.ReportGeneratorFactory"/>
+    </bean>
+
+    <alias alias="ccd" name="CcdGenerator"/>
+    <alias alias="facesheet" name="FacesheetGenerator"/>
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.server.ip}"/>
+        <property name="port" value="${mail.server.port}"/>
+        <property name="username" value="${mail.user}"/>
+        <property name="password" value="${mail.password}"/>
+    </bean>
+
+    <bean id="smsClient" class="com.twilio.sdk.TwilioRestClient">
+        <constructor-arg index="0" value="${twillo.sid}"/>
+        <constructor-arg index="1" value="${twillo.token}"/>
+    </bean>
+
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <value>
+                resource.loader=class
+                class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+            </value>
+        </property>
+    </bean>
+
+    <!--jaxb context-->
+    <bean id="eventsSchemaFactory" class="javax.xml.validation.SchemaFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="http://www.w3.org/2001/XMLSchema"/>
+    </bean>
+
+    <bean id="eventsSchema" factory-bean="eventsSchemaFactory" factory-method="newSchema">
+        <constructor-arg index="0" value="classpath:${events.xsd.file}"/>
+    </bean>
+
+    <bean id="deviceEventsSchema" factory-bean="eventsSchemaFactory" factory-method="newSchema">
+        <constructor-arg index="0" value="classpath:${events.xsd.file.device}"/>
+    </bean>
+
+    <bean id="eventsJaxbContext" class="javax.xml.bind.JAXBContext" factory-method="newInstance">
+        <constructor-arg>
+            <list>
+                <value>com.scnsoft.eldermark.schema.Events</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="deviceEventsJaxbContext" class="javax.xml.bind.JAXBContext" factory-method="newInstance">
+        <constructor-arg>
+            <list>
+                <value>com.scnsoft.eldermark.schema.DeviceEvents</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean name="eventsUnmarshaler" id="eventsUnmarshaler" factory-bean="eventsJaxbContext" factory-method="createUnmarshaller">
+        <property name="schema" ref="eventsSchema"/>
+        <property name="eventHandler">
+            <bean class="com.scnsoft.eldermark.handler.EventsJaxbValidationEventHandler"/>
+        </property>
+    </bean>
+
+    <bean name="deviceEventsUnmarshaller" id="deviceEventsUnmarshaller" factory-bean="deviceEventsJaxbContext" factory-method="createUnmarshaller">
+        <property name="schema" ref="deviceEventsSchema"/>
+        <property name="eventHandler">
+            <bean class="com.scnsoft.eldermark.handler.EventsJaxbValidationEventHandler"/>
+        </property>
+    </bean>
+
+    <bean id="eventsMarshaler" factory-bean="eventsJaxbContext" factory-method="createMarshaller">
+        <!--<property name="schema" ref="eventsSchema"/>-->
+    </bean>
+
+    <bean id="threadPoolTaskScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+        <property name="poolSize" value="65"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,10 @@
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    You have a new incident report for ${dto.initials}.
+        <br><br>
+    #if(${dto.url})
+        Please login to the Simply Connect platform to view the Incident report.
+        #parse( "velocity/button.vm")
+    #end
+</div>

@@ -1,0 +1,10 @@
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+<div>
+    Thank you for registering on the
+    <a href="${portalUrl}" style="text-decoration: none"><span style="color:#0064ad;">Simply Connect platform</span></a>.
+    <br><br>
+    For future access to our portal use ${dto.username} as your username.
+    <br><br>
+    Forgot your password? You can always reset your password.
+    #parse( "velocity/buttonList.vm")
+</div>

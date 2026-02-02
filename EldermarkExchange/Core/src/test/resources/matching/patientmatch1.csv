@@ -1,0 +1,100 @@
+1,123456789,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,,
+2,123456788,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+3,123456798,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+4,123456957,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,
+5,123-456-789,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+6,555555555,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,
+7,123456798,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from YES to NO 24.01.17
+8,123456798,Tammy,Jone,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+9,123456798,Tommy,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+10,123456798,Tommy,Jones,12-01-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+11,123456798,Tommy,Jones,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+12,123456798,Tommy,Jones,09-15-1954,M,8877 Wallet Wall Ave.  ,Trenton,NJ,86100,YES,
+13,123456798,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenon,NJ,86100,YES,
+14,123456798,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NY,86100,MAYBE,
+15,123456798,Tommy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86001,YES,
+16,123456789,Tammy,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+17,123456789,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,changed from YES to MAYBE 24.01.17
+18,123456789,Tim,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,changed from YES to MAYBE 24.01.17
+19,123456789,Jack,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+20,123456788,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from YES to NO 24.01.17
+21,123456789,Tom,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,changed from YES to NO 24.01.17
+22,123456789,Tom,Jones,12-02-1964,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from YES to NO 24.01.17
+23,123456789,Tom,Jones,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,changed from YES to MAYBE 24.01.17
+24,123456789,Tom,Jones,09-15-1954,M,1111 Test Ave.,Trenton,NJ,86100,MAYBE,changed from YES to MAYBE 24.01.17
+25,123456789,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trento,NJ,86100,MAYBE,changed from YES to MAYBE 24.01.17
+26,123456789,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NY,86100,MAYBE,changed from YES to MAYBE 24.01.17
+27,123456789,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,11111,MAYBE,changed from YES to MAYBE 24.01.17
+28,123456788,Tom,Johnson,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,
+29,123456788,Tom,Jones,12-02-1964,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from NO to MAYBE 24.01.17
+30,123456788,Tom,Jones,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from NO to MAYBE 24.01.17
+31,123456788,Tom,Jones,09-15-1954,M,1111 Test Ave.,Trenton,NJ,86100,NO,changed from NO to MAYBE 24.01.17
+32,123456788,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Garwood,NJ,86100,NO,changed from NO to MAYBE 24.01.17
+33,123456788,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NY,86100,NO,changed from NO to MAYBE 24.01.17
+34,123456788,Tom,Jones,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,11111,NO,changed from NO to MAYBE 24.01.17
+35,123456789,Tommy,Jone,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+36,123456789,Tommy,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+37,123456789,Tommy,Parker,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,changed from NO to MAYBE 24.01.17
+38,123456789,Tommy,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+39,123456789,Tom,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,changed from YES to NO 24.01.17
+40,123456788,Tommy,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+41,123456789,Tommy,Johns,09-01-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+42,123456789,Tommy,Johns,12-01-1963,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+43,123456789,Tom,Johns,12-01-1963,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+44,123456789,Tommy,Johns,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+45,123456789,Tom,Johns,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from YES to NO 24.01.17
+46,123456789,Tom,Johns,09-15-1954,M,1111 Test Ave.,Trenton,NJ,86100,NO,changed from YES to NO 24.01.17
+47,123456789,Tom,Johns,12-01-1963,M,1111 Test Ave.,Trenton,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+48,123456789,Tom,Johns,09-15-1954,F,1111 Test Ave.,Trenton,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+49,123456789,Tom,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Garwood,NJ,86100,NO,changed from YES to NO 24.01.17
+50,123456789,Tom,Johns,12-01-1963,M,8877 W. Wall Ave.  ,Garwood,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+51,123456789,Tom,Johns,09-15-1954,F,8877 W. Wall Ave.  ,Garwood,NJ,86100,NO,changed from YES to NO 24.01.17
+52,123456789,Tom,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NY,86100,NO,changed from YES to NO 24.01.17
+53,123456789,Tom,Johns,12-01-1963,M,8877 W. Wall Ave.  ,Trenton,NY,86100,NO,changed from MAYBE to NO 24.01.17
+54,123456789,Tom,Johns,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NY,86100,NO,changed from MAYBE to NO 24.01.17
+55,123456789,Tom,Johns,09-15-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,11111,NO,changed from YES to NO 24.01.17
+56,123456789,Tom,Johns,12-01-1963,M,8877 W. Wall Ave.  ,Trenton,NJ,11111,NO,changed from MAYBE to NO 24.01.17
+57,123456789,Tom,Johns,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,11111,NO,changed from YES to NO 24.01.17
+58,123456789,Tom,Johns,09-15-1954,M,1111 Test Ave.,1111 Test Ave.,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+59,123456789,Tom,Johns,09-15-1954,M,1111 Test Ave.,Garwood,NY,86100,NO,changed from MAYBE to NO 24.01.17
+60,123456789,Tom,Johns,09-15-1954,M,1111 Test Ave.,Garwood,NJ,11111,NO,changed from MAYBE to NO 24.01.17
+61,123456789,Tom,Johns,09-15-1954,M,1111 Test Ave.,Garwood,NY,11111,NO,changed from MAYBE to NO 24.01.17
+62,123456789,Tommy,Jones,09-16-1954,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+63,123456789,Tommy,Jones,09-05-1964,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+64,123456789,Tommy,Jones,11-23-1966,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+65,123456789,Tommy,Jones,11-23-1966,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+66,123456789,Tommy,Jones,11-23-1966,M,1111 Test Ave.,Trenton,NJ,86100,YES,
+67,123456789,Tommy,Jones,11-23-1966,M,1111 Test Ave.,Garwood,NJ,86100,MAYBE,
+68,123456789,Tommy,Jones,11-23-1966,M,1111 Test Ave.,Garwood,NY,86100,MAYBE,
+69,123456789,Tommy,Jones,11-23-1966,M,1111 Test Ave.,Garwood,NY,11111,MAYBE,
+70,123456789,Tommy,Jones,11-23-1966,F,1111 Test Ave.,Garwood,NY,11111,MAYBE,
+71,123456789,Tommy,Jones,11-23-1966,M,1111 Test Ave.,Garwood,NY,11111,MAYBE,
+72,123456788,Tommi,Jone,11-23-1966,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,
+73,123456788,Tommy,Johnson,11-23-1966,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,
+74,123456788,Tim,Jones,11-23-1966,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+75,123456789,Tommy,Jones,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+76,123456789,Tommy,Jones,09-15-1954,F,1111 Test Ave.,Trenton,NJ,86100,YES,
+77,123456789,Tommy,Jones,09-15-1954,F,1111 Test Ave.,Garwood,NJ,86100,YES,
+78,123456789,Tommy,Jones,09-15-1954,F,1111 Test Ave.,Garwood,NY,86100,YES,
+79,123456789,Tommy,Jones,09-15-1954,F,1111 Test Ave.,Garwood,NY,11111,MAYBE,
+80,123456788,Tommi,Jone,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+81,123456788,Tommy,Johnson,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,
+82,123456788,Tim,Jones,09-15-1954,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+83,123456788,Tommy,Jones,11-23-1966,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+84,123456788,Tommy,Jones,11-23-1966,F,8877 W. Wall Ave.  ,Trenton,NJ,86100,MAYBE,
+85,123456788,Tommy,Jones,11-23-1966,F,1111 Test Ave.,Garwood,NJ,86100,NO,
+86,123456788,Tommy,Jones,11-23-1966,F,1111 Test Ave.,Garwood,NY,11111,NO,
+87,123456789,Tommy,Jones,09-15-1954,M,8888 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+88,123456789,Tommy,Jones,09-15-1954,M,8877 Wallet Wall Avenue ,Trenton,NJ,86100,YES,
+89,123456789,Tommy,Jones,09-15-1954,M,123 Test Str.,Trenton,NJ,86100,YES,
+90,123456789,Tommi,Jone,09-15-1954,M,1111 Test Ave.,Garwood,NJ,86100,MAYBE,changed from YES to MAYBE 24.01.17
+91,123456788,Tommi,Jone,09-15-1954,M,1111 Test Ave.,Garwood,NJ,86100,MAYBE,changed from MAYBE to NO 24.01.17
+92,123456788,Tommi,Jone,12-15-1954,M,1111 Test Ave.,Garwood,NJ,86100,NO,changed from MAYBE to NO 24.01.17
+93,123456788,Tommi,Jone,09-15-1954,F,1111 Test Ave.,Garwood,NJ,86100,NO,
+94,123456788,Tommi,Jone,09-15-1954,M,1111 Test Ave.,Garwood,NY,11111,NO,
+95,123456788,Tommi,Jone,12-15-1954,F,1111 Test Ave.,Garwood,NY,11111,NO,
+96,123456788,Tommi,Jone,09-15-1954,F,1111 Test Ave.,Garwood,NY,11111,NO,
+97,123456789,Tommy,Jones,09-15-1954,M,,,,,YES,
+98,123456789,Tommy,Jones,09-15-1954,,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+99,123456789,Tommy,Jones,,M,8877 W. Wall Ave.  ,Trenton,NJ,86100,YES,
+100,123456789,Tommy,Jones,09-15-1954,M,1111 Test Ave.,Garwood,NY,11111,YES,

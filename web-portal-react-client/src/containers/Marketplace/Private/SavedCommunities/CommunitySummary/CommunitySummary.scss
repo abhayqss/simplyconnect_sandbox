@@ -1,0 +1,60 @@
+@import "../../../../../custom/fonts";
+@import '../../../../../custom/mixins';
+
+.CommunitySummary {
+    font-size: 14px;
+    color: $font-color_head-text;
+    font-family: "Open Sans", sans-serif;
+
+    &-Body {
+        margin: 20px 0;
+    }
+
+    &-Title {
+        font-family: "Open Sans Semibold", sans-serif;
+        font-size: 18px;
+        margin-bottom: 6px;
+        @include line-clamp(3);
+    }
+
+    &-SubTitle {
+        @include line-clamp(2);
+        font-size: $font-size_list-item-text;
+    }
+
+    &-Address {
+        font-size: $font-size_list-item-text;
+    }
+
+    &-Detail {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    &-Icon {
+        height: 24px;
+        width: 20px;
+        margin-right: 12px;
+    }
+
+    &-Phone {
+        color: #0064ad;
+        font-weight: bold;
+        font-size: $font-size_list-item-text;
+    }
+
+    &-Footer {
+        display: flex;
+        flex-flow: wrap;
+        flex-direction: row;
+    }
+
+    &-Button {
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

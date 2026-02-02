@@ -1,0 +1,1 @@
+move target\CONNECTIntegration-1.0-SNAPSHOT.jar d:\tools\glassfish3\glassfish\domains\domain1\applications\CONNECT-GF-4.2.1\lib\

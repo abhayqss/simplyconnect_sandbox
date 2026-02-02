@@ -1,0 +1,7 @@
+#* @vtlvariable name="buttonWidth" type="int" *#
+#* @vtlvariable name="buttonUrl" type="java.lang.String" *#
+#* @vtlvariable name="buttonLabel" type="java.lang.String" *#
+<div><br/>
+    #parse("velocity/base/baseButton.vm")
+    <br/><br>
+</div>

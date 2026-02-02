@@ -1,0 +1,48 @@
+.FilePreview {
+    border: solid 1px #e0e0e0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    position: relative;
+
+    &-Body {
+        display: flex;
+        align-items: center;
+        padding: 9px 12px;
+
+        @media (max-width: 667px) {
+            padding: 5px 10px;
+        }
+    }
+
+    &-Icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    &-Name {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &-Slot {
+        display: flex;
+    }
+
+    &-Loader{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        align-items: center;
+
+        .LoaderImg {
+            top: calc(50% - 15px);
+        }
+
+        .Loader-Backdrop {
+            opacity: 0
+        }
+    }
+}

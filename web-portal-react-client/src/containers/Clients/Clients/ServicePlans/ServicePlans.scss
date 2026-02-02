@@ -1,0 +1,132 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.ServicePlans {
+  @include page;
+}
+
+.ServicePlanList {}
+
+.ServicePlanList-Actions {
+  width: 100px;
+
+  @media only screen and (min-width: 1366px) {
+    width: 133px;
+  }
+}
+
+.ServicePlanListContainer {
+  margin-top: 22px;
+}
+
+.ServicePlanList-Caption {
+  padding-bottom: 10px;
+}
+
+.ServicePlanList-CaptionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ServicePlanList-Title {
+  flex: 1;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.ServicePlanList-TitleText {
+  font-size: 26px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ServicePlanList-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.AddServicePlanBtn {
+  height: 35px;
+
+  &.btn {
+    padding: 0 15px;
+  }
+}
+
+.AddServicePlanBtn-OptText {
+  @media (max-width: 699px) {
+    display: none;
+  }
+}
+
+.ServicePlanList-Status {
+  &:hover {
+    cursor: pointer;
+  }
+
+  cursor: pointer;
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  border-radius: 2px;
+}
+
+.ServicePlanList-ServicePlanCount {
+  position: relative;
+  left: 5px;
+  top: -13px;
+
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+  }
+}
+
+.ServicePlanList-Filter {
+  margin-top: 20px;
+}
+
+.ServicePlanList-FilterField {
+  max-width: 400px;
+}
+
+.ServicePlanList-FilterFieldIcon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+}
+
+.ServicePlanList-ServicePlanNumber {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+
+  @media (max-width: 375px) {
+    padding-left: 10px;
+  }
+}
+
+.ServicePlanList-ClientName {
+  font-size: 20px;
+  color: $font-color_head-text;
+}
+
+.ServicePlanList-Header-Status {
+  @media (min-width: 1024px) {
+    width: 190px;
+  }
+}

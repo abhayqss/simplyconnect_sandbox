@@ -1,0 +1,500 @@
+.sdkChat {
+  display: flex;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+
+  // 桌面端布局
+  &.desktop {
+    .chatLeftWrapper {
+      display: block;
+      width: 40%;
+      max-width: 500px;
+      min-width: 320px;
+      transition: none;
+    }
+    .chatRightWrapper {
+      display: block;
+      flex: 1;
+      width: 60%;
+      max-width: calc(100% - 320px);
+      transition: none;
+    }
+
+    // 桌面端始终显示两个面板
+    .chatLeftWrapper.hidden,
+    .chatRightWrapper.hidden {
+      display: block;
+    }
+  }
+
+  // 移动端布局
+  &.mobile {
+    .chatLeftWrapper,
+    .chatRightWrapper {
+      width: 100%;
+      height: 100%;
+      flex: none;
+      position: relative;
+      transition:
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    }
+
+    // 移动端动画效果
+    .chatLeftWrapper {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .chatRightWrapper {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    // 移动端完全隐藏非活动面板
+    .chatLeftWrapper.hidden,
+    .chatRightWrapper.hidden {
+      display: none;
+    }
+  }
+}
+
+.sdkChatLeft {
+  border-right: 1px solid #e3e3e3;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 500px;
+  min-width: 320px;
+  padding: 20px 15px;
+  /* width: 40%; */
+
+  .chatLeftHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    min-width: 200px;
+
+    .chatLeftHeaderTitle {
+      color: #222;
+      font-family:
+        Open Sans Semibold,
+        sans-serif;
+      font-size: 26px;
+    }
+
+    .chatLeftHeaderManager {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #e6edee;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+
+      .ActionPicker {
+        z-index: 500;
+      }
+    }
+  }
+
+  .scrollBox {
+    //flex: 1;
+    height: 100%;
+    overflow-y: scroll;
+
+    .chatInfo {
+      background-image: linear-gradient(90deg, #bfbdbd 15%, #fff0 0);
+      background-position: bottom;
+      background-repeat: repeat-x;
+      background-size: 5px 2px;
+      cursor: pointer;
+      display: flex;
+      padding: 15px 10px;
+      -webkit-user-select: none;
+      user-select: none;
+
+      &:hover {
+        background-color: #69b4f11f;
+      }
+
+      &.active {
+        background-color: #69b4f11f;
+      }
+
+      .chatInfoLeft {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+        color: #03b6f3;
+        display: flex;
+        font-family:
+          Open Sans Semibold,
+          sans-serif;
+        font-size: var(--initialsSize);
+        justify-content: center;
+        text-transform: uppercase;
+        margin-right: 10px;
+
+        position: relative;
+
+        .userOnlineStatus {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+
+          &.online {
+            background-color: #03b6f3;
+          }
+
+          &.offline {
+            background-color: rgb(191, 189, 189);
+          }
+        }
+      }
+
+      .chatInfoRight {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        min-width: 0;
+
+        .chatInfoRightHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 8px; // 添加间隙防止挤压
+          min-width: 0; // 允许内容溢出时被截断
+
+          .chatName {
+            color: #222;
+            font-family:
+              Open Sans Semibold,
+              sans-serif;
+            font-size: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1; // 占据剩余空间
+            min-width: 0; // 关键属性，允许在flex容器中被压缩
+          }
+
+          .chatTime {
+            color: #898989;
+            flex: 0 0 auto;
+            font-family:
+              Open Sans,
+              sans-serif;
+            font-size: 12px;
+            flex-shrink: 0; // 防止时间被压缩
+          }
+        }
+
+        .chatMessage {
+          display: flex;
+          justify-content: space-between;
+          min-width: 0;
+
+          .message {
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            color: #222;
+            display: -webkit-box;
+            font-family:
+              Open Sans,
+              sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre-line;
+            word-break: break-word;
+          }
+
+          .unread {
+            background-color: #03b6f3;
+            border-radius: 12px;
+            color: #fff;
+            display: inline-block;
+            font-family:
+              Open Sans,
+              sans-serif;
+            font-size: 12px;
+            line-height: 1;
+            padding: 4px 7px;
+          }
+        }
+      }
+    }
+
+    // 空状态样式
+    .emptyState {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      padding: 40px 20px;
+
+      .emptyStateContent {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        .emptyStateIcon {
+          font-size: 48px;
+          opacity: 0.6;
+        }
+
+        .emptyStateTitle {
+          font-size: 18px;
+          font-weight: 600;
+          color: #222;
+          margin: 0;
+        }
+
+        .emptyStateText {
+          font-size: 14px;
+          color: #898989;
+          margin: 0;
+          max-width: 200px;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}
+
+.highlight {
+  background-color: #ffeb3b;
+  font-weight: bold;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+// 移动端响应式样式
+@media (max-width: 768px) {
+  .sdkChat {
+    &.mobile {
+      // 移动端正常布局，不全屏
+      width: 100%;
+      height: 100%;
+      background: #fff;
+    }
+  }
+
+  .sdkChatLeft {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    padding: 0 12px;
+    height: 100%;
+    min-height: 500px;
+    box-sizing: border-box;
+    background: #fff;
+
+    .chatLeftHeader {
+      margin-bottom: 20px;
+      padding-top: 16px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 5;
+
+      .chatLeftHeaderTitle {
+        font-size: 24px;
+      }
+
+      .chatLeftHeaderManager {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .scrollBox {
+      height: calc(100% - 120px);
+      min-height: 300px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+
+      .chatInfo {
+        padding: 12px 8px;
+        transition: background-color 0.2s ease;
+        border-radius: 8px;
+        margin-bottom: 4px;
+
+        &:active {
+          background-color: #f0f8ff;
+        }
+
+        .chatInfoLeft {
+          width: 44px;
+          height: 44px;
+          margin-right: 8px;
+
+          .userOnlineStatus {
+            width: 10px;
+            height: 10px;
+          }
+        }
+
+        .chatInfoRight {
+          .chatInfoRightHeader {
+            gap: 6px;
+
+            .chatName {
+              font-size: 15px;
+            }
+
+            .chatTime {
+              font-size: 11px;
+            }
+          }
+
+          .chatMessage {
+            .message {
+              font-size: 13px;
+            }
+
+            .unread {
+              font-size: 11px;
+              padding: 3px 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 小屏幕适配
+@media (max-width: 480px) {
+  .sdkChatLeft {
+    padding: 0 8px;
+
+    .chatLeftHeader {
+      margin-bottom: 16px;
+      padding-top: 12px;
+
+      .chatLeftHeaderTitle {
+        font-size: 22px;
+      }
+
+      .chatLeftHeaderManager {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .scrollBox {
+      height: calc(100% - 100px);
+      min-height: 250px;
+
+      .chatInfo {
+        padding: 10px 6px;
+        border-radius: 6px;
+
+        .chatInfoLeft {
+          width: 40px;
+          height: 40px;
+          margin-right: 6px;
+        }
+
+        .chatInfoRight {
+          .chatInfoRightHeader {
+            .chatName {
+              font-size: 14px;
+            }
+
+            .chatTime {
+              font-size: 10px;
+            }
+          }
+
+          .chatMessage {
+            .message {
+              font-size: 12px;
+            }
+
+            .unread {
+              font-size: 10px;
+              padding: 2px 5px;
+            }
+          }
+        }
+      }
+
+      // 小屏幕空状态优化
+      .emptyState {
+        height: 200px;
+        padding: 20px 12px;
+
+        .emptyStateContent {
+          gap: 10px;
+
+          .emptyStateIcon {
+            font-size: 36px;
+          }
+
+          .emptyStateTitle {
+            font-size: 15px;
+          }
+
+          .emptyStateText {
+            font-size: 12px;
+            max-width: 160px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 移动端专用工具类
+.mobile-only {
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
+// 触摸友好的交互样式
+@media (hover: none) and (pointer: coarse) {
+  .chatInfo {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+  }
+
+  .chatLeftHeaderManager {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      transform: scale(0.95);
+      transition: transform 0.1s ease;
+    }
+  }
+}

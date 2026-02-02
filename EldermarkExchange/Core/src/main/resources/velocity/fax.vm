@@ -1,0 +1,5 @@
+<body>
+    Dear ${dto.userName},<br/>
+    A new event has been logged to the Simply Connect system (Care Coordination Portal) and you are ${dto.responsibility} for this type of event.
+    Please log on to the system to view details of this event.
+</body>

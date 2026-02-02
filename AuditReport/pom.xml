@@ -1,0 +1,237 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <artifactId>eldermark-audit-report</artifactId>
+    <groupId>com.scnsoft.eldermark</groupId>
+    <name>AuditReport</name>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
+    <scm>
+        <url>https://github.com/eldermark/exchange</url>
+        <connection>scm:git:https://github.com/eldermark/exchange.git</connection>
+    </scm>
+
+    <properties>
+        <spring.version>3.2.2.RELEASE</spring.version>
+        <commons.lang.version>2.6</commons.lang.version>
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+        <servlet.api.version>3.1.0</servlet.api.version>
+
+        <requires.channel>https</requires.channel>
+
+        <datasource.url>jdbc:sqlserver://localhost:1433;databaseName=eldermark</datasource.url>
+        <datasource.username>sa</datasource.username>
+        <datasource.password>eldermark</datasource.password>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Test</id>
+            <properties>
+                <requires.channel>any</requires.channel>
+                <datasource.url>jdbc:sqlserver://10.240.1.42:1433;databaseName=exchange_demo</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>qp?n-ytu?</datasource.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <datasource.url>jdbc:sqlserver://10.199.1.159;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>4uja!9hv5n9S=hB</datasource.password>
+                <requires.channel>any</requires.channel>
+            </properties>
+        </profile>
+        <profile>
+            <id>Prod2</id>
+            <properties>
+                <datasource.url>jdbc:sqlserver://10.199.1.129;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>y2Ej_8D=TH6PT7v</datasource.password>
+                <requires.channel>any</requires.channel>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <!-- Excel library -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.jdbc.driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>3.1.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>3.1.2.RELEASE</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>3.1.3.RELEASE</version>
+        </dependency>
+
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.4.2.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hibernate.javax.persistence</groupId>
+                    <artifactId>hibernate-jpa-2.0-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>4.1.0.Final</version>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>LocalRepository</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <finalName>AuditReport</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>v{0,date,yyyy-MM-dd}.{1}</format>
+                    <items>
+                        <item>timestamp</item>
+                        <item>scmVersion</item>
+                    </items>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>

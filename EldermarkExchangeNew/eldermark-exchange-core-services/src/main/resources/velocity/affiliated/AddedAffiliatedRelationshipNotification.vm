@@ -1,0 +1,6 @@
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    ${dto.authorFullName} has added ${dto.affiliatedOrganizationName} as affiliated organization with ${dto.primaryOrganizationName}.
+    <br><br>
+</div>

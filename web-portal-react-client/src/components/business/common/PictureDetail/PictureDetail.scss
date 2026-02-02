@@ -1,0 +1,92 @@
+@import "../../../../custom/fonts";
+
+.PictureDetail {
+  padding: 16px 0;
+
+  &-Title {
+    color: $font-color_head-text;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  &-Actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-Action {
+    outline: none;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-PicturePreview {
+    margin-right: 30px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      .PictureDetail-PicturePreviewZoomIn {
+        display: inherit;
+      }
+    }
+  }
+
+  &-PreviewPicture {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  &-PicturePreviewZoomIn {
+    top: calc(50% - 15px);
+    right: calc(50% - 15px);
+    position: absolute;
+    fill: #ffffff;
+    width: 30px;
+    height: 30px;
+    display: none;
+  }
+
+  &-PictureViewer {
+    @media (min-width: 576px) {
+      &.Modal.modal-dialog {
+        max-width: 1040px;
+      }
+    }
+
+    .modal-content {
+      .modal-header {
+        padding: 8px 16px;
+
+        .modal-title {
+          font-size: 16px;
+          font-family:"Open Sans Semibold", sans-serif;
+        }
+      }
+
+      .modal-body {
+        padding: 5px;
+        background-color: black;
+        overflow: auto;
+        display: grid;
+
+        .PictureDetail-PictureViewerPicture {
+          margin: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

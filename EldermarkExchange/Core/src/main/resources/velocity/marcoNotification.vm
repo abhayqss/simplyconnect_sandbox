@@ -1,0 +1,32 @@
+#* @vtlvariable name="notification" type="com.scnsoft.eldermark.entity.inbound.marco.MarcoDocumentEmailDto" *#
+<div>
+    Dear ${notification.recipientName},<br/>
+    <br/>
+
+    #if ($notification.assigned)
+        The Simply Connect platform has attached incoming document <b>$notification.fileName</b> to
+        patient <b>$notification.patientInitials</b>
+        #if( $!notification.mpiPatientId)
+            (CID is $notification.mpiPatientId)
+        #end
+        in <b>$notification.organzationName</b> organization
+        #if ($notification.fileName.equals($notification.documentTitle))
+            under the same title.
+        #else
+            under <b>$notification.documentTitle</b> title.
+        #end
+        <br/>
+
+    #else
+        The Simply Connect platform was not able to attach incoming document <b>$notification.fileName</b> to any
+        patient in <b>$notification.organzationName</b> organization.<br>
+        <br>
+        The reason is: "<span style="color: #ff3805">$notification.errorMessage</span>"<br/>
+    #end
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>

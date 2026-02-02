@@ -1,0 +1,13 @@
+@media (min-width: 576px) {
+  .RequestInfoEditor,
+  .ResponseInfoForm, {
+    &.modal-dialog {
+      max-width: 1040px;
+    }
+
+    .modal-content {
+      border: none;
+      max-height: 420px;
+    }
+  }
+}

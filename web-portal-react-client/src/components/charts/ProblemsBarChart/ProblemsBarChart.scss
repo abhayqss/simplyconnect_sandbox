@@ -1,0 +1,40 @@
+@import "custom/_fonts";
+
+.ProblemsBarChart {
+  .recharts-default-legend {
+    .recharts-legend-item {
+      margin-right: 30px !important;
+
+      .recharts-surface {
+        margin-right: 10px !important;
+      }
+
+      .recharts-legend-item-text {
+        color: $font-color_head-text !important;
+        font-size: $font-size_chart-legend-text;
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+  }
+
+  .xAxis, .yAxis {
+    .recharts-cartesian-axis-ticks {
+      .recharts-cartesian-axis-tick {
+        font-family: "Open Sans Semibold", sans-serif;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .recharts-default-tooltip {
+    margin: 0px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    white-space: nowrap;
+  }
+
+  .recharts-bar-rectangle {
+    cursor: pointer;
+  }
+}

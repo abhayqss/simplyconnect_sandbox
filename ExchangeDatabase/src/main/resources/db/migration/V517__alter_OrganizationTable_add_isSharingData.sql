@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[Organization] ADD is_sharing_data BIT DEFAULT(0) NOT NULL

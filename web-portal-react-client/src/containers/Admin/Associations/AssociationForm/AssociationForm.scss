@@ -1,0 +1,66 @@
+.AssociationForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .Scrollable {
+    flex: 1 1 0%;
+  }
+
+  &-EditSsnButton {
+    position: absolute;
+    top: 36px;
+    right: 23px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+
+
+.AssociationForm-Section {
+  padding: 10px 40px 0;
+}
+
+.AssociationForm-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.AssociationForm-InfoIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.AssociationForm-TooltipBody {
+  text-align: left;
+  padding: 7px 20px;
+  margin: 0;
+}
+.AssociationForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

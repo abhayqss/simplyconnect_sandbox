@@ -1,0 +1,16 @@
+#* @vtlvariable name="loginUsername" type="java.lang.String" *#
+#* @vtlvariable name="loginCompanyId" type="java.lang.String" *#
+For future access to our portal use the following credentials:
+<br/><br/>
+<table>
+    <tr>
+        <td width="40"></td>
+        <td><b><span style="color:#0064ad;">&#10004;</span>&nbsp;USERNAME:&nbsp;</b></td>
+        <td>$loginUsername</td>
+    </tr>
+    <tr>
+        <td width="40"></td>
+        <td><b><span style="color:#0064ad;">&#10004;</span>&nbsp;COMPANY ID:&nbsp;</b></td>
+        <td>$loginCompanyId</td>
+    </tr>
+</table>

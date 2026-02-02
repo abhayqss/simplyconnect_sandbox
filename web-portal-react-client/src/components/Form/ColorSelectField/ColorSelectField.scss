@@ -1,0 +1,44 @@
+.ColorSelectField {
+    &-SelectedText {
+        display: flex;
+        align-items: center;
+    }
+
+    &-ColorMark {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    &-Option {
+        width: 24px;
+        height: 24px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .MultiSelect {
+        &_collapsed {
+            .MultiSelect-Options {
+                display: none;
+            }
+        }
+
+        &-Toggle {
+            padding: 0;
+        }
+
+        &-Options {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 20px;
+            max-width: 224px;
+    
+            display: grid;
+            grid-template-columns: repeat(6, 24px);
+            grid-gap: 8px;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@import "custom/mixins.scss";
+
+.ProviderTile {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  &-Body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    flex-grow: 1;
+  }
+
+  &-Footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 41px;
+    height: 72px;
+    background: #0064ad;
+  }
+
+  &-Picture {
+    max-width: 100%;
+    object-fit: cover;
+
+    &Container {
+      text-align: center;
+    }
+  }
+
+  &-Logo {
+    max-width: 100%;
+    object-fit: none;
+  }
+
+  &-StubIcon {
+    width: 200px;
+    height: 200px;
+    fill: #dddddd;
+  }
+
+  &-Name {
+    font-size: 18px;
+    font-family: "Open Sans Semibold", sans-serif;
+    margin-bottom: 8px;
+    @include line-clamp(3, 1.5);
+  }
+
+  &-ServiceCategories {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 8px;
+    @include line-clamp(3, 1.5);
+  }
+
+  &-ZipCode {
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 8px;
+  }
+
+  &-Button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    &Icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border: dotted 2px rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &Label {
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div>Dear reader, </div><br/>
+<div>
+    <br/>
+    You have been invited to Simply Connect system.<br/>
+    Click the <a href = '${invitation.url}'>New User</a> link and complete the information for future access to Simply Connect system.<br/>
+    #parse( "velocity/button.vm")
+    Please check your personal information on the "Contacts" page after log in to the system.<br/>
+    Note, that registration link will expire in 72 hours.<br/>
+    <br/>
+</div>
+

@@ -1,0 +1,27 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Device](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[device_id] [varchar](300) NOT NULL,
+	[resident_id] [bigint] NOT NULL,
+ CONSTRAINT [PK_Device] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Device]  WITH CHECK ADD  CONSTRAINT [FK_Device_resident_enc] FOREIGN KEY([resident_id])
+REFERENCES [dbo].[resident_enc] ([id])
+GO
+
+ALTER TABLE [dbo].[Device] CHECK CONSTRAINT [FK_Device_resident_enc]
+GO

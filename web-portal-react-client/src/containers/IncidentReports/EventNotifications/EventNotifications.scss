@@ -1,0 +1,50 @@
+@import "custom/_fonts";
+
+.EventNotificationList {
+  &-MemberAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    @media (max-width: 414px) {
+      display: none !important;
+    }
+  }
+
+  &-MemberName {
+    color: $font-color_head-text;
+    cursor: pointer;
+  }
+
+  &-MemberRelation {
+    color: #898989;
+  }
+
+  &-ContactColHeader {
+    @media (min-width: 1200px) {
+      width: 215px;
+    }
+
+    @media (min-width: 1520px) {
+      width: 33%;
+    }
+  }
+
+  @media (min-width: 1200px) and (max-width: 1380px) {
+    &-OrganizationColHeader {
+      width: 120px;
+    }
+
+    &-ChannelColHeader {
+      width: 90px;
+    }
+
+    &-PhoneColColHeader {
+      width: 120px;
+    }
+
+    &-DateColHeader {
+      width: 120px;
+    }
+  }
+}

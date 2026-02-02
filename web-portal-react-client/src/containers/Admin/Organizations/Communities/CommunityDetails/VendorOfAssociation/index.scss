@@ -1,0 +1,46 @@
+.VendorsListVendorName {
+  width: 45%;
+
+  @media (min-width: 648px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+  }
+}
+
+.VendorsListCategory {
+  width: 25%;
+}
+
+.VendorListDefault {
+  width: 15%;
+}
+
+.VendorsListContainer {
+  caption {
+    padding-top: 0;
+  }
+
+  .Table {
+    caption {
+      padding-top: 0;
+    }
+  }
+}
+
+.VendorsList-Association-OrganizationName{
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}

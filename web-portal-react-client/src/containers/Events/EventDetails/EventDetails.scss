@@ -1,0 +1,303 @@
+@import "custom/_fonts";
+
+.EventDetails {
+  border-radius: 2px;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+  min-height: 95px;
+  padding-bottom: 1px;
+
+  @media (max-width: 767px) {
+    box-shadow: none;
+  }
+
+  .TableMobile-Details {
+    padding: 0;
+  }
+}
+
+.EventDetails-Header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2fbff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 50px;
+  z-index: 1;
+
+  @media (max-width: 767px) {
+    background-color: white;
+    padding: 1rem;
+    margin-top: 20px;
+  }
+}
+
+.EventDetails-Header_fixed {
+  position: fixed;
+  box-shadow: 1px -3px 0px 1px #f7f7f7;
+}
+
+.EventDetails-TabsContainer {
+  margin-left: 8px;
+}
+
+.EventDetails-Tabs {
+  &.Tabs.nav-tabs {
+    box-shadow: none;
+
+    @media (max-width: 928px) {
+      display: none;
+    }
+
+    .nav-item {
+      &:hover {
+        background: transparent;
+      }
+
+      &:last-child {
+        .nav-link {
+          border: none;
+        }
+      }
+    }
+
+    .nav-link {
+      &.active {
+        color: $font-color_head-text;
+        background-color: transparent;
+      }
+
+      &:active,
+      &:focus {
+        border: none;
+        color: #0064ad;
+        text-transform: uppercase;
+        background-color: transparent;
+      }
+
+      border: none;
+      color: #0064ad;
+      text-transform: uppercase;
+      background-color: transparent;
+
+      @media (max-width: 1199px) {
+        padding: .5rem .3rem;
+      }
+    }
+  }
+}
+
+.EventDetails-IncidentReportActions {}
+
+.EventDescription {
+}
+
+.EventDetails-Section {
+  padding: 24px 0;
+  position: relative;
+
+  .EventDetail {
+    display: flex;
+    margin: 0 24px;
+    padding: 16px 0;
+  }
+  
+  .EventDetail-Title {
+    flex: 1;
+    display: flex;
+    word-break: break-word;
+    text-transform: uppercase;
+    font-size: $font-size_detail-title-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+  
+  .EventDetailZ-Value {
+    flex: 4;
+    display: flex;
+    justify-content: left;
+    font-size: 14px;
+    color: $font-color_head-text;
+  }
+}
+
+.EventDetails-SectionAnchor {
+  top: -180px;
+  position: absolute;
+}
+
+.EventDetails-SectionTitle {
+  position: relative;
+  display: inline-block;
+  padding-left: 24px;
+  font-size: 22px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.EventDetails-Alert {
+  padding: 18px 16px;
+  margin: 24px;
+  background-color: #fff1ca;
+}
+
+.EventDetails-AlertText {
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.EventDetails-NoDataText {
+  padding: 23px;
+  text-align: center;
+}
+
+.EventDetails-Link {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: $font-size_link-text;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.EventDetails-Type {
+  font-size: 14px;
+  font-family: "Open Sans Semibold", sans-serif;
+  padding: 2px 8px;
+}
+
+.EventDetails-Status {
+  flex: 4;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding: 0 8px;
+}
+
+.EventDetails-Navigation {
+  padding: 24px;
+}
+
+.EventDetails-NavLink {
+  font-size: $font-size_link-text;
+  font-weight: 600;
+  color: #0064ad;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  margin-right: 18px;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.EventDetails-AddNoteBtn {
+  &:hover {
+    cursor: pointer;
+  }
+
+  outline: none;
+  fill: #0064ad;
+  margin-right: 16px;
+}
+
+.EventDetails-DownloadBtn {
+  &:hover {
+    cursor: pointer;
+  }
+
+  fill: #0064ad;
+  margin-right: 24px;
+}
+
+.EventRelatedNoteList {}
+
+.EventRelatedNoteListContainer {
+  padding: 12px 24px 24px 24px;
+}
+
+.EventRelatedNote-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  border-radius: 2px;
+}
+
+.EventRelatedNote-ViewBtn {
+  &.btn-link {
+    cursor: pointer;
+    color: #0064ad;
+    text-decoration: none;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 14px;
+    width: auto;
+
+    &:hover {
+      color: #0064ad;
+      text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.EventSubDetail {
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.EventSubDetail-Title {
+  text-transform: uppercase;
+  color: #898989;
+  font-size: 11px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.EventSubDetail-Value {
+  color: $font-color_head-text;
+}
+
+.EventDetails-ScrollTopBtn {
+  position: fixed;
+  right: 80px;
+}
+
+.EventDetails-Dropdown {
+  margin-left: 8px;
+
+  &.adaptive {
+    display: none;
+
+    margin-left: 8px;
+
+    @media (max-width: 928px) {
+      display: block;
+    }
+  }
+}
+
+.EventDetailsMobile {
+  &.Modal {
+    //max-width: initial;
+    max-width: 1200px;
+  }
+}
+
+.Detail-Clients {
+  .EventDetail-Value {
+    flex-wrap: wrap;
+  }
+}

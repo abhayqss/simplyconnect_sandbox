@@ -1,0 +1,36 @@
+.ESignDocumentTemplateFieldEditorSection {
+  padding: 0;
+
+  &-Title {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Indicator {
+    width: 6px;
+    height: calc(100% - 12px);
+    position: absolute;
+    top: 0;
+    left: -25px;
+  }
+
+  &-Icon {
+    position: absolute;
+    top: -1px;
+    right: 61px;
+    cursor: pointer;
+    fill: #0064ad;
+
+    &:focus {
+      outline: none;
+    }
+
+    &_Disabled {
+      fill: #c0c2c4;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.UserManualForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .UserManualForm-FileField {
+    margin-bottom: 40px;
+  }
+}
+
+.UserManualForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.UserManualForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 25px 40px;
+  border-top: 1px solid #dee2e6;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.UserManualForm-FileField {
+  .FileField-SelectedFile {
+    &.is-invalid {
+      background-image: none;
+    }
+  }
+}

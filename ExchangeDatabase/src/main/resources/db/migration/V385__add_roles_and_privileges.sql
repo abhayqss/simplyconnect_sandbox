@@ -1,0 +1,3 @@
+INSERT INTO [Privilege] ([name]) VALUES ('NOTIFY_ALERT_READ'), ('NOTIFY_ALERT_STATUS_CHANGE')
+INSERT INTO [CareTeamRole] ([name], [code], [position], [display_name]) VALUES ('Notify User', 'ROLE_NOTIFY_USER', 8, 'Notify User')
+/*INSERT INTO [CareTeamRole_Privilege] ([care_team_role_id], [privilege_id]) VALUES (13, 1), (13, 2), (13, 3), (13, 4), (13, 5), (13, 6), (13, 7), (13, 8), (13,9), (13, 10), (13, 11), (13, 12), (13, 13), (13, 14)*/

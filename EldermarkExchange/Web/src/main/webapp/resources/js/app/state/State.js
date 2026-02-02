@@ -1,0 +1,3 @@
+exports.State = Immutable.Record({
+    directory: new exports.DirectoryState()
+});

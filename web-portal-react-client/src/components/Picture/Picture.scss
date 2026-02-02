@@ -1,0 +1,32 @@
+.Picture {
+  &-Viewer {
+    @media (min-width: 576px) {
+      &.Modal.modal-dialog {
+        max-width: 1040px;
+      }
+    }
+
+    .modal-content {
+      .modal-header {
+        padding: 8px 16px;
+
+        .modal-title {
+          font-size: 16px;
+          font-family:"Open Sans Semibold", sans-serif;
+        }
+      }
+
+      .modal-body {
+        padding: 5px;
+        background-color: black;
+        overflow: auto;
+        display: grid;
+
+        .Picture-ViewerPicture {
+          margin: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+ALTER table dbo.Document ADD hash_sum VARCHAR(255) NULL;

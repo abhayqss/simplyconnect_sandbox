@@ -1,0 +1,98 @@
+$close-icon-size: 18px;
+$checkbox-size: 27px;
+
+.SearchBar {
+  &-Input {
+    height: 35px;
+    font-size: 14px;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
+    color: #333333;
+
+    &:focus {
+      border-color: #898989;
+      background-color: transparent;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    &::placeholder {
+      color: #d9d9d9;
+    }
+
+    &:hover {
+      border-color: #bfbdbd;
+    }
+
+    &:disabled {
+      border-color: transparent;
+      color: #898989;
+      background-color: #f9f9f9;
+    }
+
+    &.is-invalid {
+      border-color: #f33232;
+      background-image: none;
+
+      &:focus {
+        border-color: #f33232;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-CloseIcon {
+    cursor: pointer;
+    width: $close-icon-size;
+    height: $close-icon-size;
+    fill: #4c4e51;
+    position: absolute;
+    top: calc(50% - #{$close-icon-size / 2});
+    right: 8px;
+  }
+
+  &-Dropdown,
+  &-DropdownMenu,
+  &-DropdownToggle {
+    width: inherit;
+  }
+
+  &-DropdownMenu {
+    margin: 0;
+    padding: 0;
+    transform: translate3d(0px, 35px, 0px) !important;
+  }
+
+  &-Checkbox {
+    position: relative;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid #e0e0e0;
+    margin-right: 10px;
+  }
+
+  &-CheckMark {
+    left: 8px;
+    position: absolute;
+    top: 4px;
+    width: 9px;
+    height: 15px;
+    border: solid #448993;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  &-DropdownOption {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    &:active {
+      background-color: inherit;
+    }
+
+    &-Text {
+      font-size: 14px;
+      color: #333333;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.CommunityFilter {
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px 24px;
+  background-color: #f9f9f9;
+
+  &-Header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+
+  &-Title {
+    flex: 1;
+    font-size: 26px;
+    font-family: Open Sans Semibold, sans-serif;
+  }
+
+  &-Section {
+    &Title {
+      font-size: 13px;
+      margin-bottom: 10px;
+      font-family: Open Sans Semibold, sans-serif;
+    }
+  }
+
+  &-Section {
+    margin-bottom: 27px;
+  }
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+  }
+
+  &-CheckboxField {
+    margin-right: 20px;
+
+    .CheckboxField-Checkbox {
+      height: 21px;
+      width: 21px;
+      min-width: 21px;
+      border-radius: 2px;
+    }
+
+    .CheckboxField-Label {
+      margin-top: -1px;
+    }
+
+    .CheckboxField-CheckMark {
+      left: 6px;
+      top: 2px;
+      width: 7px;
+      height: 13px;
+    }
+  }
+
+  &-SearchField.form-group {
+    margin-bottom: 0;
+  }
+
+  &-Icon {
+    cursor: pointer;
+  }
+
+  &-Icon_rotated_90 {
+    transform: rotate(90deg);
+    transition: 0.3s;
+  }
+
+  &-Icon_rotated_0 {
+    transform: rotate(0deg);
+    transition: 0.3s;
+  }
+
+  &-Services {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+
+    @media (max-width: 1450px) {
+      max-height: 550px;
+    }
+
+    @media (max-width: 1000px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &-Service {
+    padding: 6px 0;
+  }
+
+  .ServiceCategoryToggleButtonGroup {}
+
+  .ServiceCategoryToggleButton {
+    &.btn, &.IconButton {
+      width: auto;
+      color: #0064ad;
+      padding: 10px 20px;
+      margin: 0 16px 20px 0;
+      border-radius: 5px;
+      border: 1px solid #dfdfdf;
+      background-color: rgba(255, 255, 255, 0.7);
+
+      svg.IconButton-Icon {
+        padding: 0;
+        fill: #2493E5;
+      }
+    }
+
+    &.ToggleButton_checked {
+      &.btn, &.IconButton {
+        color: #ffffff;
+        background-color: #2493e5;
+      }
+
+      .IconButton-Icon {
+        fill: #ffffff;
+
+        path {
+          fill: #ffffff
+        }
+      }
+    }
+  }
+}

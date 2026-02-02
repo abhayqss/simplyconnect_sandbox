@@ -1,0 +1,156 @@
+.ProspectForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &-Section {
+    position: relative;
+    padding: 20px 40px 20px;
+  }
+
+  &-SectionTitle {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-TextArea {
+    .TextField-Input {
+      height: 80px;
+    }
+  }
+
+  &-Button {
+    width: 100px;
+    height: 35px;
+    margin-top: 30px;
+
+    &.btn {
+      padding: 0;
+    }
+  }
+
+  &-EditSsnButton {
+    position: absolute;
+    right: 23px;
+    top: 36px;
+  }
+
+  &-FilterFieldIcon {
+    top: 45px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    fill: #4c4e51;
+    position: absolute;
+  }
+
+  &-LabelIcon {
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+
+  &-InfoIcon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  &-TooltipBody {
+    text-align: left;
+    padding: 7px 20px;
+    margin: 0;
+  }
+
+  &-Footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0 32px 40px;
+    border-top: 1px solid #dee2e6;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      min-width: 100px;
+      height: 35px;
+      margin-right: 24px;
+    }
+
+    &Info {
+      display: flex;
+      margin-right: 48px;
+
+      &Text {
+        font-size: 13px;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &-CheckboxField {
+    margin-bottom: 24px;
+  }
+
+  &-SwitchField {
+    align-self: center;
+    margin-bottom: 0;
+
+    .SwitchField-Label {
+      font-size: 13px;
+      font-weight: bold;
+      color: #333333;
+      font-family: "Open Sans Semibold", sans-serif;
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 767px) {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+
+      .SwitchField-Label {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &-FieldLabel {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333333;
+    font-family: "Open Sans Semibold", sans-serif;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+    &__Error {
+      color: #dc3545;
+    }
+  }
+
+  .Public-Calendar {
+    position: absolute;
+    right: 40px;
+    top: 30px;
+  }
+
+  &-AlertPanel {
+    color: #333333;
+    padding: 18px 14px;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  .Scrollable {
+    padding-bottom: 62px;
+
+    .ScrollTopBtn {
+      bottom: 135px;
+      right: 32px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.FeaturedCommunities-Settings {
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+
+.FeaturedCommunities-Tiles {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+	margin-bottom: 34px;
+}
+
+.FeaturedCommunities-Tile {
+	padding: 15px;
+	flex: 0 0 100%;
+
+	@media (min-width: 768px) {
+		flex-basis: 50%;
+	}
+
+	@media (min-width: 1024px) {
+		flex-basis: 33.3%;
+	}
+
+	@media (min-width: 1280px) {
+		flex-basis: 25%;
+	}
+}

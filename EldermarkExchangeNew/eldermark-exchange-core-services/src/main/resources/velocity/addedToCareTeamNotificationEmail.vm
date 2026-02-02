@@ -1,0 +1,8 @@
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+#* @vtlvariable name="fullName" type="java.lang.String" *#
+<div>
+    <b>Dear ${fullName},</b> <br/>
+    <br><br>
+    You have been connected with the care team. Your real-time communication is now active.
+    #parse( "velocity/button.vm")
+</div>

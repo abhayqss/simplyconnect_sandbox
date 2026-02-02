@@ -1,0 +1,29 @@
+.ProspectPrimaryFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.ProspectPrimaryFilter-Field {
+  max-width: 420px;
+
+  .MultiSelect-ToggleText {
+    color: #448993;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleTextOnExpand {
+    color: #448993;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleChevron {
+    fill: #448993;
+  }
+}
+
+.ProspectPrimaryFilter-Field_frozen {
+  pointer-events: none;
+}

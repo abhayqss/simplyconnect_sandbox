@@ -1,0 +1,857 @@
+(node:1136) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+	The user {"id":6,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":6,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:1136) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+	The user {"id":1,"name":"Dustin Pease"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":6,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":6,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":9,"name":"Dustin Ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":6,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":10,"name":"testeruser@tiempodevelopment.com"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":5,"name":"Greg Robertson"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":5,"name":"Greg Robertson"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":1,"name":"Dustin Pease"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":9,"name":"Dustin Ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":1,"name":"Dustin Pease"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":1,"name":"Dustin Pease"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":9,"name":"Dustin Ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":9,"name":"Dustin Ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:6368) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+(node:6368) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+	The user {"id":5,"name":"Greg Robertson"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":5,"name":"Greg Robertson"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:6368) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 5): Error: Can't set headers after they are sent.
+	The user {"id":4,"name":"Gilberto Sanchez"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":3,"name":"Hugo Virgen"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:6368) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 8): Error: Can't set headers after they are sent.
+	The user {"id":1,"name":"Dustin Pease"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":1,"name":"Dustin Pease"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":9,"name":"Dustin Ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":9,"name":"Dustin Ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:7628) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+	The user {"id":14,"name":"dustin new - ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":14,"name":"dustin new - ipad"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":15,"name":"dustin - new - iphone"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+	The user {"id":16,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 4): Error: Can't set headers after they are sent.
+invalid Token!
+
+invalid Token!
+
+invalid Token!
+
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":13,"name":"Marco Mendieta"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+invalid Token!
+
+invalid Token!
+
+invalid Token!
+
+	The user {"id":16,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+invalid Token!
+
+	The user {"id":3,"name":"Hugo Virgen"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":3,"name":"Hugo Virgen"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 7): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 8): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 9): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 10): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 11): Error: Can't set headers after they are sent.
+	The user {"id":7,"name":"Support"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+	The user {"id":3,"name":"Hugo Virgen"} was already available in 9a8964b2-e8c6-4ef4-97bf-1a332319c3f8 Namespace
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 12): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 13): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 14): Error: Can't set headers after they are sent.
+(node:5436) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 15): Error: Can't set headers after they are sent.
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+[ { device: 'ba1725e9a13ed4c51beb95524d84e360142142d9b01e44ae645640c07233e993',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+	The user {"id":1,"name":"Dustin Pease"} was already available in demonotifync Namespace
+	The user {"id":1,"name":"Dustin Pease"} was already available in demonotifync Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in demonotifync Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in demonotifync Namespace
+	The user {"id":16,"name":"señor Ñandu"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+	The user {"id":12,"name":"Marco Mendieta"} was already available in demonotifync Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in demonotifync Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in demonotifync Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in demonotifync Namespace
+	The user {"id":2,"name":"Chris Huber"} was already available in demonotifync Namespace
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9955653b24ae6d7c451cdea0741deb9ec7af85c3001e2c07cb18d963ec666f2b',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 4): Error: Can't set headers after they are sent.
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: 'e99ac61e9b5e71ddf20b6c0a8db039714a454bf83fb0a02755e542db6f2bd624',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: 'e99ac61e9b5e71ddf20b6c0a8db039714a454bf83fb0a02755e542db6f2bd624',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+[ { device: 'f77a005c4f9828a04e4ff932952bb61901f808dbce3eff3efd76b68b4ed56085',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: 'f77a005c4f9828a04e4ff932952bb61901f808dbce3eff3efd76b68b4ed56085',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: 'f77a005c4f9828a04e4ff932952bb61901f808dbce3eff3efd76b68b4ed56085',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: 'f77a005c4f9828a04e4ff932952bb61901f808dbce3eff3efd76b68b4ed56085',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: 'f77a005c4f9828a04e4ff932952bb61901f808dbce3eff3efd76b68b4ed56085',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+[ { device: '962b5fd79f9c908880f96c711f2c44e85f68da1ab08920fe4d086ee8de9de082',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 5): Error: Can't set headers after they are sent.
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 6): Error: Can't set headers after they are sent.
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 7): Error: Can't set headers after they are sent.
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 8): Error: Can't set headers after they are sent.
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 9): Error: Can't set headers after they are sent.
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 10): Error: Can't set headers after they are sent.
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 11): Error: Can't set headers after they are sent.
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 12): Error: Can't set headers after they are sent.
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '9effca0b934e82c9e51dadb74c5ad2491f0fcac926558dce1910e8d3d8637d72',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+[ { device: '42de00a5035245007da72e37f0bf15fcfa6cff08abd931b5e41555c187515126',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+[ { device: '28036eaf9114cb1fdb2809dff0a8ec2438b84803178c2f8a71221e24f9920cbf',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 13): Error: Can't set headers after they are sent.
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'cd2cd31d20439f09f714268cd197554bbfb296d2e80fe10b8b1b78fc20b0d20b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '4e9d5b3d42d37a09c97da84d1052f278b783e9100e29e48baa5a383c448787d8',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+[ { device: 'c97279e5a8f30a9ae1931f4928a88becea385c9d46bceb36d0b1317c26aff3bd',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+[ { device: 'cd2cd31d20439f09f714268cd197554bbfb296d2e80fe10b8b1b78fc20b0d20b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+[ { device: 'cd2cd31d20439f09f714268cd197554bbfb296d2e80fe10b8b1b78fc20b0d20b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 14): Error: Can't set headers after they are sent.
+[ { device: 'cd2cd31d20439f09f714268cd197554bbfb296d2e80fe10b8b1b78fc20b0d20b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+[ { device: '11749d99bea0788cb380d114568a73bf5f282f3110a58b5179333ebfd4e5e7f8',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f85e93d657da33bc0d6fe8c65b050a2cdb0b6f69b5699b1ee01eca78c6b43554',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+[ { device: 'f85e93d657da33bc0d6fe8c65b050a2cdb0b6f69b5699b1ee01eca78c6b43554',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+[ { device: 'eccded3adaba24144c868c69624caea910e039cbeca2584d46e0bd9e7a690c34',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '75180fd98600bf3cfe864807bddf875049504e9549dd4ba09e7590c70883718f',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 15): Error: Can't set headers after they are sent.
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 16): Error: Can't set headers after they are sent.
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 17): Error: Can't set headers after they are sent.
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 18): Error: Can't set headers after they are sent.
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 19): Error: Can't set headers after they are sent.
+[ { device: '747ef2dd38328bfd760bcdef91df7db22e77d7c6db1e5d551e81734b1ac731f9',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '39c1aa9ea876382a0a214236d3e071d80c6595eb37b1348630606d47318fcdb9',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '39c1aa9ea876382a0a214236d3e071d80c6595eb37b1348630606d47318fcdb9',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+[ { device: 'ab8b182da42619b769b40f4a9f48011810f189fabaa88de22e504ea5960b7eb7',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 20): Error: Can't set headers after they are sent.
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: 'f844401d10ad10031281ff7c307e3ad209e4e9698cecb999451e580d858dc5c2',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 21): Error: Can't set headers after they are sent.
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+	The user {"id":18,"name":"Azmat"} was already available in demonotifync Namespace
+[ { device: '4e9d5b3d42d37a09c97da84d1052f278b783e9100e29e48baa5a383c448787d8',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":19,"name":"Priyanka"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":20,"name":"Aaqib Ansari"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+	The user {"id":10,"name":"Tester User"} was already available in demonotifync Namespace
+[ { device: '5fb80640cb6d69caef2d32129f5a9f902f96e69fb48e4298b6349e9204a00db1',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '5fb80640cb6d69caef2d32129f5a9f902f96e69fb48e4298b6349e9204a00db1',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '5fb80640cb6d69caef2d32129f5a9f902f96e69fb48e4298b6349e9204a00db1',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '5fb80640cb6d69caef2d32129f5a9f902f96e69fb48e4298b6349e9204a00db1',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 22): Error: Can't set headers after they are sent.
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 23): Error: Can't set headers after they are sent.
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+[ { device: '65165e9596d92df0af89c2a479cd8abb4611fee03ae8ba7a3fab1fe7b58da14b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+[ { device: '65165e9596d92df0af89c2a479cd8abb4611fee03ae8ba7a3fab1fe7b58da14b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 24): Error: Can't set headers after they are sent.
+[ { device: '65165e9596d92df0af89c2a479cd8abb4611fee03ae8ba7a3fab1fe7b58da14b',
+    status: '403',
+    response: { reason: 'InvalidProviderToken' } } ]
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 25): Error: Can't set headers after they are sent.
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+(node:2256) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 26): Error: Can't set headers after they are sent.
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+	The user {"id":17,"name":"Nagender"} was already available in demonotifync Namespace
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewiPhoneDev"}} was already available in demonotifync Namespace
+[ { device: '89c8e0f818f8d3de8379577edbfe434f72fbc4fa287cc6d5c748a677602d880a',
+    status: '410',
+    response: { reason: 'Unregistered', timestamp: 1515585338580 } } ]
+[ { device: '89c8e0f818f8d3de8379577edbfe434f72fbc4fa287cc6d5c748a677602d880a',
+    status: '410',
+    response: { reason: 'Unregistered', timestamp: 1515585338580 } } ]
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+	The user {"id":64,"name":"DeveshN","handset":{"device_name":"newiPad"}} was already available in demonotifync Namespace
+	The user {"id":64,"name":"DeveshN","handset":{"device_name":"newiPad"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"newiPad"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"newiPad"}} was already available in demonotifync Namespace
+(node:5600) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+(node:5600) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"qss_ipod"}} was already available in demonotifync Namespace
+(node:5600) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+	The user {"id":67,"name":"kavita","handset":{"device_name":"QA"}} was already available in demonotifync Namespace
+(node:5828) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+(node:5828) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+(node:5828) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"QSS001"}} was already available in demonotifync Namespace
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"QA"}} was already available in demonotifync Namespace
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"QA"}} was already available in demonotifync Namespace
+	The user {"id":67,"name":"kavita","handset":{"device_name":"QSS001"}} was already available in demonotifync Namespace
+	The user {"id":67,"name":"kavita","handset":{"device_name":"QSS001"}} was already available in demonotifync Namespace
+(node:5828) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 4): Error: Can't set headers after they are sent.
+(node:5828) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 5): Error: Can't set headers after they are sent.
+	The user {"id":67,"name":"kavita","handset":{"device_name":"Naya Wala iPad"}} was already available in demonotifync Namespace
+[ { device: '110cc55630d1735e3d80695cc4a0ffa30902dcec418a8e769784817813091343',
+    status: '400',
+    response: { reason: 'BadDeviceToken' } } ]
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"QA"}} was already available in demonotifync Namespace
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+(node:3548) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+Unhandled rejection TypeError: Cannot set property 'isMessage' of undefined
+    at Models.thread_message.findOne.then (C:\Notify\notify-server\Microservices\Chat\src\controllers\Whoami.js:123:34)
+    at Model.tryCatcher (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:17:14)
+    at tryOnImmediate (timers.js:645:5)
+    at processImmediate [as _immediateCallback] (timers.js:617:5)
+Unhandled rejection TypeError: Cannot set property 'isMessage' of undefined
+    at Models.thread_message.findOne.then (C:\Notify\notify-server\Microservices\Chat\src\controllers\Whoami.js:123:34)
+    at Model.tryCatcher (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:17:14)
+    at tryOnImmediate (timers.js:645:5)
+    at processImmediate [as _immediateCallback] (timers.js:617:5)
+(node:3548) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+Unhandled rejection TypeError: Cannot set property 'isMessage' of undefined
+    at Models.thread_message.findOne.then (C:\Notify\notify-server\Microservices\Chat\src\controllers\Whoami.js:123:34)
+    at Model.tryCatcher (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:17:14)
+    at tryOnImmediate (timers.js:645:5)
+    at processImmediate [as _immediateCallback] (timers.js:617:5)
+Unhandled rejection TypeError: Cannot set property 'isMessage' of undefined
+    at Models.thread_message.findOne.then (C:\Notify\notify-server\Microservices\Chat\src\controllers\Whoami.js:123:34)
+    at Model.tryCatcher (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:17:14)
+    at tryOnImmediate (timers.js:645:5)
+    at processImmediate [as _immediateCallback] (timers.js:617:5)
+Unhandled rejection TypeError: Cannot set property 'isMessage' of undefined
+    at Models.thread_message.findOne.then (C:\Notify\notify-server\Microservices\Chat\src\controllers\Whoami.js:123:34)
+    at Model.tryCatcher (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (C:\Notify\notify-server\Microservices\Chat\node_modules\bluebird\js\release\async.js:17:14)
+    at tryOnImmediate (timers.js:645:5)
+    at processImmediate [as _immediateCallback] (timers.js:617:5)
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+(node:5900) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+(node:5900) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+(node:5900) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+(node:5900) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 4): Error: Can't set headers after they are sent.
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"Naya Wala iPad"}} was already available in demonotifync Namespace
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"Naya Wala iPad"}} was already available in demonotifync Namespace
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+	The user {"id":72,"name":"Devesh-test","handset":{"device_name":"newtestdev"}} was already available in demonotifync Namespace
+	The user {"id":67,"name":"kavita","handset":{"device_name":"Naya Wala iPad"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 4): Error: Can't set headers after they are sent.
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 5): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 6): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 7): Error: Can't set headers after they are sent.
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"IPADQSSNEW"}} was already available in demonotifync Namespace
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"trisha"}} was already available in demonotifync Namespace
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"IPADQSSNEW"}} was already available in demonotifync Namespace
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"trisha"}} was already available in demonotifync Namespace
+	The user {"id":67,"name":"kavita","handset":{"device_name":"IPADQSSNEW"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 8): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 9): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 10): Error: Can't set headers after they are sent.
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 11): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 12): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 13): Error: Can't set headers after they are sent.
+	The user {"id":75,"name":"Azmat","handset":{"device_name":"kaviipad"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 14): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 15): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 16): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 17): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 18): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 19): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 20): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 21): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 22): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 23): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 24): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 25): Error: Can't set headers after they are sent.
+	The user {"id":75,"name":"Azmat","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+	The user {"id":75,"name":"Azmat","handset":{"device_name":"NewDeviPhone"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 26): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 27): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 28): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 29): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 30): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 31): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 32): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 33): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 34): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 35): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 36): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 37): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 38): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 39): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 40): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 41): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 42): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 43): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 44): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 45): Error: Can't set headers after they are sent.
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"trisha"}} was already available in demonotifync Namespace
+	The user {"id":75,"name":"Azmat","handset":{"device_name":"trisha"}} was already available in demonotifync Namespace
+invalid Token!
+
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 46): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 47): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 48): Error: Can't set headers after they are sent.
+	The user {"id":66,"name":"IPADQSS","handset":{"device_name":"Notify App Test"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 49): Error: Can't set headers after they are sent.
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"Notify App Test"}} was already available in demonotifync Namespace
+	The user {"id":81,"name":"kavita","handset":{"device_name":"IPhone Notify Test"}} was already available in demonotifync Namespace
+	The user {"id":65,"name":"QSS001","handset":{"device_name":"Notify App Test"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 50): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 51): Error: Can't set headers after they are sent.
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"IPad mini test"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"IPAD MINI"}} was already available in demonotifync Namespace
+	The user {"id":62,"name":"Devesh","handset":{"device_name":"IPAD MINI"}} was already available in demonotifync Namespace
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 52): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 53): Error: Can't set headers after they are sent.
+(node:8112) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 54): Error: Can't set headers after they are sent.
+	The user {"id":83,"name":"kavi","handset":{"device_name":"NewiPadDev"}} was already available in demonotifync Namespace
+	The user {"id":72,"name":"Devesh-test","handset":{"device_name":"IPAD MINI"}} was already available in demonotifync Namespace
+	The user {"id":82,"name":"Rahul","handset":{"device_name":"NewNagenderDev"}} was already available in demonotifync Namespace
+	The user {"id":82,"name":"Rahul","handset":{"device_name":"NewNagenderDev"}} was already available in demonotifync Namespace
+	The user {"id":83,"name":"kavi","handset":{"device_name":"IPhone Notify Test"}} was already available in demonotifync Namespace
+	The user {"id":83,"name":"kavi","handset":{"device_name":"IPhone Notify Test"}} was already available in demonotifync Namespace
+	The user {"id":83,"name":"kavi","handset":{"device_name":"IPhone Notify Test"}} was already available in demonotifync Namespace
+	The user {"id":81,"name":"kavita","handset":{"device_name":"Iphone old"}} was already available in demonotifync Namespace
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+C:\Notify\notify-server\Microservices\Chat\src\models\index.js:10
+if (config.use_env_variable) {
+          ^
+
+TypeError: Cannot read property 'use_env_variable' of undefined
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\models\index.js:10:11)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\lib\ioHandler.js:4:19)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\service.js:19:22)
+    at Module._compile (module.js:570:32)
+C:\Notify\notify-server\Microservices\Chat\src\models\index.js:10
+if (config.use_env_variable) {
+          ^
+
+TypeError: Cannot read property 'use_env_variable' of undefined
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\models\index.js:10:11)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\lib\ioHandler.js:4:19)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\service.js:19:22)
+    at Module._compile (module.js:570:32)
+C:\Notify\notify-server\Microservices\Chat\src\models\index.js:10
+if (config.use_env_variable) {
+          ^
+
+TypeError: Cannot read property 'use_env_variable' of undefined
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\models\index.js:10:11)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\lib\ioHandler.js:4:19)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (C:\Notify\notify-server\Microservices\Chat\src\service.js:19:22)
+    at Module._compile (module.js:570:32)
+C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js:177
+    child.send('shutdown');
+         ^
+
+TypeError: Cannot read property 'send' of null
+    at process.killkid (C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js:177:10)
+    at emitOne (events.js:96:13)
+    at process.emit (events.js:188:7)
+    at process.exit (internal/process.js:164:15)
+    at monitor (C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js:99:17)
+    at ChildProcess.<anonymous> (C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js:170:5)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:191:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:219:12)
+WARNING: The router named: "api/synchandset" does not exist in the path "/api/v1/sync_handset" please check the file "/config/routes.js"
+	The user {"id":84,"name":"DevTest01","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+	The user {"id":84,"name":"DevTest01","handset":{"device_name":"NewNagenderDev"}} was already available in demonotifync Namespace
+	The user {"id":69,"name":"DevTest02","handset":{"device_name":"NewiPadDev"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 3): Error: Can't set headers after they are sent.
+	The user {"id":84,"name":"DevTest01","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 4): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 5): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 6): Error: Can't set headers after they are sent.
+	The user {"id":72,"name":"Devesh-test","handset":{"device_name":"iPad"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 7): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 8): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 9): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 10): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 11): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 12): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 13): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 14): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 15): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 16): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 17): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 18): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 19): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 20): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 21): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 22): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 23): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 24): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 25): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 26): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 27): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 28): Error: Can't set headers after they are sent.
+	The user {"id":82,"name":"Rahul","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+	The user {"id":82,"name":"Rahul","handset":{"device_name":"iPad"}} was already available in demonotifync Namespace
+	The user {"id":88,"name":"Prashant","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+	The user {"id":88,"name":"Prashant","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+	The user {"id":87,"name":"Trisha","handset":{"device_name":"iPad new"}} was already available in demonotifync Namespace
+	The user {"id":82,"name":"Rahul","handset":{"device_name":"iPad new"}} was already available in demonotifync Namespace
+	The user {"id":87,"name":"Trisha","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+	The user {"id":64,"name":"DeveshN","handset":{"device_name":"IPad new"}} was already available in demonotifync Namespace
+	The user {"id":87,"name":"Trisha","handset":{"device_name":"Kavitatest"}} was already available in demonotifync Namespace
+	The user {"id":63,"name":"NagenderN","handset":{"device_name":"IPad new"}} was already available in demonotifync Namespace
+	The user {"id":82,"name":"Rahul","handset":{"device_name":"IPad New"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 29): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 30): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 31): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 32): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 33): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 34): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 35): Error: Can't set headers after they are sent.
+	The user {"id":96,"name":"Abdullah Test","handset":{"device_name":"Iphone JIO"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Iphone JIO"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Iphone JIO"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Hero Heralal"}} was already available in demonotifync Namespace
+	The user {"id":96,"name":"Abdullah Test","handset":{"device_name":"NewNAgenderDev"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 36): Error: Can't set headers after they are sent.
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Iphone JIO"}} was already available in demonotifync Namespace
+	The user {"id":97,"name":"Abdullah QSS","handset":{"device_name":"NewNAgenderDev"}} was already available in demonotifync Namespace
+	The user {"id":97,"name":"Abdullah QSS","handset":{"device_name":"NewNAgenderDev"}} was already available in demonotifync Namespace
+	The user {"id":92,"name":"Testuser01","handset":{"device_name":"NewNAgenderDev"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 37): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 38): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 39): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 40): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 41): Error: Can't set headers after they are sent.
+	The user {"id":93,"name":"Testuser02","handset":{"device_name":"NewNAgenderDev"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 42): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 43): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 44): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 45): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 46): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 47): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 48): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 49): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 50): Error: Can't set headers after they are sent.
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Newi6Qss"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 51): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 52): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 53): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 54): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 55): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 56): Error: Can't set headers after they are sent.
+	The user {"id":97,"name":"Abdullah QSS","handset":{"device_name":"Abdullah IPad Mini"}} was already available in demonotifync Namespace
+	The user {"id":97,"name":"Abdullah QSS","handset":{"device_name":"Abdullah IPad Mini"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah iphone old"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah iphone old"}} was already available in demonotifync Namespace
+	The user {"id":96,"name":"Abdullah Test","handset":{"device_name":"Abdullah iphone old"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah iphone old"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah iphone"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah iphone"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 57): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 58): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 59): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 60): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 61): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 62): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 63): Error: Can't set headers after they are sent.
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah iphone"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 64): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 65): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 66): Error: Can't set headers after they are sent.
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 67): Error: Can't set headers after they are sent.
+	The user {"id":101,"name":"Abdullah Test","handset":{"device_name":"Abdullah iphone"}} was already available in demonotifync Namespace
+	The user {"id":95,"name":"Abdullah Testing","handset":{"device_name":"Abdullah IPhone new"}} was already available in demonotifync Namespace
+(node:5740) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 68): Error: Can't set headers after they are sent.
+	The user {"id":101,"name":"Abdullah Test","handset":{"device_name":"NewDevNagender"}} was already available in demonotifync Namespace

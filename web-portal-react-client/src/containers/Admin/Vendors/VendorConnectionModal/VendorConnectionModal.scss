@@ -1,0 +1,84 @@
+.Association-connection-modal {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+}
+
+.Association-connection-modal-content {
+  padding: 20px;
+}
+
+.Association-connection-modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .btn {
+    padding: 0 12px;
+    min-width: 100px;
+    width: auto;
+    height: 35px;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.Association-connection-modal-tabs {
+  @media (max-width: 375px) {
+    display: none;
+  }
+}
+
+.Association-connection-modal-select-filter {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.Association-MultiSelect-Checkbox {
+  display: inline-block;
+  position: relative;
+  height: 27px;
+  width: 27px;
+  border: 1px solid #e0e0e0;
+  margin-right: 10px;
+  flex: none;
+}
+
+.Association-MultiSelect-CheckMark {
+  left: 8px;
+  position: absolute;
+  top: 4px;
+  width: 9px;
+  height: 15px;
+  border: solid #0064ad;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.Association-connection-modal-substance {
+  display: block;
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.Association-connection-modal-name-box {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Modal-ScrollTopBtn {
+  bottom: 104px;
+}

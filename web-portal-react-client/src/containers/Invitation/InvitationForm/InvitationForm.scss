@@ -1,0 +1,133 @@
+.InvitationForm {
+  max-width: 350px;
+}
+
+.InvitationForm-TextField {
+  .TextField-Error {
+    position: sticky;
+    left: inherit;
+    bottom: inherit;
+    padding-top: 5px;
+    border-color: #f33232;
+  }
+
+  &.form-group.TextField {
+    margin-bottom: 25px;
+  }
+
+  .TextField-Input {
+    height: 35px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    padding: 0 1em;
+  }
+
+  margin-bottom: 0;
+}
+
+.InvitationForm-Btn {
+  &.btn {
+    padding: 0;
+  }
+
+  margin-right: 30px;
+  width: 100px;
+  height: 35px;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Modern Password Requirements Styling
+.PasswordRequirements {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+
+  &-Item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+
+    &--met {
+      opacity: 1;
+
+      .PasswordRequirements-Text {
+        color: #28a745;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &-Checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    flex-shrink: 0;
+
+    &--checked {
+      background: #28a745;
+      border-color: #28a745;
+      animation: checkboxPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+
+  &-CheckIcon {
+    width: 12px;
+    height: 10px;
+    animation: checkIconAppear 0.3s ease;
+  }
+
+  &-Text {
+    font-size: 14px;
+    color: #495057;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+  }
+}
+
+@keyframes checkboxPop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes checkIconAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

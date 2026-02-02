@@ -1,0 +1,9 @@
+@import 'custom/_page';
+
+.ExternalProvider {
+    flex: 1 1;
+
+    .Referrals {
+        @include page;
+    }
+}

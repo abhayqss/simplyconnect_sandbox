@@ -1,0 +1,48 @@
+.UserNavItem {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &-Avatar {
+        margin-right: 8px;
+    }
+
+    &-Menu {
+        display: flex;
+        align-items: center;
+    }
+
+    &-Label {
+        color: #00ace6;
+        font-weight: 600;
+        font-size: 14px;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    &-Chevron {
+        width: 8px;
+        height: 5px;
+        margin-left: 4px;
+        fill: #00ace6;
+
+        &_inverted {
+            transform: rotate(180deg);
+        }
+    }
+
+    &-Popover {
+        .popover {
+            border: none;
+            border-radius: 0;
+            max-width: 320px;
+
+            &-inner {
+                display: flex;
+            }
+        }
+
+        .arrow {
+            display: none;
+        }
+    }
+}

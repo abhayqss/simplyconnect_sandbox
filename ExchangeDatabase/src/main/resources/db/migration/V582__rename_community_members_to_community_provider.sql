@@ -1,0 +1,1 @@
+update CareTeamRole set name = 'Community Provider' where code = 'ROLE_COMMUNITY_MEMBERS'

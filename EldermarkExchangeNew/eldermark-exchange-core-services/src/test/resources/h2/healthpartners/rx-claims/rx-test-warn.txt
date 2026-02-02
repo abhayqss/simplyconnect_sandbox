@@ -1,0 +1,28 @@
+MEMBER_IDENTIFIER|MEMBER_FIRST_NM|MEMBER_MIDDLE_NM|MEMBER_LAST_NM|MEMBER_BIRTH_DT|CLAIM_NO|DAYS_SUPPLY|PRESCRIBER_FIRST_NM|PRESCRIBER_MIDDLE_NM|PRESCRIBER_LAST_NM|PRESCRIBER_NPI|COMPOUND_CD|DAW_CD|REFILL_NO|PRESCRIPTION_ORIGIN_CD|DRUG_NM|BRAND_GENERIC_CD|NATIONAL_DRUG_CODE|FILLED_DT|PRESCRIPTION_NO|CLAIM_ADJUSTED_FROM_IDENTIFIER|RELATED_CLAIM_RELATIONSHIP|QUANTITY_DISPENSED|UNIT_OF_MEASURE|PHARMACY_NM|PHARMACY_NABP|PHARMACY_NPI
+rx-client-1|Alex|John|Smith|19960526|1|2|James|Tomas|Wilson|443423412|cc1|2|1|5|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210425|11223||||a|My favourite pharmacy|provref|443421234
+||||||||||||||||||||||||||
+rx-client-2|John|Robert|Potter|20100510|2|5|Gregory|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|3|5|Gregory|Brian|House|111020|cc2|1|2|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||14|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|4|5|GregoryChanged|Brian|House|111020|cc2|1|3|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|5|5||Brian|House|111020|cc2|1|4|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|6|5||Brian|House|111020|cc2|1|5|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|7|5|Gregory|Brian|HouseChanged|111020|cc2|1|6|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|8|5|Gregory|Brian||111020|cc2|1|7|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|9|5|Gregory|Brian||111020|cc2|1|8|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|10|5|Gregory|Brian|House|1110201|cc2|1|9|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|11|5|Gregory|Brian|House||cc2|1|10|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|12|5|Gregory|Brian|House||cc2|1|11|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|13|5|Gregory|Brian|House|111020|cc2|1|12|4|Some name which should not be used|44342|00045027026|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|14|5|Gregory|Brian|House|111020|cc2|1|13|4|unknown drug name|44342|12344321432|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|15|5|Gregory|Brian|House|111020|cc2|1|14|4|unknown drug name|44342|12344321432|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|16|5|Gregory|Brian|House|111020|cc2|1|15|4|unknown drug name|44342|12344321432|20210820|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|18|-1|disp_adj|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|17||-0.01|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|17|5|disp_adj|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|19|5|disp_adj_chain|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|20|-1|disp_adj_chain|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|19||-0.01|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|21|-2|disp_adj_chain|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|19||-0.02|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|22|5|disp_del|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|23|5|disp_del|Brian|House|111020|cc2|1|2|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|24|-5|disp_del|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|22||-0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|25|5|med_del|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|||0.12|a|My favourite pharmacy|provref|443421234
+rx-client-2|John|Robert|Potter|20100510|26|-5|med_del|Brian|House|111020|cc2|1|1|4|atorvastatin 40 MG Oral Tablet [Lipitor]|44342|00071015723|20210815|33312|25||-0.12|a|My favourite pharmacy|provref|443421234

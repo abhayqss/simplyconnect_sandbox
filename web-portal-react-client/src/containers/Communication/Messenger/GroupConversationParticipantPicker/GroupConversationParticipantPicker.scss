@@ -1,0 +1,24 @@
+@media (min-width: 576px) {
+    .GroupConversationParticipantPicker {
+        &.modal-dialog {
+            max-width: 1040px;
+        }
+
+        .modal-content {
+            border: none;
+        }
+
+        &_size {
+            &_sm {
+                &.modal-dialog {
+                    max-width: 600px;
+                }
+
+                .modal-content {
+                    border: none;
+                    max-height: 600px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<div>Dear ${affOrg.recipientFullName}, </div>
+<div>
+    <br/>
+    ${affOrg.affiliatedOrganization} and ${affOrg.primaryOrganization} affiliate relationship has been terminated.
+    <br/><br/>
+    You will not be able to see the notifications about events coming to ${affOrg.primaryOrganization}.
+    <br/><br/>
+    Please contact your administrator for more details.<br><br/>
+</div>

@@ -1,0 +1,369 @@
+<html>
+<head>
+    <style type="text/css">
+
+        .eventSection + .sectionHead, .sectionHead + .eventSection {
+        }
+
+        .eventSection {
+            padding: 20px 15px 10px 20px;
+            padding-left: 20px !important;
+        }
+
+        .sectionHead {
+            padding-top: 20px;
+            font-weight: bolder;
+            font-size: 18px;
+            padding-left: 0px !important;
+            padding-bottom: 15px;
+        }
+
+        .sectionSubHead{
+            color: #3c5893;
+            font-weight: bolder;
+            font-size: 16px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-left: 15px !important;
+            margin-bottom: 10px;
+        }
+
+        .eventSection.no-border {
+            border-top: 0px;
+            padding-top: 0px;
+        }
+
+        .eventSection .sectionSubHead:first-child {
+            border-top: 0px;
+            padding-top: 5px;
+        }
+
+        .col-md-4 {
+            width: 33.33333333%;
+            font-weight: bold;
+        }
+
+        .col-md-8 {
+            width: 66.66666667%;
+        }
+
+        .col-md-12 {
+            width: 100%;
+        }
+
+        .footer {
+            float: left;
+            padding-top: 20px;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div>Dear ${notification.employee.fullName},</div>
+<div>
+    <br/>
+    ${notification.content}
+
+    <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; padding-top: 35px; float: left;">Patient Info</span>
+    <div class="col-md-12  eventSection no-border" style="float: left; padding: 20px 15px; position: relative; min-height: 1px; padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Patient Name</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.displayName}</p>
+        #if($event.patient.ssn)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Social Security Number</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.ssn}</p>#end
+        #if($event.patient.birthDate)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Date of Birth</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy', $event.patient.birthDate)</p>#end
+        #if($event.patient.gender)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Gender</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.gender}</p>#end
+        #if($event.patient.maritalStatus)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Marital Status</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.maritalStatus}</p>#end
+        #if($event.patient.address && $StringUtils.isNotEmpty($event.patient.address.displayAddress))
+            <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Address</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.address.displayAddress}</p>#end
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Organization</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.organization}</p>
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Community</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patient.community}</p>
+
+        #if($event.adtEvent)
+
+            #if($StringUtils.isNotEmpty($event.adtEvent.mothersMaidenName))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Mother's Maiden Name</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.mothersMaidenName}</p>#end
+            #if($StringUtils.isNotEmpty($event.adtEvent.patientAlias))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Patient Alias</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.patientAlias}</p>#end
+            #if($event.adtEvent.phoneNumberHome)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Phone Number - Home</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.phoneNumberHome}</p>#end
+            #if($event.adtEvent.phoneNumberBusiness)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Phone Number - Business</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.phoneNumberBusiness}</p>#end
+            #if($event.adtEvent.race)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Race</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.race}</p>#end
+            #if($event.adtEvent.religion)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Religion</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.religion}</p>#end
+            #if($event.adtEvent.patientAccountNumber)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Patient Account Number</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.patientAccountNumber}</p>#end
+            #if($event.adtEvent.driverLicenseNumber)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Driver's License Number</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.driverLicenseNumber}</p>#end
+            #if($event.adtEvent.motherIdentifier)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Mother Identifier</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.motherIdentifier}</p>#end
+            #if($event.adtEvent.etnicGroup)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Ethnic Group</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.etnicGroup}</p>#end
+            #if($event.adtEvent.birthPlace)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Birth Place</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.birthPlace}</p>#end
+            #if($event.adtEvent.citizenship)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Citizenship</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.citizenship}</p>#end
+            #if($event.adtEvent.veteransMilitaryStatus)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Veterans Military Status</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.veteransMilitaryStatus}</p>#end
+            #if($event.adtEvent.nationality)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Nationality</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.nationality}</p>#end
+            #if($event.patient.deathDateTime)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Birth Order</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy', $event.patient.deathDateTime)</p>#end
+            #if($event.adtEvent.deathIndicator)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Death Indicator</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">Yes</p>#end
+        #end
+    </div>
+
+    <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Event Essentials</span>
+    <div class="col-md-12  eventSection no-border" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Person Submitting Event</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.employee.displayName}</p>
+        #if($StringUtils.isNotEmpty($event.employee.role))
+            <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Care Team Role</p><p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.employee.role}</p>#end
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Event Date and Time</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy hh:mm a', $event.eventDetails.eventDatetime.time)</p>
+
+    ##        <script type="text/javascript">
+    ##            var eventDate = new Date(${event.eventDetails.eventDatetime.time});
+    ##            $('#eventDetailsDateTime').html(moment(eventDate).format('MM/DD/YYYY hh:mm A'));
+    ##        </script>
+
+        <b><p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Event Type</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.eventDetails.eventType}</p></b>
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Emergency Department Visit</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">#if(${event.eventDetails.emergencyVisit})Yes #else No#end</p>
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Overnight In-patient</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">#if(${event.eventDetails.overnightPatient})Yes #else No#end</p>
+
+        #if($event.adtEvent)
+
+            #if($event.adtEvent.eventTypeCode)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Event Type Code</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.eventTypeCode}</p>#end
+            #if($event.adtEvent.recordedDateTime)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Recorded Date/Time</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy hh:mm a', $event.adtEvent.recordedDateTime)</p>#end
+            #if($event.adtEvent.eventReasonCode)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">vent Reason Code:</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.adtEvent.eventReasonCode}</p>#end
+            #if($event.adtEvent.eventOccured)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Event Occurred</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy hh:mm a', $event.adtEvent.eventOccured)</p>#end
+        #end
+
+    </div>
+
+    <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Event Description</span>
+    <div class="col-md-12  eventSection no-border" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+        #if($StringUtils.isNotEmpty($event.eventDetails.location))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Location</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.eventDetails.location}</p>#end
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Injury</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">#if(${event.eventDetails.injury})Yes #else No#end</p>
+        #if($StringUtils.isNotEmpty($event.eventDetails.situation))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Situation</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.eventDetails.situation}</p>#end
+        #if($StringUtils.isNotEmpty($event.eventDetails.background))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Background</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.eventDetails.background}</p>#end
+        #if($StringUtils.isNotEmpty($event.eventDetails.assessment))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Assessment</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.eventDetails.assessment}</p>#end
+        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Follow Up Expected</p>
+        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">#if(${event.eventDetails.followUpExpected})Yes #else No#end</p>
+        #if($StringUtils.isNotEmpty($event.eventDetails.followUpDetails))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Follow Up Details</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.eventDetails.followUpDetails}</p>#end
+    </div>
+##    ========================= Treating ====================================
+    #if($event.includeTreatingPhysician || $event.includeHospital)
+        <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Treatment Details</span>
+        <div class="col-md-12  eventSection no-border" style="float: left; padding: 20px 15px; position: relative; min-height: 1px; padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+            #if($event.includeTreatingPhysician)
+                <span class="sectionSubHead col-md-12" style="width: 100%; color: #3c5893; font-weight: bolder; font-size: 16px; padding-bottom: 10px; padding-top: 10px; padding-left: 10px; margin-bottom: 10px;">Details of Treating Physician</span>
+                <div class="col-md-12" style="width: 100%; padding-left: 0px">
+                    <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Physician Name</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.treatingPhysician.displayName}</p>
+                </div>
+                #if($event.treatingPhysician.includeAddress)
+                    <div class="col-md-12" style="width: 100%; padding-left: 0px">
+                        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Address</p>
+                        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.treatingPhysician.address.displayAddress}</p>
+                    </div>
+                #end
+                #if($StringUtils.isNotEmpty($event.treatingPhysician.phone))
+                    <div class="col-md-12" style="width: 100%; padding-left: 0px">
+                        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Phone</p>
+                        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.treatingPhysician.phone}</p>
+                    </div>
+                #end
+            #end
+
+            #if($event.includeHospital)
+                <span class="sectionSubHead col-md-12" style="width: 100%; color: #3c5893; font-weight: bolder; font-size: 16px; padding-bottom: 10px; padding-top: 10px; padding-left: 14px; margin-bottom: 10px;">Details of Treating Hospital</span>
+                <div class="col-md-12" style="width: 100%; padding-left: 0px">
+                    <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Hospital/Clinic</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.treatingHospital.name}</p>
+                </div>
+
+                #if($event.treatingHospital.includeAddress)
+                    <div class="col-md-12" style="width: 100%; padding-left: 0px">
+                        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Address</p>
+                        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.treatingHospital.address.displayAddress}</p>
+                    </div>
+                #end
+                #if($event.treatingHospital.phone)
+                    <div class="col-md-12" style="width: 100%; padding-left: 0px">
+                        <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Phone</p>
+                        <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.treatingHospital.phone}</p>
+                    </div>
+                #end
+            #end
+        </div>
+    #end
+##======================================================
+
+##================= Manager =====================================
+    #if($event.includeManager)
+        <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Details of Responsible Manager</span>
+        <div class="col-md-12 eventSection no-border" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+            <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Manager Name</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.manager.displayName}</p>
+            #if($event.manager.phone)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Phone</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.manager.phone}</p> #end
+            #if($StringUtils.isNotEmpty($event.manager.email))<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Email</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.manager.email}</p> #end
+        </div>
+    #end
+
+
+    #if($event.includeResponsible)
+        <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Details of Registered Nurse (RN)</span>
+        <div class="col-md-12 eventSection no-border" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+            <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">RN Name</p>
+            <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.responsible.displayName}</p>
+
+            #if($event.responsible.includeAddress)
+                <p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Address</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.responsible.address.displayAddress}</p>
+            #end
+        </div>
+    #end
+
+    #if($event.patientVisit)
+        <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Patient Visit</span>
+        <div class="col-md-12  eventSection" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+            #if($event.patientVisit.patientClass)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Patient Class</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.patientClass}</p>#end
+            #if($event.patientVisit.attendingDoctor)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Attending Doctor</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.attendingDoctor}</p>#end
+            #if($event.patientVisit.referringDoctor)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Referring Doctor</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.referringDoctor}</p>#end
+            #if($event.patientVisit.consultingDoctor)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Consulting Doctor</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.consultingDoctor}</p>#end
+            #if($event.patientVisit.ambulatoryStatus)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Ambulatory Status</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.ambulatoryStatus}</p>#end
+            #if($event.patientVisit.admissionType)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Admission type</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.admissionType}</p>#end
+            #if($event.patientVisit.preadmitTestIndicator)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Preadmit Test Indicator</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.preadmitTestIndicator}</p>#end
+            #if($event.patientVisit.readmissionIndicator)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Re-admission Indicator</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.readmissionIndicator}</p>#end
+            #if($event.patientVisit.admitSource)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Admit Source</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.admitSource}</p>#end
+            #if($event.patientVisit.dischargeDisposition)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Discharge Disposition</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.dischargeDisposition}</p>#end
+            #if($event.patientVisit.dischargedToLocation)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Discharged to Location</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.patientVisit.dischargedToLocation}</p>#end
+            #if($event.patientVisit.admitDateTime)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Admit Date/Time</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy hh:mm a', $event.patientVisit.admitDateTime)</p>#end
+            #if($event.patientVisit.dischargeDateTime)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Discharge Date/Time</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy hh:mm a', $event.patientVisit.dischargeDateTime)</p>#end
+        </div>
+    #end
+
+
+    #if($event.procedure)
+        <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Procedures</span>
+        <div class="col-md-12  eventSection" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+            #if($event.procedure.description)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Procedure Description</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.description}</p>#end
+            #if($event.procedure.dateTime)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Patient Class</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy hh:mm a', $event.procedure.dateTime)</p>#end
+            #if($event.procedure.code.identifier)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Procedure Code Identifier</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.code.identifier}</p>#end
+            #if($event.procedure.code.text)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Procedure Code Text</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.code.text}</p>#end
+            #if($event.procedure.code.nameOfCodingSystem)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Name Of Coding System</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.code.nameOfCodingSystem}</p>#end
+            #if($event.procedure.code.alternateIdentifier)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Alternate Identifier</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.code.alternateIdentifier}</p>#end
+            #if($event.procedure.code.alternateText)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Alternate Text</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.code.alternateText}</p>#end
+            #if($event.procedure.code.nameOfAlternateCodingSystem)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Name Of Alternate Coding System</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.code.nameOfAlternateCodingSystem}</p>#end
+            #if($event.procedure.associatedDiagnosisCode)
+                #if($event.procedure.associatedDiagnosisCode.identifier)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left"><nobr>Associated Diagnosis Code
+                    Identifier</nobr></p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.associatedDiagnosisCode.identifier}</p>#end
+                #if($event.procedure.associatedDiagnosisCode.text)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Associated Diagnosis Code Text</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.associatedDiagnosisCode.text}</p>#end
+                #if($event.procedure.associatedDiagnosisCode.nameOfCodingSystem)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Name Of Coding
+                    System</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.associatedDiagnosisCode.nameOfCodingSystem}</p>#end
+                #if($event.procedure.associatedDiagnosisCode.alternateIdentifier)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Alternate
+                    Identifier</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.associatedDiagnosisCode.alternateIdentifier}</p>#end
+                #if($event.procedure.associatedDiagnosisCode.alternateText)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Alternate Text</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.associatedDiagnosisCode.alternateText}</p>#end
+                #if($event.procedure.associatedDiagnosisCode.nameOfAlternateCodingSystem)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Name Of
+                    Alternate Coding System</p>
+                    <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.procedure.associatedDiagnosisCode.nameOfAlternateCodingSystem}</p>#end
+            #end
+
+        </div>
+    #end
+
+
+    #if($event.insurance)
+        <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; float: left;">Insurance</span>
+        <div class="col-md-12  eventSection" style="float: left; padding: 20px 15px; position: relative; min-height: 1px;
+padding-right: 15px; padding-left: 20px; width: 100%; float: left">
+            #if($event.insurance.planId)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Insurance Plan ID</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.insurance.planId}</p>#end
+            #if($event.insurance.companyId)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Insurance Company ID</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.insurance.companyId}</p>#end
+            #if($event.insurance.companyName)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Insurance Company Name</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.insurance.companyName}</p>#end
+            #if($event.insurance.planEffectiveDate)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Plan Effective Date</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy', $event.insurance.planEffectiveDate)</p>#end
+            #if($event.insurance.planExpirationDate)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Plan Expiration Date</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">$date.format('MM/dd/yyyy', $event.insurance.planExpirationDate)</p>#end
+            #if($event.insurance.planType)<p class="col-md-4" style="font-weight: bold; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 30%; float: left">Plan Type</p>
+                <p class="col-md-8" style="position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; width: 60%; float: left">${event.insurance.planType}</p>#end
+        </div>
+    #end
+
+
+</div>
+<div class="footer" style="float: left; padding-top: 20px; width: 100%; padding-bottom: 20px;">
+    Please follow the <a href="${portalUrl}?startPage=care-coordination/events-log&id=${eventId}"
+                         target="_blank">link</a> to view the details of this event in Simply Connect system.
+</div>
+<div style="float: left; padding-top: 20px; width: 100%; padding-bottom: 20px;">
+##<br/> <br/>
+    Regards,<br/>
+    Simply Connect Team
+    <br/><br/>
+    ***Important: Please do not reply to this email. This mailbox is not set up to receive email.
+</div>
+##</div>
+<div></div>
+</body>
+</html>

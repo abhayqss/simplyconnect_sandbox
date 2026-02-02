@@ -1,0 +1,40 @@
+.CommunityOverallRating {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #dddddd;
+  min-width: 190px;
+
+  &-RatingInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 5px 5px 5px 0;
+  }
+
+  &-Title {
+    color: #898989;
+    font-size: 14px;
+    display: flex;
+    padding-bottom: 2px;
+    margin-right: 9px;
+    flex-direction: row;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-ActionBtn {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &_blocked {
+      pointer-events: none;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

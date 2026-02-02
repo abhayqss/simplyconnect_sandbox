@@ -1,0 +1,21 @@
+@import "custom/_fonts";
+
+.MarketplaceInquiryEditor {
+  &.modal-dialog {
+    max-width: 1040px;
+  }
+
+  &-Footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.SubmitInquirySuccessDialog {
+  &.SuccessDialog {
+    .Dialog-Text {
+      text-align: center;
+    }
+  }
+}

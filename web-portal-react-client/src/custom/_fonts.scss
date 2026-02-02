@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "Open Sans Semibold";
+  src: url("../fonts/OpenSans-Semibold.eot");
+  src:
+          url("../fonts/OpenSans-Semibold.woff") format("woff"),
+          url("../fonts/OpenSans-Semibold.woff2") format("woff2"),
+          url("../fonts/OpenSans-Semibold.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url("../fonts/OpenSans-ExtraBold.eot");
+  src:
+          url("../fonts/OpenSans-ExtraBold.woff") format("woff"),
+          url("../fonts/OpenSans-ExtraBold.woff2") format("woff2"),
+          url("../fonts/OpenSans-ExtraBold.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Poppins Thin";
+  src: url("../fonts/Poppins-Thin.eot");
+  src:
+          url("../fonts/Poppins-Thin.woff") format("woff"),
+          url("../fonts/Poppins-Thin.woff2") format("woff2"),
+          url("../fonts/Poppins-Thin.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Poppins Light";
+  src: url("../fonts/Poppins-Light.eot");
+  src:
+          url("../fonts/Poppins-Light.woff") format("woff"),
+          url("../fonts/Poppins-Light.woff2") format("woff2"),
+          url("../fonts/Poppins-Light.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.eot");
+  src:
+          url("../fonts/Poppins-Regular.woff") format("woff"),
+          url("../fonts/Poppins-Regular.woff2") format("woff2"),
+          url("../fonts/Poppins-Regular.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Poppins Medium";
+  src: url("../fonts/Poppins-Medium.eot");
+  src:
+          url("../fonts/Poppins-Medium.woff") format("woff"),
+          url("../fonts/Poppins-Medium.woff2") format("woff2"),
+          url("../fonts/Poppins-Medium.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Poppins Semibold";
+  src: url("../fonts/Poppins-Bold.eot");
+  src:
+          url("../fonts/Poppins-SemiBold.woff") format("woff"),
+          url("../fonts/Poppins-SemiBold.woff2") format("woff2"),
+          url("../fonts/Poppins-SemiBold.svg#filename") format("svg");
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("../fonts/Poppins-Bold.eot");
+  src:
+          url("../fonts/Poppins-Bold.woff") format("woff"),
+          url("../fonts/Poppins-Bold.woff2") format("woff2"),
+          url("../fonts/Poppins-Bold.svg#filename") format("svg");
+}
+
+$font-color_head-text: #222222;
+
+$font-color_text: #222222;
+
+$font-color_placeholder: rgba(34, 34, 34, 0.5);
+
+$font-size_page-title: 26px;
+
+$font-size_section-title: 16px;
+
+$font-size_section: 15px;
+
+$font-size_button-text: 15px;
+
+$font-size_form-field-value: 15px;
+
+$font-size_multi-select-value: 15px;
+
+$font-size_table-cell-text: 15px;
+
+$font-size_detail-title-text: 14px;
+
+$font-size_detail-value-text: 15px;
+
+$font-size_list-item-text: 15px;
+
+$font-size_link-text: 15px;
+
+$font-size_chart-legend-text: 15px;

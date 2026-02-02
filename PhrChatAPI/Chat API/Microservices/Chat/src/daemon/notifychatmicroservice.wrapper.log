@@ -1,0 +1,516 @@
+2017-09-06 15:42:54 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-06 15:42:54 - Started 4820
+2017-09-06 15:45:14 - Stopping notifychatmicroservice.exe
+2017-09-06 15:45:14 - ProcessKill 4820
+2017-09-06 15:45:14 - Found child process: 3340 Name: conhost.exe
+2017-09-06 15:45:14 - Found child process: 4312 Name: node.exe
+2017-09-06 15:45:14 - Stopping process 3340
+2017-09-06 15:45:14 - Send SIGINT 3340
+2017-09-06 15:45:14 - SIGINT to 3340 failed - Killing as fallback
+2017-09-06 15:45:14 - Stopping process 4312
+2017-09-06 15:45:14 - Send SIGINT 4312
+2017-09-06 15:45:14 - SIGINT to 4312 failed - Killing as fallback
+2017-09-06 15:45:14 - Stopping process 4820
+2017-09-06 15:45:14 - Send SIGINT 4820
+2017-09-06 15:45:14 - SIGINT to 4820 failed - Killing as fallback
+2017-09-06 15:45:14 - Finished notifychatmicroservice.exe
+2017-09-07 15:30:39 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-07 15:30:39 - Started 5648
+2017-09-08 10:55:16 - Stopping notifychatmicroservice.exe
+2017-09-08 10:55:16 - ProcessKill 5648
+2017-09-08 10:55:16 - Found child process: 5768 Name: conhost.exe
+2017-09-08 10:55:16 - Found child process: 6040 Name: node.exe
+2017-09-08 10:55:16 - Stopping process 5768
+2017-09-08 10:55:16 - Send SIGINT 5768
+2017-09-08 10:55:16 - SIGINT to 5768 failed - Killing as fallback
+2017-09-08 10:55:16 - Stopping process 6040
+2017-09-08 10:55:16 - Send SIGINT 6040
+2017-09-08 10:55:16 - SIGINT to 6040 failed - Killing as fallback
+2017-09-08 10:55:16 - Stopping process 5648
+2017-09-08 10:55:16 - Send SIGINT 5648
+2017-09-08 10:55:16 - SIGINT to 5648 failed - Killing as fallback
+2017-09-08 10:55:16 - Finished notifychatmicroservice.exe
+2017-09-08 10:55:17 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-08 10:55:17 - Started 5596
+2017-09-08 10:56:45 - Stopping notifychatmicroservice.exe
+2017-09-08 10:56:45 - ProcessKill 5596
+2017-09-08 10:56:45 - Found child process: 1176 Name: conhost.exe
+2017-09-08 10:56:45 - Found child process: 1168 Name: node.exe
+2017-09-08 10:56:46 - Stopping process 1176
+2017-09-08 10:56:46 - Send SIGINT 1176
+2017-09-08 10:56:46 - SIGINT to 1176 failed - Killing as fallback
+2017-09-08 10:56:46 - Stopping process 1168
+2017-09-08 10:56:46 - Send SIGINT 1168
+2017-09-08 10:56:46 - SIGINT to 1168 failed - Killing as fallback
+2017-09-08 10:56:46 - Stopping process 5596
+2017-09-08 10:56:46 - Send SIGINT 5596
+2017-09-08 10:56:46 - SIGINT to 5596 failed - Killing as fallback
+2017-09-08 10:56:46 - Finished notifychatmicroservice.exe
+2017-09-11 14:24:47 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-11 14:24:47 - Started 5504
+2017-09-11 14:24:52 - Stopping notifychatmicroservice.exe
+2017-09-11 14:24:52 - ProcessKill 5504
+2017-09-11 14:24:52 - Found child process: 4860 Name: conhost.exe
+2017-09-11 14:24:52 - Found child process: 5484 Name: node.exe
+2017-09-11 14:24:52 - Stopping process 4860
+2017-09-11 14:24:52 - Send SIGINT 4860
+2017-09-11 14:24:52 - SIGINT to 4860 failed - Killing as fallback
+2017-09-11 14:24:53 - Stopping process 5484
+2017-09-11 14:24:53 - Send SIGINT 5484
+2017-09-11 14:24:53 - SIGINT to 5484 failed - Killing as fallback
+2017-09-11 14:24:53 - Stopping process 5504
+2017-09-11 14:24:53 - Send SIGINT 5504
+2017-09-11 14:24:53 - SIGINT to 5504 failed - Killing as fallback
+2017-09-11 14:24:53 - Finished notifychatmicroservice.exe
+2017-09-22 13:23:43 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-22 13:23:43 - Started 3960
+2017-09-26 11:52:30 - Stopping notifychatmicroservice.exe
+2017-09-26 11:52:30 - ProcessKill 3960
+2017-09-26 11:52:30 - Found child process: 3932 Name: conhost.exe
+2017-09-26 11:52:30 - Found child process: 1136 Name: node.exe
+2017-09-26 11:52:30 - Stopping process 3932
+2017-09-26 11:52:30 - Send SIGINT 3932
+2017-09-26 11:52:30 - SIGINT to 3932 failed - Killing as fallback
+2017-09-26 11:52:30 - Stopping process 1136
+2017-09-26 11:52:30 - Send SIGINT 1136
+2017-09-26 11:52:30 - SIGINT to 1136 failed - Killing as fallback
+2017-09-26 11:52:30 - Stopping process 3960
+2017-09-26 11:52:30 - Send SIGINT 3960
+2017-09-26 11:52:30 - SIGINT to 3960 failed - Killing as fallback
+2017-09-26 11:52:30 - Finished notifychatmicroservice.exe
+2017-09-26 11:52:31 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-26 11:52:31 - Started 4120
+2017-09-26 11:52:57 - Stopping notifychatmicroservice.exe
+2017-09-26 11:52:57 - ProcessKill 4120
+2017-09-26 11:52:57 - Found child process: 2872 Name: conhost.exe
+2017-09-26 11:52:57 - Found child process: 5992 Name: node.exe
+2017-09-26 11:52:57 - Stopping process 2872
+2017-09-26 11:52:57 - Send SIGINT 2872
+2017-09-26 11:52:57 - SIGINT to 2872 failed - Killing as fallback
+2017-09-26 11:52:57 - Stopping process 5992
+2017-09-26 11:52:57 - Send SIGINT 5992
+2017-09-26 11:52:57 - SIGINT to 5992 failed - Killing as fallback
+2017-09-26 11:52:57 - Stopping process 4120
+2017-09-26 11:52:57 - Send SIGINT 4120
+2017-09-26 11:52:57 - SIGINT to 4120 failed - Killing as fallback
+2017-09-26 11:52:57 - Finished notifychatmicroservice.exe
+2017-09-26 12:54:42 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-26 12:54:42 - Started 4688
+2017-09-27 12:20:39 - Stopping notifychatmicroservice.exe
+2017-09-27 12:20:39 - ProcessKill 4688
+2017-09-27 12:20:39 - Found child process: 512 Name: conhost.exe
+2017-09-27 12:20:39 - Found child process: 3932 Name: node.exe
+2017-09-27 12:20:39 - Stopping process 512
+2017-09-27 12:20:39 - Send SIGINT 512
+2017-09-27 12:20:39 - SIGINT to 512 failed - Killing as fallback
+2017-09-27 12:20:39 - Stopping process 3932
+2017-09-27 12:20:39 - Send SIGINT 3932
+2017-09-27 12:20:39 - SIGINT to 3932 failed - Killing as fallback
+2017-09-27 12:20:39 - Stopping process 4688
+2017-09-27 12:20:39 - Send SIGINT 4688
+2017-09-27 12:20:39 - SIGINT to 4688 failed - Killing as fallback
+2017-09-27 12:20:39 - Finished notifychatmicroservice.exe
+2017-09-29 16:52:02 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-09-29 16:52:02 - Started 3376
+2017-10-11 18:24:41 - Stopping notifychatmicroservice.exe
+2017-10-11 18:24:41 - ProcessKill 3376
+2017-10-11 18:24:41 - Found child process: 2564 Name: conhost.exe
+2017-10-11 18:24:41 - Found child process: 6368 Name: node.exe
+2017-10-11 18:24:41 - Stopping process 2564
+2017-10-11 18:24:41 - Send SIGINT 2564
+2017-10-11 18:24:41 - SIGINT to 2564 failed - Killing as fallback
+2017-10-11 18:24:41 - Stopping process 6368
+2017-10-11 18:24:41 - Send SIGINT 6368
+2017-10-11 18:24:41 - SIGINT to 6368 failed - Killing as fallback
+2017-10-11 18:24:41 - Stopping process 3376
+2017-10-11 18:24:41 - Send SIGINT 3376
+2017-10-11 18:24:41 - SIGINT to 3376 failed - Killing as fallback
+2017-10-11 18:24:41 - Finished notifychatmicroservice.exe
+2017-10-11 18:24:42 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-11 18:24:42 - Started 6656
+2017-10-11 18:24:46 - Stopping notifychatmicroservice.exe
+2017-10-11 18:24:46 - ProcessKill 6656
+2017-10-11 18:24:46 - Found child process: 7268 Name: conhost.exe
+2017-10-11 18:24:46 - Found child process: 8052 Name: node.exe
+2017-10-11 18:24:46 - Stopping process 7268
+2017-10-11 18:24:46 - Send SIGINT 7268
+2017-10-11 18:24:46 - SIGINT to 7268 failed - Killing as fallback
+2017-10-11 18:24:46 - Stopping process 8052
+2017-10-11 18:24:46 - Send SIGINT 8052
+2017-10-11 18:24:46 - SIGINT to 8052 failed - Killing as fallback
+2017-10-11 18:24:46 - Stopping process 6656
+2017-10-11 18:24:46 - Send SIGINT 6656
+2017-10-11 18:24:46 - SIGINT to 6656 failed - Killing as fallback
+2017-10-11 18:24:46 - Finished notifychatmicroservice.exe
+2017-10-11 18:24:48 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-11 18:24:48 - Started 1392
+2017-10-11 18:55:23 - Stopping notifychatmicroservice.exe
+2017-10-11 18:55:23 - ProcessKill 1392
+2017-10-11 18:55:23 - Found child process: 3220 Name: conhost.exe
+2017-10-11 18:55:23 - Found child process: 6792 Name: node.exe
+2017-10-11 18:55:23 - Stopping process 3220
+2017-10-11 18:55:23 - Send SIGINT 3220
+2017-10-11 18:55:23 - SIGINT to 3220 failed - Killing as fallback
+2017-10-11 18:55:23 - Stopping process 6792
+2017-10-11 18:55:23 - Send SIGINT 6792
+2017-10-11 18:55:23 - SIGINT to 6792 failed - Killing as fallback
+2017-10-11 18:55:23 - Stopping process 1392
+2017-10-11 18:55:23 - Send SIGINT 1392
+2017-10-11 18:55:23 - SIGINT to 1392 failed - Killing as fallback
+2017-10-11 18:55:23 - Finished notifychatmicroservice.exe
+2017-10-11 18:55:24 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-11 18:55:24 - Started 1216
+2017-10-11 18:55:47 - Stopping notifychatmicroservice.exe
+2017-10-11 18:55:47 - ProcessKill 1216
+2017-10-11 18:55:47 - Found child process: 7932 Name: conhost.exe
+2017-10-11 18:55:47 - Found child process: 7924 Name: node.exe
+2017-10-11 18:55:47 - Stopping process 7932
+2017-10-11 18:55:47 - Send SIGINT 7932
+2017-10-11 18:55:47 - SIGINT to 7932 failed - Killing as fallback
+2017-10-11 18:55:47 - Stopping process 7924
+2017-10-11 18:55:47 - Send SIGINT 7924
+2017-10-11 18:55:47 - SIGINT to 7924 failed - Killing as fallback
+2017-10-11 18:55:47 - Stopping process 1216
+2017-10-11 18:55:47 - Send SIGINT 1216
+2017-10-11 18:55:47 - SIGINT to 1216 failed - Killing as fallback
+2017-10-11 18:55:47 - Finished notifychatmicroservice.exe
+2017-10-11 18:55:48 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-11 18:55:48 - Started 6016
+2017-10-12 14:08:25 - Stopping notifychatmicroservice.exe
+2017-10-12 14:08:25 - ProcessKill 6016
+2017-10-12 14:08:25 - Found child process: 3980 Name: conhost.exe
+2017-10-12 14:08:25 - Found child process: 5080 Name: node.exe
+2017-10-12 14:08:25 - Stopping process 3980
+2017-10-12 14:08:25 - Send SIGINT 3980
+2017-10-12 14:08:25 - SIGINT to 3980 failed - Killing as fallback
+2017-10-12 14:08:25 - Stopping process 5080
+2017-10-12 14:08:25 - Send SIGINT 5080
+2017-10-12 14:08:25 - SIGINT to 5080 failed - Killing as fallback
+2017-10-12 14:08:25 - Stopping process 6016
+2017-10-12 14:08:25 - Send SIGINT 6016
+2017-10-12 14:08:25 - SIGINT to 6016 failed - Killing as fallback
+2017-10-12 14:08:25 - Finished notifychatmicroservice.exe
+2017-10-12 14:46:58 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-12 14:46:58 - Started 2540
+2017-10-12 21:39:04 - Stopping notifychatmicroservice.exe
+2017-10-12 21:39:04 - ProcessKill 2540
+2017-10-12 21:39:04 - Found child process: 6392 Name: conhost.exe
+2017-10-12 21:39:04 - Found child process: 7628 Name: node.exe
+2017-10-12 21:39:04 - Stopping process 6392
+2017-10-12 21:39:04 - Send SIGINT 6392
+2017-10-12 21:39:04 - SIGINT to 6392 failed - Killing as fallback
+2017-10-12 21:39:04 - Stopping process 7628
+2017-10-12 21:39:04 - Send SIGINT 7628
+2017-10-12 21:39:04 - SIGINT to 7628 failed - Killing as fallback
+2017-10-12 21:39:04 - Stopping process 2540
+2017-10-12 21:39:04 - Send SIGINT 2540
+2017-10-12 21:39:04 - SIGINT to 2540 failed - Killing as fallback
+2017-10-12 21:39:04 - Finished notifychatmicroservice.exe
+2017-10-12 21:39:06 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-12 21:39:06 - Started 6552
+2017-10-13 10:28:27 - Stopping notifychatmicroservice.exe
+2017-10-13 10:28:27 - ProcessKill 6552
+2017-10-13 10:28:28 - Found child process: 4224 Name: conhost.exe
+2017-10-13 10:28:28 - Found child process: 6212 Name: node.exe
+2017-10-13 10:28:28 - Stopping process 4224
+2017-10-13 10:28:28 - Send SIGINT 4224
+2017-10-13 10:28:28 - SIGINT to 4224 failed - Killing as fallback
+2017-10-13 10:28:28 - Stopping process 6212
+2017-10-13 10:28:28 - Send SIGINT 6212
+2017-10-13 10:28:28 - SIGINT to 6212 failed - Killing as fallback
+2017-10-13 10:28:28 - Stopping process 6552
+2017-10-13 10:28:28 - Send SIGINT 6552
+2017-10-13 10:28:28 - SIGINT to 6552 failed - Killing as fallback
+2017-10-13 10:28:28 - Finished notifychatmicroservice.exe
+2017-10-13 10:29:24 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-13 10:29:24 - Started 4652
+2017-10-13 10:58:35 - Stopping notifychatmicroservice.exe
+2017-10-13 10:58:35 - ProcessKill 4652
+2017-10-13 10:58:35 - Found child process: 6820 Name: conhost.exe
+2017-10-13 10:58:35 - Found child process: 3836 Name: node.exe
+2017-10-13 10:58:36 - Stopping process 6820
+2017-10-13 10:58:36 - Send SIGINT 6820
+2017-10-13 10:58:36 - SIGINT to 6820 failed - Killing as fallback
+2017-10-13 10:58:36 - Stopping process 3836
+2017-10-13 10:58:36 - Send SIGINT 3836
+2017-10-13 10:58:36 - SIGINT to 3836 failed - Killing as fallback
+2017-10-13 10:58:36 - Stopping process 4652
+2017-10-13 10:58:36 - Send SIGINT 4652
+2017-10-13 10:58:36 - SIGINT to 4652 failed - Killing as fallback
+2017-10-13 10:58:36 - Finished notifychatmicroservice.exe
+2017-10-13 10:58:37 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-13 10:58:37 - Started 6340
+2017-10-23 17:06:37 - Stopping notifychatmicroservice.exe
+2017-10-23 17:06:37 - ProcessKill 6340
+2017-10-23 17:06:37 - Found child process: 3820 Name: conhost.exe
+2017-10-23 17:06:37 - Found child process: 5436 Name: node.exe
+2017-10-23 17:06:37 - Stopping process 3820
+2017-10-23 17:06:37 - Send SIGINT 3820
+2017-10-23 17:06:37 - SIGINT to 3820 failed - Killing as fallback
+2017-10-23 17:06:37 - Stopping process 5436
+2017-10-23 17:06:37 - Send SIGINT 5436
+2017-10-23 17:06:37 - SIGINT to 5436 failed - Killing as fallback
+2017-10-23 17:06:37 - Stopping process 6340
+2017-10-23 17:06:37 - Send SIGINT 6340
+2017-10-23 17:06:37 - SIGINT to 6340 failed - Killing as fallback
+2017-10-23 17:06:37 - Finished notifychatmicroservice.exe
+2017-10-23 17:18:23 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-23 17:18:23 - Started 7924
+2017-10-24 17:01:13 - Stopping notifychatmicroservice.exe
+2017-10-24 17:01:13 - ProcessKill 7924
+2017-10-24 17:01:14 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-24 17:02:26 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-24 17:02:26 - Started 1668
+2017-10-30 08:39:36 - Stopping notifychatmicroservice.exe
+2017-10-30 08:39:36 - ProcessKill 1668
+2017-10-30 08:39:36 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2017-10-30 09:04:30 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2017-10-30 09:04:30 - Started 1688
+2018-01-09 04:06:12 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-09 04:06:12 - Started 5932
+2018-01-09 04:08:06 - Stopping notifychatmicroservice.exe
+2018-01-09 04:08:06 - ProcessKill 5932
+2018-01-09 04:08:06 - Found child process: 1380 Name: conhost.exe
+2018-01-09 04:08:06 - Found child process: 5440 Name: node.exe
+2018-01-09 04:08:06 - Stopping process 1380
+2018-01-09 04:08:06 - Send SIGINT 1380
+2018-01-09 04:08:06 - SIGINT to 1380 failed - Killing as fallback
+2018-01-09 04:08:06 - Stopping process 5440
+2018-01-09 04:08:06 - Send SIGINT 5440
+2018-01-09 04:08:06 - SIGINT to 5440 failed - Killing as fallback
+2018-01-09 04:08:06 - Stopping process 5932
+2018-01-09 04:08:06 - Send SIGINT 5932
+2018-01-09 04:08:06 - SIGINT to 5932 failed - Killing as fallback
+2018-01-09 04:08:06 - Finished notifychatmicroservice.exe
+2018-01-09 06:45:59 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-09 06:45:59 - Started 6156
+2018-01-09 22:45:00 - Stopping notifychatmicroservice.exe
+2018-01-09 22:45:00 - ProcessKill 6156
+2018-01-09 22:45:00 - Found child process: 4352 Name: conhost.exe
+2018-01-09 22:45:00 - Found child process: 7324 Name: node.exe
+2018-01-09 22:45:00 - Stopping process 4352
+2018-01-09 22:45:00 - Send SIGINT 4352
+2018-01-09 22:45:00 - SIGINT to 4352 failed - Killing as fallback
+2018-01-09 22:45:00 - Stopping process 7324
+2018-01-09 22:45:00 - Send SIGINT 7324
+2018-01-09 22:45:00 - SIGINT to 7324 failed - Killing as fallback
+2018-01-09 22:45:00 - Stopping process 6156
+2018-01-09 22:45:00 - Send SIGINT 6156
+2018-01-09 22:45:00 - SIGINT to 6156 failed - Killing as fallback
+2018-01-09 22:45:00 - Finished notifychatmicroservice.exe
+2018-01-10 00:56:04 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-10 00:56:04 - Started 7468
+2018-01-10 06:22:27 - Stopping notifychatmicroservice.exe
+2018-01-10 06:22:27 - ProcessKill 7468
+2018-01-10 06:22:27 - Found child process: 7164 Name: conhost.exe
+2018-01-10 06:22:27 - Found child process: 6996 Name: node.exe
+2018-01-10 06:22:27 - Stopping process 7164
+2018-01-10 06:22:27 - Send SIGINT 7164
+2018-01-10 06:22:27 - SIGINT to 7164 failed - Killing as fallback
+2018-01-10 06:22:27 - Stopping process 6996
+2018-01-10 06:22:27 - Send SIGINT 6996
+2018-01-10 06:22:27 - SIGINT to 6996 failed - Killing as fallback
+2018-01-10 06:22:27 - Stopping process 7468
+2018-01-10 06:22:27 - Send SIGINT 7468
+2018-01-10 06:22:27 - SIGINT to 7468 failed - Killing as fallback
+2018-01-10 06:22:27 - Finished notifychatmicroservice.exe
+2018-01-10 07:43:15 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-10 07:43:15 - Started 7776
+2018-01-11 06:51:15 - Stopping notifychatmicroservice.exe
+2018-01-11 06:51:15 - ProcessKill 7776
+2018-01-11 06:51:15 - Found child process: 5508 Name: conhost.exe
+2018-01-11 06:51:15 - Found child process: 7556 Name: node.exe
+2018-01-11 06:51:15 - Stopping process 5508
+2018-01-11 06:51:15 - Send SIGINT 5508
+2018-01-11 06:51:15 - SIGINT to 5508 failed - Killing as fallback
+2018-01-11 06:51:15 - Stopping process 7556
+2018-01-11 06:51:15 - Send SIGINT 7556
+2018-01-11 06:51:15 - SIGINT to 7556 failed - Killing as fallback
+2018-01-11 06:51:15 - Stopping process 7776
+2018-01-11 06:51:15 - Send SIGINT 7776
+2018-01-11 06:51:15 - SIGINT to 7776 failed - Killing as fallback
+2018-01-11 06:51:15 - Finished notifychatmicroservice.exe
+2018-01-11 06:53:01 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-11 06:53:01 - Started 8060
+2018-01-14 23:12:08 - Stopping notifychatmicroservice.exe
+2018-01-14 23:12:08 - ProcessKill 8060
+2018-01-14 23:12:08 - Found child process: 3448 Name: conhost.exe
+2018-01-14 23:12:08 - Found child process: 5600 Name: node.exe
+2018-01-14 23:12:08 - Stopping process 3448
+2018-01-14 23:12:08 - Send SIGINT 3448
+2018-01-14 23:12:08 - SIGINT to 3448 failed - Killing as fallback
+2018-01-14 23:12:08 - Stopping process 5600
+2018-01-14 23:12:08 - Send SIGINT 5600
+2018-01-14 23:12:08 - SIGINT to 5600 failed - Killing as fallback
+2018-01-14 23:12:08 - Stopping process 8060
+2018-01-14 23:12:08 - Send SIGINT 8060
+2018-01-14 23:12:08 - SIGINT to 8060 failed - Killing as fallback
+2018-01-14 23:12:08 - Finished notifychatmicroservice.exe
+2018-01-15 02:33:34 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-15 02:33:34 - Started 7788
+2018-01-15 02:54:02 - Stopping notifychatmicroservice.exe
+2018-01-15 02:54:02 - ProcessKill 7788
+2018-01-15 02:54:02 - Found child process: 2960 Name: conhost.exe
+2018-01-15 02:54:02 - Found child process: 7520 Name: node.exe
+2018-01-15 02:54:02 - Stopping process 2960
+2018-01-15 02:54:02 - Send SIGINT 2960
+2018-01-15 02:54:02 - SIGINT to 2960 failed - Killing as fallback
+2018-01-15 02:54:02 - Stopping process 7520
+2018-01-15 02:54:02 - Send SIGINT 7520
+2018-01-15 02:54:02 - SIGINT to 7520 failed - Killing as fallback
+2018-01-15 02:54:02 - Stopping process 7788
+2018-01-15 02:54:02 - Send SIGINT 7788
+2018-01-15 02:54:02 - SIGINT to 7788 failed - Killing as fallback
+2018-01-15 02:54:02 - Finished notifychatmicroservice.exe
+2018-01-15 03:02:29 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-15 03:02:29 - Started 6020
+2018-01-15 03:21:04 - Stopping notifychatmicroservice.exe
+2018-01-15 03:21:04 - ProcessKill 6020
+2018-01-15 03:21:04 - Found child process: 1832 Name: conhost.exe
+2018-01-15 03:21:04 - Found child process: 4980 Name: node.exe
+2018-01-15 03:21:04 - Stopping process 1832
+2018-01-15 03:21:04 - Send SIGINT 1832
+2018-01-15 03:21:04 - SIGINT to 1832 failed - Killing as fallback
+2018-01-15 03:21:04 - Stopping process 4980
+2018-01-15 03:21:04 - Send SIGINT 4980
+2018-01-15 03:21:04 - SIGINT to 4980 failed - Killing as fallback
+2018-01-15 03:21:04 - Stopping process 6020
+2018-01-15 03:21:04 - Send SIGINT 6020
+2018-01-15 03:21:04 - SIGINT to 6020 failed - Killing as fallback
+2018-01-15 03:21:04 - Finished notifychatmicroservice.exe
+2018-01-15 03:33:47 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-15 03:33:47 - Started 4256
+2018-01-15 04:41:41 - Stopping notifychatmicroservice.exe
+2018-01-15 04:41:41 - ProcessKill 4256
+2018-01-15 04:41:41 - Found child process: 6116 Name: conhost.exe
+2018-01-15 04:41:41 - Found child process: 6428 Name: node.exe
+2018-01-15 04:41:41 - Stopping process 6116
+2018-01-15 04:41:41 - Send SIGINT 6116
+2018-01-15 04:41:41 - SIGINT to 6116 failed - Killing as fallback
+2018-01-15 04:41:41 - Stopping process 6428
+2018-01-15 04:41:41 - Send SIGINT 6428
+2018-01-15 04:41:41 - SIGINT to 6428 failed - Killing as fallback
+2018-01-15 04:41:41 - Stopping process 4256
+2018-01-15 04:41:41 - Send SIGINT 4256
+2018-01-15 04:41:41 - SIGINT to 4256 failed - Killing as fallback
+2018-01-15 04:41:41 - Finished notifychatmicroservice.exe
+2018-01-15 04:41:45 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-15 04:41:45 - Started 4992
+2018-01-16 03:27:40 - Stopping notifychatmicroservice.exe
+2018-01-16 03:27:40 - ProcessKill 4992
+2018-01-16 03:27:40 - Found child process: 4492 Name: conhost.exe
+2018-01-16 03:27:40 - Found child process: 5828 Name: node.exe
+2018-01-16 03:27:40 - Stopping process 4492
+2018-01-16 03:27:40 - Send SIGINT 4492
+2018-01-16 03:27:40 - SIGINT to 4492 failed - Killing as fallback
+2018-01-16 03:27:40 - Stopping process 5828
+2018-01-16 03:27:40 - Send SIGINT 5828
+2018-01-16 03:27:40 - SIGINT to 5828 failed - Killing as fallback
+2018-01-16 03:27:40 - Stopping process 4992
+2018-01-16 03:27:40 - Send SIGINT 4992
+2018-01-16 03:27:40 - SIGINT to 4992 failed - Killing as fallback
+2018-01-16 03:27:40 - Finished notifychatmicroservice.exe
+2018-01-16 03:27:41 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-16 03:27:41 - Started 3448
+2018-01-16 03:42:14 - Stopping notifychatmicroservice.exe
+2018-01-16 03:42:14 - ProcessKill 3448
+2018-01-16 03:42:14 - Found child process: 5028 Name: conhost.exe
+2018-01-16 03:42:14 - Found child process: 3832 Name: node.exe
+2018-01-16 03:42:14 - Stopping process 5028
+2018-01-16 03:42:14 - Send SIGINT 5028
+2018-01-16 03:42:14 - SIGINT to 5028 failed - Killing as fallback
+2018-01-16 03:42:14 - Stopping process 3832
+2018-01-16 03:42:14 - Send SIGINT 3832
+2018-01-16 03:42:14 - SIGINT to 3832 failed - Killing as fallback
+2018-01-16 03:42:14 - Stopping process 3448
+2018-01-16 03:42:14 - Send SIGINT 3448
+2018-01-16 03:42:14 - SIGINT to 3448 failed - Killing as fallback
+2018-01-16 03:42:14 - Finished notifychatmicroservice.exe
+2018-01-17 00:51:08 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-17 00:51:08 - Started 4428
+2018-01-17 03:24:11 - Stopping notifychatmicroservice.exe
+2018-01-17 03:24:11 - ProcessKill 4428
+2018-01-17 03:24:11 - Found child process: 6964 Name: conhost.exe
+2018-01-17 03:24:11 - Found child process: 3548 Name: node.exe
+2018-01-17 03:24:11 - Stopping process 6964
+2018-01-17 03:24:11 - Send SIGINT 6964
+2018-01-17 03:24:11 - SIGINT to 6964 failed - Killing as fallback
+2018-01-17 03:24:11 - Stopping process 3548
+2018-01-17 03:24:11 - Send SIGINT 3548
+2018-01-17 03:24:11 - SIGINT to 3548 failed - Killing as fallback
+2018-01-17 03:24:11 - Stopping process 4428
+2018-01-17 03:24:11 - Send SIGINT 4428
+2018-01-17 03:24:11 - SIGINT to 4428 failed - Killing as fallback
+2018-01-17 03:24:11 - Finished notifychatmicroservice.exe
+2018-01-17 06:45:11 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-17 06:45:11 - Started 7240
+2018-01-22 06:13:47 - Stopping notifychatmicroservice.exe
+2018-01-22 06:13:47 - ProcessKill 7240
+2018-01-22 06:13:47 - Found child process: 6308 Name: conhost.exe
+2018-01-22 06:13:47 - Found child process: 5900 Name: node.exe
+2018-01-22 06:13:47 - Stopping process 6308
+2018-01-22 06:13:47 - Send SIGINT 6308
+2018-01-22 06:13:47 - SIGINT to 6308 failed - Killing as fallback
+2018-01-22 06:13:47 - Stopping process 5900
+2018-01-22 06:13:47 - Send SIGINT 5900
+2018-01-22 06:13:47 - SIGINT to 5900 failed - Killing as fallback
+2018-01-22 06:13:47 - Stopping process 7240
+2018-01-22 06:13:47 - Send SIGINT 7240
+2018-01-22 06:13:47 - SIGINT to 7240 failed - Killing as fallback
+2018-01-22 06:13:47 - Finished notifychatmicroservice.exe
+2018-01-22 06:13:49 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-01-22 06:13:49 - Started 2324
+2018-02-15 03:52:22 - Stopping notifychatmicroservice.exe
+2018-02-15 03:52:22 - ProcessKill 2324
+2018-02-15 03:52:22 - Found child process: 5584 Name: conhost.exe
+2018-02-15 03:52:22 - Found child process: 8112 Name: node.exe
+2018-02-15 03:52:22 - Stopping process 5584
+2018-02-15 03:52:22 - Send SIGINT 5584
+2018-02-15 03:52:22 - SIGINT to 5584 failed - Killing as fallback
+2018-02-15 03:52:22 - Stopping process 8112
+2018-02-15 03:52:22 - Send SIGINT 8112
+2018-02-15 03:52:22 - SIGINT to 8112 failed - Killing as fallback
+2018-02-15 03:52:22 - Stopping process 2324
+2018-02-15 03:52:22 - Send SIGINT 2324
+2018-02-15 03:52:22 - SIGINT to 2324 failed - Killing as fallback
+2018-02-15 03:52:22 - Finished notifychatmicroservice.exe
+2018-02-15 03:55:46 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-02-15 03:55:46 - Started 3056
+2018-02-15 05:06:13 - Stopping notifychatmicroservice.exe
+2018-02-15 05:06:13 - ProcessKill 3056
+2018-02-15 05:06:13 - Found child process: 6892 Name: conhost.exe
+2018-02-15 05:06:13 - Found child process: 4292 Name: node.exe
+2018-02-15 05:06:13 - Stopping process 6892
+2018-02-15 05:06:13 - Send SIGINT 6892
+2018-02-15 05:06:13 - SIGINT to 6892 failed - Killing as fallback
+2018-02-15 05:06:13 - Stopping process 4292
+2018-02-15 05:06:13 - Send SIGINT 4292
+2018-02-15 05:06:13 - SIGINT to 4292 failed - Killing as fallback
+2018-02-15 05:06:13 - Stopping process 3056
+2018-02-15 05:06:13 - Send SIGINT 3056
+2018-02-15 05:06:13 - SIGINT to 3056 failed - Killing as fallback
+2018-02-15 05:06:13 - Finished notifychatmicroservice.exe
+2018-02-15 05:06:14 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-02-15 05:06:14 - Started 6060
+2018-02-15 06:00:37 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Notify\notify-server\Microservices\Chat\node_modules\node-windows\lib\wrapper.js --file C:\Notify\notify-server\Microservices\Chat\src\service.js --log "Notify Chat micro service wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-02-15 06:00:37 - Started 3628

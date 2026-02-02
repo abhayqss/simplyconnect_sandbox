@@ -1,0 +1,1 @@
+  UPDATE dbo.Document set unique_id='2.16.840.1.113883.3.6492.3.'+CAST(id AS varchar) where unique_id IS NULL

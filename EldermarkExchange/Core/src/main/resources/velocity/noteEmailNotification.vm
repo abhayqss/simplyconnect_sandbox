@@ -1,0 +1,9 @@
+<div>
+    Dear ${notification.userName},<br/>
+    <br/>
+    A note has been ${notification.action} the Simply Connect system ${notification.initials}.<br/>
+    <br/>
+    Please <a href="${notification.portalUrl}?startPage=care-coordination/patients&note=${notification.noteId}&patient=${notification.patientId}">log on</a> to the Simply Connect
+    system to view details of the note.
+    #parse("velocity/button.vm")
+</div>

@@ -1,0 +1,53 @@
+.Avatar {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+
+  &-Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #e0e0e0;
+  }
+
+  &-Initials {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #03b6f3;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    text-transform: uppercase;
+    font-size: var(--initialsSize);
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-StatusIndicator {
+    right: -1px;
+    bottom: -2px;
+    position: absolute;
+    border-radius: 10px;
+
+    &_online {
+      g {
+        rect {  
+          &:last-child {
+            fill: #0064ad;
+            stroke: #0064ad;
+          }
+        }
+      }
+    }
+  }
+
+  .sb-avatar__text {
+    border: 1px solid #e0e0e0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

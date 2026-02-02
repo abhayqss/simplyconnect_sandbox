@@ -1,0 +1,65 @@
+.ModalActionPicker {
+    position: relative;
+
+    @media (max-width: 667px) {
+        flex: 1;
+        margin: 0;
+    }
+
+    &-Container {
+        @media (max-width: 667px) {
+            display: flex !important;
+            align-items: flex-end;
+            justify-content: center;
+        }
+    }
+
+    &_fade {
+        animation: fade 500ms ease-in;
+
+        @keyframes fade {
+            from {
+                top: 100%;
+            }
+
+            to {
+                top: 0;
+            }
+        }
+    }
+
+    .modal-content {
+        padding: 60px 56px 48px;
+        border: none;
+        border-radius: 10px;
+
+        @media (max-width: 667px) {
+            border-radius: 10px 10px 0 0;
+            padding: 60px 32px 40px;
+        }
+    }
+
+    &-CloseButton {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        cursor: pointer;
+
+        g {
+            fill: #0064ad;
+        }
+    }
+
+    &-Actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-Action {
+        & + & {
+            margin-top: 24px;
+        }
+    }
+}

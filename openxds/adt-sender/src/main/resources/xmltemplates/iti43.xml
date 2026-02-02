@@ -1,0 +1,16 @@
+<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:axis2="http://ws.apache.org/namespaces/axis2" xmlns:axis2ns1="urn:ihe:iti:xds-b:2007" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0" xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xsi:schemaLocation="urn:ihe:iti:xds-b:2007 ../schema/IHE/XDS.b_DocumentRepository.xsd">
+    <soap12:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+        <wsa:To>http://${host}:${port}/axis2/services/xdsrepositoryb</wsa:To>
+        <wsa:MessageID>urn:uuid:${messageId}</wsa:MessageID>
+        <wsa:Action>urn:ihe:iti:2007:RetrieveDocumentSet</wsa:Action>
+    </soap12:Header>
+
+    <soap12:Body>
+        <xdsb:RetrieveDocumentSetRequest xmlns:xdsb="urn:ihe:iti:xds-b:2007" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:ihe:iti:xds-b:2007 ../schema/IHE/XDS.b_DocumentRepository.xsd">
+            <xdsb:DocumentRequest>
+                <xdsb:RepositoryUniqueId>${repositoryUniqueId}</xdsb:RepositoryUniqueId>
+                <xdsb:DocumentUniqueId>${documentUniqueId}</xdsb:DocumentUniqueId>
+            </xdsb:DocumentRequest>
+        </xdsb:RetrieveDocumentSetRequest>
+    </soap12:Body>
+</soap12:Envelope>

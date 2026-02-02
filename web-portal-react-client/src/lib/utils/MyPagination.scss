@@ -1,0 +1,28 @@
+.myPagination {
+
+
+  .page-item .page-link {
+    background-color: #E0E0E0;
+    color: #000;
+    font-size: 15px;
+
+    &:hover {
+      background-color: #f9f9f9;
+      border-color: #f9f9f9;
+    }
+  }
+
+
+  .page-item.active .page-link {
+    background-color: #f9f9f9;
+    border-color: #E0E0E0;
+    color: #000;
+    font-weight: bold;
+
+    &:hover {
+      color: #000;
+      border-color: #E0E0E0;
+      background-color: #f9f9f9;
+    }
+  }
+}

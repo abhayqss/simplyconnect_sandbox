@@ -1,0 +1,166 @@
+@import "custom/_fonts";
+
+.LabResearchOrderDetails {
+  flex: 1 1;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.LabResearchOrderDetails-Title {
+  flex: 1 1;
+  width: 400px;
+  color: $font-color_head-text;
+  font-size: 26px;
+  font-weight: bold;
+  margin-left: -2px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.LabResearchOrderDetails-Header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.LabResearchOrderDetails-Body {}
+
+.LabResearchOrderDetails-ActionDropdown {
+  .ActionButtonList-Toggle {
+    border: 1px solid #0064ad;
+  }
+
+  .ActionButtonList-Options {
+    left: inherit;
+    right: 0;
+  }
+}
+
+.LabResearchOrderDetails-Section,
+.LabResearchResultDetails-Section {
+  margin-bottom: 40px;
+  &:last-child { margin-bottom: 0 }
+}
+
+.LabResearchOrderDetails-SectionTitle,
+.LabResearchResultDetails-SectionTitle {
+  color: $font-color_head-text;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+%edit-btn {
+  &:hover{
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  fill: #0064ad;
+  height: 30px;
+  width: 30px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.LabResearchOrderDetail-CancelAssigningBtn {
+  @extend %edit-btn;
+  padding: 6px;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 2px;
+}
+
+.LabResearchOrderDetail-EditAssigneeBtn {
+  @extend %edit-btn;
+  position: relative;
+  top: -5px;
+}
+
+.LabResearchOrderDetail-AssigneeSelect {
+  position: relative;
+
+  &.MultiSelect {
+    background: white;
+    height: 35px;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    min-width: 230px;
+
+    &:hover {
+      border-color: #bfbdbd;
+    }
+
+    .MultiSelect-Options {
+      width: 100%;
+    }
+  }
+}
+
+.LabResearchOrderDetails-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    text-decoration: none;
+    color: #0064ad;
+  }
+}
+
+.LabResearchOrderDetail-Reason,
+.LabResearchOrderDetail-Category,
+.LabResearchOrderDetail-Diagnosis {
+  .LabResearchOrderDetail-Value {
+    flex-direction: column;
+  }
+}
+
+.LabResearchOrderDetail-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.LabResearchOrderDetails-Btn {
+  &.btn {
+    padding: 0 15px;
+    height: 35px;
+  }
+}
+
+.LabResearchOrderResponseList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.LabResearchOrderResponses-Title {
+  position: relative;
+  display: inline-block;
+}
+
+.Responses-Count {
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  position: relative;
+  top: -10px;
+  left: 5px;
+}
+
+.LabResearchOrderDetails-ScrollTopBtn {
+  position: fixed;
+}

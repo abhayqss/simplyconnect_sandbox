@@ -1,0 +1,110 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Referrals {
+  flex: 1 1;
+  height: 100%;
+
+  & & {
+    @include page;
+    height: auto;
+  }
+}
+
+.Referrals-AddBtn {
+  margin-left: 20px;
+}
+
+.Referrals-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.Referrals-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.Referrals-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.Referrals-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Referrals-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ReferralList {
+  &.Table {
+    tbody {
+      & > tr {
+        & > td {
+          padding: 20px 15px;
+        }
+      }
+    }
+  }
+}
+
+.ReferralList-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans Semibold", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.ReferralList-ReferralName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.ReferralList-Community {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Referral-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}

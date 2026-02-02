@@ -1,0 +1,16 @@
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    New features have been released in the Simply Connect platform.
+    <br><br>
+    <b>What's New:</b>
+    #foreach($item in $whatsNews)
+        $item
+    #end
+    <b>Bug Fixes:</b>
+    #foreach($bug in $bugFixes)
+        $bug
+    #end
+    Please login to the Simply Connect platform the full release notes.
+    #parse( "velocity/button.vm")
+</div>

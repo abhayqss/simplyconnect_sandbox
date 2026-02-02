@@ -1,0 +1,317 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.WorkflowEvent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  background-color: #FFFFFF;
+}
+
+.Events {
+  @include page;
+
+  &-Loader {
+    .LoaderImg {
+      top: 260px;
+    }
+  }
+}
+
+.ClientEvents {
+  .Events-Header {
+    margin-top: 32px;
+  }
+}
+
+.Events-Header {
+  //margin-top: 30px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.Events-Title {
+  flex: 1;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  font-size: $font-size_list-item-text;
+}
+
+.Events-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.Events-TitleText {
+  position: relative;
+  font-size: 26px;
+  color: $font-color_head-text;
+  white-space: nowrap;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Events-ClientName {
+  font-weight: normal;
+  font-size: 20px;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.Event-ClientName,
+.Note-ClientName {
+  cursor: pointer;
+  line-height: 1.5;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Note-ClientName {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Event-Type,
+.Note-Subtype {
+  color: $font-color_head-text;
+  font-size: $font-size_list-item-text;
+  line-height: 1.8;
+  border-radius: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Note-Entity,
+.Event-Entity {
+  color: $font-color_head-text;
+  font-size: 13px;
+  padding: 0 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.EventFilter-Icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.EventFilter-Icon_rotated_90 {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.EventFilter-Icon_rotated_0 {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+
+.Events-NavigationContainer {
+  margin-bottom: 15px;
+
+  /*  @media (max-width: 767px) {
+    .Events-DetailsContainer {
+      display: none;
+    }
+
+    .Events-Navigation {
+      max-width: 100%;
+      flex: auto;
+    }
+  }*/
+
+  .Events-Navigation {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.Events-Navigation {
+  height: calc(100vh - 189px);
+
+  &.Events-Navigation_fixed {
+    position: fixed;
+  }
+
+  .Events-NavHeader_fixed {
+    position: fixed;
+    box-shadow: 1px -3px 0px 1px #f7f7f7;
+    z-index: 1;
+  }
+}
+
+.Events-NavHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  background-color: #f2fbff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 50px;
+}
+
+.Events-NavBody {
+  height: 100%;
+}
+
+.Events-NavTabsContainer {
+  margin-left: 8px;
+}
+
+.Events-NavTabs {
+  &.Tabs.nav-tabs {
+    box-shadow: none;
+
+    .nav-item {
+      &:hover {
+        background: transparent;
+      }
+
+      &:last-child {
+        .nav-link {
+          border: none;
+        }
+      }
+    }
+
+    .nav-link {
+      &.active {
+        border: none;
+        color: $font-color_head-text;
+        background: transparent;
+      }
+
+      color: #0064ad;
+      border: none;
+      text-transform: uppercase;
+      background-color: transparent;
+    }
+  }
+}
+
+.Events-NavTab {
+}
+
+.EventNoteComposedListContainer {
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+
+  .react-bootstrap-table {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .react-bootstrap-table-pagination {
+    padding-top: 14px;
+    background-color: white;
+
+    .react-bootstrap-table-pagination-list {
+      .react-bootstrap-table-page-btns-ul {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.EventNoteComposedList {
+  $radius: 5px;
+
+  &.table-hover {
+    tbody {
+      tr {
+        &:hover {
+          border-left: 8px solid;
+          margin-bottom: 5px;
+          border-radius: $radius;
+          transform: scale(1);
+          -moz-transform: scale(1);
+          -webkit-transform: scale(1);
+          box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+
+          td {
+
+            .Note-Subtype,
+            .Event-Type {
+              white-space: normal;
+            }
+          }
+
+          td:first-child {
+            border: none;
+          }
+
+          td:last-child {
+            border: none;
+            text-align: right;
+          }
+
+          td {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+
+    caption {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        border-radius: $radius;
+
+        td {
+          border: 0;
+          padding: 12px 16px;
+          vertical-align: middle;
+          font-size: $font-size_list-item-text;
+
+          &:first-child {
+            border-top-left-radius: $radius;
+            border-bottom-left-radius: $radius;
+            width: 65%;
+
+            @media (min-width: 1542px) {
+              width: 75%;
+            }
+          }
+
+          &:last-child {
+            border: none;
+            text-align: right;
+            padding-right: 23px;
+            border-top-right-radius: $radius;
+            border-bottom-right-radius: $radius;
+
+            &.react-bs-table-no-data {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    thead {
+      display: none;
+    }
+  }
+}
+
+.Events-AddGroupNote-Btn {
+  display: inline-block;
+}

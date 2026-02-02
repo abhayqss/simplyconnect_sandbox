@@ -1,0 +1,20 @@
+@media (min-width: 576px) {
+    .MedicationViewer {
+        &.modal-dialog {
+            max-width: 1040px;
+        }
+    }
+}
+
+.MedicationViewer {
+    .Modal-Body {
+        padding: 20px 40px 20px;
+    }
+}
+
+.Medication-Viewer-Bottom-Btn-SpaceBetween{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

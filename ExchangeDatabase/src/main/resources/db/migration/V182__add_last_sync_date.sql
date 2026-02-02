@@ -1,0 +1,1 @@
+ALTER TABLE dbo.SourceDatabase ADD last_success_sync_date [datetime] NULL;

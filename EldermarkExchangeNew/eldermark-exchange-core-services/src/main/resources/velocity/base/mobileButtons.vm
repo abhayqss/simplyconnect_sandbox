@@ -1,0 +1,13 @@
+#* @vtlvariable name="appStoreUrl" type="java.lang.String" *#
+#* @vtlvariable name="googlePlayUrl" type="java.lang.String" *#
+Get convenient, on-the-go access to your account, just download from your favorite app store and
+enjoy!<br>
+<br>
+<a href="${appStoreUrl}" style="display: block">
+    <img height="40" alt='Download on the App Store' src="cid:appStore" style="display: block">
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href='${googlePlayUrl}' style="display: block">
+    <img height="40" alt='Get it on Google Play' src='cid:googlePlay' style="display: block"/>
+</a>

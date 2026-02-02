@@ -1,0 +1,4 @@
+MSH|^~\&|OTHER_KIOSK|HIMSSSANDIEGO|XDSb_REG_MISYS|MISYS|${message_date}||ADT^${msgType}^ADT_A01|7723510070655179915|P|2.3.1
+EVN||${event_date}
+PID|||${pid}||${lastname}^${firstname}||${birthDate}|${sex}||${race}|${address}^^${city}^${state}^${zip}|GL|${phone_home}|${phone_business}|${language}|${marital_status}|${religion}|${account_number}|${ssn}|${driver_licence}||${ethnicity}|${placeOfBirth}|||${citizenship}|${veteranStatus}
+PV1||O|

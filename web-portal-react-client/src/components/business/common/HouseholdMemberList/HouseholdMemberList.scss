@@ -1,0 +1,65 @@
+@import "../../../../custom/fonts";
+
+.HouseholdMemberList {
+}
+
+.HouseholdMemberList-Item {
+  &.list-group-item {
+    border: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+.HouseholdMember {
+  &-Demographics {
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #dddddd;
+  }
+
+  &-FullName {
+    padding: 1px 0;
+    font-size: $font_size_list-item-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &_status_active {
+    .HouseholdMember-Indicator {
+      fill: #d5f3b8;
+    }
+  }
+
+  &_status_inactive {
+    .HouseholdMember-Indicator {
+      fill: #ddd;
+    }
+  }
+
+  &-Relationship {
+    padding: 2px 0;
+    color: #898989;
+    font-size: $font_size_list-item-text;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-BirthDate {
+    padding: 1px 0;
+    color: #898989;
+    font-size: $font_size_list-item-text;
+  }
+
+  &-Phone {
+    padding: 1px 0;
+    font-size: $font_size_list-item-text;
+  }
+}
+
+.HouseholdMember-Indicator {
+  width: 10px;
+  height: 10px;
+}

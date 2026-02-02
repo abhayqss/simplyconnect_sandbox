@@ -1,0 +1,63 @@
+@import "../../../../../custom/fonts";
+
+.MarketplaceCommunityDescription {
+  margin-bottom: 70px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-Rating {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+  }
+
+  &-RatingTitle {
+    color: #898989;
+    font-size: 14px;
+    margin-right: 9px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-Title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-family: "Open Sans", sans-serif;
+    color: $font-color_head-text;
+  }
+
+  &-Categories {
+    font-size: $font-size_list-item-text;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 16px;
+    color: $font-color_head-text;
+  }
+
+  &-Address {
+    display: flex;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+    margin-bottom: 16px;
+    color: $font-color_head-text;
+  }
+
+  &-Phone {
+    font-size: 14px;;
+    color: $font-color_head-text;
+    display: flex;
+    font-family: "Open Sans Semibold", sans-serif;
+    margin-bottom: 16px;
+  }
+
+  &-AppointmentBtn {
+    margin-right: 24px;
+  }
+
+  &-Icon {
+    height: 24px;
+    width: 20px;
+    margin-right: 12px;
+  }
+}

@@ -1,0 +1,39 @@
+.Caseload {
+  flex: 1;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.CaseloadListContainer {
+  margin-top: 30px;
+}
+
+.CaseloadList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.CaseloadList-Title {
+  position: relative;
+  display: inline-block;
+}
+
+.CaseloadList-CaseloadName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.CaseloadList-Actions {
+  display: flex;
+  justify-content: flex-end;
+}

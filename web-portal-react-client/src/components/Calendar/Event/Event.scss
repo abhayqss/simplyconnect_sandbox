@@ -1,0 +1,193 @@
+@import "custom/_mixins";
+
+.CalendarEvent {
+  font-size: 12px;
+  color: #333333;
+  padding: 17px 12px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &-Title {
+    margin-bottom: 2px;
+    font-weight: bold;
+    font-family: "Open Sans Bold", sans-serif;
+    @include line-clamp();
+  }
+
+  &-Type {
+    margin-bottom: 2px;
+    font-style: italic;
+    @include line-clamp();
+  }
+
+  &-Body {
+    @include line-clamp();
+  }
+
+  &_decorator_crossed-out {
+    color: #626262;
+    text-decoration: line-through;
+  }
+
+  &_color_gray {
+    background-color: #f3f3f3;
+
+    &:hover {
+      background-color: #e7e7e7;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #d5d5d5;
+
+      &:hover {
+        background-color: #f3f3f3;
+        border-color: #d5d5d5;
+      }
+    }
+  }
+
+  &_color_blue {
+    background-color: #daedf5;
+
+    &:hover {
+      background-color: #b7dae9;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #b7dae9;
+
+      &:hover {
+        background-color: #eff7fb;
+        border-color: #b7dae9;
+      }
+    }
+  }
+
+  &_color_green {
+    background-color: #acebc6;
+
+    &:hover {
+      background-color: #89d6a9;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #89d6a9;
+
+      &:hover {
+        background-color: #e9f7ef;
+        border-color: #89d6a9;
+      }
+    }
+  }
+
+  &_color_dark-blue {
+    background-color: #c6ccf4;
+
+    &:hover {
+      background-color: #a1aded;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #a1aded;
+
+      &:hover {
+        background-color: #eeeffb;
+        border-color: #a1aded;
+      }
+    }
+  }
+
+  &_color_yellow {
+    background-color: #fff2d0;
+
+    &:hover {
+      background-color: #ffeeab;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #ffe580;
+
+      &:hover {
+        background-color: #fffbee;
+        border-color: #ffe580;
+      }
+    }
+  }
+
+  &_color_red {
+    background-color: #ffc9bc;
+
+    &:hover {
+      background-color: #fda995;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #fda995;
+
+      &:hover {
+        background-color: #ffede9;
+        border-color: #fda995;
+      }
+    }
+  }
+
+  &_color_violet {
+    background-color: #efbee6;
+
+    &:hover {
+      background-color: #e2a3d9;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #e2a3d9;
+
+      &:hover {
+        background-color: #e6abdd;
+        border-color: #e2a3d9;
+      }
+    }
+  }
+
+  &_color_green-yellow {
+    background-color: #d3ed9d;
+
+    &:hover {
+      background-color: #c6e586;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #c6e586;
+
+      &:hover {
+        background-color: #cdea92;
+        border-color: #c6e586;
+      }
+    }
+  }
+
+  &_color_purple {
+    background-color: #ddc6f4;
+
+    &:hover {
+      background-color: #cba8ee;
+    }
+
+    &.CalendarEvent_decorator_no-background {
+      background-color: #ffffff;
+      border: 1px solid #cba8ee;
+
+      &:hover {
+        background-color: #d3b6f1;
+        border-color: #cba8ee;
+      }
+    }
+  }
+}
