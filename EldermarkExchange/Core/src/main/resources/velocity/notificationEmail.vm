@@ -1,0 +1,9 @@
+<div>
+    Dear ${notification.userName},<br/><br/>
+    A new ${notification.eventType} event has been logged to the Simply Connect platform (Care Coordination Portal) ${notification.initials} in ${notification.communityName} and you
+    are ${notification.responsibility} for this type of event.<br/><br/>
+    Please <a href="${notification.portalUrl}?startPage=care-coordination/events-log&id=${notification.eventId}&orgId=${notification.databaseId}">log on</a> to the Simply Connect
+    platform to view details of this event.
+    #parse( "velocity/button.vm")
+</div>
+

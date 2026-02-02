@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[ResidentCareTeamMember] ADD [include_in_facesheet] bit null;

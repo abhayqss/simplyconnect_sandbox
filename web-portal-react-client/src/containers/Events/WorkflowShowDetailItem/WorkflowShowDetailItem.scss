@@ -1,0 +1,315 @@
+.line-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  border-bottom: 1px dashed #eeeeee;
+  box-sizing: border-box;
+  padding: 10px 20px;
+
+  .line-user {
+    width: 220px;
+    height: 80px;
+  }
+
+  .line-center,
+  .line-end {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1280px) {
+    }
+
+    @media (min-width: 1538px) {
+      padding-left: 220px;
+    }
+  }
+
+  .lineCenterLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+  }
+
+  .lineCenterRight {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .line-workflow-name-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 1024px) {
+      width: 284px;
+      min-width: 284px;
+      max-width: 284px;
+    }
+  }
+
+  .line-workflow-name {
+    color: #4c4e51;
+    font-family: Poppins, sans-serif;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .line-workflow-created-by {
+    color: #949494;
+    font-size: 14px;
+    width: 200px;
+    overflow: hidden;
+    font-weight: 400;
+
+  }
+
+  .line-workflow-timer {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    font-family: Poppins, sans-serif;
+    color: #4c4e51;
+    font-size: 14px;
+  }
+
+  .status {
+    width: 120px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .line-workflow-status {
+
+    height: 30px;
+    font-size: 14px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-family: "Open Sans Semibold", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+  .feedbackNum {
+    margin-left: 10px;
+  }
+
+  .line-workflow-question-list {
+    width: 100%;
+    height: 55px;
+    line-height: 80px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (min-width: 1024px) {
+      width: 100%;
+      max-width: 275px;
+      //justify-content: end;
+
+    }
+    @media (min-width: 1200px) {
+      width: 100%;
+      max-width: 59px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 100%;
+      max-width: 129px;
+    }
+
+    @media (min-width: 1400px) {
+      width: 100%;
+      max-width: 311px;
+    }
+
+    @media (min-width: 1538px) {
+      width: 100%;
+      max-width: 188px;
+    }
+
+    @media (min-width: 1800px) {
+      width: 100%;
+      max-width: 383px;
+    }
+  }
+
+  .line-workflow-question-list-box {
+    //max-width: 98%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: left;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 55px;
+    padding: 0 5px 0 0;
+    box-sizing: border-box;
+
+    //@media (min-width: 1024px) {
+    //  width: 200px;
+    //}
+    //
+    //@media (min-width: 1200px) {
+    //  width: 80px;
+    //}
+    //
+    //@media (min-width: 1400px) {
+    //  width: 200px;
+    //}
+    //
+    //@media (min-width: 1538px) {
+    //  width: 200px;
+    //}
+    //@media (min-width: 1720px) {
+    //  //width: 100%;
+    //  max-width: 600px;
+    //}
+
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: transparent; //设定轨道背景色
+      border-radius: 6px; //设定轨道圆角半径
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #CFDFF8 !important; //设定滑块颜色
+    }
+  }
+
+  .question-item {
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    color: #949494;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #ececec;
+    box-shadow: 0 2px 4px 0 rgba(142, 147, 156, 0.15);
+  }
+
+  .item-hasDone {
+    color: #fff;
+    background-color: #00ace6;
+    border-color: #00ace6;
+    border-right-color: #fff;
+  }
+
+  .item-pending {
+    color: #f45640;
+    background-color: #fcecd9;
+  }
+
+  .timer-Icon {
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .submit-status-SUBMITTED {
+    background-color: #e5f7fc;
+    color: #01abe7;
+  }
+
+  .submit-status-APPROVED {
+    background-color: #F0F2F7;
+    color: #4C4E51;
+  }
+
+  .submit-status-FEEDBACK {
+    background-color: #F7E6E2;
+    color: #F45640;
+  }
+
+  .submit-status-PENDING {
+    background-color: #FEF7EA;
+    color: #F4B940;
+  }
+
+  .submit-status-INPROCESS {
+    background-color: #eff7f3;
+    color: #5db188;
+  }
+
+
+  .in-progress-status {
+    background-color: #EDF6F1;
+    color: #5db188;
+  }
+
+  .feed-back-status {
+    background-color: #fbedec;
+    color: #d3483e
+  }
+
+  .approved-status {
+    background-color: #f2f4f8;
+    color: #4c4e51
+  }
+}
+
+.tooltips-box-show-inner {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px;
+}
+
+.tooltips-box-show {
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 8px;
+  width: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #00ace6 !important;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+}
+
+.timer-item {
+  margin: 6px 10px;
+}

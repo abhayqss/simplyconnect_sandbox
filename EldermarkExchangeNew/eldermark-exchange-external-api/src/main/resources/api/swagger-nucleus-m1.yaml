@@ -1,0 +1,2390 @@
+swagger: "2.0"
+info:
+  title: SimplyConnect API
+  description: SimplyConnect API for third-party apps (M1) <h3>Terms of Service</h3><p>In order to access the SimplyConnect API you must have written consent from Simply Connect HIE. Any other use of this API is prohibited. Please contact us.</p>
+  version: draft 02/14/2018
+host: dev.simplyhie.com:9443
+basePath: /api
+schemes:
+  - https
+
+tags:
+  - name: login-controller
+    description: Authentication
+  - name: registration-controller
+    description: Registration (public access)
+  - name: orgs-controller
+    description: Organizations
+  - name: communities-controller
+    description: Communities
+  - name: residents-controller
+    description: Residents
+  - name: employees-controller
+    description: Employees
+  - name: nucleus-controller
+    description: Nucleus-specific data
+  - name: careteam-controller
+    description: Care Team Member information
+  - name: physicians-controller
+    description: Physicians
+
+responses:
+  'badRequest':
+    description: Bad Request
+    schema:
+      $ref: '#/definitions/Response«BadRequestResponse»'
+  'noAuth':
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Response«UnauthorizedResponse»'
+  'forbidden':
+    description: Forbidden
+    schema:
+      $ref: '#/definitions/Response«AccessForbiddenResponse»'
+  'notFound':
+    description: Not Found
+    schema:
+      $ref: '#/definitions/Response«NotFoundResponse»'
+  'conflict':
+    description: Conflict
+    schema:
+      $ref: '#/definitions/Response«ConflictResponse»'
+
+### Authorization definition ###
+
+securityDefinitions:
+  X-Auth-Token:
+    type: apiKey
+    name: X-Auth-Token
+    in: header
+
+### Endpoints definition ###
+
+paths:
+  /auth/login:
+    post:
+      tags:
+        - login-controller
+      summary: Login
+      description: >-
+        This step is not mandatory, but recommended. Once per session, prior to calling other endpoints make a call to `POST /auth/login` OR `POST /auth/validateToken`. Successful response from any of these endpoints indicates that:<ol>
+        <li><p>SimplyHIE REST service is up & running</p></li>
+        <li><p>Supplied token is valid</p></li></ol>
+      operationId: loginUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: formData
+          description: access token
+          required: true
+          type: string
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset - the time difference between UTC time and local time, in minutes (example -120 for GMT+2; overwrites the value specified during registration; affects events filtering by date in `GET /events`)
+          required: false
+          type: string
+          minimum: -720
+          maximum: 720
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseWithToken«UserAppDTO»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+  /auth/validateToken:
+    post:
+      tags:
+        - login-controller
+      summary: Validate token
+      description: >-
+        This step is not mandatory, but recommended. Once per session, prior to calling other endpoints make a call to `POST /auth/login` OR `POST /auth/validateToken`. Successful response from any of these endpoints indicates that:<ol>
+        <li><p>SimplyHIE REST service is up & running</p></li>
+        <li><p>Supplied token is valid</p></li></ol>
+      operationId: validateTokenUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: formData
+          description: access token
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        401:
+          $ref: '#/responses/noAuth'
+
+  /register/signup/application:
+    post:
+      tags:
+        - registration-controller
+      summary: Step 1. Register new application (Sign Up as Third-Party application)
+      description: This method creates a new API User account with non-active status (active = false) and account type of APPLICATION.<br/>All applications are reviewed by Administration (SimplyHIE dev team). Contact us if you want to speed up the review process.<br/>The registered user (if approved) will have access to Simply Connect external API.<br/>Before the registration is completed it may be resubmitted with a different data.
+      operationId: registerApplicationUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: appName
+          in: formData
+          description: application name (max length 255)
+          required: true
+          type: string
+          minLength: 2
+          maxLength: 255
+        - name: appDescription
+          in: formData
+          description: application description (max length 500)
+          required: false
+          type: string
+          maxLength: 500
+        - name: phone
+          in: formData
+          description: phone number (max length 50)
+          required: false
+          type: string
+          maxLength: 50
+        - name: email
+          in: formData
+          description: email (min length 3, max length 255)
+          required: false
+          type: string
+          maxLength: 255
+          minLength: 3
+        - name: timeZoneOffset
+          in: formData
+          description: Timezone Offset - the time difference between UTC time and local time, in minutes (example -120 for GMT+2; affects events filtering by date in `GET /events`)
+          minimum: -720
+          maximum: 720
+          required: false
+          default: 0
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«RegistrationAnswerDto»'
+        400:
+          $ref: '#/responses/badRequest'
+  /register/complete:
+    post:
+      tags:
+        - registration-controller
+      summary: Step 2 (final). Complete the registration and generate access token
+      description: Call this method once to get access token when your registration application is approved. After the registration is completed send your access token in `X-Auth-Token` header with any request that requires authentication.
+      operationId: completeRegistrationUsingPOST
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: flowId
+          in: formData
+          description: registration flow guid (returned in response to `POST /register/signup/application`)
+          required: true
+          type: string
+          minLength: 36
+          maxLength: 36
+        - name: appName
+          in: formData
+          description: application name (the same as was specified in request to `POST /register/signup/application`)
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseWithToken«UserAppDTO»'
+        400:
+          $ref: '#/responses/badRequest'
+
+  /orgs:
+    get:
+      tags:
+        - orgs-controller
+      summary: List organizations
+      description: List accessible organizations
+      operationId: getOrganizationsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«OrgDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /orgs/{orgId}:
+    get:
+      tags:
+        - orgs-controller
+      summary: Get organization details
+      description: <h3>Required privileges</h3> <pre>ORGANIZATION_READ</pre>
+      operationId: getOrganizationUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: orgId
+          in: path
+          description: organization id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«OrgDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /communities:
+    get:
+      tags:
+        - communities-controller
+      summary: List all communities
+      description: List accessible communities from all organizations
+      operationId: getCommunitiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«CommunityDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /orgs/{orgId}/communities:
+    get:
+      tags:
+        - orgs-controller
+      summary: List communities of organization
+      description: List accessible communities of the specified organization. <h3>Required privileges</h3> <pre>ORGANIZATION_READ</pre>
+      operationId: getOrganizationCommunitiesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: orgId
+          in: path
+          description: organization id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«CommunityDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /communities/{communityId}:
+    get:
+      tags:
+        - communities-controller
+      summary: Get community details
+      description: <h3>Required privileges</h3> <pre>COMMUNITY_READ</pre>
+      operationId: getCommunityUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: communityId
+          in: path
+          description: community id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CommunityDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /employees:
+    get:
+      tags:
+        - employees-controller
+      summary: List employees
+      description: List accessible employees from all organizations and communities
+      deprecated: true
+      operationId: getEmployeesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all employees), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«EmployeeListItemDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /orgs/{orgId}/employees:
+    get:
+      tags:
+        - orgs-controller
+      summary: List employees of organization
+      description: List employees from accessible communities of the specified organization. <h3>Required privileges</h3> <pre>ORGANIZATION_READ</pre>
+      operationId: getOrganizationEmployeesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: orgId
+          in: path
+          description: organization id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all employees), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«EmployeeListItemDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /employees/{employeeId}:
+    get:
+      tags:
+        - employees-controller
+      summary: Get employee details
+      description: General information about employee, without partner-specific info <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ</pre>
+      operationId: getEmployeeUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«EmployeeDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /communities/{communityId}/employees:
+    get:
+      tags:
+        - communities-controller
+      summary: List employees of community
+      description: List employees from the specified community. <h3>Required privileges</h3> <pre>COMMUNITY_READ</pre>
+      operationId: getCommunityEmployeesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: communityId
+          in: path
+          description: community id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all employees), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«EmployeeListItemDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /residents:
+    get:
+      tags:
+        - residents-controller
+      summary: List residents
+      description: List accessible residents from all organizations and communities
+      deprecated: true
+      operationId: getResidentsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all residents), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ResidentListItemDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /orgs/{orgId}/residents:
+    get:
+      tags:
+        - orgs-controller
+      summary: List residents of organization
+      description: <h3>Required privileges</h3> <pre>ORGANIZATION_READ</pre>
+      operationId: getOrganizationResidentsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: orgId
+          in: path
+          description: organization id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all residents), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ResidentListItemDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /residents/{residentId}:
+    get:
+      tags:
+        - residents-controller
+      summary: Get resident details
+      description: General information about resident, without partner-specific info. <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ</pre>
+      operationId: getResidentUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«ResidentDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /communities/{communityId}/residents:
+    get:
+      tags:
+        - communities-controller
+      summary: List residents of community
+      description: <h3>Required privileges</h3> <pre>COMMUNITY_READ</pre>
+      operationId: getCommunityResidentsUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: communityId
+          in: path
+          description: community id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all residents), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«ResidentListItemDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /nucleus/devices:
+    get:
+      tags:
+        - nucleus-controller
+      summary: List all Nucleus devices
+      description: A paginated list of all known Nucleus devices. Some devices in the list may appear as duplicates if they're associated with multiple Employees / Residents. <h3>Required privileges</h3> <pre>SPECIAL_NUCLEUS</pre>
+      operationId: getNucleusDevicesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return all devices), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«NucleusDeviceDto»»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /nucleus/devices/{deviceId}:
+    get:
+      tags:
+        - nucleus-controller
+      summary: Get Nucleus device details
+      description: <h3>Required privileges</h3> <pre>SPECIAL_NUCLEUS</pre>
+      operationId: getNucleusDeviceUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: deviceId
+          in: path
+          description: nucleus device id (36-char UUID)
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusDeviceDto»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+    delete:
+      tags:
+        - nucleus-controller
+      summary: Delete Nucleus device
+      description: Complete and immediate deletion of a specific Nucleus device from Simply Connect system. <h3>Required privileges</h3> <pre>SPECIAL_NUCLEUS</pre>
+      operationId: deleteNucleusDeviceUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: deviceId
+          in: path
+          description: nucleus device id (36-char UUID)
+          required: true
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«boolean»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /employees/{employeeId}/nucleus/info:
+    get:
+      tags:
+        - nucleus-controller
+      summary: Get Nucleus info for Employee
+      description: Nucleus-specific information for employee <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: getEmployeeNucleusInfoUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusInfoDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - nucleus-controller
+      summary: Add Nucleus info for Employee
+      description: Add Nucleus-specific information for employee. An Employee can't have multiple Nucleus user IDs associated, but multiple Employees (belonging to different organizations) can share the same Nucleus user ID. <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: addEmployeeNucleusInfoUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: body
+          in: body
+          description: Nucleus info
+          required: true
+          schema:
+            $ref: '#/definitions/NucleusInfoDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusInfoDto»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        409:
+          $ref: '#/responses/conflict'
+      security:
+        - X-Auth-Token: []
+    put:
+      tags:
+        - nucleus-controller
+      summary: Update Nucleus info for Employee
+      description: Update Nucleus-specific information for employee <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: updateEmployeeNucleusInfoUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: body
+          in: body
+          description: Nucleus info
+          required: true
+          schema:
+            $ref: '#/definitions/NucleusInfoDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+        - X-Auth-Token: []
+    delete:
+      tags:
+        - nucleus-controller
+      summary: Delete Nucleus info for Employee
+      description: Remove Nucleus-specific information for employee <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: deleteEmployeeNucleusInfoUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /employees/{employeeId}/nucleus/devices:
+    get:
+      tags:
+        - nucleus-controller
+      summary: List Nucleus devices for Employee
+      description: Nucleus-specific information for employee <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: getEmployeeNucleusDevicesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«NucleusDeviceDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - nucleus-controller
+      summary: Create Nucleus device for Employee
+      description: Add Nucleus device for employee. An Employee can't have duplicated Nucleus devices associated (Device ID should be unique), but multiple Employees or Residents can share the same Nucleus device. <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: addEmployeeNucleusDeviceUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: employeeId
+          in: path
+          description: employee id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: body
+          in: body
+          description: Nucleus device
+          required: true
+          schema:
+            $ref: '#/definitions/NucleusDeviceDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusDeviceDto»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        409:
+          $ref: '#/responses/conflict'
+      security:
+        - X-Auth-Token: []
+
+  /residents/{residentId}/nucleus/info:
+    get:
+      tags:
+        - nucleus-controller
+      summary: Get Nucleus info for Resident
+      description: Nucleus-specific information for resident <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: getResidentNucleusInfoUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusInfoDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - nucleus-controller
+      summary: Add Nucleus info for Resident
+      description: Add Nucleus-specific information for resident. A Resident can't have multiple Nucleus user IDs associated, but multiple Residents can share the same Nucleus user ID. <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: addResidentNucleusInfoUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: body
+          in: body
+          description: Nucleus info
+          required: true
+          schema:
+            $ref: '#/definitions/NucleusInfoDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusInfoDto»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        409:
+          $ref: '#/responses/conflict'
+      security:
+        - X-Auth-Token: []
+    put:
+      tags:
+        - nucleus-controller
+      summary: Update Nucleus info for Resident
+      description: Update Nucleus-specific information for resident <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: updateResidentNucleusInfoUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: body
+          in: body
+          description: Nucleus info
+          required: true
+          schema:
+            $ref: '#/definitions/NucleusInfoDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        404:
+          $ref: '#/responses/notFound'
+      security:
+        - X-Auth-Token: []
+    delete:
+      tags:
+        - nucleus-controller
+      summary: Delete Nucleus info for Resident
+      description: Remove Nucleus-specific information for resident <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: deleteResidentNucleusInfoUsingDELETE
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /residents/{residentId}/nucleus/devices:
+    get:
+      tags:
+        - nucleus-controller
+      summary: List Nucleus devices for Resident
+      description: <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: getResidentNucleusDevicesUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«NucleusDeviceDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+    post:
+      tags:
+        - nucleus-controller
+      summary: Create Nucleus device for Resident
+      description: Add Nucleus device for resident. A Resident can't have duplicated Nucleus devices associated (Device ID should be unique), but multiple Residents or Employees can share the same Nucleus device. <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ, SPECIAL_NUCLEUS</pre>
+      operationId: addResidentNucleusDeviceUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: body
+          in: body
+          description: Nucleus device
+          required: true
+          schema:
+            $ref: '#/definitions/NucleusDeviceDto'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«NucleusDeviceDto»'
+        400:
+          $ref: '#/responses/badRequest'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+        409:
+          $ref: '#/responses/conflict'
+      security:
+        - X-Auth-Token: []
+
+  /residents/{residentId}/careteam:
+    get:
+      tags:
+        - careteam-controller
+      summary: List care team members
+      description: <h3>Sorting rules</h3><ul><li>?</li></ul><h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ</pre>
+      operationId: getCareteamMembersUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: directory
+          in: query
+          description: >-
+            <li>`FAMILY` = role "Parent/Guardian"</li>
+            <li>`CARE_PROVIDER` = any other role</li></ul>
+          required: false
+          type: string
+          enum:
+            - "FAMILY"
+            - "CARE_PROVIDER"
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return unlimited number of care team members), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«CareteamMemberBriefDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /residents/{residentId}/careteam/{contactId}:
+    get:
+      tags:
+        - careteam-controller
+      summary: Get a specific care team member
+      description: <h3>Required privileges</h3> <pre>ORGANIZATION_READ or COMMUNITY_READ</pre>
+      operationId: getCareteamMemberUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: residentId
+          in: path
+          description: resident id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: contactId
+          in: path
+          description: contact id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«CareteamMemberDto»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+  /communities/{communityId}/careteam:
+    get:
+      tags:
+        - communities-controller
+      summary: List community care team members
+      description: <h3>Sorting rules</h3><ul><li>?</li></ul><h3>Required privileges</h3> <pre>COMMUNITY_READ</pre>
+      operationId: getCommunityCareteamMembersUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: communityId
+          in: path
+          description: community id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+        - name: pageSize
+          in: query
+          description: Maximum results to appear in response (if not specified, system will return unlimited number of care team members), ≥ 1
+          required: false
+          type: integer
+          format: int32
+          minimum: 1
+        - name: page
+          in: query
+          description: Results page, e.g. 0, 1, 2, etc.
+          required: false
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«List«CareteamMemberBriefDto»»'
+        401:
+          $ref: '#/responses/noAuth'
+        403:
+          $ref: '#/responses/forbidden'
+      security:
+        - X-Auth-Token: []
+
+  /physicians/{physicianId}:
+    get:
+      tags:
+        - physicians-controller
+      summary: Get a specific physician
+      operationId: getPhysicianUsingGET
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: physicianId
+          in: path
+          description: physician id
+          required: true
+          type: integer
+          format: int64
+          minimum: 1
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PhysicianExtendedDto»'
+        401:
+          $ref: '#/responses/noAuth'
+      security:
+        - X-Auth-Token: []
+
+### Models definition ###
+
+definitions:
+  StatusCode:
+    type: integer
+    format: int32
+    description: HTTP response status code
+    example: 200
+    minimum: 100
+    maximum: 599
+
+  StateAbbrEnum:
+    type: string
+    description: US state (abbreviation)
+    enum:
+      - AL
+      - AZ
+      - CA
+      - CT
+      - FL
+      - GA
+      - ID
+      - IN
+      - KS
+      - NH
+      - NM
+      - ND
+      - OK
+      - OR
+      - RI
+      - SD
+      - TN
+      - UT
+      - VA
+      - WV
+      - WY
+      - ME
+      - MA
+      - MN
+      - MO
+      - NE
+      - NV
+      - NJ
+      - NY
+      - NC
+      - OH
+      - PA
+      - SC
+      - VT
+      - WA
+      - WI
+      - AK
+      - AR
+      - CO
+      - DE
+      - HI
+      - IL
+      - IA
+      - KY
+      - LA
+      - MD
+      - MI
+      - MS
+      - MT
+      - TX
+
+  ResponseBody«object»:
+    type: object
+    properties:
+      data:
+        type: object
+      success:
+        type: boolean
+  ResponseBody«boolean»:
+    type: object
+    properties:
+      data:
+        type: boolean
+      success:
+        type: boolean
+  Response«boolean»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«boolean»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  Response:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«object»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  AccountType.Type:
+    type: string
+    description: User role
+    enum:
+      - "CONSUMER"
+      - "PROVIDER"
+      - "APPLICATION"
+  UserDTO:
+    type: object
+    properties:
+      profile:
+        $ref: '#/definitions/Profile'
+      userId:
+        type: integer
+        format: int64
+        description: User id
+        minimum: 1
+      type:
+        $ref: '#/definitions/AccountType.Type'
+  Profile:
+    type: object
+    properties:
+      birthDate:
+        type: integer
+        description: Date of birth (Unix timestamp)
+        format: int64
+        example: 1336338000000
+      firstName:
+        type: string
+        description: First name
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        example: "Duck"
+      gender:
+        type: string
+        description: Gender display name
+        enum:
+          - "Male"
+          - "Female"
+          - "Undifferentiated"
+  UserAppDTO:
+    type: object
+    properties:
+      userId:
+        type: integer
+        format: int64
+        description: User id
+        minimum: 1
+        example: 100
+      appName:
+        type: string
+        description: Application name
+      type:
+        type: string
+        description: User role
+        example:
+          "APPLICATION"
+
+  RegistrationAnswerDto:
+    type: object
+    properties:
+      comments:
+        type: string
+        example: "Your application is accepted for review."
+        description: Human-readable directions
+      flowId:
+        type: string
+        example: 'BB0B2367-7D5F-4EB4-9247-536542161BAA'
+        description: Registration flow GUID. Remember this GUID, you'll need it to complete the registration.
+  ResponseBody«RegistrationAnswerDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/RegistrationAnswerDto'
+      success:
+        type: boolean
+  Response«RegistrationAnswerDto»:
+      type: object
+      properties:
+        body:
+          $ref: '#/definitions/ResponseBody«RegistrationAnswerDto»'
+        statusCode:
+          $ref: '#/definitions/StatusCode'
+
+  PersonDto:
+    type: object
+    description: This DTO is intended to represent persons
+    properties:
+      addresses:
+        type: array
+        description: List of addresses
+        items:
+          $ref: '#/definitions/AddressDto'
+      code:
+        type: string
+        description: IDK what it means. It's always null.
+        example: null
+      names:
+        type: array
+        description: List of names
+        items:
+          $ref: '#/definitions/NameDto'
+      telecoms:
+        type: array
+        description: List of telecommunication addresses
+        items:
+          $ref: '#/definitions/TelecomDto'
+
+  AddressDto:
+    type: object
+    description: This DTO is intended to represent postal addresses
+    properties:
+      city:
+        type: string
+        maxLength: 128
+        example: "Minnetonka"
+      cityStateAndPostalCode:
+        type: string
+        description: This field contains concatenated value of city, state, and postalCode fields
+        example: "Minnetonka, MN 55343"
+      cityStatePostalCodeAndCountry:
+        type: string
+        description: This field contains concatenated value of city, state, postalCode, and country fields
+        example: "Minnetonka, MN 55343, US"
+      country:
+        type: string
+        description: Country (currently it's always US)
+        maxLength: 100
+        example: "US"
+      postalAddressUse:
+        type: string
+        description: The postalAddressUse attribute of the AddressDto indicates what type of address it is, as per the list of allowed values.
+        enum:
+          - "WP"
+          - "HP"
+      postalCode:
+        type: string
+        description: USA zip code (5 digits)
+        pattern: ^\d{5}$
+        example: "55343"
+      state:
+        $ref: '#/definitions/StateAbbrEnum'
+      streetAddress:
+        type: string
+        maxLength: 255
+        example: "38 Blueside Road Nomes"
+    required:
+      - postalCode
+      - state
+      - city
+      - streetAddress
+  NameDto:
+    type: object
+    description: This DTO is intended to represent names of people
+    properties:
+      fullName:
+        type: string
+        description: The text of the name
+        example: "Lukas Smith"
+      useCode:
+        type: string
+        description: This attribute of the NameDto indicates what type of name it is, as per the list of allowed values. The most widely used type is "L" - Legal name.
+        example: "L"
+        enum:
+          - "C"
+          - "I"
+          - "L"
+          - "P"
+          - "A"
+          - "R"
+          - "SRCH"
+          - "PHON"
+          - "SNDX"
+          - "ABC"
+          - "SYL"
+          - "IDE"
+  TelecomDto:
+    type: object
+    description: This DTO is intended to represent telecommunication addresses such as phone/fax numbers, e-mail addresses, etc.
+    properties:
+      useCode:
+        type: string
+        description: This attribute of the TelecomDto element indicates what type of number/address it is, as per the list of allowed values.
+        enum:
+          - "MC"
+          - "WP"
+          - "MP"
+          - "EMAIL"
+          - null
+      value:
+        type: string
+        example: "Cell: (645) 876-5432"
+
+  ResponseWithToken«UserAppDTO»:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Access token of the current user - a system object representing the subject of access control operations
+          example: "YWJjMTIzIT8kKiYoKSctPUB-=="
+        body:
+          $ref: '#/definitions/ResponseBody«UserAppDTO»'
+        statusCode:
+          $ref: '#/definitions/StatusCode'
+  ResponseBody«UserAppDTO»:
+      type: object
+      description: A user account for the current user
+      properties:
+        data:
+          $ref: '#/definitions/UserAppDTO'
+        success:
+          type: boolean
+
+  CareTeamRoleCode:
+    type: string
+    maxLength: 50
+    enum:
+      - "Case Manager"
+      - "Care Coordinator"
+      - "Parent/Guardian"
+      - "Person Receiving Services"
+      - "Primary physician"
+      - "Behavioral Health"
+      - "Community Members"
+      - "Service Provider"
+      - "Administrator"
+      - "Super Administrator"
+      - "Community Administrator"
+  ResponseBody«CareteamMemberDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CareteamMemberDto'
+      success:
+        type: boolean
+  Response«CareteamMemberDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CareteamMemberDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«List«CareteamMemberBriefDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        description: A list of Care Team Members. It may be empty if the user does not have any care team members.
+        items:
+          $ref: '#/definitions/CareteamMemberBriefDto'
+      success:
+        type: boolean
+  Response«List«CareteamMemberBriefDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CareteamMemberBriefDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  CareteamMemberDto:
+    type: object
+    description: This DTO is intended to represent a Care Team Member (CTM).<br>[NOTE] The `physicianId` property is null when Care Team Member is not of type "MEDICAL_STAFF".
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Contact id
+        minimum: 1
+      employeeId:
+        type: integer
+        format: int64
+        description: Employee id
+        minimum: 1
+      person:
+        $ref: '#/definitions/PersonDto'
+      relationship:
+        type: string
+        description: >-
+          Member role.<ul>
+          <li>`MEDICAL_STAFF` = Doctor = Physician = "Care provider"</li>
+          <li>`FRIEND_FAMILY` = Relative = "Friend or Family Member"</li></ul>
+        enum:
+          - "FRIEND_FAMILY"
+          - "MEDICAL_STAFF"
+      relation:
+        type: string
+        description: This attribute indicates the nature of the relationship between a patient and a CTM
+        enum:
+          - "Family"
+          - "Friend"
+          - "Guardian"
+          - "Partner"
+          - "Work"
+          - "Parent"
+      careTeamRole:
+        $ref: '#/definitions/CareTeamRoleCode'
+      physicianId:
+        type: integer
+        format: int64
+        description: Physician id
+        minimum: 1
+      emergencyContact:
+        type: boolean
+        description: Is this CTM set as "Emergency contact"?
+      invitationStatus:
+        type: string
+        description: Invitation status. Pending / Active status is used for Friend contacts, Pending / Active / Declined status is used for Medical Staff contacts.
+        enum:
+          - "PENDING"
+          - "ACTIVE"
+          - "EXPIRED"
+          - "DECLINED"
+      contactPhone:
+        type: string
+        example: "6458765432"
+        description: phone number
+      contactEmail:
+        type: string
+        example: "cpatnode@test.com"
+  CareteamMemberBriefDto:
+    type: object
+    description: This DTO is intended to represent a Care Team Member (CTM = Contact) list item.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Contact id
+        minimum: 1
+      employeeId:
+        type: integer
+        format: int64
+        description: employee id
+        minimum: 1
+      fullName:
+        type: string
+        example: "Lukas Smith"
+        description: The text of the name
+      contactPhone:
+        type: string
+        example: "+6458765432"
+        description: phone number
+      careTeamRole:
+        $ref: '#/definitions/CareTeamRoleCode'
+      emergencyContact:
+        type: boolean
+        description: Is this CTM set as "Emergency contact"?
+      invitationStatus:
+        type: string
+        description: Invitation status. Pending / Active status is used for Friend contacts, Pending / Active / Declined status is used for Medical Staff contacts.
+        enum:
+          - "PENDING"
+          - "ACTIVE"
+          - "EXPIRED"
+          - "DECLINED"
+
+  EmployeeDto:
+    type: object
+    description: This DTO is intended to represent a contact.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: employee id
+        minimum: 1
+      displayName:
+        type: string
+        description: Employee's display name
+        maxLength: 256
+        example: "Donald Duck"
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      phone:
+        type: string
+        description: Phone number. Nullable
+        maxLength: 150
+        example: "6458765432"
+      email:
+        type: string
+        description: Email address. Nullable
+        maxLength: 150
+        example: "dduck@disney.com"
+      role:
+        $ref: '#/definitions/CareTeamRoleCode'
+      roleId:
+        type: integer
+        format: int64
+        minimum: 1
+      orgId:
+        type: integer
+        description: organization id
+        format: int64
+        minimum: 1
+      communityId:
+        type: integer
+        description: community id
+        format: int64
+        minimum: 1
+
+  ResponseBody«PhysicianExtendedDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/PhysicianExtendedDto'
+      success:
+        type: boolean
+  Response«PhysicianExtendedDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«PhysicianExtendedDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  PhysicianExtendedDto:
+    type: object
+    description: Physician object (extended info)
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: physician id
+        minimum: 1
+      fullName:
+        type: string
+        example: "Roy Stevens"
+      speciality:
+        type: string
+        example: "Behavioral health"
+      professionalInfo:
+        type: object
+        description: A map of professional data (field name / field value approach).
+        additionalProperties:
+          type: string
+          example: "Medical School - State University of New York"
+
+  OrgDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: organization id
+        minimum: 1
+      name:
+        type: string
+        description: organization name
+  ResponseBody«OrgDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/OrgDto'
+      success:
+        type: boolean
+  ResponseBody«List«OrgDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/OrgDto'
+      success:
+        type: boolean
+  Response«List«OrgDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«OrgDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  Response«OrgDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«OrgDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  CommunityDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: community id
+        minimum: 1
+      name:
+        type: string
+        description: community name
+      orgId:
+        type: integer
+        format: int64
+        description: organization id
+        minimum: 1
+      orgName:
+        type: string
+        description: organization name
+  ResponseBody«CommunityDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/CommunityDto'
+      success:
+        type: boolean
+  ResponseBody«List«CommunityDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/CommunityDto'
+      success:
+        type: boolean
+  Response«List«CommunityDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«CommunityDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  Response«CommunityDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«CommunityDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  EmployeeListItemDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: employee id
+        minimum: 1
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+  PagedResponseBody«List«EmployeeListItemDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/EmployeeListItemDto'
+      totalCount:
+        type: integer
+        format: int64
+        description: employees count
+        example: 1
+        minimum: 0
+      success:
+        type: boolean
+  Response«List«EmployeeListItemDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/PagedResponseBody«List«EmployeeListItemDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«EmployeeDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/EmployeeDto'
+      success:
+        type: boolean
+  Response«EmployeeDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«EmployeeDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  ResidentListItemDto:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: resident id
+        minimum: 1
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      communityName:
+        type: string
+        description: Community name
+        example: "Unaffiliated"
+      orgName:
+        type: string
+        description: Organization name
+        example: "Unaffiliated"
+  ResidentDto:
+    description: This DTO is intended to represent resident's (patient's) personal data
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: resident id
+        minimum: 1
+      firstName:
+        type: string
+        description: First name
+        maxLength: 128
+        example: "Donald"
+      lastName:
+        type: string
+        description: Last name
+        maxLength: 128
+        example: "Duck"
+      middleName:
+        type: string
+        description: Middle name. Nullable
+        maxLength: 128
+        example: "Fauntleroy"
+      phone:
+        type: string
+        description: Phone number. Nullable
+        maxLength: 150
+        example: "6458765432"
+      email:
+        type: string
+        description: Email address. Nullable
+        maxLength: 150
+        example: "dduck@disney.com"
+      orgId:
+        type: integer
+        description: organization id
+        format: int64
+        minimum: 1
+      orgName:
+        type: string
+        description: Organization name
+        example: "Unaffiliated"
+      communityId:
+        type: integer
+        description: community id
+        format: int64
+        minimum: 1
+      communityName:
+        type: string
+        description: Community name
+        example: "Unaffiliated"
+  PagedResponseBody«List«ResidentListItemDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/ResidentListItemDto'
+      totalCount:
+        type: integer
+        format: int64
+        description: residents count
+        example: 1
+        minimum: 0
+      success:
+        type: boolean
+  Response«List«ResidentListItemDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/PagedResponseBody«List«ResidentListItemDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«ResidentDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/ResidentDto'
+      success:
+        type: boolean
+  Response«ResidentDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«ResidentDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  NucleusDeviceDto:
+    type: object
+    description: This DTO is intended to represent Nucleus communication device.
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: nucleus device id (36-char UUID)
+        example: "1a8a0c8d-7e16-41be-a73d-c6cc5ed68f07"
+      location:
+        type: string
+        description: nucleus device location
+        example: "Kitchen"
+      type:
+        type: string
+        description: device type, such as intercom, mobile app, etc.
+    required:
+      - id
+  ResponseBody«NucleusDeviceDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/NucleusDeviceDto'
+      success:
+        type: boolean
+  Response«NucleusDeviceDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«NucleusDeviceDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+  ResponseBody«List«NucleusDeviceDto»»:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/NucleusDeviceDto'
+      success:
+        type: boolean
+  Response«List«NucleusDeviceDto»»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«List«NucleusDeviceDto»»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+  NucleusInfoDto:
+    type: object
+    properties:
+      userId:
+        type: string
+        format: uuid
+        description: nucleus user id (36-char UUID)
+        example: "dfa1953f-e401-442f-bbcf-bde33b3ca018"
+      familyCareTeamMemberId:
+        type: integer
+        format: int64
+        description: nucleus family CTM id
+    required:
+      - userId
+  ResponseBody«NucleusInfoDto»:
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/NucleusInfoDto'
+      success:
+        type: boolean
+  Response«NucleusInfoDto»:
+    type: object
+    properties:
+      body:
+        $ref: '#/definitions/ResponseBody«NucleusInfoDto»'
+      statusCode:
+        $ref: '#/definitions/StatusCode'
+
+### Error Response Examples ###
+
+  Response«UnauthorizedResponse»:
+    type: object
+    description: This response is returned in case of the access token provided is invalid.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/UnauthorizedErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 401
+        minimum: 100
+        maximum: 599
+  UnauthorizedErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "unauthorized"
+      message:
+        type: string
+        example: "Unauthorized"
+
+  Response«BadRequestResponse»:
+    type: object
+    description: This response is returned in case of the invalid submitted data.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/ValidationErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 400
+        minimum: 100
+        maximum: 599
+  ValidationErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "constraint.violation"
+      message:
+        type: string
+        example: "Validation failed. 2 error(s)."
+      validationErrors:
+        type: array
+        description: A list of validation error messages
+        items:
+          type: string
+        example:
+          - "firstName size must be between 2 and 128"
+          - "eventTypeId may not be null"
+
+  Response«AccessForbiddenResponse»:
+    type: object
+    description: This response is returned in case of the acting user has no access to requested data or the access token provided is empty.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/AccessForbiddenErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 403
+        minimum: 100
+        maximum: 599
+  AccessForbiddenErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "access.forbidden"
+      message:
+        type: string
+        example: "Access Forbidden"
+
+  Response«NotFoundResponse»:
+    type: object
+    description: This response is returned in case of the acting user has no access to requested data or the access token provided is empty.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/NotFoundErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 404
+        minimum: 100
+        maximum: 599
+  NotFoundErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "not.found"
+      message:
+        type: string
+        example: "The specified entity can not be found"
+
+  Response«ConflictResponse»:
+    type: object
+    description: This response is returned in case if the request could not be completed due to a conflict with the current state of the target resource. This code is used in situations where the user might be able to resolve the conflict and resubmit the request.
+    properties:
+      body:
+        type: object
+        properties:
+          error:
+            $ref: '#/definitions/ConflictErrorDto'
+          success:
+            type: boolean
+            example: false
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP response status code
+        example: 409
+        minimum: 100
+        maximum: 599
+  ConflictErrorDto:
+    type: object
+    properties:
+      code:
+        type: string
+        example: "data.integrity.violation"
+      message:
+        type: string
+        example: "SQLServerException: Cannot insert duplicate key row in object 'dbo.NucleusInfo' with unique index 'IDX_NI_resource_name'. The duplicate key value is (8)."

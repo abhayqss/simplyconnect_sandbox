@@ -1,0 +1,147 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.IncidentReports {
+  @include page;
+}
+
+.IncidentReports-Header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.IncidentReports-HeaderItem {
+  margin-right: 20px;
+  padding-bottom: 10px;
+
+  &:first-child {
+    flex: 1
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.IncidentReports-Title {
+  white-space: nowrap;
+  position: relative;
+}
+
+.IncidentReports-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.IncidentReports-Actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.IncidentReportFilter-Icon {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+}
+
+.AddIncidentReportBtn-OptText {
+  @media (max-width: 350px) {
+    display: none;
+  }
+}
+
+.ReviewIncidentReportBtn-OptText {
+  @media (max-width: 400px) {
+    display: none;
+  }
+}
+
+.IncidentReportList {
+  &.Table {
+    tbody {
+      & > tr {
+        & > td {
+          padding: 20px 15px;
+        }
+      }
+    }
+  }
+}
+
+.IncidentReportList-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.IncidentReportList-Client {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    text-decoration: none;
+    color: #0064ad;
+  }
+}
+
+.IncidentReportList-Community {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.IncidentReport-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.IncidentReportList-ClientHeader {
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
+
+  @media (min-width: 1500px) {
+    width: 25%;
+  }
+}
+
+.IncidentReportList-ClientAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  @media (max-width: 375px) {
+    display: none !important;
+  }
+}
+
+.IncidentReportList-ActionBtn {
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

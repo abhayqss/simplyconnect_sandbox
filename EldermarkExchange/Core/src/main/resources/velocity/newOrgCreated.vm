@@ -1,0 +1,9 @@
+        <div>Dear ${newOrgCreated.target}, </div><br/>
+        <div>
+            <br/>
+            "${newOrgCreated.orgName}" organization has been created automatically.
+            <br/>
+            Please check details on the "Organizations list" page by clicking the button:
+            #parse( "velocity/button.vm")
+        </div>
+

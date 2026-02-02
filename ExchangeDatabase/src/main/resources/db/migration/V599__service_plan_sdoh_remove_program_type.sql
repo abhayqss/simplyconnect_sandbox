@@ -1,0 +1,2 @@
+DELETE FROM [dbo].[ProgramType] WHERE code = 'CHRONIC_DISEASE_MANAGEMENT' and need_type='EDUCATION_TASK'
+GO

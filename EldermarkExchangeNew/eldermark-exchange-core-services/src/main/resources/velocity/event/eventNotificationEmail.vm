@@ -1,0 +1,10 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.event.EventNotificationMailDto" *#
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    A new ${dto.eventType} event has been logged to the <span style="color:#0064ad;">Simply Connect platform</span> for
+    ${dto.clientName} at ${dto.communityName} and you are ${dto.responsibility} for this type of event.
+    <br><br>
+    Please login to the Simply Connect platform to view the details of this event.
+    #parse( "velocity/button.vm")
+</div>

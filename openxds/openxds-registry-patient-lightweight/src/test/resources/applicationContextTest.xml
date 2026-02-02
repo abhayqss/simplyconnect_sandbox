@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 Copyright (c) 2009 Misys Open Source Solutions (MOSS) and others
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied. See the License for the specific language governing
+     permissions and limitations under the License.
+
+     Contributors:
+       Misys Open Source Solutions - initial API and implementation
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd"
+	   default-lazy-init="true">
+
+	<!-- =================================================================== -->
+    <!-- XDS Registry Configuration                                          -->
+    <!-- =================================================================== -->   
+
+	<bean id="xdsRegistryPatientDao" class="org.openhealthtools.openxds.dao.XdsRegistryPatientDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="ccdCodeDao" class="org.openhealthtools.openxds.dao.CcdCodeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="sourceDatabaseDao" class="org.openhealthtools.openxds.dao.SourceDatabaseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="organizationDao" class="org.openhealthtools.openxds.dao.OrganizationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="xdsRepoPatientDao" class="org.openhealthtools.openxds.dao.XdsRepoPatientDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="xdsRegistryPatientService" class="org.openhealthtools.openxds.registry.patient.XdsRegistryPatientServiceImpl">
+		<property name="xdsRegistryPatientDao" ref="xdsRegistryPatientDao"/>
+		<property name="eexRepoPatient" ref="xdsRepoPatientService"/>
+		<property name="assigningAuthorityNamespace" value="${assigning.authority.namespace}"/>
+		<property name="assigningAuthorityUniversal" value="${assigning.authority.universal}"/>
+		<property name="ccnRestClient" ref="ccnRestClient"/>
+		<property name="sendOutEventToExchange" value="false"/>
+	</bean>
+
+	<bean id="xdsRepoPatientService" class="org.openhealthtools.openxds.registry.patient.XdsRepoPatientServiceImpl">
+		<property name="ccdCodeDao" ref="ccdCodeDao"/>
+		<property name="sourceDatabaseDao" ref="sourceDatabaseDao"/>
+		<property name="organizationDao" ref="organizationDao"/>
+		<property name="xdsRepoPatientDao" ref="xdsRepoPatientDao"/>
+	</bean>
+
+	<!-- =================================================================== -->
+    <!-- Property Configuration                                              -->
+    <!-- =================================================================== -->   
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+              <value>classpath:openxds.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!-- =================================================================== -->
+    <!-- DataSource and Transaction Configuration                            -->
+    <!-- =================================================================== -->
+	<tx:annotation-driven transaction-manager="eexTransactionManager"/>
+
+	<bean id="eexTransactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory" />
+	</bean>       
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    	<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>org.openhealthtools.openxds.entity.Resident</value>
+				<value>org.openhealthtools.openxds.entity.CcdCode</value>
+				<value>org.openhealthtools.openxds.entity.BasicEntity</value>
+				<value>org.openhealthtools.openxds.entity.Database</value>
+				<value>org.openhealthtools.openxds.entity.Language</value>
+				<value>org.openhealthtools.openxds.entity.LegacyIdAwareEntity</value>
+				<value>org.openhealthtools.openxds.entity.Person</value>
+				<value>org.openhealthtools.openxds.entity.Name</value>
+				<value>org.openhealthtools.openxds.entity.Organization</value>
+				<value>org.openhealthtools.openxds.entity.PersonAddress</value>
+				<value>org.openhealthtools.openxds.entity.PersonIdentifier</value>
+				<value>org.openhealthtools.openxds.entity.PersonTelecom</value>
+				<value>org.openhealthtools.openxds.entity.PersonIdentifierMerged</value>
+				<value>org.openhealthtools.openxds.entity.StringLegacyIdAwareEntity</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+        	<props>
+            	<prop key="hibernate.dialect">com.scnsoft.eldermark.dao.dialect.SqlServerCustomDialect</prop>
+		    	<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.jdbc.use_get_generated_keys">false</prop>
+        	</props>
+        </property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${patient.registry.db.driver}"/>
+		<property name="url" value="${patient.registry.db.url}"/>
+		<property name="username" value="${patient.registry.db.username}"/>
+		<property name="password" value="${patient.registry.db.password}"/>
+		<property name="connectionInitSqls" value="OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1"/>
+	</bean>
+
+	<bean id="ccnRestClient" class="org.openhealthtools.openxds.exchange.CcnRestClient">
+		<property name="exchangeHomeUrl" value="${exchange.home.url}"/>
+	</bean>
+
+
+</beans>

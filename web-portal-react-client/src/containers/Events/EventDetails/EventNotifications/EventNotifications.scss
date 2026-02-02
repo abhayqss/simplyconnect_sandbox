@@ -1,0 +1,111 @@
+@import "custom/_fonts";
+
+.EventNotifications {
+    padding: 12px 24px 24px 24px;
+
+    .TableContainer {
+        .Table {
+            @media (max-width: 1199px) {
+                display: none;
+            }
+        }
+        
+        .TableMobile {
+            display: none;
+        
+            @media (max-width: 1199px) {
+              display: table;
+            }
+        }
+    }
+}
+
+.EventNotificationList {
+    .TableMobile-Detail {
+        div {
+            max-width: initial;
+            flex: 1 0 auto;
+            padding: 0 15px;
+        }
+    }
+
+    &-ContactColHeader {
+        @media (min-width: 1200px) {
+            width: 300px;
+        }
+
+        @media (min-width: 1520px) {
+            width: 33%;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1380px) {
+        &-ResponsibilityColHeader {
+            width: 120px;
+        }
+
+        &-OrganizationColHeader {
+            width: 120px;
+        }
+
+        &-ChannelColHeader {
+            width: 90px;
+        }
+
+        &-DateColHeader {
+            width: 120px;
+        }
+    }
+}
+
+.EventNotification-Contact_disabled {
+    opacity: .6;
+}
+
+.EventNotification-ContactAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: block !important;
+}
+
+.EventNotification-ContactFullName {
+    font-weight: 600;
+    color: #0064ad;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.EventNotification-ContactRole {
+    color: $font-color_head-text;
+    white-space: nowrap;
+}
+
+.EventNotification-Hint {
+    .tooltip-inner {
+        width: 100%;
+        max-width: none;
+    }
+
+    .arrow {
+        left: 15px !important;
+    }
+}
+
+.EventNotification-ContactButton {
+    overflow: hidden;
+
+    &_Disabled {
+        pointer-events: none;
+
+        .EventNotification-ContactFullName {
+            color: $font-color_head-text;
+        }
+    }
+}

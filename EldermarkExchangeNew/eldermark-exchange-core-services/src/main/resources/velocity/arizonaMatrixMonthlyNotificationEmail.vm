@@ -1,0 +1,10 @@
+#* @vtlvariable name="fullName" type="java.lang.String" *#
+#* @vtlvariable name="reportUrl" type="java.lang.String" *#
+<div>
+    <b>Dear ${fullName},</b>
+    <br><br>
+    "Arizona Self-sufficiency Matrix" monthly report is ready for your review.
+    #set($buttonLabel = "View&nbsp;report")
+    #set($buttonUrl = ${reportUrl})
+    #parse("velocity/button.vm")
+</div>

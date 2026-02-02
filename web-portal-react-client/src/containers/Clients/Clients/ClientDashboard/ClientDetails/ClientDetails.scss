@@ -1,0 +1,331 @@
+@import "custom/_fonts";
+
+.ClientDetails {
+  flex: 1;
+  padding: 20px 30px 30px;
+  position: relative;
+  border-top: 8px solid #1e3352;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  min-height: 500px;
+
+  @media (min-width: 1200px) {
+    margin-right: 32px;
+  }
+}
+
+.ClientDetails-Body {
+  padding: 10px 20px;
+}
+
+.ClientDetails-Title {
+  color: $font-color_head-text;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.ClientDetails-Header {
+  display: flex;
+  margin-top: 40px;
+}
+
+.ClientDetails-Dropdown {
+  display: none;
+
+  @media (max-width: 1060px) {
+    display: block;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1875px) {
+    display: block;
+  }
+}
+
+.ClientDetails-Tabs.Tabs {
+  .Tabs-TabLink {
+    padding: 8px;
+  }
+
+  @media (max-width: 1060px) {
+    display: none;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1875px) {
+    display: none;
+  }
+}
+
+.ClientDetails-Avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.ClientDetails-FullName {
+  color: $font-color_head-text;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Open Sans Semibold", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.ClientDetails-SSN {
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientDetails-Status {
+  background-color: #d5f3b8;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 0 8px;
+  margin-top: 5px;
+}
+
+.ClientDetails-EditButton {
+  margin-top: 6px;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.ClientDetails-Cog {
+  width: 33px;
+  height: 33px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.ClientDetails-HeaderLabel {
+  margin-bottom: 12px;
+  border: 1px solid #00524d;
+  color: #0064ad;
+  font-size: 14px;
+  padding: 7px;
+}
+
+.ClientDetails-FilterFieldIcon {
+  top: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+  position: absolute;
+}
+
+.ClientDetails-Filter {
+  margin-top: 10px;
+}
+
+.ClientDetails-ActionButtonList {
+  .MultiSelect-SelectedText {
+    color: #0064ad;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+
+  .MultiSelect-ToggleChevron {
+    margin-right: 10px;
+  }
+
+  height: 37px;
+  fill: #0064ad;
+  margin-top: 7px;
+  border-radius: 2px;
+  border: 1px solid #0064ad;
+}
+
+.EmergencyContact-Avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.ClientDetail {
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.ClientDetail-Title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.ClientDetail-Value {
+  flex: 3;
+}
+
+.ClientDetail-ClientName {
+  margin-top: 16px;
+  margin-left: 5px;
+  font-size: 20px;
+  color: $font-color_head-text;
+}
+
+.ClientDetail-PencilIcon {
+  width: 22px;
+  height: 22px;
+  margin-left: 16px;
+  fill: #0064ad;
+  cursor: pointer;
+}
+
+.ClientDetailPopup {
+  border: 1px solid #bfbdbd;
+  background-color: #ffffff;
+  bottom: 70px;
+  left: 250px;
+  width: 280px;
+  padding: 29px 29px 29px 32px;
+  height: 242px;
+  margin-left: 90px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.ClientDetails-ActionButtonList {
+  .ActionButtonList-Options{
+    left: inherit;
+    right: 0;
+  }
+}
+
+.CareTeamMemberList {
+  margin-bottom: 30px;
+}
+
+.CareTeamMemberList-Caption {
+  /*display: flex;
+  justify-content: space-between;*/
+}
+
+.CareTeamMemberList-Title {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.CareTeamMemberList-CareTeamMemberCount {
+  &.badge  {
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  position: absolute;
+  right: -27px;
+  top: 3px;
+}
+
+.CareTeamMemberList-Image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: calc(50% - 30px);
+}
+
+.CareTeamMemberList-VideoCallIcon {
+  &:hover {
+    cursor: pointer;
+  }
+
+  float: right;
+}
+
+.CareTeamMemberList-MemberName {
+  font-weight: 600;
+  color: #0064ad;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.CareTeamMemberList-Organization {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0064ad;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.CareTeamMemberList-Community {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0064ad;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.CareTeamMemberList-MemberRelation {
+  color: #898989;
+  text-align: left;
+}
+
+.CareTeamMemberList-Label {
+  color: $font-color_head-text;
+}
+
+.CareTeamMemberList-Actions {
+  float: right;
+}
+
+.CareTeamMemberList-CenterAlign {
+  display: grid;
+  margin-bottom: 25px;
+}
+
+.CareTeamMemberList-DetailText {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: $font-color_head-text;
+  margin-bottom: 6px;
+}
+
+.CareTeamMemberList-DetailValue {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0064ad;
+  margin-bottom: 20px;
+}
+
+.CareTeamMemberList-ContactDetail {
+  display: block;
+  font-size: 14px;
+  color: $font-color_head-text;
+}
+
+.ClientDetails-CardTitle {
+  font-size: 26px;
+  font-weight: 600;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientDetails-RecentNotes {
+  &.card {
+    display: inline-block;
+    float: right;
+    border-top: 8px solid #0064ad;
+  }
+
+  padding: 24px 20px;
+  width: calc(50% - 30px);
+  object-fit: contain;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.11);
+}

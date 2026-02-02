@@ -1,0 +1,128 @@
+.Workflow {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 30px 0 20px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+
+
+  .Workflow-Title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    .Workflow-TitleText {
+      position: relative;
+      display: inline-block;
+      font-size: 26px;
+      color: #4C4E51;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    .Workflow-FilterSwitcher {
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .WorkflowFilter-Expanded {
+      transform: rotate(90deg);
+      transition: 0.3s;
+    }
+
+    .WorkflowFilter-Collapsed {
+      transform: rotate(0deg);
+      transition: 0.3s;
+    }
+  }
+
+  .WorkflowFilter {
+    width: 100%;
+    padding: 15px 24px;
+    background-color: #f9f9f9;
+    margin-bottom: 24px;
+  }
+
+
+  .workflow-table-text {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 42px;
+    height: 42px;
+  }
+
+  .workflow-create-name {
+    color: #4c4e51;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .workflow-name {
+    cursor: pointer;
+    color: #075AA0;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .workflow-date {
+    color: #4C4E51;
+    min-width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+  }
+
+  .workflow-timer-Icon {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  .line-workflow-status {
+    max-width: 90px;
+    min-width: 90px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    width: auto;
+    font-size: 14px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  .pending-status {
+    color: #F4B940;
+    background-color: #FEF7EA;
+  }
+
+  .submit-status {
+    background-color: #e5f7fc;
+    color: #01abe7;
+
+  }
+
+  .in-progress-status {
+    background-color: #eff7f3;
+    color: #5db188;
+  }
+
+  .feed-back-status {
+    background-color: #fbedec;
+    color: #d3483e
+  }
+
+  .approved-status {
+    background-color: #f2f4f8;
+    color: #4c4e51
+  }
+}
+
+.workflow-date {
+  margin: 5px 10px;
+}

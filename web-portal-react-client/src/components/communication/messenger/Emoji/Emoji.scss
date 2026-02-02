@@ -1,0 +1,43 @@
+.Emoji {
+  &-List {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-ListItem {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+
+    &:active {
+      background-color: #dddddd;
+    }
+
+    &_disabled {
+      pointer-events: none;
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+  }
+
+  &-Icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &-Description {
+    color: #448993;
+    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+  }
+}

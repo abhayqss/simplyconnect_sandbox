@@ -1,0 +1,2 @@
+ALTER TABLE VideoCallParticipantHistory ALTER COLUMN employee_role_id bigint
+GO

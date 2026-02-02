@@ -1,0 +1,110 @@
+.DocumentTemplateForm {
+  &-Container {
+    height: calc(100% - 146px);
+    position: relative;
+    padding-top: 20px;
+
+    .Loader-Backdrop {
+      height: calc(100% + 145px);
+    }
+  }
+
+  &-Progress {
+    justify-content: center;
+    margin: 20px 0;
+    margin-right: 10px;
+    margin-bottom: 24px;
+  }
+
+  &-WarningPanel {
+    margin: 20px 40px;
+  }
+
+  &-Loader {
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 145px);
+    top: 0;
+    align-items: center;
+
+    .LoaderImg {
+      top: calc(50% - 15px);
+    }
+  }
+
+  .DynaForm-Buttons {
+    display: block;
+    border: none;
+    padding: 0;
+  }
+
+  .ScrollTopBtn {
+    bottom: -48px;
+  }
+
+  .row {
+    align-items: baseline;
+  }
+}
+
+.DocumentTemplateSections {
+  overflow-y: auto;
+  height: calc(100% - 96px);
+}
+
+.DocumentTemplateSection {
+  position: relative;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &-Title {
+    font-size: 26px;
+    font-weight: bold;
+    padding: 20px 40px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  .DynaForm {
+    height: auto;
+
+    & >.form-group.field.field-object {     
+      height: auto;
+      overflow-y: visible;       
+    }
+  }
+
+  &-DecoratedBorder {
+    position: absolute;
+    width: 2px;
+    background-color: #e0e0e0;
+    left: 20px;
+    top: 39px;
+    bottom: 15px;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background-color: #e0e0e0;
+      border-radius: 6px;
+      position: absolute;
+      top: -5px;
+      left: -5px;
+    }
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      position: absolute;
+      left: -3px;
+      bottom: -3px;
+    }
+  }
+}

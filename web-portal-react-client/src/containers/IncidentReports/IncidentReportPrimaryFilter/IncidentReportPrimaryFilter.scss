@@ -1,0 +1,29 @@
+.IncidentReportPrimaryFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.IncidentReportPrimaryFilter-Field {
+  max-width: 420px;
+
+  .MultiSelect-SelectedText {
+    color: #0064ad;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-SelectedTextOnExpand {
+    color: #0064ad;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleChevron {
+    fill: #0064ad;
+  }
+}
+
+.IncidentReportPrimaryFilter-Field_frozen {
+  pointer-events: none;
+}

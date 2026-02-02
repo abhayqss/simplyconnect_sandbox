@@ -1,0 +1,56 @@
+{
+  "name": "notify-chat",
+  "version": "1.0.0",
+  "description": "a replacement Microservice for Notify Messaging",
+  "main": "src/service.js",
+  "scripts": {
+    "start": "node --inspect src/service.js",
+    "dev": "nodemon src/service.js --watch .env --watch src/",
+    "prod": "forever start forever.json",
+    "preinstall": "cp -nv .env.example .env && cp -nv src/config/db.example src/config/db.js && cp -nv src/config/tenantMaster.example src/config/tenantMaster.json",
+    "postinstall": "node src/tasks/createForeverConfigFile.js"
+  },
+  "engines": {
+    "node": "^6.10.3",
+    "npm": "^3.10.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eldermark/notify-server"
+  },
+  "contributors": [
+    {
+      "name": "Hugo Virgen",
+      "email": "virgenherrera@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eldermark/notify-server/issues"
+  },
+  "homepage": "https://github.com/eldermark/notify-server#readme",
+  "devDependencies": {
+    "sequelize-cli": "2.7.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "~1.16.0",
+    "cors": "^2.8.3",
+    "cron": "^1.2.1",
+    "debug": "~2.6.0",
+    "dotenv": "^4.0.0",
+    "express": "~4.14.1",
+    "jsonwebtoken": "7.3.0",
+    "moment": "^2.18.1",
+    "morgan": "~1.7.0",
+    "mysql": "2.13.0",
+    "pg": "^6.4.1",
+    "pg-hstore": "^2.3.2",
+    "request": "^2.81.0",
+    "request-ip": "^2.0.2",
+    "sequelize": "3.30.2",
+    "serve-favicon": "~2.3.2",
+    "socket.io": "2.0.3",
+    "tedious": "^4.1.3"
+  }
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <tx:annotation-driven/>
+    <context:component-scan base-package="com.scnsoft.eldermark"/>
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:datasource.properties</value>
+                <value>classpath:datasync.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="targetDatabaseDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${target.database.driverClassName}"/>
+        <property name="url" value="${target.database.url}"/>
+        <property name="username" value="${target.database.username}"/>
+        <property name="password" value="${target.database.password}"/>
+        <property name="testOnBorrow" value="${target.database.testOnBorrow}"/>
+        <property name="testOnReturn" value="${target.database.testOnReturn}"/>
+        <property name="testWhileIdle" value="${target.database.testWhileIdle}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${target.database.timeBetweenEvictionRunsMillis}"/>
+        <property name="numTestsPerEvictionRun" value="${target.database.numTestsPerEvictionRun}"/>
+        <property name="minEvictableIdleTimeMillis" value="${target.database.minEvictableIdleTimeMillis}"/>
+        <property name="validationQuery" value="${target.database.validationQuery}"/>
+        <property name="connectionInitSqls">
+            <list>
+                <value>OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <bean id="targetDatabaseDataSource2" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${target.database.driverClassName}"/>
+        <property name="url" value="jdbc:sqlserver://srv-ict-4751:1433;databaseName=test-av"/>
+        <property name="username" value="${target.database.username}"/>
+        <property name="password" value="${target.database.password}"/>
+        <property name="testOnBorrow" value="${target.database.testOnBorrow}"/>
+        <property name="testOnReturn" value="${target.database.testOnReturn}"/>
+        <property name="testWhileIdle" value="${target.database.testWhileIdle}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${target.database.timeBetweenEvictionRunsMillis}"/>
+        <property name="numTestsPerEvictionRun" value="${target.database.numTestsPerEvictionRun}"/>
+        <property name="minEvictableIdleTimeMillis" value="${target.database.minEvictableIdleTimeMillis}"/>
+        <property name="validationQuery" value="${target.database.validationQuery}"/>
+        <property name="connectionInitSqls">
+            <list>
+                <value>OPEN SYMMETRIC KEY SymmetricKey1 DECRYPTION BY CERTIFICATE Certificate1</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="targetDatabaseJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="targetDatabaseDataSource"/>
+    </bean>
+
+    <bean id="targetDatabaseTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="targetDatabaseDataSource"/>
+        <qualifier value="targetDatabaseTransactionManager"/>
+    </bean>
+
+    <bean id="targetDatabaseTransactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <constructor-arg name="transactionManager" ref="targetDatabaseTransactionManager"/>
+    </bean>
+
+    <bean id="rxnormDatabaseDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${rxnorm.database.driverClassName}"/>
+        <property name="url" value="${rxnorm.database.url}"/>
+        <property name="username" value="${rxnorm.database.username}"/>
+        <property name="password" value="${rxnorm.database.password}"/>
+        <property name="testOnBorrow" value="${rxnorm.database.testOnBorrow}"/>
+        <property name="testOnReturn" value="${rxnorm.database.testOnReturn}"/>
+        <property name="testWhileIdle" value="${rxnorm.database.testWhileIdle}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${rxnorm.database.timeBetweenEvictionRunsMillis}"/>
+        <property name="numTestsPerEvictionRun" value="${rxnorm.database.numTestsPerEvictionRun}"/>
+        <property name="minEvictableIdleTimeMillis" value="${rxnorm.database.minEvictableIdleTimeMillis}"/>
+        <property name="validationQuery" value="${rxnorm.database.validationQuery}"/>
+    </bean>
+
+    <bean id="rxnormDatabaseJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="rxnormDatabaseDataSource"/>
+    </bean>
+
+    <bean id="executorService" class="java.util.concurrent.Executors"
+          factory-method="newSingleThreadExecutor">
+    </bean>
+
+    <!--<bean id="rxnormDatabaseTransactionManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="rxnormDatabaseDataSource"/>-->
+        <!--<qualifier value="rxnormDatabaseTransactionManager"/>-->
+    <!--</bean>-->
+
+</beans>

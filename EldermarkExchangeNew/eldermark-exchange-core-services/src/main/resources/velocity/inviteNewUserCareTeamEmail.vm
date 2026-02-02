@@ -1,0 +1,31 @@
+#* @vtlvariable name="invitation" type="com.scnsoft.eldermark.dto.notification.careteam.CareTeamMemberNewUserInviteNotificationDto" *#
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+<div
+##        style="margin-left: 25px; margin-right: 25px; width:573px;"
+>
+    <b>Dear ${invitation.receiverName},</b> <br/>
+    <br/>
+    ${invitation.clientName} has invited you to join his/her Care Team.<br><br>
+
+    To get access to the Simply Connect platform:<br>
+    1) Download the Simply Connect mobile app:<br>
+    <br>
+
+##    todo move out to macros
+    <a href="${appStoreUrl}" style="display: block">
+        <img height="40" alt='Download on the App Store' src="cid:appStore" style="display: block">
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href='${googlePlayUrl}' style="display: block">
+        <img height="40" alt='Get it on Google Play' src='cid:googlePlay' style="display: block"/>
+    </a>
+    <br>
+    <br>
+    2) Create an account:
+    #set($buttonLabel = 'Create Account')
+    #set($buttonUrl = ${invitation.createAccountLink})
+    #parse("velocity/button.vm")
+
+    Note, that the invitation link will expire in ${invitation.invitationExpiresInHours} hours.
+    <br/><br/>
+</div>

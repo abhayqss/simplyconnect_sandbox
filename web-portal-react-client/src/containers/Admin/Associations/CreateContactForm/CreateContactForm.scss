@@ -1,0 +1,92 @@
+.CreateContactForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .Scrollable {
+    flex: 1 1 0%;
+  }
+
+  &-SelectFieldLabelIcon {
+    margin-left: 5px;
+    display: inline-block;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.CreateContactForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.CreateContactForm-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.CreateContactForm-SelectField {
+
+}
+
+.CreateContactForm-InfoIcon {
+  margin-top: -10px;
+}
+
+.CreateContactForm-CheckboxField {
+  margin-top: 28px;
+}
+
+.CreateContactForm-Button {
+  width: 100px;
+  height: 35px;
+  margin-top: 30px;
+
+  &.btn{
+    padding: 0;
+  }
+}
+
+.CreateContactForm-FilterFieldIcon {
+  top: 45px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+  position: absolute;
+}
+
+.CreateContactForm-LabelIcon{
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+.CreateContactForm-TooltipBody {
+  text-align: left;
+  padding: 7px 20px;
+  margin: 0;
+}
+
+.CreateContactForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

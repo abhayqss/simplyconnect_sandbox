@@ -1,0 +1,9 @@
+MEMBER_IDENTIFIER|MEMBER_FIRST_NM|MEMBER_MIDDLE_NM|MEMBER_LAST_NM|MEMBER_BIRTH_DT|CLAIM_NO|SERVICE_START_DT|ICD_CODE_SET|DIAGNOSIS_CD|DIAGNOSIS_TXT|PHYSICIAN_FIRST_NM|PHYSICIAN_MIDDLE_NM|PHYSICIAN_LAST_NM
+med-client-1|Alex|John|Smith|19960526|1|20210425|10|J43.9|unused text|Greg|Brian|House
+||||||||||||
+med-client-2|John|Robert|Potter|20100510|2|20210815|10|unknown|unknown code name|James||Wilson
+med-client-2|John|Robert|Potter|20100510|3|20210815|10|unknown|unknown code name|James||Wilson
+med-client-2|John|Robert|Potter|20100510|4|20210815||J43.9|unknown code name|James||Wilson
+med-client-2|John|Robert|Potter|20100510|4|20210815|9|805.6|unknown code name|James||Wilson
+med-client-2|John|Robert|Potter|20100510|5|20210815|9|unknown-icd-9|Unknown icd-9 code name|James||Wilson
+med-client-2|John|Robert|Potter|20100510|6|20210815|9|unknown-icd-9|Unknown icd-9 code name|||

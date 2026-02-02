@@ -1,0 +1,52 @@
+import { lazy } from "react";
+
+import {
+  ADMINISTRATOR,
+  BEHAVIORAL_HEALTH,
+  CLINICIAN,
+  COMMUNITY_ADMINISTRATOR,
+  DOCTOR,
+  CAREGIVER,
+  PREMIUM,
+  GROUPS,
+  NAVI_GUIDE,
+  ORGANIZATION_ADMIN,
+  PHARMACIST_VENDOR,
+  SUPER_ADMINISTRATOR,
+  VENDOR,
+} from "../Roles";
+
+const ClientRecords = lazy(() => import("containers/ClientRecords/ClientRecords"));
+
+const {
+  PROFESSIONALS_CARE_MANAGEMENT,
+  PROFESSIONALS_OTHER,
+  PHARMACY,
+  NON_PROFESSIONALS,
+  PROFESSIONALS_PRIMARY_PHYSICIAN,
+} = GROUPS;
+
+export default {
+  component: ClientRecords,
+  path: "/record-search",
+  permission: [
+    SUPER_ADMINISTRATOR,
+    ORGANIZATION_ADMIN,
+    VENDOR,
+    DOCTOR,
+    CAREGIVER,
+    PREMIUM,
+    CLINICIAN,
+    PHARMACIST_VENDOR,
+    NAVI_GUIDE,
+    BEHAVIORAL_HEALTH,
+    ADMINISTRATOR,
+    COMMUNITY_ADMINISTRATOR,
+    ...PROFESSIONALS_PRIMARY_PHYSICIAN,
+    ...PROFESSIONALS_CARE_MANAGEMENT,
+    ...PROFESSIONALS_OTHER,
+    ...PHARMACY,
+    ...NON_PROFESSIONALS,
+  ],
+  exact: true,
+};

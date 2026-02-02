@@ -1,0 +1,121 @@
+@import "custom/_mixins";
+
+.OutgoingCall {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-Body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: content-box;
+    position: relative;
+  }
+
+  &-Info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      transform: translate(0, 50%);
+  }
+
+  &-Participant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-ParticipantAvatar {
+    width: 104px;
+    height: 104px;
+    margin-bottom: 15px;
+
+    @media (max-width: 1024px) {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &-ParticipantFullName {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 3px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+
+    @include line-clamp(3);
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+  }
+
+  &-CallType {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #bdbdbd;
+    font-size: 16px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &-StatusText {
+    position: relative;
+    left: 3px;
+
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+  }
+
+  &-Loader {
+    position: relative;
+    bottom: -9px;
+    left: -3px;
+  }
+
+  &-Actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    width: 100%;
+    z-index: 5;
+
+    @media (max-width: 1024px) {
+      bottom: 32px;
+    }
+
+    @media (max-width: 667px) {
+      bottom: 80px;
+    }
+  }
+
+  &-Action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      .VideoChatControlButton {
+        padding: 8px;
+      }
+      
+      svg {
+        width: 24px !important;
+        height: 24px !important;
+      }
+    }
+  }
+}

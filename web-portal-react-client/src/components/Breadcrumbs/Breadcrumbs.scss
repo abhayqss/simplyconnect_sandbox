@@ -1,0 +1,63 @@
+@import "custom/_fonts";
+
+.Breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Breadcrumbs-Item {
+  cursor: pointer;
+}
+
+button.Breadcrumbs-ItemTitle {
+  &.btn.btn-link {
+    padding: 0 8px;
+    text-decoration: none;
+
+    &:active {
+      outline: none;
+    }
+  }
+}
+
+.Breadcrumbs-Item_root {
+  pointer-events: none;
+
+  .Breadcrumbs-ItemTitle {
+    color: #bfbdbd;
+  }
+}
+
+.Breadcrumbs-Item_active {
+  pointer-events: none;
+
+  .Breadcrumbs-ItemTitle {
+    color: $font-color_head-text;
+
+    &:hover {
+      color: $font-color_head-text;
+    }
+  }
+}
+
+.Breadcrumbs-Item_frozen {
+  pointer-events: none;
+}
+
+.Breadcrumbs-ItemTitle {
+  color: #0064ad;
+  font-size: 13px;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.Breadcrumbs-Separator {
+  fill: #BFBDBD;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 2px;
+}

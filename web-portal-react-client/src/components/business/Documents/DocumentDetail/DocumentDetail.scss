@@ -1,0 +1,42 @@
+@import "../../../../custom/fonts";
+
+.DocumentDetail {
+  padding: 16px 0;
+}
+
+.DocumentDetail-FormatIcon {
+  width: 60px;
+  min-width: 60px;
+  margin-right: 12px;
+  margin-left: -6px;
+}
+
+.DocumentDetail-Title {
+  color: $font-color_head-text;
+  font-size: 15px;
+  font-family: "Open Sans Semibold", sans-serif;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.DocumentDetail-Date {
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.DocumentDetail-Actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.DocumentDetail-Action {
+  outline: none;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

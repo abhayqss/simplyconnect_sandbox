@@ -1,0 +1,7 @@
+<div>
+    <b>Dear ${recipientName},</b>
+    <br><br>
+    A signature request, you submitted, has been cancelled as a request recipient no longer has associated capabilities.
+    <br><br>
+    #parse("velocity/base/baseButton.vm")
+</div>

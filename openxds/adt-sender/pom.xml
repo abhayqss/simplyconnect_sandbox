@@ -1,0 +1,409 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <artifactId>openxds-adt-sender</artifactId>
+    <groupId>com.scnsoft.eldermark</groupId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
+    <scm>
+        <url>https://github.com/eldermark/exchange</url>
+        <connection>scm:git:https://github.com/eldermark/exchange.git</connection>
+    </scm>
+
+    <properties>
+        <spring.version>3.2.2.RELEASE</spring.version>
+        <commons.lang.version>2.6</commons.lang.version>
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+        <servlet.api.version>3.1.0</servlet.api.version>
+
+        <requires.channel>https</requires.channel>
+
+        <datasource.url>jdbc:sqlserver://localhost:1433;databaseName=eldermark</datasource.url>
+        <datasource.username>sa</datasource.username>
+        <datasource.password>eldermark</datasource.password>
+
+        <!-- if you want to run on remore demo DB -->
+        <!--<datasource.url>jdbc:sqlserver://207.250.113.236:1433;databaseName=exchange_demo</datasource.url>-->
+        <!--<datasource.username>sa</datasource.username>-->
+        <!--<datasource.password>qp?n-ytu?</datasource.password>-->
+
+        <commons.io.version>2.4</commons.io.version>
+        <commons.fileupload.version>1.3</commons.fileupload.version>
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+
+        <!-- keystore and truststore are bundled inside war by maven-resources-plugin-->
+        <xds.exchange.keystore>auth/keystore_exch.jks</xds.exchange.keystore>
+        <xds.exchange.keystore.password>changeit</xds.exchange.keystore.password>
+        <xds.exchange.truststore>auth/xds_truststore.jks</xds.exchange.truststore>
+        <xds.exchange.truststore.password>changeit</xds.exchange.truststore.password>
+
+        <xds.exchange.hl7v2.keystore>auth/hl7v2_keystore-dev.jks</xds.exchange.hl7v2.keystore>
+        <xds.exchange.hl7v2.keystore.password>6Q3&lt;fxLWLTyAr/'2</xds.exchange.hl7v2.keystore.password>
+        <xds.exchange.hl7v2.truststore>auth/hl7v2_truststore-dev.jks</xds.exchange.hl7v2.truststore>
+        <xds.exchange.hl7v2.truststore.password>gn"n4Q,;LCU'=aR`</xds.exchange.hl7v2.truststore.password>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- the properties were moved to personal.properties file -->
+                <!--<local.jdk.folder>C:\Program Files\Java\jdk1.7.0_21</local.jdk.folder>-->
+                <requires.channel>any</requires.channel>
+                <!-- the properties were moved to personal.properties file -->
+                <datasource.url>${local.adtsender.datasource.url}</datasource.url>
+                <datasource.username>${local.adtsender.datasource.username}</datasource.username>
+                <datasource.password>${local.adtsender.datasource.password}</datasource.password>
+
+                <default.host>localhost</default.host>
+
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>${project.basedir}/../../personal.properties</file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>Test</id>
+            <properties>
+                <requires.channel>any</requires.channel>
+                <datasource.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>qp?n-ytu?</datasource.password>
+
+                <!--<default.host>207.250.113.236</default.host>-->
+                <default.host>localhost</default.host>
+
+                <default.host>localhost</default.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>Test2</id>
+            <properties>
+                <requires.channel>any</requires.channel>
+                <datasource.url>jdbc:sqlserver://10.240.1.166:1433;databaseName=exchange_demo</datasource.url>
+                <datasource.username>sa</datasource.username>
+                <datasource.password>qp?n-ytu?</datasource.password>
+
+                <!--<default.host>207.250.113.236</default.host>-->
+                <default.host>localhost</default.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <datasource.url>jdbc:sqlserver://10.199.1.159;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>4uja!9hv5n9S=hB</datasource.password>
+                <requires.channel>any</requires.channel>
+
+                <default.host>localhost</default.host>
+            </properties>
+        </profile>
+        <profile>
+            <id>Prod2</id>
+            <properties>
+                <datasource.url>jdbc:sqlserver://10.199.1.129;databaseName=exchange</datasource.url>
+                <datasource.username>exchange-user</datasource.username>
+                <datasource.password>y2Ej_8D=TH6PT7v</datasource.password>
+				<requires.channel>any</requires.channel>
+
+                <default.host>localhost</default.host>
+
+                <xds.exchange.hl7v2.keystore>auth/hl7v2_keystore-prod.jks</xds.exchange.hl7v2.keystore>
+                <xds.exchange.hl7v2.keystore.password>~{JEKhr=9RM;y&amp;.s</xds.exchange.hl7v2.keystore.password>
+                <xds.exchange.hl7v2.truststore>auth/hl7v2_truststore-prod.jks</xds.exchange.hl7v2.truststore>
+                <xds.exchange.hl7v2.truststore.password>n?9psAhTTAUG4'L}</xds.exchange.hl7v2.truststore.password>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <!-- Excel library -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons.dbcp.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.jdbc.driver.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>3.1.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>3.1.2.RELEASE</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>3.1.3.RELEASE</version>
+        </dependency>
+
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.4.2.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hibernate.javax.persistence</groupId>
+                    <artifactId>hibernate-jpa-2.0-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>4.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-base</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v251</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons.fileupload.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.12</version>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>LocalRepository</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <finalName>adtsender</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>v{0,date,yyyy-MM-dd}.{1}</format>
+                    <items>
+                        <item>timestamp</item>
+                        <item>scmVersion</item>
+                    </items>
+                </configuration>
+            </plugin>
+
+            <!-- bundle exchange module's keystore and truststore inside adtsender.war responsible for openxds communication-->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/adtsender/WEB-INF/classes/auth</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>
+                                        ${project.basedir}/../../EldermarkExchangeNew/eldermark-exchange-core-services/src/main/resources/xds/
+                                    </directory>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>*.jks</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>
+                                        ${project.basedir}/../../EldermarkExchangeNew/eldermark-exchange-hl7v2/src/main/resources/cert
+                                    </directory>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>*.jks</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <!--<includes>
+                    <include>**/*.properties</include>
+                </includes>-->
+            </resource>
+        </resources>
+    </build>
+</project>

@@ -1,0 +1,36 @@
+INSERT INTO [dbo].[MPI]
+           (registry_patient_id,
+           [assigning_authority]
+           ,[patient_id]
+           ,[deleted]
+           ,[merged]
+           ,[surviving_patient_id]
+           ,[resident_id]
+           ,[assigning_authority_namespace]
+           ,[assigning_authority_universal]
+           ,[assigning_authority_universal_type]
+           ,[assigning_facility_namespace]
+           ,[assigning_facility_universal]
+           ,[assigning_facility_universal_type]
+           ,[type_code]
+           ,[effective_date]
+           ,[expiration_date])
+     SELECT
+		       NEWID(),
+           'EXCHANGE&2.16.840.1.113883.3.6492&ISO'
+           ,id
+           ,'N'
+           ,'N'
+           ,NULL
+           ,id
+           ,'EXCHANGE'
+           ,'2.16.840.1.113883.3.6492'
+           ,'ISO'
+           ,NULL
+           ,NULL
+           ,NULL
+           ,NULL
+           ,NULL
+           ,NULL
+     FROM [dbo].Resident
+GO

@@ -1,0 +1,27 @@
+@import "custom/_fonts.scss";
+
+.ClientExpenseDetail {
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: 20px;
+
+  &-Title {
+    flex: 1;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Value {
+    flex: 4;
+    display: flex;
+    justify-content: left;
+    font-size: 14px;
+    color: $font-color_head-text;
+  }
+}
+
+.ClientExpenseDetails-ScrollTopBtn {
+  position: fixed;
+}

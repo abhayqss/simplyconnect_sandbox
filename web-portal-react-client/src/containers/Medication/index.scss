@@ -1,0 +1,361 @@
+.medicationWrap {
+  width: 100%;
+  height: 100%;
+  background: #F9F9F9;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 和 Edge */
+  overflow: hidden;
+
+  @media (min-width: 640px) {
+    justify-content: center;
+  }
+
+
+
+  .medicationHeader {
+    width: 100%;
+    height: 84px;
+    min-height: 84px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 7px 0 #0000001C;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+    .logo {
+      height: 28.2px;
+    }
+
+    .signInButton {
+      width: 78px;
+      height: 36px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      background: #0064AD;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+
+  .medicationContentWrap {
+    margin-top: 104px;
+    width: 100%;
+    //height: calc(100vh - 84px);
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+
+    position: relative;
+    scrollbar-width: none;
+
+
+    .medicationContent {
+      width: 100%;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 6px 6px 0 #00000026;
+      border-top: 8px solid #075AA0;
+
+      @media (min-width: 640px) {
+        width: 640px;
+        height: 664.06px;
+        overflow: scroll;
+      }
+
+      .medicationTime {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        color: #4C4E51;
+        font-weight: 600;
+        font-size: 22px;
+        margin-top: 20px;
+
+        @media (min-width: 640px) {
+          font-size: 24px;
+          margin-top: 33px;
+        }
+      }
+
+      .medicationTitle {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 22px;
+        color: #4C4E51;
+        font-weight: 600;
+
+        @media (min-width: 640px) {
+          font-size: 24px;
+        }
+      }
+
+      .medicationInfo {
+        margin-top: 15px;
+        display: flex;
+
+        flex-direction: column;
+        align-items: center;
+
+        justify-content: center;
+        gap: 20px;
+        color: #949494;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+
+        @media (min-width: 640px) {
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .medicationDescription {
+        width: 100%;
+        font-weight: 400;
+        font-size: 14px;
+        color: #4C4E51;
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        padding: 0 20px;
+
+      }
+
+      .medicationTableWrap,
+      .medicationTakenList {
+        scrollbar-width: none;
+
+        .medicationTable {
+
+          border-collapse: collapse;
+
+          thead {
+            border-bottom: 2px solid #000 !important;
+          }
+
+          .Table-Header th {
+            background: #fff;
+            color: #909090;
+          }
+
+          .Table-Header th .CheckboxField-Checkbox {
+            background: #fff;
+            border: 1px solid #E0E0E0;
+          }
+
+          .medicationTableAllCheckbox .CheckboxField-CheckMark {
+            border-color: #0064AD;
+          }
+
+
+          .nameStyle {
+            color: #222222;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+          }
+
+          .timeStyle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #4C4E51;
+          }
+
+          .UnknownStatusStyle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #4C4E51;
+            padding: 2px 4px;
+            background: #FFE8AC;
+            border-radius: 4px;
+
+          }
+
+          .MissedStatusStyle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #4C4E51;
+            padding: 2px 4px;
+            background: #FBC5C5;
+            border-radius: 4px;
+          }
+
+          .TakenStatusStyle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            color: #4C4E51;
+            padding: 2px 4px;
+            background: #DBF2BE;
+            border-radius: 4px;
+          }
+
+
+        }
+
+
+        .controller {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          text-align: center;
+
+          .outlineButton {
+            border: 1px solid #0064AD;
+            border-radius: 4px;
+            padding: 8px 16px;
+            color: #0064AD;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+          }
+
+          .outlineButtonDisabled {
+            border: 1px solid #BFBDBD !important;
+            color: #BFBDBD !important;
+            cursor: not-allowed !important;
+          }
+
+          .button {
+            background: #0064AD;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+          }
+
+          .buttonDisabled {
+            background: #BFBDBD !important;
+            color: #fff !important;
+            cursor: not-allowed !important;
+          }
+
+        }
+      }
+
+      .medicationTakenList::-webkit-scrollbar {
+        display: none; /* 适用于 Chrome, Safari 和新的 Edge */
+      }
+
+
+    }
+  }
+
+  .medicationContentWrap::-webkit-scrollbar {
+    display: none; /* 适用于 Chrome, Safari 和新的 Edge */
+  }
+}
+
+
+.successDialog {
+  position: fixed;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 6px 6px 0 #00000026;
+  border-radius: 8px;
+  width: 85vw;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  top: 30px;
+
+  @media (min-width: 640px) {
+    width: 479px;
+    height: 116px;
+    top: 50px;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    padding: 24px;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .successMessageWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 640px) {
+      align-items: start;
+    }
+
+    .successMessageTitle {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 28px;
+      color: #4C4E51;
+
+      @media (min-width: 640px) {
+        text-align: left;
+      }
+    }
+
+    .successMessageInfo {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      color: #4C4E51;
+      text-align: center;
+
+      @media (min-width: 640px) {
+        text-align: left;
+      }
+
+    }
+
+
+
+  }
+}
+
+.tooltip-inner {
+  max-width: 300px !important;
+}
+
+
+@media (max-width: 375px) {
+  .Table.table thead .Table-Header th:first-child {
+    padding-left: 0;
+  }
+}
+
+.Dialog-Text  {
+  text-align: center;
+}
+
+
+

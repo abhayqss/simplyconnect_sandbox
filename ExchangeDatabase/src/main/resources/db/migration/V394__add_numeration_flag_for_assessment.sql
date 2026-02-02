@@ -1,0 +1,11 @@
+SET ANSI_PADDING ON
+GO
+
+SET XACT_ABORT ON
+GO
+
+ALTER TABLE [dbo].[Assessment]
+  ADD [has_numeration] BIT NOT NULL DEFAULT 0;
+GO
+
+GO

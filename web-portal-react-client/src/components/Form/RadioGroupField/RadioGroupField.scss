@@ -1,0 +1,147 @@
+@import "custom/_fonts";
+
+.RadioGroupField {
+  position: relative;
+
+  &.mb-3{
+    margin-bottom: 20px !important;
+  }
+
+  &_disabled {
+    .RadioGroupField-Title {
+      color: #898989;
+    }
+
+    .Radio {
+      &-Label {
+        color: #898989;
+      }
+
+      &-CheckMark {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}
+
+.RadioGroupField-Title {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.RadioGroupField-Body {
+  &.form-control {
+    border: none;
+    height: inherit;
+
+    &.is-invalid {
+      background-image: none;
+    }
+  }
+}
+
+$height: 27px;
+
+.RadioGroupField_row {
+  .RadioGroupField-Title {
+    margin-bottom: .5rem;
+  }
+
+  .RadioGroupField-Body {
+    height: $height;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-sizing: content-box;
+
+    &.form-control {
+      padding: 3px 0;
+    }
+
+    &.is-invalid {
+      background-image: none;
+    }
+
+    .Radio {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.RadioGroupField-Error {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  font-weight: normal;
+  color: #dc3545;
+}
+
+.Radio {
+  display: block;
+  position: relative;
+  padding-left: 44px;
+  margin-right: 32px;
+  cursor: pointer;
+  color: $font-color_head-text;
+  font-size: $font-size_form-field-value;
+  font-weight: 400;
+
+  &_disabled {
+    .Radio-Label {
+      color: #898989;
+    }
+
+    .Radio-CheckMark {
+      background-color: #f1f1f1;
+    }
+  }
+}
+
+.Radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.Radio-CheckMark {
+  &:after {
+    top: 8px;
+    left: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #0064ad;
+  }
+
+  &.Radio-CheckMarkError {
+    border: 1px solid #dc3545;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $height;
+  width: $height;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #dddddd;
+}
+
+.Radio-CheckMark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.Radio input:checked ~ .Radio-CheckMark:after {
+  display: block;
+}
+
+.Radio-Label {
+  line-height: 1.8;
+  display: inline-block;
+}

@@ -1,0 +1,82 @@
+@import "custom/_fonts";
+
+.LabResearchOrderReviewDetails {
+  flex: 1 1;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.LabResearchOrderReviewDetails-Section {
+  margin-bottom: 40px;
+}
+
+.LabResearchOrderReviewDetails-SectionTitle {
+  display: flex;
+  color: $font-color_head-text;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.LabResearchOrderReviewDetail {
+  &_flex {
+    &_column {
+      .LabResearchOrderReviewDetail-Value {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &-Alert {
+    color: #ffb602;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  &-Title {
+    flex: 1;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Value {
+    flex: 4;
+    display: flex;
+    justify-content: left;
+    font-size: 14px;
+    color: $font-color_head-text;
+  }
+}
+
+.LabResearchOrderReviewDetails-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.LabResearchOrderReviewDetails-ScrollTopBtn {
+  position: fixed;
+}
+
+.LabResearchOrderReviewDetails-Alert {
+  padding: 18px 16px;
+  margin: 16px 0;
+  background-color: #fff1ca;
+  border-radius: 3px;
+}
+
+.LabResearchOrderReviewDetails-AlertText {
+  color: $font-color_head-text;
+  font-size: 14px;
+}
+
+.LabResearchOrderReviewDetails-EditBtn {
+  margin-left: auto;
+  &.btn { 
+    padding: 0 30px;
+  }
+}

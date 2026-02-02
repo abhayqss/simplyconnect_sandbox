@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk-11\bin\java" -jar -Dspring.profiles.active=local "file-decrypt-0.0.1-SNAPSHOT.jar" "mode=encrypt" "source=C:\folder_to_encrypt" "targetFolder=C:\target_folder"

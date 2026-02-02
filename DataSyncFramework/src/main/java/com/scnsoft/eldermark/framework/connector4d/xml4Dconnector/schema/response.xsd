@@ -1,0 +1,53 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="communication">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="authentication">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute type="xs:string" name="employee_firstname"/>
+                                <xs:attribute type="xs:byte" name="employee_id"/>
+                                <xs:attribute type="xs:string" name="employee_lastname"/>
+                                <xs:attribute type="xs:short" name="sm_build_number"/>
+                                <xs:attribute type="xs:byte" name="success"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="sqlrequest">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="returnvarlist">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="column" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="encoding" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="name" use="optional"/>
+                                                        <xs:attribute type="xs:byte" name="num" use="optional"/>
+                                                        <xs:attribute type="xs:byte" name="type" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:byte" name="arraysize"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="errornum"/>
+                        <xs:attribute type="xs:string" name="errortext"/>
+                        <xs:attribute type="xs:string" name="recipient_AppType"/>
+                        <xs:attribute type="xs:byte" name="requestid"/>
+                        <xs:attribute type="xs:byte" name="version"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:int" name="requestid"/>
+            <xs:attribute type="xs:byte" name="version"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xsd:element name="Events">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Event" minOccurs="1" maxOccurs="unbounded" type="Event"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="Event">
+        <xsd:sequence>
+            <xsd:element name="Organization" minOccurs="1" maxOccurs="1" type="Organization"/>
+            <xsd:element name="Community" minOccurs="1" maxOccurs="1" type="Community"/>
+            <xsd:element name="Patient" minOccurs="1" maxOccurs="1" type="Patient"/>
+            <xsd:element name="FormAuthor" minOccurs="1" maxOccurs="1" type="FormAuthor"/>
+            <xsd:element name="Manager" minOccurs="0" maxOccurs="1" type="Manager"/>
+            <xsd:element name="RN" minOccurs="0" maxOccurs="1" type="RN"/>
+            <xsd:element name="EventDetails" minOccurs="1" maxOccurs="1" type="EventDetails"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Patient">
+        <xsd:sequence>
+            <xsd:element name="DeviceID" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Organization">
+        <xsd:all>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="string_not_blank"/>
+            <xsd:element name="ID" minOccurs="1" maxOccurs="1" type="string_not_blank"/>
+            <xsd:element name="Phone" minOccurs="0" maxOccurs="1" type="string_2_128"/>
+            <xsd:element name="Email" minOccurs="0" maxOccurs="1" type="emailAddress"/>
+        </xsd:all>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="Community">
+        <xsd:all>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="string_not_blank"/>
+            <xsd:element name="ID" minOccurs="1" maxOccurs="1" type="string_not_blank"/>
+            <xsd:element name="Email" minOccurs="0" maxOccurs="1" type="emailAddress"/>
+            <xsd:element name="Phone" minOccurs="0" maxOccurs="1" type="string_2_128"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="Person">
+        <xsd:sequence>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="PersonName"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Manager">
+        <xsd:sequence>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="PersonName"/>
+            <xsd:element name="Phone" minOccurs="0" maxOccurs="1" type="string_2_128"/>
+            <xsd:element name="Email" minOccurs="0" maxOccurs="1" type="emailAddress"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FormAuthor">
+        <xsd:sequence>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="PersonName"/>
+            <xsd:element name="Role" minOccurs="1" maxOccurs="1" type="string_2_255"/>
+            <xsd:element name="Organization" minOccurs="1" maxOccurs="1" type="string_2_255"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="RN">
+        <xsd:sequence>
+            <xsd:element name="Name" minOccurs="0" maxOccurs="1" type="PersonName"/>
+            <xsd:element name="Address" minOccurs="0" maxOccurs="1" type="Address"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="EventDetails">
+        <xsd:sequence>
+            <xsd:element name="Date" minOccurs="1" maxOccurs="1" type="xsd:date"/>
+            <xsd:element name="Time" minOccurs="0" maxOccurs="1" type="xsd:time"/>
+            <xsd:element name="ResultedInInjury" minOccurs="0" maxOccurs="1" type="xsd:boolean"/>
+            <xsd:element name="Location" minOccurs="0" maxOccurs="1" type="string_2_500"/>
+            <xsd:element name="Type" minOccurs="1" maxOccurs="1" type="EventType"/>
+            <xsd:element name="SituationNarrative" minOccurs="0" maxOccurs="1" type="string_5000"/>
+            <xsd:element name="BackgroundNarrative" minOccurs="0" maxOccurs="1" type="string_5000"/>
+            <xsd:element name="AssessmentNarrative" minOccurs="0" maxOccurs="1" type="string_5000"/>
+            <xsd:element name="FollowUp" minOccurs="1" maxOccurs="1" type="FollowUp"/>
+            <xsd:element name="TreatingPhysician" minOccurs="0" maxOccurs="1" type="TreatingPhysician"/>
+            <xsd:element name="TreatingHospital" minOccurs="0" maxOccurs="1" type="TreatingHospital"/>
+            <xsd:element name="ERVisit" type="xsd:boolean"/>
+            <xsd:element name="OvernightInPatient" type="xsd:boolean"/>
+            <xsd:element name="AuxiliaryInfo" minOccurs="0" maxOccurs="1" type="string_5000"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TreatingPhysician">
+        <xsd:sequence>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="PersonName"/>
+            <xsd:element name="Address" minOccurs="0" maxOccurs="1" type="Address"/>
+            <xsd:element name="Phone" minOccurs="0" maxOccurs="1" type="string_2_128"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TreatingHospital">
+        <xsd:sequence>
+            <xsd:element name="Name" minOccurs="1" maxOccurs="1" type="string_2_255"/>
+            <xsd:element name="Address" minOccurs="0" maxOccurs="1" type="Address"/>
+            <xsd:element name="Phone" minOccurs="0" maxOccurs="1" type="string_2_128"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FollowUp">
+        <xsd:sequence>
+            <xsd:element name="Details" minOccurs="0" maxOccurs="1" type="string_5000"/>
+        </xsd:sequence>
+        <xsd:attribute name="IsExpected" type="xsd:boolean"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="PersonName">
+        <xsd:sequence>
+            <xsd:element name="FirstName" minOccurs="1" maxOccurs="1" type="string_2_128"/>
+            <xsd:element name="LastName" minOccurs="1" maxOccurs="1" type="string_2_128"/>
+            <xsd:element name="MiddleName" minOccurs="0" maxOccurs="1" type="string_2_128"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="Address">
+        <xsd:sequence>
+            <xsd:element name="Street" minOccurs="1" maxOccurs="1" type="string_2_255"/>
+            <xsd:element name="City" minOccurs="1" maxOccurs="1" type="string_2_128"/>
+            <xsd:element name="State" minOccurs="1" maxOccurs="1" type="State"/>
+            <xsd:element name="Zip" minOccurs="1" maxOccurs="1" type="zipcode"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="EventType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern
+                    value="(GENERAL|EBS|MNC|CB|DEPRESSION|LIFE|PA|SEVA|ERV|H|CI|FIRE|ART|USI|SA|ARM|MERR|AS|ME|SI|EADT|ARD|MEDS|MEDAL|MHRI|PRU|BIO|REMOTE|DS)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="State">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(AL|AZ|CA|CT|FL|GA|ID|IN|KS|NH|NM|ND|OK|OR|RI|SD|TN|UT|VA|WV|WY|ME|MA|MN|MO|NE|NV|NJ|NY|NC|OH|PA|SC|VT|WA|WI|AK|AR|CO|DE|HI|IL|IA|KY|LA|MD|MI|MS|MT|TX|Alabama|Arizona|California|Connecticut|Florida|Georgia|Idaho|Indiana|Kansas|New Hampshire|New Mexico|North Dakota|Oklahoma|Oregon|Rhode Island|South Dakota|Tennessee|Utah|Virginia|West Virginia|Wyoming|Maine|Massachusetts|Minnesota|Missouri|Nebraska|Nevada|New Jersey|New York|North Carolina|Ohio|Pennsylvania|South Carolina|Vermont|Washington|Wisconsin|Alaska|Arkansas|Colorado|Delaware|Hawaii|Illinois|Iowa|Kentucky|Louisiana|Maryland|Michigan|Mississippi|Montana|Texas)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="string_2_128">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="2"/>
+            <xsd:maxLength value="128"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="string_not_blank">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="string_2_255">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="2"/>
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="string_2_500">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="2"/>
+            <xsd:maxLength value="500"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="string_5000">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="5000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="emailAddress">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[^@]+@[^\.]+\..+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name='zipcode'>
+        <xsd:restriction base='xsd:string'>
+            <xsd:pattern value='[0-9]{5}(-[0-9]{4})?'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name='phoneUS'>
+        <xsd:restriction base='xsd:string'>
+            <xsd:pattern
+                    value='^(\+?1-?)?(\([2-9]([02-9]\d|1[02-9])\)|[2-9]([02-9]\d|1[02-9]))-?[2-9]([02-9]\d|1[02-9])-?\d{4}$'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+</xsd:schema>

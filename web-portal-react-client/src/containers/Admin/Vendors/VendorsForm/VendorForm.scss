@@ -1,0 +1,194 @@
+@import "custom/_fonts";
+
+.VendorsForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .Scrollable {
+    flex: 1 1 0%;
+  }
+
+  &-Section {
+    padding: 20px 40px 20px;
+  }
+
+  &-SectionTitle {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Open Sans Semibold", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &-TabsContainer {
+    margin-top: 15px;
+  }
+
+  &-TextAreaField {
+    .TextField-Input {
+      height: 75px;
+    }
+
+  }
+
+  &-TextAreaIntroductionField {
+    .TextField-Input {
+      height: 300px !important;
+    }
+  }
+
+
+  &-SearchField {
+    margin-top: 2rem;
+
+    &.TextField {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-Button {
+    width: 100px;
+    height: 35px;
+    margin-top: 30px;
+
+    &.btn {
+      padding: 0;
+    }
+  }
+
+  &-FilterFieldIcon {
+    top: 45px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    fill: #4C4E51;
+    position: absolute;
+  }
+
+  &-Actions {
+    float: right;
+
+    .delete {
+      fill: #0064ad;
+    }
+  }
+
+  .Marketplace {
+    margin-top: 0;
+  }
+
+  &-Features {
+    padding-top: 5px;
+  }
+
+  &-LabelIcon {
+    margin-bottom: 4px;
+    margin-left: 4px;
+  }
+  &-CMSTooltipBody {
+      text-align: left;
+      padding: 7px 20px;
+      margin: 0;
+    }
+
+  &-InfoHint {
+    margin-left: 4px;
+  }
+
+  &-PhoneTooltipBody {
+    text-align: left;
+    padding: 7px 20px;
+    margin: 0;
+  }
+
+  &-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #dee2e6;
+    padding: 20px 25px 40px;
+
+    .btn {
+      padding: 0;
+      width: 100px;
+      height: 35px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &-CrossIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+
+    &:focus {
+      outline: none;
+    }
+
+    g {
+      stroke: #0064ad;
+
+      &:hover {
+        stroke: #235c65;
+      }
+    }
+  }
+
+  .VendorsRelationshipSection {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    &-Title {
+      color: $font-color_head-text;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-Checkbox {
+      align-self: flex-end;
+    }
+  }
+}
+
+.VendorForm {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  position: relative;
+}
+
+.VendorForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.LegalInfoHidden {
+  display: none;
+}

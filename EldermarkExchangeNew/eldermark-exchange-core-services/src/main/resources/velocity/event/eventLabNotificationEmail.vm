@@ -1,0 +1,10 @@
+#* @vtlvariable name="dto" type="com.scnsoft.eldermark.dto.notification.lab.LabEventNotificationMailDto" *#
+<div>
+    <b>Dear ${dto.receiverFullName},</b>
+    <br><br>
+    You have a new COVID-19 result(s) for ${dto.clientName}.
+
+    <br><br>
+    Please login to the Simply Connect platform to view the result(s).
+    #parse( "velocity/button.vm")
+</div>

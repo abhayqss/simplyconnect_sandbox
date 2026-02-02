@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logging level for H2 profile. Setting logging level in application.properties doesn't work-->
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <logger name="com.scnsoft.eldermark.merger.service.ClientMatcherServiceImpl" level="debug" />
+</configuration>

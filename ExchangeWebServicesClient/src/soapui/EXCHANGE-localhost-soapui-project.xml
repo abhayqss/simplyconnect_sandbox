@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Exchange WS localhost" resourceRoot="" soapui-version="5.4.0" activeEnvironment="Default" abortOnError="false" runType="SEQUENTIAL" id="0250291e-c1c4-4d4a-80d3-e118ce8a82de" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ResidentsEndpointImplServiceSoapBinding" type="wsdl" bindingName="{http://exchange.eldermark.com}ResidentsEndpointImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/exchange/ws/residents?wsdl" id="0ab57e0a-61c0-46a9-beb4-202df082a576" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8080/exchange/ws/residents?wsdl">
+            <con:part>
+                <con:url>http://localhost:8080/exchange/ws/residents?wsdl</con:url>
+                <con:content><![CDATA[<wsdl:definitions name="ResidentsEndpointImplService" targetNamespace="http://exchange.eldermark.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://exchange.eldermark.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://exchange.eldermark.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="searchResidents" type="tns:searchResidents"/>
+      <xs:element name="searchResidentsResponse" type="tns:searchResidentsResponse"/>
+      <xs:complexType name="searchResidents">
+        <xs:sequence>
+          <xs:element name="residentFilter" type="tns:ResidentFilter"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ResidentFilter">
+        <xs:sequence>
+          <xs:element name="firstName" type="xs:string"/>
+          <xs:element name="lastName" type="xs:string"/>
+          <xs:element name="gender" type="tns:Gender"/>
+          <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateOfBirth" type="xs:date"/>
+          <xs:element minOccurs="0" name="phone" type="xs:string"/>
+          <xs:element minOccurs="0" name="city" type="xs:string"/>
+          <xs:element minOccurs="0" name="state" type="xs:string"/>
+          <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastFourDigitsOfSsn" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="searchResidentsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:Resident"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Resident">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+          <xs:element name="firstName" type="xs:string"/>
+          <xs:element name="lastName" type="xs:string"/>
+          <xs:element name="gender" nillable="true" type="tns:Gender"/>
+          <xs:element name="middleName" nillable="true" type="xs:string"/>
+          <xs:element name="ssn" nillable="true" type="xs:string"/>
+          <xs:element name="birthPlace" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateOfBirth" type="xs:date"/>
+          <xs:element name="phone" nillable="true" type="xs:string"/>
+          <xs:element name="streetAddress" nillable="true" type="xs:string"/>
+          <xs:element name="city" nillable="true" type="xs:string"/>
+          <xs:element name="state" nillable="true" type="xs:string"/>
+          <xs:element name="postalCode" nillable="true" type="xs:string"/>
+          <xs:element name="email" nillable="true" type="xs:string"/>
+          <xs:element name="facilityId" nillable="true" type="xs:string"/>
+          <xs:element name="facilityName" nillable="true" type="xs:string"/>
+          <xs:element name="sourceOrganizationId" nillable="true" type="xs:long"/>
+          <xs:element name="sourceOrganizationName" nillable="true" type="xs:string"/>
+          <xs:element name="idInSourceOrganization" nillable="true" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Gender">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MALE"/>
+          <xs:enumeration value="FEMALE"/>
+          <xs:enumeration value="UNDIFFERENTIATED"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="searchResidentsResponse">
+    <wsdl:part element="tns:searchResidentsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchResidents">
+    <wsdl:part element="tns:searchResidents" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ResidentsEndpoint">
+    <wsdl:operation name="searchResidents">
+      <wsdl:input message="tns:searchResidents" name="searchResidents"></wsdl:input>
+      <wsdl:output message="tns:searchResidentsResponse" name="searchResidentsResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ResidentsEndpointImplServiceSoapBinding" type="tns:ResidentsEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="searchResidents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="searchResidents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchResidentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResidentsEndpointImplService">
+    <wsdl:port binding="tns:ResidentsEndpointImplServiceSoapBinding" name="ResidentsEndpointImplPort">
+      <soap:address location="http://localhost:8080/exchange/ws/residents"/>
+    </wsdl:port>
+    <wsp:PolicyReference URI="#MyPolicy"/>
+  </wsdl:service>
+  <wsp:Policy wsu:Id="MyPolicy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SupportingTokens xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10/>
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SupportingTokens>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080/exchange/ws/residents</con:endpoint>
+            <con:endpoint>https://localhost:8443/exchange/ws/residents</con:endpoint>
+        </con:endpoints>
+        <con:operation isOneWay="false" action="" name="searchResidents" bindingOperationName="searchResidents" type="Request-Response" outputName="searchResidentsResponse" inputName="searchResidents" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="729b015a-599e-4e01-afdd-ef4ce373ea70">
+            <con:settings/>
+            <con:call name="First name, Last name, Gender" outgoingWss="outgoing" id="cf5436de-02a6-48cc-ac3d-a1723de0afc2">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/residents</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:exc="http://exchange.eldermark.com" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken wsu:Id="UsernameToken-94A24EA5407AAA7B49143679803014729"><wsse:Username>qwert</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">`</wsse:Password></wsse:UsernameToken></wsse:Security></soapenv:Header>
+   <soapenv:Body>
+      <exc:searchResidents>
+         <residentFilter>
+            <firstName>maxine</firstName>
+            <lastName>allburg</lastName>
+            <gender>FEMALE</gender>
+         </residentFilter>
+      </exc:searchResidents>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:username>sdfsdf</con:username>
+                    <con:password>sdf</con:password>
+                    <con:domain/>
+                    <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+                    <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+                    <con:preemptive>false</con:preemptive>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/ResidentsEndpoint/searchResidents"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+            <con:call id="65638bb1-0486-4e99-9caf-b274d69898b4" name="Request 1">
+                <con:settings/>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/residents</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exc="http://exchange.eldermark.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <exc:searchResidents>\r
+         <residentFilter>\r
+            <firstName>?</firstName>\r
+            <lastName>?</lastName>\r
+            <gender>?</gender>\r
+            <!--Optional:-->\r
+            <middleName>?</middleName>\r
+            <!--Optional:-->\r
+            <dateOfBirth>?</dateOfBirth>\r
+            <!--Optional:-->\r
+            <phone>?</phone>\r
+            <!--Optional:-->\r
+            <city>?</city>\r
+            <!--Optional:-->\r
+            <state>?</state>\r
+            <!--Optional:-->\r
+            <postalCode>?</postalCode>\r
+            <!--Optional:-->\r
+            <lastFourDigitsOfSsn>?</lastFourDigitsOfSsn>\r
+         </residentFilter>\r
+      </exc:searchResidents>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/ResidentsEndpoint/searchResidents"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="DocumentsEndpointImplServiceSoapBinding" type="wsdl" bindingName="{http://exchange.eldermark.com}DocumentsEndpointImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/exchange/ws/documents?wsdl" id="1ff15d09-7372-404c-ad5b-9f7e9c9bc189" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8080/exchange/ws/documents?wsdl">
+            <con:part>
+                <con:url>http://localhost:8080/exchange/ws/documents?wsdl</con:url>
+                <con:content><![CDATA[<wsdl:definitions name="DocumentsEndpointImplService" targetNamespace="http://exchange.eldermark.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://exchange.eldermark.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://exchange.eldermark.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="deleteDocument" type="tns:deleteDocument"/>
+      <xs:element name="deleteDocumentResponse" type="tns:deleteDocumentResponse"/>
+      <xs:element name="queryForDocuments" type="tns:queryForDocuments"/>
+      <xs:element name="queryForDocumentsResponse" type="tns:queryForDocumentsResponse"/>
+      <xs:complexType name="deleteDocument">
+        <xs:sequence>
+          <xs:element name="documentId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteDocumentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryForDocuments">
+        <xs:sequence>
+          <xs:element name="residentId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryForDocumentsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:Document"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Document">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="documentTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="authorId" type="xs:long"/>
+          <xs:element minOccurs="0" name="authorName" type="xs:string"/>
+          <xs:element minOccurs="0" name="creationTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+          <xs:element minOccurs="0" name="size" type="xs:int"/>
+          <xs:element minOccurs="0" name="documentType" type="tns:DocumentType"/>
+          <xs:element minOccurs="0" name="originalFileName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="DocumentType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CCD"/>
+          <xs:enumeration value="CUSTOM"/>
+          <xs:enumeration value="FACESHEET"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="DocumentNotFoundException" type="tns:DocumentNotFoundException"/>
+      <xs:complexType name="DocumentNotFoundException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="ResidentOptedOutException" type="tns:ResidentOptedOutException"/>
+      <xs:complexType name="ResidentOptedOutException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="ResidentNotFoundException" type="tns:ResidentNotFoundException"/>
+      <xs:complexType name="ResidentNotFoundException">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="queryForDocumentsResponse">
+    <wsdl:part element="tns:queryForDocumentsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DocumentNotFoundFault">
+    <wsdl:part element="tns:DocumentNotFoundException" name="DocumentNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResidentOptedOutFault">
+    <wsdl:part element="tns:ResidentOptedOutException" name="ResidentOptedOutException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDocument">
+    <wsdl:part element="tns:deleteDocument" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDocumentResponse">
+    <wsdl:part element="tns:deleteDocumentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResidentNotFoundFault">
+    <wsdl:part element="tns:ResidentNotFoundException" name="ResidentNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryForDocuments">
+    <wsdl:part element="tns:queryForDocuments" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DocumentsEndpoint">
+    <wsdl:operation name="deleteDocument">
+      <wsdl:input message="tns:deleteDocument" name="deleteDocument"></wsdl:input>
+      <wsdl:output message="tns:deleteDocumentResponse" name="deleteDocumentResponse"></wsdl:output>
+      <wsdl:fault message="tns:DocumentNotFoundFault" name="DocumentNotFoundFault"></wsdl:fault>
+      <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryForDocuments">
+      <wsdl:input message="tns:queryForDocuments" name="queryForDocuments"></wsdl:input>
+      <wsdl:output message="tns:queryForDocumentsResponse" name="queryForDocumentsResponse"></wsdl:output>
+      <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+      <wsdl:fault message="tns:ResidentNotFoundFault" name="ResidentNotFoundFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentsEndpointImplServiceSoapBinding" type="tns:DocumentsEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteDocument">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteDocument">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteDocumentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault name="DocumentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ResidentOptedOutFault">
+        <soap:fault name="ResidentOptedOutFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryForDocuments">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="queryForDocuments">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="queryForDocumentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ResidentOptedOutFault">
+        <soap:fault name="ResidentOptedOutFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ResidentNotFoundFault">
+        <soap:fault name="ResidentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentsEndpointImplService">
+    <wsdl:port binding="tns:DocumentsEndpointImplServiceSoapBinding" name="DocumentsEndpointImplPort">
+      <soap:address location="http://localhost:8080/exchange/ws/documents"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080/exchange/ws/documents</con:endpoint>
+        </con:endpoints>
+        <con:operation isOneWay="false" action="" name="deleteDocument" bindingOperationName="deleteDocument" type="Request-Response" outputName="deleteDocumentResponse" inputName="deleteDocument" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0c3d3f64-f4b3-4a76-8db8-f9ccf95e3b09">
+            <con:settings/>
+            <con:call name="Request 1" id="1dd34d45-774c-46e3-9641-eaba9336ca24">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment
+                        xmlns:con="http://eviware.com/soapui/config">
+                        &lt;con:entry key="Password" value="1"/>
+                        &lt;con:entry key="Username" value="aduzhynskaya"/>
+                        &lt;con:entry key="Organization" value="Eldermark"/>
+                        &lt;/xml-fragment>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/documents</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exc="http://exchange.eldermark.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exc:deleteDocument>
+         <documentId>1</documentId>
+      </exc:deleteDocument>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>Global HTTP Settings</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/DocumentsEndpoint/deleteDocument"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+        <con:operation isOneWay="false" action="" name="queryForDocuments" bindingOperationName="queryForDocuments" type="Request-Response" outputName="queryForDocumentsResponse" inputName="queryForDocuments" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3dfc6827-4e51-4a35-868a-071a32e4108b">
+            <con:settings/>
+            <con:call name="Request 1" id="5d629154-7f33-4335-95f9-1c4e582362ab">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment
+                        xmlns:con="http://eviware.com/soapui/config">
+                        &lt;con:entry key="Username" value="aduzhynskaya"/>
+                        &lt;con:entry key="Password" value="1"/>
+                        &lt;con:entry key="Organization" value="Eldermark"/>
+                        &lt;/xml-fragment>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/documents</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exc="http://exchange.eldermark.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exc:queryForDocuments>
+         <residentId>109</residentId>
+      </exc:queryForDocuments>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>Global HTTP Settings</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/DocumentsEndpoint/queryForDocuments"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="DocumentsUploadEndpointImplServiceSoapBinding" type="wsdl" bindingName="{http://exchange.eldermark.com}DocumentsUploadEndpointImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/exchange/ws/documentsUpload?wsdl" id="79e83c79-c5ce-4aad-bf83-bff2546adafb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8080/exchange/ws/documentsUpload?wsdl">
+            <con:part>
+                <con:url>http://localhost:8080/exchange/ws/documentsUpload?wsdl</con:url>
+                <con:content><![CDATA[<wsdl:definitions name="DocumentsUploadEndpointImplService" targetNamespace="http://exchange.eldermark.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://exchange.eldermark.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://exchange.eldermark.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="uploadDocument" type="tns:uploadDocument"/>
+      <xs:element name="uploadDocumentResponse" type="tns:uploadDocumentResponse"/>
+      <xs:complexType name="uploadDocument">
+        <xs:sequence>
+          <xs:element name="residentId" type="xs:long"/>
+          <xs:element name="fileName" type="xs:string"/>
+          <xs:element name="mimeType" type="xs:string"/>
+          <xs:element name="data" ns1:expectedContentTypes="application/octet-stream" type="xs:base64Binary" xmlns:ns1="http://www.w3.org/2005/05/xmlmime"/>
+          <xs:element name="shareOptions" type="tns:DocumentShareOptions"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DocumentShareOptions">
+        <xs:sequence>
+          <xs:element name="isSharedWithAll" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="idOfOrganizationToShareWith" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="uploadDocumentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DocumentSharePolicyViolation" type="tns:DocumentSharePolicyViolation"/>
+      <xs:complexType name="DocumentSharePolicyViolation">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="OrganizationNotFoundException" type="tns:OrganizationNotFoundException"/>
+      <xs:complexType name="OrganizationNotFoundException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="ResidentNotFoundException" type="tns:ResidentNotFoundException"/>
+      <xs:complexType name="ResidentNotFoundException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="ResidentOptedOutException" type="tns:ResidentOptedOutException"/>
+      <xs:complexType name="ResidentOptedOutException">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="DocumentSharePolicyViolation">
+    <wsdl:part element="tns:DocumentSharePolicyViolation" name="DocumentSharePolicyViolation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OrganizationNotFoundException">
+    <wsdl:part element="tns:OrganizationNotFoundException" name="OrganizationNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResidentOptedOutFault">
+    <wsdl:part element="tns:ResidentOptedOutException" name="ResidentOptedOutException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uploadDocumentResponse">
+    <wsdl:part element="tns:uploadDocumentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uploadDocument">
+    <wsdl:part element="tns:uploadDocument" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResidentNotFoundFault">
+    <wsdl:part element="tns:ResidentNotFoundException" name="ResidentNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DocumentsUploadEndpoint">
+    <wsdl:operation name="uploadDocument">
+      <wsdl:input message="tns:uploadDocument" name="uploadDocument"></wsdl:input>
+      <wsdl:output message="tns:uploadDocumentResponse" name="uploadDocumentResponse"></wsdl:output>
+      <wsdl:fault message="tns:DocumentSharePolicyViolation" name="DocumentSharePolicyViolation"></wsdl:fault>
+      <wsdl:fault message="tns:OrganizationNotFoundException" name="OrganizationNotFoundException"></wsdl:fault>
+      <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+      <wsdl:fault message="tns:ResidentNotFoundFault" name="ResidentNotFoundFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentsUploadEndpointImplServiceSoapBinding" type="tns:DocumentsUploadEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="uploadDocument">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="uploadDocument">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uploadDocumentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DocumentSharePolicyViolation">
+        <soap:fault name="DocumentSharePolicyViolation" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="OrganizationNotFoundException">
+        <soap:fault name="OrganizationNotFoundException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ResidentOptedOutFault">
+        <soap:fault name="ResidentOptedOutFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ResidentNotFoundFault">
+        <soap:fault name="ResidentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentsUploadEndpointImplService">
+    <wsdl:port binding="tns:DocumentsUploadEndpointImplServiceSoapBinding" name="DocumentsUploadEndpointImplPort">
+      <soap:address location="http://localhost:8080/exchange/ws/documentsUpload"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080/exchange/ws/documentsUpload</con:endpoint>
+        </con:endpoints>
+        <con:operation isOneWay="false" action="" name="uploadDocument" bindingOperationName="uploadDocument" type="Request-Response" outputName="uploadDocumentResponse" inputName="uploadDocument" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="bcb454b0-4af7-472a-b30c-3181518f4615">
+            <con:settings/>
+            <con:call name="Request 1" id="a0d0bd66-f560-4379-9513-39b6e075a1c0">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/documentsUpload</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exc="http://exchange.eldermark.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exc:uploadDocument>
+         <residentId>?</residentId>
+         <fileName>?</fileName>
+         <mimeType>?</mimeType>
+         <data>cid:176076407778</data>
+         <shareOptions>
+            <sharedWithEldermark>?</sharedWithEldermark>
+            <!--Zero or more repetitions:-->
+            <idOfOrganizationToShareWith>?</idOfOrganizationToShareWith>
+         </shareOptions>
+      </exc:uploadDocument>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+                    <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+                    <con:authType>Global HTTP Settings</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/DocumentsUploadEndpoint/uploadDocument"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="DocumentsDownloadEndpointImplServiceSoapBinding" type="wsdl" bindingName="{http://exchange.eldermark.com}DocumentsDownloadEndpointImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/exchange/ws/documentsDownload?wsdl" id="37bc9e0c-5634-4f29-b9e3-9d9155c8ed38" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8080/exchange/ws/documentsDownload?wsdl">
+            <con:part>
+                <con:url>http://localhost:8080/exchange/ws/documentsDownload?wsdl</con:url>
+                <con:content><![CDATA[<wsdl:definitions name="DocumentsDownloadEndpointImplService" targetNamespace="http://exchange.eldermark.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://exchange.eldermark.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://exchange.eldermark.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="downloadDocument" type="tns:downloadDocument"/>
+      <xs:element name="downloadDocumentResponse" type="tns:downloadDocumentResponse"/>
+      <xs:element name="generateCcd" type="tns:generateCcd"/>
+      <xs:element name="generateCcdResponse" type="tns:generateCcdResponse"/>
+      <xs:complexType name="generateCcd">
+        <xs:sequence>
+          <xs:element name="residentId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="generateCcdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="downloadDocument">
+        <xs:sequence>
+          <xs:element name="documentId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="downloadDocumentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" ns1:expectedContentTypes="application/octet-stream" type="xs:base64Binary" xmlns:ns1="http://www.w3.org/2005/05/xmlmime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResidentNotFoundException" type="tns:ResidentNotFoundException"/>
+      <xs:complexType name="ResidentNotFoundException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="ResidentOptedOutException" type="tns:ResidentOptedOutException"/>
+      <xs:complexType name="ResidentOptedOutException">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="DocumentNotFoundException" type="tns:DocumentNotFoundException"/>
+      <xs:complexType name="DocumentNotFoundException">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="generateCcd">
+    <wsdl:part element="tns:generateCcd" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResidentOptedOutFault">
+    <wsdl:part element="tns:ResidentOptedOutException" name="ResidentOptedOutException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadDocumentResponse">
+    <wsdl:part element="tns:downloadDocumentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DocumentNotFoundFault">
+    <wsdl:part element="tns:DocumentNotFoundException" name="DocumentNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateCcdResponse">
+    <wsdl:part element="tns:generateCcdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="downloadDocument">
+    <wsdl:part element="tns:downloadDocument" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ResidentNotFoundFault">
+    <wsdl:part element="tns:ResidentNotFoundException" name="ResidentNotFoundException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DocumentsDownloadEndpoint">
+    <wsdl:operation name="generateCcd">
+      <wsdl:input message="tns:generateCcd" name="generateCcd"></wsdl:input>
+      <wsdl:output message="tns:generateCcdResponse" name="generateCcdResponse"></wsdl:output>
+      <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+      <wsdl:fault message="tns:ResidentNotFoundFault" name="ResidentNotFoundFault"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="downloadDocument">
+      <wsdl:input message="tns:downloadDocument" name="downloadDocument"></wsdl:input>
+      <wsdl:output message="tns:downloadDocumentResponse" name="downloadDocumentResponse"></wsdl:output>
+      <wsdl:fault message="tns:DocumentNotFoundFault" name="DocumentNotFoundFault"></wsdl:fault>
+      <wsdl:fault message="tns:ResidentOptedOutFault" name="ResidentOptedOutFault"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentsDownloadEndpointImplServiceSoapBinding" type="tns:DocumentsDownloadEndpoint">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="generateCcd">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="generateCcd">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generateCcdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ResidentOptedOutFault">
+        <soap:fault name="ResidentOptedOutFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ResidentNotFoundFault">
+        <soap:fault name="ResidentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="downloadDocument">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="downloadDocument">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="downloadDocumentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault name="DocumentNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ResidentOptedOutFault">
+        <soap:fault name="ResidentOptedOutFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentsDownloadEndpointImplService">
+    <wsdl:port binding="tns:DocumentsDownloadEndpointImplServiceSoapBinding" name="DocumentsDownloadEndpointImplPort">
+      <soap:address location="http://localhost:8080/exchange/ws/documentsDownload"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080/exchange/ws/documentsDownload</con:endpoint>
+        </con:endpoints>
+        <con:operation isOneWay="false" action="" name="downloadDocument" bindingOperationName="downloadDocument" type="Request-Response" outputName="downloadDocumentResponse" inputName="downloadDocument" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="5c1b3838-9f83-4390-a3ae-60e6b07158a3">
+            <con:settings/>
+            <con:call name="Request 1" id="d3380198-d79a-4352-a60c-71d5d2069bd4">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment
+                        xmlns:con="http://eviware.com/soapui/config">
+                        &lt;con:entry key="Username" value="aduzhynskaya"/>
+                        &lt;con:entry key="Password" value="1"/>
+                        &lt;con:entry key="Organization" value="Eldermark"/>
+                        &lt;/xml-fragment>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/documentsDownload</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exc="http://exchange.eldermark.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exc:downloadDocument>
+         <documentId>30</documentId>
+      </exc:downloadDocument>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>Global HTTP Settings</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/DocumentsDownloadEndpoint/downloadDocument"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+        <con:operation isOneWay="false" action="" name="generateCcd" bindingOperationName="generateCcd" type="Request-Response" outputName="generateCcdResponse" inputName="generateCcd" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="584a5461-ba58-4cc3-8b86-b041d0d120ce">
+            <con:settings/>
+            <con:call name="Request 1" id="4b6eaf3e-5ddf-47b4-9a70-19ca682c0b8e">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment
+                        xmlns:con="http://eviware.com/soapui/config">
+                        &lt;con:entry key="Username" value="aduzhynskaya"/>
+                        &lt;con:entry key="Password" value="1"/>
+                        &lt;con:entry key="Organization" value="Eldermark"/>
+                        &lt;/xml-fragment>
+                    </con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/exchange/ws/documentsDownload</con:endpoint>
+                <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:exc="http://exchange.eldermark.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <exc:generateCcd>
+         <residentId>109</residentId>
+      </exc:generateCcd>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+                <con:credentials>
+                    <con:authType>Global HTTP Settings</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://exchange.eldermark.com/DocumentsDownloadEndpoint/generateCcd"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:properties/>
+    <con:wssContainer>
+        <con:outgoing>
+            <con:name>outgoing</con:name>
+            <con:entry type="Username" username="myservicekey" password="skpass">
+                <con:configuration>
+                    <addCreated>false</addCreated>
+                    <addNonce>false</addNonce>
+                    <passwordType>PasswordText</passwordType>
+                </con:configuration>
+            </con:entry>
+        </con:outgoing>
+    </con:wssContainer>
+    <con:databaseConnectionContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>

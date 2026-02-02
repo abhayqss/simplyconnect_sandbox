@@ -1,0 +1,17 @@
+#* @vtlvariable name="request" type="com.scnsoft.eldermark.shared.phr.SectionUpdateRequestVO" *#
+    <div>
+        A change to ${request.section} section of patient ${request.target} has been requested via Simply Connect system and
+        your organization is a provider of personal health record for the specified patient.<br/><br/>
+
+        <b>Change description</b>
+        <ul>
+            <li>${request.type}</li>
+            <li>Section: ${request.section}</li>
+            <li>Comment: ${request.comment}</li>
+            #if (!$request.attachments.isEmpty())
+            <li>See Attachments</li>
+            #end
+        </ul>
+
+        Please update your data according to the requested change.
+    </div>

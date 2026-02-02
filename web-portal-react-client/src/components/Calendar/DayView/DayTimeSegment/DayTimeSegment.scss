@@ -1,0 +1,44 @@
+.DayTimeSegment {
+  display: flex;
+  flex-direction: row;
+
+  $segment-height: 90px;
+
+  height: $segment-height;
+  //todo adaptive design
+
+  $title-font-size: 14px;
+
+  &-Title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 27px;
+    font-size: $title-font-size;
+    font-family: "Open Sans", sans-serif;
+    color: #222222;
+    width: 75px;
+  }
+
+  &-TitleText {
+    top: -$title-font-size / 2 - 5;
+    position: relative;
+  }
+
+  &-Slots {
+    flex: 1;
+  }
+
+  &:first-child {
+    .DayTimeSegment-Slot {
+      &:first-child {
+        border-top: 1px dashed #bfbdbd;
+      }
+    }
+  }
+
+  &-Slot {
+    height: 50%;
+    border-bottom: 1px dashed #bfbdbd;
+  }
+}

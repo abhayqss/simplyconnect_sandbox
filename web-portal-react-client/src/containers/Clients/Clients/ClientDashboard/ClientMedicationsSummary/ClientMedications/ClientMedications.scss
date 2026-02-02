@@ -1,0 +1,141 @@
+@import "custom/_fonts";
+
+.ClientMedications {
+  @media (max-width: 1000px) {
+    margin-top: 30px;
+  }
+
+  &-CheckboxField {
+    margin-bottom: 25px !important;
+  }
+}
+
+.ClientMedicationList {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.ClientMedicationList-Item {
+  &.list-group-item {
+    border: none;
+  }
+}
+
+.ClientMedication-ContributesToFallsIcon {
+  cursor: pointer;
+}
+
+.ClientMedication-Name {
+  display: block;
+  font-size: $font-size_list-item-text;
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans Semibold", sans-serif;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.ClientMedication-Date {
+  width: 75px;
+  color: $font-color_head-text;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientMedication-Instruction {
+  flex: 1;
+  font-size: $font-size_list-item-text;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientMedication-Time {
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: "Open Sans", sans-serif;
+}
+
+.ClientMedications-TabsContainer {
+  margin-bottom: 25px;
+}
+
+.ClientMedications-Tabs {
+  .Tabs-TabLink {
+    text-transform: capitalize;
+  }
+
+  @media (max-width: 550px) {
+    display: none;
+  }
+}
+
+.ClientMedications-Dropdown {
+  display: none;
+  margin-bottom: 25px;
+
+  @media (max-width: 550px) {
+    display: block;
+  }
+}
+
+.ClientMedications-TabsMobile {
+  display: none;
+
+  @media (max-width: 849px) {
+    display: block;
+  }
+
+  &.Dropdown.dropdown {
+    & > .btn-outline-success {
+      color: #27638F;
+      border: 1px solid #27638F;
+      background-color: #ffffff;
+      box-shadow: none;
+    }
+
+    & > .dropdown-menu {
+      & > .dropdown-item {
+        text-decoration: none;
+
+        &.active, &:active {
+          color: #fff;
+          text-decoration: none;
+          background-color: #27638F;
+        }
+      }
+    }
+  }
+}
+
+.ClientMedicationList-Fallback {
+  text-align: center;
+}
+
+.Client-Medication-Top-Action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .Client-Medication-Add-Btn{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #0064AD;
+     font-family: Poppins, sans-serif;
+    margin-bottom: 20px;
+  }
+  .Add-Medication-Text{
+    padding-left: 5px;
+  }
+}
+.Delete-Medication-Btn{
+  svg {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    fill: #ffffff !important;
+    outline: none;
+  }
+}

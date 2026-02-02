@@ -1,0 +1,69 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">urn:ihe:iti:2007:RegistryStoredQuery</a:Action>
+        <a:MessageID>urn:uuid:${messageId}</a:MessageID>
+        <a:To s:mustUnderstand="1">http://${host}:${port}/axis2/services/xdsregistryb</a:To>
+    </s:Header>
+
+    <s:Body>
+        <query:AdhocQueryRequest xsi:schemaLocation="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0 ../../schema/ebRS/query.xsd" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0">
+            <query:ResponseOption returnComposedObjects="true" returnType="${returnType}"/>
+            <rim:AdhocQuery id="${storedQueryId}">
+                <!--{patientCriteria}
+                <rim:Slot name="$XDSDocumentEntryPatientId">
+                    <rim:ValueList>
+                        <rim:Value>'${patientId}'</rim:Value>
+                    </rim:ValueList>
+
+                </rim:Slot>
+                {patientCriteria}-->
+
+                <!--{docStatusCriteria}
+                <rim:Slot name="$XDSDocumentEntryStatus">
+                    <rim:ValueList>
+                        <rim:Value>('urn:oasis:names:tc:ebxml-regrep:StatusType:Approved')</rim:Value>
+                    </rim:ValueList>
+                </rim:Slot>
+                {docStatusCriteria}-->
+                <!--{createTimeFromCriteria}
+                <rim:Slot name="$XDSDocumentEntryCreationTimeFrom">
+                    <rim:ValueList>
+                        <rim:Value>${createTimeFrom}</rim:Value>
+                    </rim:ValueList>
+                </rim:Slot>
+                {createTimeFromCriteria}-->
+                <!--{createTimeToCriteria}
+               <rim:Slot name="$XDSDocumentEntryCreationTimeTo">
+                   <rim:ValueList>
+                       <rim:Value>${createTimeTo}</rim:Value>
+                   </rim:ValueList>
+               </rim:Slot>
+               {createTimeToCriteria}-->
+                <!--{healthcareFacilityTypeCodeCriteria}
+               <rim:Slot name="$XDSDocumentEntryHealthcareFacilityTypeCode">
+                   <rim:ValueList>
+                       <rim:Value>('${healthCareFacilityTypeCode}')</rim:Value>
+                   </rim:ValueList>
+               </rim:Slot>
+               {healthcareFacilityTypeCodeCriteria}-->
+
+                <!--{documentEntryUniqueIdCriteria}
+               <rim:Slot name="$XDSDocumentEntryUniqueId">
+                  <rim:ValueList>
+                      <rim:Value>('${documentEntryUniqueId}')</rim:Value>
+                  </rim:ValueList>
+              </rim:Slot>
+                {documentEntryUniqueIdCriteria}-->
+
+                <!--{documentEntryEntryUUIDCriteria}
+             <rim:Slot name="$XDSDocumentEntryEntryUUID">
+                 <rim:ValueList>
+                     <rim:Value>('${documentEntryEntryUUID}')</rim:Value>
+                 </rim:ValueList>
+             </rim:Slot>
+                {documentEntryEntryUUIDCriteria}-->
+
+         </rim:AdhocQuery>
+     </query:AdhocQueryRequest>
+ </s:Body>
+</s:Envelope>

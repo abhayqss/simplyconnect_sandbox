@@ -1,0 +1,50 @@
+.AppointmentDetails {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    &-Title {
+        min-width: 90px;
+        color: #222222;
+        font-size: 15px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+
+    &-Type {
+        color: #222222;
+        font-size: 13px;
+        padding: 2px 8px;
+        border-radius: 11px;
+        display: inline-block;
+    }
+
+    .Detail-Title {
+        text-transform: none;
+    }
+
+    &-Actions {
+        padding: 12px 0;
+    }
+
+    &-Action {
+        margin-right: 20px;
+    }
+
+    &-ActionEntityName {
+        @media (max-width: 1000px) {
+            display: none;
+        }
+    }
+}
+
+.AppointmentDetail {
+    &-Title {
+        min-width: 100px;
+    }
+
+    &-Value {
+        max-width: 700px;
+    }
+}

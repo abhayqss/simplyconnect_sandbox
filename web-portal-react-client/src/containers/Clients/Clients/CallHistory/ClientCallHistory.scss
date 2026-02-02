@@ -1,0 +1,10 @@
+@import "custom/_page";
+
+.ClientCallHistory {
+  @include page;
+
+  &-Header {
+    margin-top: 33px;
+    margin-bottom: 20px;
+  }
+}

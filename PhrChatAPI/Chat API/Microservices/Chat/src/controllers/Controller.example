@@ -1,0 +1,116 @@
+"use strict";
+// only for debugging
+// const debug		= require('../lib/debug');
+const Models	= require('../models');
+
+/* NAME Controller Class */
+module.exports = class controllerNAME{
+	constructor(){
+	}
+
+	create(NAME){
+		return new Promise((Resolve,Reject)=>{
+
+			return Models.name.create(NAME)
+			.then( data => Resolve(data) )
+			.catch( Err => Reject(Err) );
+		});
+	}
+
+	getOne({id}){
+		return new Promise((Resolve,Reject)=>{
+
+			return Models.name.findById(id)
+			.then((NAME)=>{
+				if (!NAME) return Reject('Non-existent NAME');
+				return NAME;
+			})
+			.then( data => Resolve(data) )
+			.catch( Err => Reject(Err) );
+		});
+	}
+
+	getAll(NAME){
+		return new Promise((Resolve,Reject)=>{
+			let Wh = {
+				// attributes: ['id','Field1','Field2','Field3','Field4'],
+				limit: NAME.limit,
+				offset: NAME.offset,
+			};
+
+			return Models.name.findAndCountAll(Wh)
+			.then((NAME)=>{
+				if (!NAME) return Reject('Non-existent NAME');
+
+				return NAME;
+			})
+			.then( data => Resolve(data) )
+			.catch( Err => Reject(Err) );
+		});
+	}
+
+	edit(id,NAME){
+		return new Promise((Resolve,Reject)=>{
+
+			return Models.name.findById(id)
+			.then((oldNAME)=>{
+				if (!oldNAME) return Reject('Non-existent NAME');
+
+				/* -- Update Fields --*/
+				// if( NAME.Field1 ){
+				// 	oldNAME.Field1 = NAME.Field1;
+				// }
+				// if( NAME.Field2 ){
+				// 	oldNAME.Field2 = NAME.Field2;
+				// }
+				// .
+				// .
+				// .
+				// if( NAME.FieldN ){
+				// 	oldNAME.FieldN = NAME.FieldN;
+				// }
+				/* -- Update Fields --*/
+
+				return oldNAME.save();
+			})
+			.then( data => Resolve(data) )
+			.catch( Err => Reject(Err) );
+		});
+	}
+
+	delete({id}){
+		return new Promise((Resolve,Reject)=>{
+			return Models.name.findById(id)
+			.then((condemnedNAME)=>{
+				if (!condemnedNAME) return Reject('Non-existent NAME');
+
+				return condemnedNAME.destroy();
+			})
+			.then( data => Resolve(data) )
+			.catch( Err => Reject(Err) );
+		});
+	}
+
+	// getJoinedModelExample(id,cb){
+	// 	return new Promise((Resolve,Reject)=>{
+
+	// 		let Wh = {
+	// 			where: {id:id},
+	// 			include: [{
+	// 				model: Models.related,
+	// 				limit: this.limit,
+	// 				offset: this.offset,
+	// 			}],
+	// 		};
+
+	// 		return Models.name.findOne(Wh)
+	// 		.then((NAME)=>{
+	// 			if(!NAME || NAME.users.length == 0) return Reject('Non-existent NAME OR without users');
+
+	// 			return NAME;
+	// 		})
+	// 		.then( data => Resolve(data) )
+	// 		.catch( Err => Reject(Err) );
+	// 	});
+	// }
+}

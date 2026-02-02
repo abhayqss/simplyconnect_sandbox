@@ -1,0 +1,1651 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--this dataset is generated automatically by com.scnsoft.eldermark.hl7v2.h2.HL7CodeTableXmlDatasetGenerator-->
+<dataset>
+    <HL7CodeTable id="1" code="F" value="Female" table_number="0001"/>
+    <HL7UserDefinedCodeTable id="1"/>
+
+    <HL7CodeTable id="2" code="M" value="Male" table_number="0001"/>
+    <HL7UserDefinedCodeTable id="2"/>
+
+    <HL7CodeTable id="3" code="O" value="Other" table_number="0001"/>
+    <HL7UserDefinedCodeTable id="3"/>
+
+    <HL7CodeTable id="4" code="U" value="Unknown" table_number="0001"/>
+    <HL7UserDefinedCodeTable id="4"/>
+
+    <HL7CodeTable id="5" code="A" value="Ambiguous" table_number="0001"/>
+    <HL7UserDefinedCodeTable id="5"/>
+
+    <HL7CodeTable id="6" code="N" value="Not applicable" table_number="0001"/>
+    <HL7UserDefinedCodeTable id="6"/>
+
+    <HL7CodeTable id="7" code="A" value="Separated" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="7"/>
+
+    <HL7CodeTable id="8" code="D" value="Divorced" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="8"/>
+
+    <HL7CodeTable id="9" code="M" value="Married" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="9"/>
+
+    <HL7CodeTable id="10" code="S" value="Single" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="10"/>
+
+    <HL7CodeTable id="11" code="W" value="Widowed" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="11"/>
+
+    <HL7CodeTable id="12" code="C" value="Common law" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="12"/>
+
+    <HL7CodeTable id="13" code="G" value="Living together" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="13"/>
+
+    <HL7CodeTable id="14" code="P" value="Domestic partner" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="14"/>
+
+    <HL7CodeTable id="15" code="R" value="Registered domestic partner" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="15"/>
+
+    <HL7CodeTable id="16" code="E" value="Legally Separated" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="16"/>
+
+    <HL7CodeTable id="17" code="N" value="Annulled" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="17"/>
+
+    <HL7CodeTable id="18" code="I" value="Interlocutory" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="18"/>
+
+    <HL7CodeTable id="19" code="B" value="Unmarried" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="19"/>
+
+    <HL7CodeTable id="20" code="U" value="Unknown" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="20"/>
+
+    <HL7CodeTable id="21" code="O" value="Other" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="21"/>
+
+    <HL7CodeTable id="22" code="T" value="Unreported" table_number="0002"/>
+    <HL7UserDefinedCodeTable id="22"/>
+
+    <HL7CodeTable id="23" code="1002-5" value="American Indian or Alaska Native" table_number="0005"/>
+    <HL7UserDefinedCodeTable id="23"/>
+
+    <HL7CodeTable id="24" code="2028-9" value="Asian" table_number="0005"/>
+    <HL7UserDefinedCodeTable id="24"/>
+
+    <HL7CodeTable id="25" code="2054-5" value="Black or African American" table_number="0005"/>
+    <HL7UserDefinedCodeTable id="25"/>
+
+    <HL7CodeTable id="26" code="2076-8" value="Native Hawaiian or Other Pacific Islander" table_number="0005"/>
+    <HL7UserDefinedCodeTable id="26"/>
+
+    <HL7CodeTable id="27" code="2106-3" value="White" table_number="0005"/>
+    <HL7UserDefinedCodeTable id="27"/>
+
+    <HL7CodeTable id="28" code="2131-1" value="Other Race" table_number="0005"/>
+    <HL7UserDefinedCodeTable id="28"/>
+
+    <HL7CodeTable id="29" code="H" value="Hispanic or Latino" table_number="0189"/>
+    <HL7UserDefinedCodeTable id="29"/>
+
+    <HL7CodeTable id="30" code="N" value="Not Hispanic or Latino" table_number="0189"/>
+    <HL7UserDefinedCodeTable id="30"/>
+
+    <HL7CodeTable id="31" code="U" value="Unknown" table_number="0189"/>
+    <HL7UserDefinedCodeTable id="31"/>
+
+    <HL7CodeTable id="32" code="E" value="Emergency" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="32"/>
+
+    <HL7CodeTable id="33" code="I" value="Inpatient" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="33"/>
+
+    <HL7CodeTable id="34" code="O" value="Outpatient" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="34"/>
+
+    <HL7CodeTable id="35" code="P" value="Preadmit" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="35"/>
+
+    <HL7CodeTable id="36" code="R" value="Recurring patient" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="36"/>
+
+    <HL7CodeTable id="37" code="B" value="Obstetrics" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="37"/>
+
+    <HL7CodeTable id="38" code="C" value="Commercial Account" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="38"/>
+
+    <HL7CodeTable id="39" code="N" value="Not Applicable" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="39"/>
+
+    <HL7CodeTable id="40" code="U" value="Unknown" table_number="0004"/>
+    <HL7UserDefinedCodeTable id="40"/>
+
+    <HL7CodeTable id="41" code="A" value="Accident" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="41"/>
+
+    <HL7CodeTable id="42" code="E" value="Emergency" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="42"/>
+
+    <HL7CodeTable id="43" code="L" value="Labor and Delivery" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="43"/>
+
+    <HL7CodeTable id="44" code="R" value="Routine" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="44"/>
+
+    <HL7CodeTable id="45" code="N" value="Newborn (Birth in healthcare facility)" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="45"/>
+
+    <HL7CodeTable id="46" code="U" value="Urgent" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="46"/>
+
+    <HL7CodeTable id="47" code="C" value="Elective" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="47"/>
+
+    <HL7CodeTable id="48" code="1" value="Emergency" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="48"/>
+
+    <HL7CodeTable id="49" code="4" value="Newborn (Birth in healthcare facility)" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="49"/>
+
+    <HL7CodeTable id="50" code="2" value="Urgent" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="50"/>
+
+    <HL7CodeTable id="51" code="3" value="Elective" table_number="0007"/>
+    <HL7UserDefinedCodeTable id="51"/>
+
+    <HL7CodeTable id="52" code="R" value="Re-admission" table_number="0092"/>
+    <HL7UserDefinedCodeTable id="52"/>
+
+    <HL7CodeTable id="53" code="DA" value="Drug allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="53"/>
+
+    <HL7CodeTable id="54" code="FA" value="Food allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="54"/>
+
+    <HL7CodeTable id="55" code="MA" value="Miscellaneous allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="55"/>
+
+    <HL7CodeTable id="56" code="MC" value="Miscellaneous contraindication" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="56"/>
+
+    <HL7CodeTable id="57" code="EA" value="Environmental Allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="57"/>
+
+    <HL7CodeTable id="58" code="AA" value="Animal Allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="58"/>
+
+    <HL7CodeTable id="59" code="PA" value="Plant Allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="59"/>
+
+    <HL7CodeTable id="60" code="LA" value="Pollen Allergy" table_number="0127"/>
+    <HL7UserDefinedCodeTable id="60"/>
+
+    <HL7CodeTable id="61" code="A" value="Admitting" table_number="0052"/>
+    <HL7UserDefinedCodeTable id="61"/>
+
+    <HL7CodeTable id="62" code="W" value="Working" table_number="0052"/>
+    <HL7UserDefinedCodeTable id="62"/>
+
+    <HL7CodeTable id="63" code="F" value="Final" table_number="0052"/>
+    <HL7UserDefinedCodeTable id="63"/>
+
+    <HL7CodeTable id="64" code="01" value="Patient request" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="64"/>
+
+    <HL7CodeTable id="65" code="02" value="Physician/health practitioner order" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="65"/>
+
+    <HL7CodeTable id="66" code="03" value="Census management" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="66"/>
+
+    <HL7CodeTable id="67" code="O" value="Other" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="67"/>
+
+    <HL7CodeTable id="68" code="U" value="Unknown" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="68"/>
+
+    <HL7CodeTable id="69" code="1" value="Patient request" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="69"/>
+
+    <HL7CodeTable id="70" code="2" value="Physician/health practitioner order" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="70"/>
+
+    <HL7CodeTable id="71" code="3" value="Census management" table_number="0062"/>
+    <HL7UserDefinedCodeTable id="71"/>
+
+    <HL7CodeTable id="72" code="1" value="Physician referral" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="72"/>
+
+    <HL7CodeTable id="73" code="2" value="Clinic referral" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="73"/>
+
+    <HL7CodeTable id="74" code="3" value="HMO referral" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="74"/>
+
+    <HL7CodeTable id="75" code="4" value="Transfer from a hospital" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="75"/>
+
+    <HL7CodeTable id="76" code="5" value="Transfer from a skilled nursing facility" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="76"/>
+
+    <HL7CodeTable id="77" code="6" value="Transfer from another health care facility" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="77"/>
+
+    <HL7CodeTable id="78" code="7" value="Emergency room" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="78"/>
+
+    <HL7CodeTable id="79" code="8" value="Court/law enforcement" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="79"/>
+
+    <HL7CodeTable id="80" code="9" value="Information not available" table_number="0023"/>
+    <HL7UserDefinedCodeTable id="80"/>
+
+    <HL7CodeTable id="81" code="A0" value="No functional limitations" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="81"/>
+
+    <HL7CodeTable id="82" code="A1" value="Ambulates with assistive device" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="82"/>
+
+    <HL7CodeTable id="83" code="A2" value="Wheelchair/stretcher bound" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="83"/>
+
+    <HL7CodeTable id="84" code="A3" value="Comatose; non-responsive" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="84"/>
+
+    <HL7CodeTable id="85" code="A4" value="Disoriented" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="85"/>
+
+    <HL7CodeTable id="86" code="A5" value="Vision impaired" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="86"/>
+
+    <HL7CodeTable id="87" code="A6" value="Hearing impaired" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="87"/>
+
+    <HL7CodeTable id="88" code="A7" value="Speech impaired" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="88"/>
+
+    <HL7CodeTable id="89" code="A8" value="Non-English speaking" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="89"/>
+
+    <HL7CodeTable id="90" code="A9" value="Functional level unknown" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="90"/>
+
+    <HL7CodeTable id="91" code="B1" value="Oxygen therapy" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="91"/>
+
+    <HL7CodeTable id="92" code="B2" value="Special equipment (tubes, IVs, catheters)" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="92"/>
+
+    <HL7CodeTable id="93" code="B3" value="Amputee" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="93"/>
+
+    <HL7CodeTable id="94" code="B4" value="Mastectomy" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="94"/>
+
+    <HL7CodeTable id="95" code="B5" value="Paraplegic" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="95"/>
+
+    <HL7CodeTable id="96" code="B6" value="Pregnant" table_number="0009"/>
+    <HL7UserDefinedCodeTable id="96"/>
+
+    <HL7CodeTable id="97" code="SV" value="Severe" table_number="0128"/>
+    <HL7UserDefinedCodeTable id="97"/>
+
+    <HL7CodeTable id="98" code="MO" value="Moderate" table_number="0128"/>
+    <HL7UserDefinedCodeTable id="98"/>
+
+    <HL7CodeTable id="99" code="MI" value="Mild" table_number="0128"/>
+    <HL7UserDefinedCodeTable id="99"/>
+
+    <HL7CodeTable id="100" code="U" value="Unknown" table_number="0128"/>
+    <HL7UserDefinedCodeTable id="100"/>
+
+    <HL7CodeTable id="101" code="SEL" value="Self" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="101"/>
+
+    <HL7CodeTable id="102" code="SPO" value="Spouse" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="102"/>
+
+    <HL7CodeTable id="103" code="DOM" value="Life partner" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="103"/>
+
+    <HL7CodeTable id="104" code="CHD" value="Child" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="104"/>
+
+    <HL7CodeTable id="105" code="GCH" value="Grandchild" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="105"/>
+
+    <HL7CodeTable id="106" code="NCH" value="Natural child" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="106"/>
+
+    <HL7CodeTable id="107" code="SCH" value="Stepchild" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="107"/>
+
+    <HL7CodeTable id="108" code="FCH" value="Foster child" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="108"/>
+
+    <HL7CodeTable id="109" code="DEP" value="Handicapped dependent" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="109"/>
+
+    <HL7CodeTable id="110" code="WRD" value="Ward of court" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="110"/>
+
+    <HL7CodeTable id="111" code="PAR" value="Parent" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="111"/>
+
+    <HL7CodeTable id="112" code="MTH" value="Mother" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="112"/>
+
+    <HL7CodeTable id="113" code="FTH" value="Father" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="113"/>
+
+    <HL7CodeTable id="114" code="CGV" value="Care giver" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="114"/>
+
+    <HL7CodeTable id="115" code="GRD" value="Guardian" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="115"/>
+
+    <HL7CodeTable id="116" code="GRP" value="Grandparent" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="116"/>
+
+    <HL7CodeTable id="117" code="EXF" value="Extended family" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="117"/>
+
+    <HL7CodeTable id="118" code="SIB" value="Sibling" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="118"/>
+
+    <HL7CodeTable id="119" code="BRO" value="Brother" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="119"/>
+
+    <HL7CodeTable id="120" code="SIS" value="Sister" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="120"/>
+
+    <HL7CodeTable id="121" code="FND" value="Friend" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="121"/>
+
+    <HL7CodeTable id="122" code="OAD" value="Other adult" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="122"/>
+
+    <HL7CodeTable id="123" code="EME" value="Employee" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="123"/>
+
+    <HL7CodeTable id="124" code="EMR" value="Employer" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="124"/>
+
+    <HL7CodeTable id="125" code="ASC" value="Associate" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="125"/>
+
+    <HL7CodeTable id="126" code="EMC" value="Emergency contact" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="126"/>
+
+    <HL7CodeTable id="127" code="OWN" value="Owner" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="127"/>
+
+    <HL7CodeTable id="128" code="TRA" value="Trainer" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="128"/>
+
+    <HL7CodeTable id="129" code="MGR" value="Manager" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="129"/>
+
+    <HL7CodeTable id="130" code="UNK" value="Unknown" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="130"/>
+
+    <HL7CodeTable id="131" code="OTH" value="Other" table_number="0063"/>
+    <HL7UserDefinedCodeTable id="131"/>
+
+    <HL7CodeTable id="132" code="AGN" value="Agnostic" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="132"/>
+
+    <HL7CodeTable id="133" code="ATH" value="Atheist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="133"/>
+
+    <HL7CodeTable id="134" code="BAH" value="Baha&apos;i" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="134"/>
+
+    <HL7CodeTable id="135" code="BUD" value="Buddhist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="135"/>
+
+    <HL7CodeTable id="136" code="BMA" value="Buddhist: Mahayana" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="136"/>
+
+    <HL7CodeTable id="137" code="BTH" value="Buddhist: Theravada" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="137"/>
+
+    <HL7CodeTable id="138" code="BTA" value="Buddhist: Tantrayana" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="138"/>
+
+    <HL7CodeTable id="139" code="BOT" value="Buddhist: Other" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="139"/>
+
+    <HL7CodeTable id="140" code="CFR" value="Chinese Folk Religionist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="140"/>
+
+    <HL7CodeTable id="141" code="CHR" value="Christian" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="141"/>
+
+    <HL7CodeTable id="142" code="ABC" value="Christian: American Baptist Church" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="142"/>
+
+    <HL7CodeTable id="143" code="AMT" value="Christian: African Methodist Episcopal" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="143"/>
+
+    <HL7CodeTable id="144" code="AME" value="Christian: African Methodist Episcopal Zion" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="144"/>
+
+    <HL7CodeTable id="145" code="ANG" value="Christian: Anglican" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="145"/>
+
+    <HL7CodeTable id="146" code="AOG" value="Christian: Assembly of God" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="146"/>
+
+    <HL7CodeTable id="147" code="BAP" value="Christian: Baptist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="147"/>
+
+    <HL7CodeTable id="148" code="CAT" value="Christian: Roman Catholic" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="148"/>
+
+    <HL7CodeTable id="149" code="CRR" value="Christian: Christian Reformed" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="149"/>
+
+    <HL7CodeTable id="150" code="CHS" value="Christian: Christian Science" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="150"/>
+
+    <HL7CodeTable id="151" code="CMA" value="Christian: Christian Missionary Alliance" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="151"/>
+
+    <HL7CodeTable id="152" code="COC" value="Christian: Church of Christ" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="152"/>
+
+    <HL7CodeTable id="153" code="COG" value="Christian: Church of God" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="153"/>
+
+    <HL7CodeTable id="154" code="COI" value="Christian: Church of God in Christ" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="154"/>
+
+    <HL7CodeTable id="155" code="COM" value="Christian: Community" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="155"/>
+
+    <HL7CodeTable id="156" code="COL" value="Christian: Congregational" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="156"/>
+
+    <HL7CodeTable id="157" code="EOT" value="Christian: Eastern Orthodox" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="157"/>
+
+    <HL7CodeTable id="158" code="EVC" value="Christian: Evangelical Church" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="158"/>
+
+    <HL7CodeTable id="159" code="EPI" value="Christian: Episcopalian" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="159"/>
+
+    <HL7CodeTable id="160" code="FWB" value="Christian: Free Will Baptist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="160"/>
+
+    <HL7CodeTable id="161" code="FRQ" value="Christian: Friends" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="161"/>
+
+    <HL7CodeTable id="162" code="GRE" value="Christian: Greek Orthodox" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="162"/>
+
+    <HL7CodeTable id="163" code="JWN" value="Christian: Jehovah&apos;s Witness" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="163"/>
+
+    <HL7CodeTable id="164" code="LUT" value="Christian: Lutheran" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="164"/>
+
+    <HL7CodeTable id="165" code="LMS" value="Christian: Lutheran Missouri Synod" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="165"/>
+
+    <HL7CodeTable id="166" code="MEN" value="Christian: Mennonite" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="166"/>
+
+    <HL7CodeTable id="167" code="MET" value="Christian: Methodist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="167"/>
+
+    <HL7CodeTable id="168" code="MOM" value="Christian: Latter-day Saints" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="168"/>
+
+    <HL7CodeTable id="169" code="NAZ" value="Christian: Church of the Nazarene" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="169"/>
+
+    <HL7CodeTable id="170" code="ORT" value="Christian: Orthodox" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="170"/>
+
+    <HL7CodeTable id="171" code="COT" value="Christian: Other" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="171"/>
+
+    <HL7CodeTable id="172" code="PRC" value="Christian: Other Protestant" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="172"/>
+
+    <HL7CodeTable id="173" code="PEN" value="Christian: Pentecostal" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="173"/>
+
+    <HL7CodeTable id="174" code="COP" value="Christian: Other Pentecostal" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="174"/>
+
+    <HL7CodeTable id="175" code="PRE" value="Christian: Presbyterian" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="175"/>
+
+    <HL7CodeTable id="176" code="PRO" value="Christian: Protestant" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="176"/>
+
+    <HL7CodeTable id="177" code="QUA" value="Christian: Friends" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="177"/>
+
+    <HL7CodeTable id="178" code="REC" value="Christian: Reformed Church" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="178"/>
+
+    <HL7CodeTable id="179" code="REO" value="Christian: Reorganized Church of Jesus Christ-LDS" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="179"/>
+
+    <HL7CodeTable id="180" code="SAA" value="Christian: Salvation Army" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="180"/>
+
+    <HL7CodeTable id="181" code="SEV" value="Christian: Seventh Day Adventist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="181"/>
+
+    <HL7CodeTable id="182" code="SOU" value="Christian: Southern Baptist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="182"/>
+
+    <HL7CodeTable id="183" code="UCC" value="Christian: United Church of Christ" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="183"/>
+
+    <HL7CodeTable id="184" code="UMD" value="Christian: United Methodist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="184"/>
+
+    <HL7CodeTable id="185" code="UNI" value="Christian: Unitarian" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="185"/>
+
+    <HL7CodeTable id="186" code="UNU" value="Christian: Unitarian Universalist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="186"/>
+
+    <HL7CodeTable id="187" code="WES" value="Christian: Wesleyan" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="187"/>
+
+    <HL7CodeTable id="188" code="WMC" value="Christian: Wesleyan Methodist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="188"/>
+
+    <HL7CodeTable id="189" code="CNF" value="Confucian" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="189"/>
+
+    <HL7CodeTable id="190" code="ERL" value="Ethnic Religionist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="190"/>
+
+    <HL7CodeTable id="191" code="HIN" value="Hindu" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="191"/>
+
+    <HL7CodeTable id="192" code="HVA" value="Hindu: Vaishnavites" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="192"/>
+
+    <HL7CodeTable id="193" code="HSH" value="Hindu: Shaivites" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="193"/>
+
+    <HL7CodeTable id="194" code="HOT" value="Hindu: Other" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="194"/>
+
+    <HL7CodeTable id="195" code="JAI" value="Jain" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="195"/>
+
+    <HL7CodeTable id="196" code="JEW" value="Jewish" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="196"/>
+
+    <HL7CodeTable id="197" code="JCO" value="Jewish: Conservative" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="197"/>
+
+    <HL7CodeTable id="198" code="JOR" value="Jewish: Orthodox" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="198"/>
+
+    <HL7CodeTable id="199" code="JOT" value="Jewish: Other" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="199"/>
+
+    <HL7CodeTable id="200" code="JRC" value="Jewish: Reconstructionist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="200"/>
+
+    <HL7CodeTable id="201" code="JRF" value="Jewish: Reform" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="201"/>
+
+    <HL7CodeTable id="202" code="JRN" value="Jewish: Renewal" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="202"/>
+
+    <HL7CodeTable id="203" code="MOS" value="Muslim" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="203"/>
+
+    <HL7CodeTable id="204" code="MSU" value="Muslim: Sunni" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="204"/>
+
+    <HL7CodeTable id="205" code="MSH" value="Muslim: Shiite" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="205"/>
+
+    <HL7CodeTable id="206" code="MOT" value="Muslim: Other" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="206"/>
+
+    <HL7CodeTable id="207" code="NAM" value="Native American" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="207"/>
+
+    <HL7CodeTable id="208" code="NRL" value="New Religionist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="208"/>
+
+    <HL7CodeTable id="209" code="NOE" value="Nonreligious" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="209"/>
+
+    <HL7CodeTable id="210" code="OTH" value="Other" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="210"/>
+
+    <HL7CodeTable id="211" code="SHN" value="Shintoist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="211"/>
+
+    <HL7CodeTable id="212" code="SIK" value="Sikh" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="212"/>
+
+    <HL7CodeTable id="213" code="SPI" value="Spiritist" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="213"/>
+
+    <HL7CodeTable id="214" code="VAR" value="Unknown" table_number="0006"/>
+    <HL7UserDefinedCodeTable id="214"/>
+
+    <HL7CodeTable id="215" code="Y" value="Yes" table_number="0136"/>
+    <HL7DefinedCodeTable id="215"/>
+
+    <HL7CodeTable id="216" code="N" value="No" table_number="0136"/>
+    <HL7DefinedCodeTable id="216"/>
+
+    <HL7CodeTable id="217" code="A" value="Anesthesia" table_number="0230"/>
+    <HL7UserDefinedCodeTable id="217"/>
+
+    <HL7CodeTable id="218" code="P" value="Procedure for treatment (therapeutic, including operations)" table_number="0230"/>
+    <HL7UserDefinedCodeTable id="218"/>
+
+    <HL7CodeTable id="219" code="I" value="Invasive procedure not classified elsewhere (e.g., IV, catheter, etc.)" table_number="0230"/>
+    <HL7UserDefinedCodeTable id="219"/>
+
+    <HL7CodeTable id="220" code="D" value="Diagnostic procedure" table_number="0230"/>
+    <HL7UserDefinedCodeTable id="220"/>
+
+    <HL7CodeTable id="221" code="BA" value="Bad address" table_number="0190"/>
+    <HL7DefinedCodeTable id="221"/>
+
+    <HL7CodeTable id="222" code="N" value="Birth (nee) (birth address, not otherwise specified)" table_number="0190"/>
+    <HL7DefinedCodeTable id="222"/>
+
+    <HL7CodeTable id="223" code="BDL" value="Birth delivery location (address where birth occurred)" table_number="0190"/>
+    <HL7DefinedCodeTable id="223"/>
+
+    <HL7CodeTable id="224" code="F" value="Country Of Origin" table_number="0190"/>
+    <HL7DefinedCodeTable id="224"/>
+
+    <HL7CodeTable id="225" code="C" value="Current Or Temporary" table_number="0190"/>
+    <HL7DefinedCodeTable id="225"/>
+
+    <HL7CodeTable id="226" code="B" value="Firm/Business" table_number="0190"/>
+    <HL7DefinedCodeTable id="226"/>
+
+    <HL7CodeTable id="227" code="H" value="Home" table_number="0190"/>
+    <HL7DefinedCodeTable id="227"/>
+
+    <HL7CodeTable id="228" code="L" value="Legal Address" table_number="0190"/>
+    <HL7DefinedCodeTable id="228"/>
+
+    <HL7CodeTable id="229" code="M" value="Mailing" table_number="0190"/>
+    <HL7DefinedCodeTable id="229"/>
+
+    <HL7CodeTable id="230" code="O" value="Office" table_number="0190"/>
+    <HL7DefinedCodeTable id="230"/>
+
+    <HL7CodeTable id="231" code="P" value="Permanent" table_number="0190"/>
+    <HL7DefinedCodeTable id="231"/>
+
+    <HL7CodeTable id="232" code="RH" value="Registry home. Refers to the information system, typically managed by a public health agency, that stores patient information such as immunization histories or cancer data, regardless of where the patient obtains services." table_number="0190"/>
+    <HL7DefinedCodeTable id="232"/>
+
+    <HL7CodeTable id="233" code="BR" value="Residence at birth (home address at time of birth)" table_number="0190"/>
+    <HL7DefinedCodeTable id="233"/>
+
+    <HL7CodeTable id="234" code="ABW" value="Aruba" table_number="0399"/>
+    <HL7DefinedCodeTable id="234"/>
+
+    <HL7CodeTable id="235" code="AFG" value="Afghanistan" table_number="0399"/>
+    <HL7DefinedCodeTable id="235"/>
+
+    <HL7CodeTable id="236" code="AGO" value="Angola" table_number="0399"/>
+    <HL7DefinedCodeTable id="236"/>
+
+    <HL7CodeTable id="237" code="AIA" value="Anguilla" table_number="0399"/>
+    <HL7DefinedCodeTable id="237"/>
+
+    <HL7CodeTable id="238" code="ALA" value="Aland Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="238"/>
+
+    <HL7CodeTable id="239" code="ALB" value="Albania" table_number="0399"/>
+    <HL7DefinedCodeTable id="239"/>
+
+    <HL7CodeTable id="240" code="AND" value="Andorra" table_number="0399"/>
+    <HL7DefinedCodeTable id="240"/>
+
+    <HL7CodeTable id="241" code="ARE" value="United Arab Emirates" table_number="0399"/>
+    <HL7DefinedCodeTable id="241"/>
+
+    <HL7CodeTable id="242" code="ARG" value="Argentina" table_number="0399"/>
+    <HL7DefinedCodeTable id="242"/>
+
+    <HL7CodeTable id="243" code="ARM" value="Armenia" table_number="0399"/>
+    <HL7DefinedCodeTable id="243"/>
+
+    <HL7CodeTable id="244" code="ASM" value="American Samoa" table_number="0399"/>
+    <HL7DefinedCodeTable id="244"/>
+
+    <HL7CodeTable id="245" code="ATA" value="Antarctica" table_number="0399"/>
+    <HL7DefinedCodeTable id="245"/>
+
+    <HL7CodeTable id="246" code="ATF" value="French Southern Territories" table_number="0399"/>
+    <HL7DefinedCodeTable id="246"/>
+
+    <HL7CodeTable id="247" code="ATG" value="Antigua and Barbuda" table_number="0399"/>
+    <HL7DefinedCodeTable id="247"/>
+
+    <HL7CodeTable id="248" code="AUS" value="Australia" table_number="0399"/>
+    <HL7DefinedCodeTable id="248"/>
+
+    <HL7CodeTable id="249" code="AUT" value="Austria" table_number="0399"/>
+    <HL7DefinedCodeTable id="249"/>
+
+    <HL7CodeTable id="250" code="AZE" value="Azerbaijan" table_number="0399"/>
+    <HL7DefinedCodeTable id="250"/>
+
+    <HL7CodeTable id="251" code="BDI" value="Burundi" table_number="0399"/>
+    <HL7DefinedCodeTable id="251"/>
+
+    <HL7CodeTable id="252" code="BEL" value="Belgium" table_number="0399"/>
+    <HL7DefinedCodeTable id="252"/>
+
+    <HL7CodeTable id="253" code="BEN" value="Benin" table_number="0399"/>
+    <HL7DefinedCodeTable id="253"/>
+
+    <HL7CodeTable id="254" code="BES" value="Bonaire, Saint Eustatius and Saba" table_number="0399"/>
+    <HL7DefinedCodeTable id="254"/>
+
+    <HL7CodeTable id="255" code="BFA" value="Burkina Faso" table_number="0399"/>
+    <HL7DefinedCodeTable id="255"/>
+
+    <HL7CodeTable id="256" code="BGD" value="Bangladesh" table_number="0399"/>
+    <HL7DefinedCodeTable id="256"/>
+
+    <HL7CodeTable id="257" code="BGR" value="Bulgaria" table_number="0399"/>
+    <HL7DefinedCodeTable id="257"/>
+
+    <HL7CodeTable id="258" code="BHR" value="Bahrain" table_number="0399"/>
+    <HL7DefinedCodeTable id="258"/>
+
+    <HL7CodeTable id="259" code="BHS" value="Bahamas" table_number="0399"/>
+    <HL7DefinedCodeTable id="259"/>
+
+    <HL7CodeTable id="260" code="BIH" value="Bosnia and Herzegovina" table_number="0399"/>
+    <HL7DefinedCodeTable id="260"/>
+
+    <HL7CodeTable id="261" code="BLM" value="Saint Barthelemy" table_number="0399"/>
+    <HL7DefinedCodeTable id="261"/>
+
+    <HL7CodeTable id="262" code="BLR" value="Belarus" table_number="0399"/>
+    <HL7DefinedCodeTable id="262"/>
+
+    <HL7CodeTable id="263" code="BLZ" value="Belize" table_number="0399"/>
+    <HL7DefinedCodeTable id="263"/>
+
+    <HL7CodeTable id="264" code="BMU" value="Bermuda" table_number="0399"/>
+    <HL7DefinedCodeTable id="264"/>
+
+    <HL7CodeTable id="265" code="BOL" value="Bolivia, Plurinational State of" table_number="0399"/>
+    <HL7DefinedCodeTable id="265"/>
+
+    <HL7CodeTable id="266" code="BRA" value="Brazil" table_number="0399"/>
+    <HL7DefinedCodeTable id="266"/>
+
+    <HL7CodeTable id="267" code="BRB" value="Barbados" table_number="0399"/>
+    <HL7DefinedCodeTable id="267"/>
+
+    <HL7CodeTable id="268" code="BRN" value="Brunei Darussalam" table_number="0399"/>
+    <HL7DefinedCodeTable id="268"/>
+
+    <HL7CodeTable id="269" code="BTN" value="Bhutan" table_number="0399"/>
+    <HL7DefinedCodeTable id="269"/>
+
+    <HL7CodeTable id="270" code="BVT" value="Bouvet Island" table_number="0399"/>
+    <HL7DefinedCodeTable id="270"/>
+
+    <HL7CodeTable id="271" code="BWA" value="Botswana" table_number="0399"/>
+    <HL7DefinedCodeTable id="271"/>
+
+    <HL7CodeTable id="272" code="CAF" value="Central African Republic" table_number="0399"/>
+    <HL7DefinedCodeTable id="272"/>
+
+    <HL7CodeTable id="273" code="CAN" value="Canada" table_number="0399"/>
+    <HL7DefinedCodeTable id="273"/>
+
+    <HL7CodeTable id="274" code="CCK" value="Cocos (Keeling) Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="274"/>
+
+    <HL7CodeTable id="275" code="CHE" value="Switzerland" table_number="0399"/>
+    <HL7DefinedCodeTable id="275"/>
+
+    <HL7CodeTable id="276" code="CHL" value="Chile" table_number="0399"/>
+    <HL7DefinedCodeTable id="276"/>
+
+    <HL7CodeTable id="277" code="CHN" value="China" table_number="0399"/>
+    <HL7DefinedCodeTable id="277"/>
+
+    <HL7CodeTable id="278" code="CIV" value="Cote d&apos;Ivoire" table_number="0399"/>
+    <HL7DefinedCodeTable id="278"/>
+
+    <HL7CodeTable id="279" code="CMR" value="Cameroon" table_number="0399"/>
+    <HL7DefinedCodeTable id="279"/>
+
+    <HL7CodeTable id="280" code="COD" value="Congo, the Democratic Republic of the" table_number="0399"/>
+    <HL7DefinedCodeTable id="280"/>
+
+    <HL7CodeTable id="281" code="COG" value="Congo" table_number="0399"/>
+    <HL7DefinedCodeTable id="281"/>
+
+    <HL7CodeTable id="282" code="COK" value="Cook Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="282"/>
+
+    <HL7CodeTable id="283" code="COL" value="Colombia" table_number="0399"/>
+    <HL7DefinedCodeTable id="283"/>
+
+    <HL7CodeTable id="284" code="COM" value="Comoros" table_number="0399"/>
+    <HL7DefinedCodeTable id="284"/>
+
+    <HL7CodeTable id="285" code="CPV" value="Cape Verde" table_number="0399"/>
+    <HL7DefinedCodeTable id="285"/>
+
+    <HL7CodeTable id="286" code="CRI" value="Costa Rica" table_number="0399"/>
+    <HL7DefinedCodeTable id="286"/>
+
+    <HL7CodeTable id="287" code="CUB" value="Cuba" table_number="0399"/>
+    <HL7DefinedCodeTable id="287"/>
+
+    <HL7CodeTable id="288" code="CUW" value="Curacao" table_number="0399"/>
+    <HL7DefinedCodeTable id="288"/>
+
+    <HL7CodeTable id="289" code="CXR" value="Christmas Island" table_number="0399"/>
+    <HL7DefinedCodeTable id="289"/>
+
+    <HL7CodeTable id="290" code="CYM" value="Cayman Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="290"/>
+
+    <HL7CodeTable id="291" code="CYP" value="Cyprus" table_number="0399"/>
+    <HL7DefinedCodeTable id="291"/>
+
+    <HL7CodeTable id="292" code="CZE" value="Czech Republic" table_number="0399"/>
+    <HL7DefinedCodeTable id="292"/>
+
+    <HL7CodeTable id="293" code="DEU" value="Germany" table_number="0399"/>
+    <HL7DefinedCodeTable id="293"/>
+
+    <HL7CodeTable id="294" code="DJI" value="Djibouti" table_number="0399"/>
+    <HL7DefinedCodeTable id="294"/>
+
+    <HL7CodeTable id="295" code="DMA" value="Dominica" table_number="0399"/>
+    <HL7DefinedCodeTable id="295"/>
+
+    <HL7CodeTable id="296" code="DNK" value="Denmark" table_number="0399"/>
+    <HL7DefinedCodeTable id="296"/>
+
+    <HL7CodeTable id="297" code="DOM" value="Dominican Republic" table_number="0399"/>
+    <HL7DefinedCodeTable id="297"/>
+
+    <HL7CodeTable id="298" code="DZA" value="Algeria" table_number="0399"/>
+    <HL7DefinedCodeTable id="298"/>
+
+    <HL7CodeTable id="299" code="ECU" value="Ecuador" table_number="0399"/>
+    <HL7DefinedCodeTable id="299"/>
+
+    <HL7CodeTable id="300" code="EGY" value="Egypt" table_number="0399"/>
+    <HL7DefinedCodeTable id="300"/>
+
+    <HL7CodeTable id="301" code="ERI" value="Eritrea" table_number="0399"/>
+    <HL7DefinedCodeTable id="301"/>
+
+    <HL7CodeTable id="302" code="ESH" value="Western Sahara" table_number="0399"/>
+    <HL7DefinedCodeTable id="302"/>
+
+    <HL7CodeTable id="303" code="ESP" value="Spain" table_number="0399"/>
+    <HL7DefinedCodeTable id="303"/>
+
+    <HL7CodeTable id="304" code="EST" value="Estonia" table_number="0399"/>
+    <HL7DefinedCodeTable id="304"/>
+
+    <HL7CodeTable id="305" code="ETH" value="Ethiopia" table_number="0399"/>
+    <HL7DefinedCodeTable id="305"/>
+
+    <HL7CodeTable id="306" code="FIN" value="Finland" table_number="0399"/>
+    <HL7DefinedCodeTable id="306"/>
+
+    <HL7CodeTable id="307" code="FJI" value="Fiji" table_number="0399"/>
+    <HL7DefinedCodeTable id="307"/>
+
+    <HL7CodeTable id="308" code="FLK" value="Falkland Islands (Malvinas)" table_number="0399"/>
+    <HL7DefinedCodeTable id="308"/>
+
+    <HL7CodeTable id="309" code="FRA" value="France" table_number="0399"/>
+    <HL7DefinedCodeTable id="309"/>
+
+    <HL7CodeTable id="310" code="FRO" value="Faroe Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="310"/>
+
+    <HL7CodeTable id="311" code="FSM" value="Micronesia, Federated States of" table_number="0399"/>
+    <HL7DefinedCodeTable id="311"/>
+
+    <HL7CodeTable id="312" code="GAB" value="Gabon" table_number="0399"/>
+    <HL7DefinedCodeTable id="312"/>
+
+    <HL7CodeTable id="313" code="GBR" value="United Kingdom" table_number="0399"/>
+    <HL7DefinedCodeTable id="313"/>
+
+    <HL7CodeTable id="314" code="GEO" value="Georgia" table_number="0399"/>
+    <HL7DefinedCodeTable id="314"/>
+
+    <HL7CodeTable id="315" code="GGY" value="Guernsey" table_number="0399"/>
+    <HL7DefinedCodeTable id="315"/>
+
+    <HL7CodeTable id="316" code="GHA" value="Ghana" table_number="0399"/>
+    <HL7DefinedCodeTable id="316"/>
+
+    <HL7CodeTable id="317" code="GIB" value="Gibraltar" table_number="0399"/>
+    <HL7DefinedCodeTable id="317"/>
+
+    <HL7CodeTable id="318" code="GIN" value="Guinea" table_number="0399"/>
+    <HL7DefinedCodeTable id="318"/>
+
+    <HL7CodeTable id="319" code="GLP" value="Guadeloupe" table_number="0399"/>
+    <HL7DefinedCodeTable id="319"/>
+
+    <HL7CodeTable id="320" code="GMB" value="Gambia" table_number="0399"/>
+    <HL7DefinedCodeTable id="320"/>
+
+    <HL7CodeTable id="321" code="GNB" value="Guinea-Bissau" table_number="0399"/>
+    <HL7DefinedCodeTable id="321"/>
+
+    <HL7CodeTable id="322" code="GNQ" value="Equatorial Guinea" table_number="0399"/>
+    <HL7DefinedCodeTable id="322"/>
+
+    <HL7CodeTable id="323" code="GRC" value="Greece" table_number="0399"/>
+    <HL7DefinedCodeTable id="323"/>
+
+    <HL7CodeTable id="324" code="GRD" value="Grenada" table_number="0399"/>
+    <HL7DefinedCodeTable id="324"/>
+
+    <HL7CodeTable id="325" code="GRL" value="Greenland" table_number="0399"/>
+    <HL7DefinedCodeTable id="325"/>
+
+    <HL7CodeTable id="326" code="GTM" value="Guatemala" table_number="0399"/>
+    <HL7DefinedCodeTable id="326"/>
+
+    <HL7CodeTable id="327" code="GUF" value="French Guiana" table_number="0399"/>
+    <HL7DefinedCodeTable id="327"/>
+
+    <HL7CodeTable id="328" code="GUM" value="Guam" table_number="0399"/>
+    <HL7DefinedCodeTable id="328"/>
+
+    <HL7CodeTable id="329" code="GUY" value="Guyana" table_number="0399"/>
+    <HL7DefinedCodeTable id="329"/>
+
+    <HL7CodeTable id="330" code="HKG" value="Hong Kong" table_number="0399"/>
+    <HL7DefinedCodeTable id="330"/>
+
+    <HL7CodeTable id="331" code="HMD" value="Heard Island and McDonald Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="331"/>
+
+    <HL7CodeTable id="332" code="HND" value="Honduras" table_number="0399"/>
+    <HL7DefinedCodeTable id="332"/>
+
+    <HL7CodeTable id="333" code="HRV" value="Croatia" table_number="0399"/>
+    <HL7DefinedCodeTable id="333"/>
+
+    <HL7CodeTable id="334" code="HTI" value="Haiti" table_number="0399"/>
+    <HL7DefinedCodeTable id="334"/>
+
+    <HL7CodeTable id="335" code="HUN" value="Hungary" table_number="0399"/>
+    <HL7DefinedCodeTable id="335"/>
+
+    <HL7CodeTable id="336" code="IDN" value="Indonesia" table_number="0399"/>
+    <HL7DefinedCodeTable id="336"/>
+
+    <HL7CodeTable id="337" code="IMN" value="Isle of Man" table_number="0399"/>
+    <HL7DefinedCodeTable id="337"/>
+
+    <HL7CodeTable id="338" code="IND" value="India" table_number="0399"/>
+    <HL7DefinedCodeTable id="338"/>
+
+    <HL7CodeTable id="339" code="IOT" value="British Indian Ocean Territory" table_number="0399"/>
+    <HL7DefinedCodeTable id="339"/>
+
+    <HL7CodeTable id="340" code="IRL" value="Ireland" table_number="0399"/>
+    <HL7DefinedCodeTable id="340"/>
+
+    <HL7CodeTable id="341" code="IRN" value="Iran, Islamic Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="341"/>
+
+    <HL7CodeTable id="342" code="IRQ" value="Iraq" table_number="0399"/>
+    <HL7DefinedCodeTable id="342"/>
+
+    <HL7CodeTable id="343" code="ISL" value="Iceland" table_number="0399"/>
+    <HL7DefinedCodeTable id="343"/>
+
+    <HL7CodeTable id="344" code="ISR" value="Israel" table_number="0399"/>
+    <HL7DefinedCodeTable id="344"/>
+
+    <HL7CodeTable id="345" code="ITA" value="Italy" table_number="0399"/>
+    <HL7DefinedCodeTable id="345"/>
+
+    <HL7CodeTable id="346" code="JAM" value="Jamaica" table_number="0399"/>
+    <HL7DefinedCodeTable id="346"/>
+
+    <HL7CodeTable id="347" code="JEY" value="Jersey" table_number="0399"/>
+    <HL7DefinedCodeTable id="347"/>
+
+    <HL7CodeTable id="348" code="JOR" value="Jordan" table_number="0399"/>
+    <HL7DefinedCodeTable id="348"/>
+
+    <HL7CodeTable id="349" code="JPN" value="Japan" table_number="0399"/>
+    <HL7DefinedCodeTable id="349"/>
+
+    <HL7CodeTable id="350" code="KAZ" value="Kazakhstan" table_number="0399"/>
+    <HL7DefinedCodeTable id="350"/>
+
+    <HL7CodeTable id="351" code="KEN" value="Kenya" table_number="0399"/>
+    <HL7DefinedCodeTable id="351"/>
+
+    <HL7CodeTable id="352" code="KGZ" value="Kyrgyzstan" table_number="0399"/>
+    <HL7DefinedCodeTable id="352"/>
+
+    <HL7CodeTable id="353" code="KHM" value="Cambodia" table_number="0399"/>
+    <HL7DefinedCodeTable id="353"/>
+
+    <HL7CodeTable id="354" code="KIR" value="Kiribati" table_number="0399"/>
+    <HL7DefinedCodeTable id="354"/>
+
+    <HL7CodeTable id="355" code="KNA" value="Saint Kitts and Nevis" table_number="0399"/>
+    <HL7DefinedCodeTable id="355"/>
+
+    <HL7CodeTable id="356" code="KOR" value="Korea, Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="356"/>
+
+    <HL7CodeTable id="357" code="KWT" value="Kuwait" table_number="0399"/>
+    <HL7DefinedCodeTable id="357"/>
+
+    <HL7CodeTable id="358" code="LAO" value="Lao People&apos;s Democratic Republic" table_number="0399"/>
+    <HL7DefinedCodeTable id="358"/>
+
+    <HL7CodeTable id="359" code="LBN" value="Lebanon" table_number="0399"/>
+    <HL7DefinedCodeTable id="359"/>
+
+    <HL7CodeTable id="360" code="LBR" value="Liberia" table_number="0399"/>
+    <HL7DefinedCodeTable id="360"/>
+
+    <HL7CodeTable id="361" code="LBY" value="Libyan Arab Jamahiriya" table_number="0399"/>
+    <HL7DefinedCodeTable id="361"/>
+
+    <HL7CodeTable id="362" code="LCA" value="Saint Lucia" table_number="0399"/>
+    <HL7DefinedCodeTable id="362"/>
+
+    <HL7CodeTable id="363" code="LIE" value="Liechtenstein" table_number="0399"/>
+    <HL7DefinedCodeTable id="363"/>
+
+    <HL7CodeTable id="364" code="LKA" value="Sri Lanka" table_number="0399"/>
+    <HL7DefinedCodeTable id="364"/>
+
+    <HL7CodeTable id="365" code="LSO" value="Lesotho" table_number="0399"/>
+    <HL7DefinedCodeTable id="365"/>
+
+    <HL7CodeTable id="366" code="LTU" value="Lithuania" table_number="0399"/>
+    <HL7DefinedCodeTable id="366"/>
+
+    <HL7CodeTable id="367" code="LUX" value="Luxembourg" table_number="0399"/>
+    <HL7DefinedCodeTable id="367"/>
+
+    <HL7CodeTable id="368" code="LVA" value="Latvia" table_number="0399"/>
+    <HL7DefinedCodeTable id="368"/>
+
+    <HL7CodeTable id="369" code="MAC" value="Macao" table_number="0399"/>
+    <HL7DefinedCodeTable id="369"/>
+
+    <HL7CodeTable id="370" code="MAF" value="Saint Martin (French part)" table_number="0399"/>
+    <HL7DefinedCodeTable id="370"/>
+
+    <HL7CodeTable id="371" code="MAR" value="Morocco" table_number="0399"/>
+    <HL7DefinedCodeTable id="371"/>
+
+    <HL7CodeTable id="372" code="MCO" value="Monaco" table_number="0399"/>
+    <HL7DefinedCodeTable id="372"/>
+
+    <HL7CodeTable id="373" code="MDA" value="Moldova, Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="373"/>
+
+    <HL7CodeTable id="374" code="MDG" value="Madagascar" table_number="0399"/>
+    <HL7DefinedCodeTable id="374"/>
+
+    <HL7CodeTable id="375" code="MDV" value="Maldives" table_number="0399"/>
+    <HL7DefinedCodeTable id="375"/>
+
+    <HL7CodeTable id="376" code="MEX" value="Mexico" table_number="0399"/>
+    <HL7DefinedCodeTable id="376"/>
+
+    <HL7CodeTable id="377" code="MHL" value="Marshall Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="377"/>
+
+    <HL7CodeTable id="378" code="MKD" value="Macedonia, the former Yugoslav Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="378"/>
+
+    <HL7CodeTable id="379" code="MLI" value="Mali" table_number="0399"/>
+    <HL7DefinedCodeTable id="379"/>
+
+    <HL7CodeTable id="380" code="MLT" value="Malta" table_number="0399"/>
+    <HL7DefinedCodeTable id="380"/>
+
+    <HL7CodeTable id="381" code="MMR" value="Myanmar" table_number="0399"/>
+    <HL7DefinedCodeTable id="381"/>
+
+    <HL7CodeTable id="382" code="MNE" value="Montenegro" table_number="0399"/>
+    <HL7DefinedCodeTable id="382"/>
+
+    <HL7CodeTable id="383" code="MNG" value="Mongolia" table_number="0399"/>
+    <HL7DefinedCodeTable id="383"/>
+
+    <HL7CodeTable id="384" code="MNP" value="Northern Mariana Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="384"/>
+
+    <HL7CodeTable id="385" code="MOZ" value="Mozambique" table_number="0399"/>
+    <HL7DefinedCodeTable id="385"/>
+
+    <HL7CodeTable id="386" code="MRT" value="Mauritania" table_number="0399"/>
+    <HL7DefinedCodeTable id="386"/>
+
+    <HL7CodeTable id="387" code="MSR" value="Montserrat" table_number="0399"/>
+    <HL7DefinedCodeTable id="387"/>
+
+    <HL7CodeTable id="388" code="MTQ" value="Martinique" table_number="0399"/>
+    <HL7DefinedCodeTable id="388"/>
+
+    <HL7CodeTable id="389" code="MUS" value="Mauritius" table_number="0399"/>
+    <HL7DefinedCodeTable id="389"/>
+
+    <HL7CodeTable id="390" code="MWI" value="Malawi" table_number="0399"/>
+    <HL7DefinedCodeTable id="390"/>
+
+    <HL7CodeTable id="391" code="MYS" value="Malaysia" table_number="0399"/>
+    <HL7DefinedCodeTable id="391"/>
+
+    <HL7CodeTable id="392" code="MYT" value="Mayotte" table_number="0399"/>
+    <HL7DefinedCodeTable id="392"/>
+
+    <HL7CodeTable id="393" code="NAM" value="Namibia" table_number="0399"/>
+    <HL7DefinedCodeTable id="393"/>
+
+    <HL7CodeTable id="394" code="NCL" value="New Caledonia" table_number="0399"/>
+    <HL7DefinedCodeTable id="394"/>
+
+    <HL7CodeTable id="395" code="NER" value="Niger" table_number="0399"/>
+    <HL7DefinedCodeTable id="395"/>
+
+    <HL7CodeTable id="396" code="NFK" value="Norfolk Island" table_number="0399"/>
+    <HL7DefinedCodeTable id="396"/>
+
+    <HL7CodeTable id="397" code="NGA" value="Nigeria" table_number="0399"/>
+    <HL7DefinedCodeTable id="397"/>
+
+    <HL7CodeTable id="398" code="NIC" value="Nicaragua" table_number="0399"/>
+    <HL7DefinedCodeTable id="398"/>
+
+    <HL7CodeTable id="399" code="NIU" value="Niue" table_number="0399"/>
+    <HL7DefinedCodeTable id="399"/>
+
+    <HL7CodeTable id="400" code="NLD" value="Netherlands" table_number="0399"/>
+    <HL7DefinedCodeTable id="400"/>
+
+    <HL7CodeTable id="401" code="NOR" value="Norway" table_number="0399"/>
+    <HL7DefinedCodeTable id="401"/>
+
+    <HL7CodeTable id="402" code="NPL" value="Nepal" table_number="0399"/>
+    <HL7DefinedCodeTable id="402"/>
+
+    <HL7CodeTable id="403" code="NRU" value="Nauru" table_number="0399"/>
+    <HL7DefinedCodeTable id="403"/>
+
+    <HL7CodeTable id="404" code="NZL" value="New Zealand" table_number="0399"/>
+    <HL7DefinedCodeTable id="404"/>
+
+    <HL7CodeTable id="405" code="OMN" value="Oman" table_number="0399"/>
+    <HL7DefinedCodeTable id="405"/>
+
+    <HL7CodeTable id="406" code="PAK" value="Pakistan" table_number="0399"/>
+    <HL7DefinedCodeTable id="406"/>
+
+    <HL7CodeTable id="407" code="PAN" value="Panama" table_number="0399"/>
+    <HL7DefinedCodeTable id="407"/>
+
+    <HL7CodeTable id="408" code="PCN" value="Pitcairn" table_number="0399"/>
+    <HL7DefinedCodeTable id="408"/>
+
+    <HL7CodeTable id="409" code="PER" value="Peru" table_number="0399"/>
+    <HL7DefinedCodeTable id="409"/>
+
+    <HL7CodeTable id="410" code="PHL" value="Philippines" table_number="0399"/>
+    <HL7DefinedCodeTable id="410"/>
+
+    <HL7CodeTable id="411" code="PLW" value="Palau" table_number="0399"/>
+    <HL7DefinedCodeTable id="411"/>
+
+    <HL7CodeTable id="412" code="PNG" value="Papua New Guinea" table_number="0399"/>
+    <HL7DefinedCodeTable id="412"/>
+
+    <HL7CodeTable id="413" code="POL" value="Poland" table_number="0399"/>
+    <HL7DefinedCodeTable id="413"/>
+
+    <HL7CodeTable id="414" code="PRI" value="Puerto Rico" table_number="0399"/>
+    <HL7DefinedCodeTable id="414"/>
+
+    <HL7CodeTable id="415" code="PRK" value="Korea, Democratic People&apos;s Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="415"/>
+
+    <HL7CodeTable id="416" code="PRT" value="Portugal" table_number="0399"/>
+    <HL7DefinedCodeTable id="416"/>
+
+    <HL7CodeTable id="417" code="PRY" value="Paraguay" table_number="0399"/>
+    <HL7DefinedCodeTable id="417"/>
+
+    <HL7CodeTable id="418" code="PSE" value="Palestinian Territory, Occupied" table_number="0399"/>
+    <HL7DefinedCodeTable id="418"/>
+
+    <HL7CodeTable id="419" code="PYF" value="French Polynesia" table_number="0399"/>
+    <HL7DefinedCodeTable id="419"/>
+
+    <HL7CodeTable id="420" code="QAT" value="Qatar" table_number="0399"/>
+    <HL7DefinedCodeTable id="420"/>
+
+    <HL7CodeTable id="421" code="REU" value="Reunion" table_number="0399"/>
+    <HL7DefinedCodeTable id="421"/>
+
+    <HL7CodeTable id="422" code="ROU" value="Romania" table_number="0399"/>
+    <HL7DefinedCodeTable id="422"/>
+
+    <HL7CodeTable id="423" code="RUS" value="Russian Federation" table_number="0399"/>
+    <HL7DefinedCodeTable id="423"/>
+
+    <HL7CodeTable id="424" code="RWA" value="Rwanda" table_number="0399"/>
+    <HL7DefinedCodeTable id="424"/>
+
+    <HL7CodeTable id="425" code="SAU" value="Saudi Arabia" table_number="0399"/>
+    <HL7DefinedCodeTable id="425"/>
+
+    <HL7CodeTable id="426" code="SDN" value="Sudan" table_number="0399"/>
+    <HL7DefinedCodeTable id="426"/>
+
+    <HL7CodeTable id="427" code="SEN" value="Senegal" table_number="0399"/>
+    <HL7DefinedCodeTable id="427"/>
+
+    <HL7CodeTable id="428" code="SGP" value="Singapore" table_number="0399"/>
+    <HL7DefinedCodeTable id="428"/>
+
+    <HL7CodeTable id="429" code="SGS" value="South Georgia and the South Sandwich Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="429"/>
+
+    <HL7CodeTable id="430" code="SHN" value="Saint Helena, Ascension and Tristan da Cunha" table_number="0399"/>
+    <HL7DefinedCodeTable id="430"/>
+
+    <HL7CodeTable id="431" code="SJM" value="Svalbard and Jan Mayen" table_number="0399"/>
+    <HL7DefinedCodeTable id="431"/>
+
+    <HL7CodeTable id="432" code="SLB" value="Solomon Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="432"/>
+
+    <HL7CodeTable id="433" code="SLE" value="Sierra Leone" table_number="0399"/>
+    <HL7DefinedCodeTable id="433"/>
+
+    <HL7CodeTable id="434" code="SLV" value="El Salvador" table_number="0399"/>
+    <HL7DefinedCodeTable id="434"/>
+
+    <HL7CodeTable id="435" code="SMR" value="San Marino" table_number="0399"/>
+    <HL7DefinedCodeTable id="435"/>
+
+    <HL7CodeTable id="436" code="SOM" value="Somalia" table_number="0399"/>
+    <HL7DefinedCodeTable id="436"/>
+
+    <HL7CodeTable id="437" code="SPM" value="Saint Pierre and Miquelon" table_number="0399"/>
+    <HL7DefinedCodeTable id="437"/>
+
+    <HL7CodeTable id="438" code="SRB" value="Serbia" table_number="0399"/>
+    <HL7DefinedCodeTable id="438"/>
+
+    <HL7CodeTable id="439" code="STP" value="Sao Tome and Principe" table_number="0399"/>
+    <HL7DefinedCodeTable id="439"/>
+
+    <HL7CodeTable id="440" code="SUR" value="Suriname" table_number="0399"/>
+    <HL7DefinedCodeTable id="440"/>
+
+    <HL7CodeTable id="441" code="SVK" value="Slovakia" table_number="0399"/>
+    <HL7DefinedCodeTable id="441"/>
+
+    <HL7CodeTable id="442" code="SVN" value="Slovenia" table_number="0399"/>
+    <HL7DefinedCodeTable id="442"/>
+
+    <HL7CodeTable id="443" code="SWE" value="Sweden" table_number="0399"/>
+    <HL7DefinedCodeTable id="443"/>
+
+    <HL7CodeTable id="444" code="SWZ" value="Swaziland" table_number="0399"/>
+    <HL7DefinedCodeTable id="444"/>
+
+    <HL7CodeTable id="445" code="SXM" value="Sint Maarten (Dutch part)" table_number="0399"/>
+    <HL7DefinedCodeTable id="445"/>
+
+    <HL7CodeTable id="446" code="SYC" value="Seychelles" table_number="0399"/>
+    <HL7DefinedCodeTable id="446"/>
+
+    <HL7CodeTable id="447" code="SYR" value="Syrian Arab Republic" table_number="0399"/>
+    <HL7DefinedCodeTable id="447"/>
+
+    <HL7CodeTable id="448" code="TCA" value="Turks and Caicos Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="448"/>
+
+    <HL7CodeTable id="449" code="TCD" value="Chad" table_number="0399"/>
+    <HL7DefinedCodeTable id="449"/>
+
+    <HL7CodeTable id="450" code="TGO" value="Togo" table_number="0399"/>
+    <HL7DefinedCodeTable id="450"/>
+
+    <HL7CodeTable id="451" code="THA" value="Thailand" table_number="0399"/>
+    <HL7DefinedCodeTable id="451"/>
+
+    <HL7CodeTable id="452" code="TJK" value="Tajikistan" table_number="0399"/>
+    <HL7DefinedCodeTable id="452"/>
+
+    <HL7CodeTable id="453" code="TKL" value="Tokelau" table_number="0399"/>
+    <HL7DefinedCodeTable id="453"/>
+
+    <HL7CodeTable id="454" code="TKM" value="Turkmenistan" table_number="0399"/>
+    <HL7DefinedCodeTable id="454"/>
+
+    <HL7CodeTable id="455" code="TLS" value="Timor-Leste" table_number="0399"/>
+    <HL7DefinedCodeTable id="455"/>
+
+    <HL7CodeTable id="456" code="TON" value="Tonga" table_number="0399"/>
+    <HL7DefinedCodeTable id="456"/>
+
+    <HL7CodeTable id="457" code="TTO" value="Trinidad and Tobago" table_number="0399"/>
+    <HL7DefinedCodeTable id="457"/>
+
+    <HL7CodeTable id="458" code="TUN" value="Tunisia" table_number="0399"/>
+    <HL7DefinedCodeTable id="458"/>
+
+    <HL7CodeTable id="459" code="TUR" value="Turkey" table_number="0399"/>
+    <HL7DefinedCodeTable id="459"/>
+
+    <HL7CodeTable id="460" code="TUV" value="Tuvalu" table_number="0399"/>
+    <HL7DefinedCodeTable id="460"/>
+
+    <HL7CodeTable id="461" code="TWN" value="Taiwan, Province of China" table_number="0399"/>
+    <HL7DefinedCodeTable id="461"/>
+
+    <HL7CodeTable id="462" code="TZA" value="Tanzania, United Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="462"/>
+
+    <HL7CodeTable id="463" code="UGA" value="Uganda" table_number="0399"/>
+    <HL7DefinedCodeTable id="463"/>
+
+    <HL7CodeTable id="464" code="UKR" value="Ukraine" table_number="0399"/>
+    <HL7DefinedCodeTable id="464"/>
+
+    <HL7CodeTable id="465" code="UMI" value="United States Minor Outlying Islands" table_number="0399"/>
+    <HL7DefinedCodeTable id="465"/>
+
+    <HL7CodeTable id="466" code="URY" value="Uruguay" table_number="0399"/>
+    <HL7DefinedCodeTable id="466"/>
+
+    <HL7CodeTable id="467" code="USA" value="United States" table_number="0399"/>
+    <HL7DefinedCodeTable id="467"/>
+
+    <HL7CodeTable id="468" code="UZB" value="Uzbekistan" table_number="0399"/>
+    <HL7DefinedCodeTable id="468"/>
+
+    <HL7CodeTable id="469" code="VAT" value="Holy See (Vatican City State)" table_number="0399"/>
+    <HL7DefinedCodeTable id="469"/>
+
+    <HL7CodeTable id="470" code="VCT" value="Saint Vincent and the Grenadines" table_number="0399"/>
+    <HL7DefinedCodeTable id="470"/>
+
+    <HL7CodeTable id="471" code="VEN" value="Venezuela, Bolivarian Republic of" table_number="0399"/>
+    <HL7DefinedCodeTable id="471"/>
+
+    <HL7CodeTable id="472" code="VGB" value="Virgin Islands, British" table_number="0399"/>
+    <HL7DefinedCodeTable id="472"/>
+
+    <HL7CodeTable id="473" code="VIR" value="Virgin Islands, U.S." table_number="0399"/>
+    <HL7DefinedCodeTable id="473"/>
+
+    <HL7CodeTable id="474" code="VNM" value="Viet Nam" table_number="0399"/>
+    <HL7DefinedCodeTable id="474"/>
+
+    <HL7CodeTable id="475" code="VUT" value="Vanuatu" table_number="0399"/>
+    <HL7DefinedCodeTable id="475"/>
+
+    <HL7CodeTable id="476" code="WLF" value="Wallis and Futuna" table_number="0399"/>
+    <HL7DefinedCodeTable id="476"/>
+
+    <HL7CodeTable id="477" code="WSM" value="Samoa" table_number="0399"/>
+    <HL7DefinedCodeTable id="477"/>
+
+    <HL7CodeTable id="478" code="YEM" value="Yemen" table_number="0399"/>
+    <HL7DefinedCodeTable id="478"/>
+
+    <HL7CodeTable id="479" code="ZAF" value="South Africa" table_number="0399"/>
+    <HL7DefinedCodeTable id="479"/>
+
+    <HL7CodeTable id="480" code="ZMB" value="Zambia" table_number="0399"/>
+    <HL7DefinedCodeTable id="480"/>
+
+    <HL7CodeTable id="481" code="ZWE" value="Zimbabwe" table_number="0399"/>
+    <HL7DefinedCodeTable id="481"/>
+
+    <HL7CodeTable id="482" code="I" value="Ideographic (i.e., Kanji)" table_number="0465"/>
+    <HL7DefinedCodeTable id="482"/>
+
+    <HL7CodeTable id="483" code="A" value="Alphabetic (i.e., Default or some single-byte)" table_number="0465"/>
+    <HL7DefinedCodeTable id="483"/>
+
+    <HL7CodeTable id="484" code="P" value="Phonetic (i.e., ASCII, Katakana, Hiragana, etc.)" table_number="0465"/>
+    <HL7DefinedCodeTable id="484"/>
+
+    <HL7CodeTable id="485" code="L" value="Ancillary (filler) department is source of comment" table_number="0105"/>
+    <HL7DefinedCodeTable id="485"/>
+
+    <HL7CodeTable id="486" code="O" value="Other system is source of comment" table_number="0105"/>
+    <HL7DefinedCodeTable id="486"/>
+
+    <HL7CodeTable id="487" code="P" value="Orderer (placer) is source of comment" table_number="0105"/>
+    <HL7DefinedCodeTable id="487"/>
+
+    <HL7CodeTable id="488" code="&lt;" value="Below absolute low-off instrument scale" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="488"/>
+
+    <HL7CodeTable id="489" code="&gt;" value="Above absolute high-off instrument scale" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="489"/>
+
+    <HL7CodeTable id="490" code="A" value="Abnormal (applies to non-numeric results)" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="490"/>
+
+    <HL7CodeTable id="491" code="AA" value="Very abnormal (applies to non-numeric units, analogous to panic limits for numeric units)" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="491"/>
+
+    <HL7CodeTable id="492" code="B" value="Better--use when direction not relevant" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="492"/>
+
+    <HL7CodeTable id="493" code="D" value="Significant change down" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="493"/>
+
+    <HL7CodeTable id="494" code="H" value="Above high normal" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="494"/>
+
+    <HL7CodeTable id="495" code="HH" value="Above upper panic limits" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="495"/>
+
+    <HL7CodeTable id="496" code="I" value="Intermediate. Indicates for microbiology susceptibilities only." table_number="0078"/>
+    <HL7UserDefinedCodeTable id="496"/>
+
+    <HL7CodeTable id="497" code="L	" value="Below low normal" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="497"/>
+
+    <HL7CodeTable id="498" code="LL" value="Below lower panic limits" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="498"/>
+
+    <HL7CodeTable id="499" code="MS" value="Moderately susceptible. Indicates for microbiology susceptibilities only." table_number="0078"/>
+    <HL7UserDefinedCodeTable id="499"/>
+
+    <HL7CodeTable id="500" code="N	" value="Normal (applies to non-numeric results)" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="500"/>
+
+    <HL7CodeTable id="501" code="null" value="No range defined, or normal ranges don&apos;t apply" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="501"/>
+
+    <HL7CodeTable id="502" code="R" value="Resistant. Indicates for microbiology susceptibilities only." table_number="0078"/>
+    <HL7UserDefinedCodeTable id="502"/>
+
+    <HL7CodeTable id="503" code="S" value="Susceptible. Indicates for microbiology susceptibilities only." table_number="0078"/>
+    <HL7UserDefinedCodeTable id="503"/>
+
+    <HL7CodeTable id="504" code="U" value="Significant change up" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="504"/>
+
+    <HL7CodeTable id="505" code="VS" value="Very susceptible. Indicates for microbiology susceptibilities only." table_number="0078"/>
+    <HL7UserDefinedCodeTable id="505"/>
+
+    <HL7CodeTable id="506" code="W" value="Worse - use when direction not relevant" table_number="0078"/>
+    <HL7UserDefinedCodeTable id="506"/>
+
+    <HL7CodeTable id="507" code="C" value="Record coming over is a correction and thus replaces a final result" table_number="0085"/>
+    <HL7DefinedCodeTable id="507"/>
+
+    <HL7CodeTable id="508" code="D" value="Deletes the OBX record" table_number="0085"/>
+    <HL7DefinedCodeTable id="508"/>
+
+    <HL7CodeTable id="509" code="F" value="Final results; Can only be changed with a corrected result." table_number="0085"/>
+    <HL7DefinedCodeTable id="509"/>
+
+    <HL7CodeTable id="510" code="I" value="Specimen in lab; results pending" table_number="0085"/>
+    <HL7DefinedCodeTable id="510"/>
+
+    <HL7CodeTable id="511" code="N" value="Not asked; used to affirmatively document that the observation identified in the OBX was not sought when the universal service ID in OBR-4 implies that it would be sought." table_number="0085"/>
+    <HL7DefinedCodeTable id="511"/>
+
+    <HL7CodeTable id="512" code="O" value="Order detail description only (no result)" table_number="0085"/>
+    <HL7DefinedCodeTable id="512"/>
+
+    <HL7CodeTable id="513" code="P" value="Preliminary results" table_number="0085"/>
+    <HL7DefinedCodeTable id="513"/>
+
+    <HL7CodeTable id="514" code="R" value="Results entered -- not verified" table_number="0085"/>
+    <HL7DefinedCodeTable id="514"/>
+
+    <HL7CodeTable id="515" code="S" value="Partial results" table_number="0085"/>
+    <HL7DefinedCodeTable id="515"/>
+
+    <HL7CodeTable id="516" code="U" value="Results status change to final without retransmitting results already sent as ‘preliminary.’  E.g., radiology changes status from preliminary to final" table_number="0085"/>
+    <HL7DefinedCodeTable id="516"/>
+
+    <HL7CodeTable id="517" code="W" value="Post original as wrong, e.g., transmitted for wrong patient" table_number="0085"/>
+    <HL7DefinedCodeTable id="517"/>
+
+    <HL7CodeTable id="518" code="X" value="Results cannot be obtained for this observation" table_number="0085"/>
+    <HL7DefinedCodeTable id="518"/>
+
+    <HL7CodeTable id="519" code="ASN" value="Answering Service Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="519"/>
+
+    <HL7CodeTable id="520" code="BPN" value="Beeper Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="520"/>
+
+    <HL7CodeTable id="521" code="EMR" value="Emergency Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="521"/>
+
+    <HL7CodeTable id="522" code="NET" value="Network (email) Address" table_number="0201"/>
+    <HL7DefinedCodeTable id="522"/>
+
+    <HL7CodeTable id="523" code="ORN" value="Other Residence Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="523"/>
+
+    <HL7CodeTable id="524" code="PRN" value="Primary Residence Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="524"/>
+
+    <HL7CodeTable id="525" code="VHN" value="Vacation Home Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="525"/>
+
+    <HL7CodeTable id="526" code="WPN" value="Work Number" table_number="0201"/>
+    <HL7DefinedCodeTable id="526"/>
+
+    <HL7CodeTable id="527" code="BP" value="Beeper" table_number="0202"/>
+    <HL7DefinedCodeTable id="527"/>
+
+    <HL7CodeTable id="528" code="CP" value="Cellular Phone" table_number="0202"/>
+    <HL7DefinedCodeTable id="528"/>
+
+    <HL7CodeTable id="529" code="FX" value="Fax" table_number="0202"/>
+    <HL7DefinedCodeTable id="529"/>
+
+    <HL7CodeTable id="530" code="Internet" value="Internet Address: Use Only If Telecommunication Use Code Is NET" table_number="0202"/>
+    <HL7DefinedCodeTable id="530"/>
+
+    <HL7CodeTable id="531" code="MD" value="Modem" table_number="0202"/>
+    <HL7DefinedCodeTable id="531"/>
+
+    <HL7CodeTable id="532" code="PH" value="Telephone" table_number="0202"/>
+    <HL7DefinedCodeTable id="532"/>
+
+    <HL7CodeTable id="533" code="TDD" value="Telecommunications Device for the Deaf" table_number="0202"/>
+    <HL7DefinedCodeTable id="533"/>
+
+    <HL7CodeTable id="534" code="TTY" value="Teletypewriter" table_number="0202"/>
+    <HL7DefinedCodeTable id="534"/>
+
+    <HL7CodeTable id="535" code="X.400" value="X.400 email address: Use Only If Telecommunication Use Code Is NET" table_number="0202"/>
+    <HL7DefinedCodeTable id="535"/>
+
+    <HL7CodeTable id="536" code="M" value="Maternity" table_number="0098"/>
+    <HL7UserDefinedCodeTable id="536"/>
+
+    <HL7CodeTable id="537" code="S" value="Standard" table_number="0098"/>
+    <HL7UserDefinedCodeTable id="537"/>
+
+    <HL7CodeTable id="538" code="U" value="Unified" table_number="0098"/>
+    <HL7UserDefinedCodeTable id="538"/>
+
+    <HL7CodeTable id="539" code="1" value="Full time employed" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="539"/>
+
+    <HL7CodeTable id="540" code="2" value="Part time employed" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="540"/>
+
+    <HL7CodeTable id="541" code="3" value="Unemployed" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="541"/>
+
+    <HL7CodeTable id="542" code="4" value="Self-employed" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="542"/>
+
+    <HL7CodeTable id="543" code="5" value="Retired" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="543"/>
+
+    <HL7CodeTable id="544" code="6" value="On active military duty" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="544"/>
+
+    <HL7CodeTable id="545" code="9" value="Unknown" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="545"/>
+
+    <HL7CodeTable id="546" code="C" value="Contract, per diem" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="546"/>
+
+    <HL7CodeTable id="547" code="L" value="Leave of absence (e.g. Family leave, sabbatical, etc.)" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="547"/>
+
+    <HL7CodeTable id="548" code="O" value="Other" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="548"/>
+
+    <HL7CodeTable id="549" code="T" value="Temporarily unemployed" table_number="0066"/>
+    <HL7UserDefinedCodeTable id="549"/>
+
+</dataset>

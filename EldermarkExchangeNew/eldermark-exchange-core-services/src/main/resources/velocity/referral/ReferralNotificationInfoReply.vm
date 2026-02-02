@@ -1,0 +1,10 @@
+<div>
+    <b>Dear ${dto.recipientName},</b>
+    <br><br>
+    You have a reply to a request for information about the referral for ${dto.clientName}.
+        <br><br>
+    #if($dto.url)
+        Please login to the Simply Connect platform to view the details of the request.
+        #parse( "velocity/button.vm")
+    #end
+</div>

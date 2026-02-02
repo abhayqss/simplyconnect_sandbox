@@ -1,0 +1,228 @@
+<html>
+<head>
+    <style type="text/css">
+
+        P{
+            margin: 0 0 10px;
+        }
+
+        .patientDetailsSection {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            padding-left: 0px !important;
+        }
+
+        .noteDetails {
+            padding-right: 15px;
+            padding-left: 0px !important;
+            padding-bottom: 5px;
+        }
+
+        .noteSection {
+            padding-left: 0px !important;
+            padding-bottom: 15px;
+        }
+
+        .sectionHead {
+            margin-top: 20px;
+            font-weight: bolder;
+            font-size: 18px;
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        .sectionSubHead{
+            color: #3c5893;
+            font-weight: bolder;
+            font-size: 16px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            padding-left: 30px !important;
+        }
+
+        .sectionSubHead.no-border {
+            border-top: 0;
+            border-bottom: 0;
+            padding-top: 0;
+        }
+
+        .no-border {
+            border-top: 0;
+            border-bottom: 0;
+        }
+
+        .col-md-4 {
+            width: 33.33333333%;
+            float: left;
+            font-weight: bold;
+        }
+
+        .col-md-8 {
+            width: 66.66666667%;
+            float: left;
+        }
+
+        .col-md-12 {
+            width: 100%;
+            float: left;
+        }
+
+        .footer {
+            float: left;
+            padding-top: 20px;
+            width: 100%;
+            padding-bottom: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div>Dear ${notification.userName},</div>
+<div>
+    <br/>
+    A note has been ${notification.action} the Simply Connect system.
+
+## ====================== Patient details ================================
+    <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; padding-top: 15px; float: left;">Patient Info</span>
+
+    <div class="col-md-12 patientDetailsSection" style="width: 100%; float: left; padding-top: 20px; padding-bottom: 10px; margin-bottom: 10px; padding-left: 45px;">
+        <div class="col-md-12" style="width: 100%; float: left;">
+            <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Name</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.displayName}</p>
+        </div>
+        #if($StringUtils.isNotEmpty($patient.ssn))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Social Security Number</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.ssn}</p>
+            </div>
+        #end
+        #if($StringUtils.isNotEmpty($patient.birthDate))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Date of Birth</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.birthDate}</p>
+            </div>
+        #end
+        #if($StringUtils.isNotEmpty($patient.gender))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Gender</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.gender}</p>
+            </div>
+        #end
+        #if($StringUtils.isNotEmpty($patient.maritalStatus))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Marital Status</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.maritalStatus}</p>
+            </div>
+        #end
+
+        #if($patient.address && $StringUtils.isNotEmpty($patient.address.displayAddress))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Address</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.address.displayAddress}</p>
+            </div>
+        #end
+        #if($StringUtils.isNotEmpty($patient.organization))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Organization</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.organization}</p>
+            </div>
+        #end
+        #if($StringUtils.isNotEmpty($patient.community))
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Community</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${patient.community}</p>
+            </div>
+        #end
+    </div>
+
+## ============================= Notes details =====================================
+    <span class="sectionHead col-md-12" style="color: #3c5893; font-weight: bolder; font-size: 16px; padding-left: 0px; padding-top: 15px; float: left;">Note Details</span>
+    <div class="col-md-12 noteDetails" style="width: 100%; float: left; padding-right: 15px; padding-left: 15px; padding-bottom: 5px;">
+        <span class="sectionSubHead col-md-12 no-border" style="color: #3c5893; font-weight: bolder;font-size: 16px;padding-bottom: 15px;padding-top: 15px;padding-left: 30px;width: 100%;float: left;">Summary</span>
+        <div class="col-md-12 noteSection no-border" style="width: 100%;float: left; padding-left: 30px; padding-bottom: 15px;">
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Type</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.type}</p>
+            </div>
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Subtype</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.subType.label}</p>
+            </div>
+            #if($note.type == "Event Note")
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Event:</p>
+                    <p class="col-md-8" style="width: 66.66666667%; float: left;" style="font-weight: bold">
+                        ${note.event.description}, $date.format('MM/dd/yyyy hh:mm a (z)', $note.event.date)
+                    </p>
+                </div>
+            #end
+            <div class="col-md-12" style="width: 100%; float: left;">
+                <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Status</p><p class="col-md-8" style="width: 66.66666667%; float: left;" style="font-weight: bold">${note.status}</p>
+            </div>
+            <div class="col-md-12" style="width: 100%; float: left;">
+                #if($note.status == "Created")
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Date Created</p>
+                #else
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Last Modified Date</p>
+                #end
+                <p class="col-md-8" style="width: 66.66666667%; float: left;">$date.format('MM/dd/yyyy hh:mm a (z)', $note.lastModifiedDate)</p>
+            </div>
+            #if($StringUtils.isNotEmpty($note.personSubmittingNote))
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Person Submitting Note</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.personSubmittingNote}</p>
+                </div>
+            #end
+            #if($StringUtils.isNotEmpty($note.role))
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Role</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.role}</p>
+                </div>
+            #end
+        </div>
+
+        <span class="sectionSubHead col-md-12" style="color: #3c5893; font-weight: bolder;font-size: 16px;padding-bottom: 15px;padding-top: 15px;padding-left: 30px;width: 100%;float: left;">Description</span>
+        <div id="note_description" class="col-md-12 noteSection no-border" style="width: 100%;float: left; padding-left: 30px; padding-bottom: 15px;">
+            #if($StringUtils.isNotEmpty($note.subjective))
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Subjective</p><p class="col-md-8" style="width: 66.66666667%; float: left;" >${note.subjective}</p>
+                </div>
+            #end
+            #if($StringUtils.isNotEmpty($note.objective))
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Objective</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.objective}</p>
+                </div>
+            #end
+            #if($StringUtils.isNotEmpty($note.assessment))
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Assessment</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.assessment}</p>
+                </div>
+            #end
+            #if($StringUtils.isNotEmpty($note.plan))
+                <div class="col-md-12" style="width: 100%; float: left;">
+                    <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">Plan</p><p class="col-md-8" style="width: 66.66666667%; float: left;">${note.plan}</p>
+                </div>
+            #end
+        </div>
+
+        #if($note.status == "Updated")
+            <span class="sectionSubHead col-md-12" style="color: #3c5893; font-weight: bolder;font-size: 16px;padding-bottom: 15px;padding-top: 15px;padding-left: 30px;width: 100%;float: left;">History</span>
+            <div id="note_history" class="col-md-12  noteSection no-border">
+                #foreach( $historyNote in ${note.historyNotes} )
+                    <div class="col-md-12" style="width: 100%; float: left;">
+                        <p class="col-md-4" style="width: 33.33333333%; float: left; font-weight: bold">${historyNote.status}</p>
+                        <p class="col-md-8" style="width: 66.66666667%; float: left;">
+                            By ${historyNote.personSubmittingNote}, ${historyNote.role} on $date.format('MM/dd/yyyy hh:mm a (z)', $historyNote.lastModifiedDate)
+                        </p>
+                    </div>
+                #end
+            </div>
+        #end
+    </div>
+
+
+</div>
+<div class="footer" style="float: left; padding-top: 20px; width: 100%; padding-bottom: 20px;">
+    Please follow the <a href="${notification.portalUrl}?startPage=care-coordination/patients&note=${notification.noteId}&patient=${notification.patientId}"
+                         target="_blank">link</a> to view the details of this note in Simply Connect system.
+</div>
+<div style="float: left; padding-top: 20px; width: 100%; padding-bottom: 20px;">
+##<br/> <br/>
+    Regards,<br/>
+    Simply Connect Team
+    <br/><br/>
+    ***Important: Please do not reply to this email. This mailbox is not set up to receive email.
+</div>
+##</div>
+<div></div>
+</body>
+</html>

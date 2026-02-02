@@ -1,0 +1,69 @@
+@import "custom/_fonts";
+
+.SectionDetails {
+  flex: 1;
+  position: relative;
+
+  padding: 20px 15px 0;
+
+  @media (min-width: 450px) {
+    padding: 30px 20px 0;
+  }
+
+  @media (min-width: 550px) {
+    padding: 50px 40px 0;
+  }
+
+  &-Header {}
+
+  &-Title {
+    position: relative;
+  }
+
+  &-TitleText {
+    font-size: 16px;
+    color: #222222;
+    text-transform: uppercase;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-TitleBackground {}
+
+  &-Segments {
+    margin: 0 -20px;
+  }
+
+  &-Segment {
+    padding: 5px 20px 30px;
+  }
+
+  &-Video {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  &-Section {
+    max-width: 600px;
+    margin-bottom: 32px;
+    color: $font-color_head-text;
+    font-size: $font-size_section;
+  }
+
+  &-SectionTitle {
+    color: $font-color_head-text;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: "Open Sans Bold", sans-serif;
+  }
+
+  &-Actions {}
+
+  &-Action {
+    margin-right: 7px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

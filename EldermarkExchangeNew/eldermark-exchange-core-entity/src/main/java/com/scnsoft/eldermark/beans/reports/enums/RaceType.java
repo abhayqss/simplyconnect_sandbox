@@ -1,0 +1,15 @@
+package com.scnsoft.eldermark.beans.reports.enums;
+
+public enum RaceType {
+
+    AMERICAN_INDIAN_ALASKA_NATIVE,
+    ASIAN,
+    BLACK_OR_AFRICAN_AMERICAN,
+    INIDIVIDUAL_DOES_NOT_KNOW,
+    INDIVIDUAL_REFUSED,
+    INFO_NOT_COLLECTED,
+    MIXED_RACE,
+    NATIVE_HAWAIIAN_OR_OTHER_PATHIFIC_ISLANDER,
+    WHITE
+
+}

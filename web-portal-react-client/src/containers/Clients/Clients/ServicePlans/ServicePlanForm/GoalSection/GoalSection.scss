@@ -1,0 +1,38 @@
+@import "custom/_fonts";
+
+.GoalSection {
+  &-Title {
+    color: $font-color_head-text;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  &-CheckboxField.form-group {
+    padding-top: 35px;
+  }
+
+  &-TextAreaField {
+    .TextField-Input {
+      height: 80px;
+    }
+  }
+
+  &-SearchServiceProviderBtn {
+    &.btn {
+      padding: 0 20px;
+      height: 35px;
+    }
+  }
+
+  &-SelectFieldLabelIcon {
+    margin-left: 5px;
+  }
+}

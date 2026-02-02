@@ -1,0 +1,64 @@
+.ReferralRequestForm-little-Section {
+  padding: 0 40px;
+}
+
+.VendorsTeamMemberList-MemberName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 6px;
+  font-family: "Open Sans Semibold", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+
+  &_disabled {
+    cursor: default;
+  }
+}
+
+.VendorsTeamMemberList-MemberAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  @media (max-width: 375px) {
+    display: none !important;
+  }
+}
+
+.VendorsTeamMemberList-Header-MemberName {
+  @media (min-width: 1024px) {
+    width: 20%;
+  }
+}
+
+.VendorsTeamMemberList-MemberRelation {
+  font-size: 15px;
+  color: #949494;
+  margin-left: 6px;
+}
+
+.VendorTeamMemberList-Email {
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.VendorsTeamMemberList-Member {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.little-checkBox {
+  width: 20px;
+  height: 20px;
+}

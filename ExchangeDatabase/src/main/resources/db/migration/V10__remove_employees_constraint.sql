@@ -1,0 +1,5 @@
+SET XACT_ABORT ON
+GO
+
+ALTER TABLE [dbo].[Employee] DROP CONSTRAINT UK_kd6qs9g86voxkvi19oww2x00d;
+GO

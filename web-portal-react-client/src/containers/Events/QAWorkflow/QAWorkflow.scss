@@ -1,0 +1,185 @@
+.Workflow {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 30px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .Events-Title {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+
+    .Events-TitleText {
+      position: relative;
+      display: inline-block;
+      font-size: 26px;
+      color: #4C4E51;
+      font-family: "Open Sans Semibold", sans-serif;
+
+    }
+
+    .Events-FilterSwitcher {
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .EventFilter-Expanded {
+      transform: rotate(90deg);
+      transition: 0.3s;
+    }
+
+    .EventFilter-Collapsed {
+      transform: rotate(0deg);
+      transition: 0.3s;
+    }
+  }
+
+  .EventFilter {
+    width: 100%;
+    padding: 15px 24px;
+    background-color: #f9f9f9;
+    margin-bottom: 24px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+}
+
+.Events-OrganizationSelect,
+.Events-CommunitySelect {
+  &:hover {
+    padding: 8px 16px;
+  }
+
+  margin-right: 25px;
+  display: inline-block;
+  max-width: 420px;
+
+  .MultiSelect-ToggleText {
+    color: #448993;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleTextOnExpand {
+    color: #448993;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleChevron {
+    fill: #448993;
+  }
+}
+
+.qaWorkflowAction {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  img {
+    cursor: pointer;
+
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}
+
+.line-workflow-status {
+  text-align: center;
+}
+
+.submit-status {
+  background-color: #e5f7fc;
+  color: #01abe7;
+}
+
+.pending-status {
+  color: #F4B940;
+  background-color: #FEF7EA;
+}
+
+.approved-status {
+  color: #4C4E51;
+  background-color: #F0F2F7;
+}
+
+.feed-back-status {
+  color: #F45640;
+  background-color: #F7E6E2;
+}
+
+.in-progress-status {
+  color: #76BB9B;
+  background-color: #EDF6F1;
+}
+
+.workflow-client-name {
+  width: 100px;
+}
+
+.workflow-name-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workflow-create-name {
+  color: #4c4e51;
+  width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workflow-name {
+  cursor: pointer;
+  color: #075AA0;
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workflow-community {
+  width: 160px;
+}
+
+.workflow-date {
+  color: #4C4E51;
+  min-width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.workflow-table-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 42px;
+  height: 42px;
+}
+
+.tooltips-box-show {
+  padding: 8px;
+}
+
+.tooltips-box-show-inner {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.qa-workflow-tooltip-item {
+  color: #075AA0;
+  margin: 5px;
+  font-weight: 500;
+}

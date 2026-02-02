@@ -1,0 +1,25 @@
+@import "../../../../custom/fonts";
+
+.Detail {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.Detail-Title {
+  color: $font-color_head-text;
+  text-transform: uppercase;
+  font-size: $font-size_detail-title-text;
+  padding-right: 15px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.Detail-Value {
+  max-width: 500px;
+  word-break: break-word;
+  font-size: $font-size_detail-value-text;
+  color: $font-color_head-text;
+  font-family: "Open Sans", sans-serif;
+}

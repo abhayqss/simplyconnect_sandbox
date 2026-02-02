@@ -1,0 +1,16 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+ALTER TABLE [dbo].[ServicePlanGoal] ADD
+	[goal_completion] [int] NULL
+GO
+
+SET ANSI_PADDING OFF
+GO
+

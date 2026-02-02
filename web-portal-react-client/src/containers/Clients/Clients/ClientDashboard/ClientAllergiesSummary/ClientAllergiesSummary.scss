@@ -1,0 +1,61 @@
+@import "custom/_fonts";
+
+.ClientAllergiesSummary {
+  .Table_empty {
+    table-layout: fixed;
+  }
+}
+
+.ClientAllergiesSummary-Body {
+  display: flex;
+  border-radius: 3px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.ClientAllergiesSummary-Title {
+  font-size: 22px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.ClientAllergiesSummary-TitleText {
+  margin-right: 6px;
+}
+
+.AllergyList {
+  font-size: $font-size_list-item-text;
+
+  caption {
+    display: none;
+  }
+}
+
+.ClientAllergiesSummary-AllergiesCount {
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 4px 11px;
+  }
+
+  position: absolute;
+  top: 0;
+}
+
+.ClientAllergiesSummary-Substance {
+  display: block;
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+

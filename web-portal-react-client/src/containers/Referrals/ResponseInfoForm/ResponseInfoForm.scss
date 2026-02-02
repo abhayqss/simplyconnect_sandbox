@@ -1,0 +1,43 @@
+.ResponseInfoForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ResponseInfoForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.ResponseInfoForm-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ResponseInfoForm-TextArea {
+  .TextField-Input {
+    height: 80px;
+  }
+}
+
+.ResponseInfoForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 25px 40px;
+  border-top: 1px solid #dee2e6;
+
+  .ResponseInfoForm-Button {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &_Submit {
+      width: 120px;
+    }
+  }
+}

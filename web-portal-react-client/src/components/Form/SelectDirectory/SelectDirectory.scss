@@ -1,0 +1,195 @@
+@import "custom/_fonts";
+
+.SelectField {
+  position: relative;
+  
+  }
+
+  .MultiSelect-Options {
+    width: 100%;
+  }
+
+  
+.SelectField-Error {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #dc3545;
+}
+
+.SelectField-Label {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.selected-options {
+  width: 100%;
+  height: 35px;
+  border: 1px solid  #dddddd;
+  padding: 6px 18px;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(34, 34, 34, 0.5);
+  &:hover {
+    border: 1px solid #bfbdbd;
+  }
+}
+.selected-options-text {
+  max-width: 440px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.MultiSelect-Drop-Down {
+  width: 100%;
+  max-height: 496.77px;
+  height: auto;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+.MultiSelect-Directory-bottom {
+  max-height:441.77px ;
+  overflow: scroll
+}
+
+.MultiSelect-Directory-Top {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: #075AA0;
+
+  .MultiSelect-Directory-Current {
+    color: #C4C9D1;
+    padding: 0 15px;
+    border-right: none;
+  }
+}
+
+.MultiSelect-Directory-Back {
+  width: 95px;
+  min-width: 95px;
+  height: 25px;
+  padding: 0 15px;
+  cursor: pointer;
+  border-right: 1px solid #C4C9D1;
+  font-size: 14px;
+  display: flex;
+  align-items: center; 
+}
+
+
+.MultiSelect-Directory-Img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+
+.MultiSelect-Directory-List {
+  height: 24px;
+  padding: 0 15px;
+  border-right: 1px solid #C4C9D1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.MultiSelect-Folder {
+    padding: 10px 6px;
+    display: flex;
+
+    &:hover {
+      cursor: pointer;
+    }
+}
+.MultiSelect-Template {
+    padding: 10px 6px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #eee;
+    }
+
+}
+.MultiSelect-Template-Label{
+  display: flex;
+  //align-items: center;
+  cursor:pointer
+}
+
+
+
+.MultiSelect-Drop-Down-Mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+.MultiSelect-Template-Text {
+  font-size: 14px;
+  transform: translate(0, 10%);
+}
+
+.MultiSelect-Directory-Img-Title{
+  color: #075AA0;
+  font-weight: 700;
+  font-size: 14px;
+  transform: translate(0%, 10%);
+
+}
+
+/* CustomCheckbox.css */
+
+.MultiSelect-Template-Box {
+  display: inline-block;
+  position: relative;
+  height: 27px;
+  width: 27px;
+  border: 1px solid #e0e0e0;
+  margin-right: 10px;
+  flex: none;
+  overflow: hidden;
+  padding: 3px;
+
+  &-Icon {
+    left: 8px;
+    position: absolute;
+    top: 4px;
+    width: 9px;
+    height: 15px;
+    border: solid #0064ad;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+
+
+
+
+

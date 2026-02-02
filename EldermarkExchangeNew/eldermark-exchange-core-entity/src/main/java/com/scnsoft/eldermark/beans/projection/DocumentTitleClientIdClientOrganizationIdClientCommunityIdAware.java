@@ -1,0 +1,6 @@
+package com.scnsoft.eldermark.beans.projection;
+
+import com.scnsoft.eldermark.entity.document.DocumentTitleAware;
+
+public interface DocumentTitleClientIdClientOrganizationIdClientCommunityIdAware extends ClientIdClientOrganizationIdClientCommunityIdAware, DocumentTitleAware {
+}

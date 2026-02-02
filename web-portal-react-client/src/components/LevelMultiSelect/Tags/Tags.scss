@@ -1,0 +1,44 @@
+.Tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  &_disabled {
+    .Tag {
+      opacity: 0.7;
+    }
+
+    .Tag-Icon {
+      display: none;
+    }
+  }
+}
+
+.Tag {
+  background-color: #fff;
+  border: 1px solid #0064ad;
+  color: #0064ad;
+  border-radius: 2px;
+  cursor: default;
+  padding: 4px 8px;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  &-Name {
+    font-size: 13px;
+  }
+
+  &-Icon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+
+    &__cross {
+      path {
+        fill: #0064ad;
+      }
+    }
+  }
+}

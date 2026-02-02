@@ -1,0 +1,1 @@
+export { default as ServicePrimaryInfo } from './ServicePrimaryInfo/ServicePrimaryInfo'

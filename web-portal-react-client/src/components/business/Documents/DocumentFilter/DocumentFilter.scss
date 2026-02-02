@@ -1,0 +1,34 @@
+.DocumentFilter {
+  width: 100%;
+  padding: 20px 24px;
+  background-color: #f9f9f9;
+  margin-bottom: 40px;
+
+  &-CheckboxField {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    padding-bottom: 25px;
+  }
+
+  &-Buttons {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-Btn {
+    margin-right: 23px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.btn {
+      padding: 0 15px;
+      width: 100px;
+      margin-top: 10px;
+    }
+  }
+}

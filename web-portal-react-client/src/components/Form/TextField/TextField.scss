@@ -1,0 +1,89 @@
+@import "custom/_fonts";
+
+.TextField {
+  position: relative;
+
+  &_disabled {
+    .TextField-Label {
+      color: #898989;
+    }
+  }
+
+  &.mb-3 {
+    margin-bottom: 20px !important;
+  }
+}
+
+.TextField-Label{
+  font-size: 13px;
+  font-weight: bold;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.TextField-Input {
+  &.form-control {
+    height: 35px;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
+    font-size: $font-size_form-field-value;
+    color: $font-color_head-text;
+
+    &:-webkit-autofill {
+      background-color: #ffffff;
+      -webkit-box-shadow: 0 0 0 1000px #fff inset;
+
+      &:focus {
+        background-color: #ffffff;
+        -webkit-box-shadow: 0 0 0 1000px #fff inset;
+      }
+    }
+
+    &::placeholder {
+      color: $font-color_placeholder;
+    }
+
+    &:focus {
+      border-color: #898989;
+      background-color: #ffffff !important;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    &:hover {
+      border-color: #bfbdbd;
+    }
+
+    &:disabled {
+      color: #898989;
+      background-color: #f1f1f1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    &.is-invalid {
+      border-color: #f33232;
+      background-image: none;
+    }
+  }
+}
+
+textarea.TextField-Input.form-control {
+  height: auto;
+}
+
+.TextField-Error {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  font-weight: normal;
+  color: #dc3545;
+}
+
+.TextField-Hint {
+  position: absolute;
+  left: 0;
+  font-size: 13px;
+  color: #898989;
+}

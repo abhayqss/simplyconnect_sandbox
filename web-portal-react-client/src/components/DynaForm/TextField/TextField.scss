@@ -1,0 +1,10 @@
+@import "custom/_fonts";
+
+.form-group.field.field-string {
+  & > .control-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: $font-color_head-text;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+}

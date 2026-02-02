@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <!-- Apply security advice (order 1) at first and only then apply transactional advice (order 2) -->
+    <global-method-security order="1" pre-post-annotations="enabled" secured-annotations="enabled">
+        <expression-handler ref = "methodSecurityExpressionHandler" />
+    </global-method-security>
+
+    <http pattern="/ws/**" security="none"/>
+
+    <!--<http pattern="/service/**" security="none"/>-->
+
+    <!--<http pattern="/marketplace/**" security="none"/>-->
+
+    <http pattern="/marketplace/**" security="none"/>
+
+    <beans:bean name="eventsAccessDeniedHandler"
+                class="com.scnsoft.eldermark.web.controller.handler.EventsAccessDeniedHandler"/>
+
+    <beans:bean name="ajaxAccessDeniedHandler"
+                class="com.scnsoft.eldermark.web.controller.handler.AjaxAccessDeniedHandler">
+        <beans:property name="errorPage" value="/access-denied"/>
+    </beans:bean>
+
+    <beans:bean id = "webSecurityExpressionHandler"
+                class = "org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler">
+        <beans:property name="roleHierarchy" ref="roleHierarchy"/> <!-- Expression handler should be above <http/> -->
+    </beans:bean>
+
+    <http pattern="/events/**"
+          auto-config="false"
+          use-expressions="true"
+          authentication-manager-ref="eventsAuthenticationManager"
+          access-decision-manager-ref="accessDecisionManager">
+        <access-denied-handler ref="eventsAccessDeniedHandler"/>
+        <http-basic/>
+        <intercept-url pattern="/**" access="isAuthenticated()" requires-channel="any"/>
+
+        <expression-handler ref="webSecurityExpressionHandler"/>
+    </http>
+
+    <http pattern="/device-events/**"
+          auto-config="false"
+          use-expressions="true"
+          authentication-manager-ref="eventsAuthenticationManager"
+          access-decision-manager-ref="accessDecisionManager">
+        <access-denied-handler ref="eventsAccessDeniedHandler"/>
+        <http-basic/>
+        <intercept-url pattern="/**" access="isAuthenticated()" requires-channel="any"/>
+
+        <expression-handler ref="webSecurityExpressionHandler"/>
+    </http>
+
+    <http pattern="/documents/xds/*"
+          auto-config="false"
+          use-expressions="true"
+          authentication-manager-ref="eventsAuthenticationManager">
+        <access-denied-handler ref="eventsAccessDeniedHandler"/>
+        <http-basic/>
+        <intercept-url pattern="/**" access="isAuthenticated()" requires-channel="any"/>
+    </http>
+
+    <http pattern="/scan-solution/**" auto-config="false" use-expressions="true" disable-url-rewriting="true"
+          entry-point-ref="loginUrlAuthenticationEntryPoint" access-decision-manager-ref="accessDecisionManager">
+        <custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrentSessionFilter"/>
+        <custom-filter position="FORM_LOGIN_FILTER" ref="cloudAuthenticationFilter"/>
+        <custom-filter before="SESSION_MANAGEMENT_FILTER" ref="ajaxInvalidSessionFilter"/>
+
+        <session-management session-authentication-strategy-ref="sas"/>
+
+        <expression-handler ref="webSecurityExpressionHandler"/>
+        <headers>
+            <cache-control/>
+            <content-type-options/>
+            <hsts/>
+            <frame-options/>
+            <xss-protection/>
+        </headers>
+        <access-denied-handler ref="ajaxAccessDeniedHandler"/>
+    </http>
+
+    <http pattern="/cloud_security_check**" auto-config="false" use-expressions="true" disable-url-rewriting="true"
+          entry-point-ref="loginUrlAuthenticationEntryPoint" access-decision-manager-ref="accessDecisionManager">
+        <custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrentSessionFilter"/>
+        <custom-filter position="FORM_LOGIN_FILTER" ref="cloudAuthenticationFilter"/>
+        <custom-filter before="SESSION_MANAGEMENT_FILTER" ref="ajaxInvalidSessionFilter"/>
+
+        <session-management session-authentication-strategy-ref="sas"/>
+
+        <expression-handler ref="webSecurityExpressionHandler"/>
+        <headers>
+            <cache-control/>
+            <content-type-options/>
+            <hsts/>
+            <frame-options/>
+            <xss-protection/>
+        </headers>
+        <access-denied-handler ref="ajaxAccessDeniedHandler"/>
+    </http>
+
+    <http auto-config="false" use-expressions="true" disable-url-rewriting="true"
+          entry-point-ref="loginUrlAuthenticationEntryPoint" access-decision-manager-ref="accessDecisionManager">
+        <custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrentSessionFilter"/>
+        <custom-filter position="FORM_LOGIN_FILTER" ref="usernamePasswordAuthenticationFilter"/>
+        <custom-filter before="SESSION_MANAGEMENT_FILTER" ref="ajaxInvalidSessionFilter"/>
+
+        <intercept-url pattern="/login*" access="permitAll"/>
+        <intercept-url pattern="/change-password*" access="permitAll"/>
+        <intercept-url pattern="/login-new-password*" access="permitAll"/>
+        <intercept-url pattern="/loginlink/**" access="permitAll"/>
+        <intercept-url pattern="/access-denied" access="permitAll"/>
+        <intercept-url pattern="/version" access="permitAll"/>
+        <intercept-url pattern="/resources/**" access="permitAll"/>
+        <intercept-url pattern="/service/**" access="permitAll"/>
+        <!--<intercept-url pattern="/marketplace/*" access="permitAll"/>-->
+        <!--<intercept-url pattern="/marketplace*" access="permitAll"/>-->
+        <!--<intercept-url pattern="/marketplace**" access="permitAll"/>-->
+        <!--<intercept-url pattern="/marketplace**" access="permitAll"/>-->
+        <!--<intercept-url pattern="/marketplace" access="permitAll"/>-->
+        <!--<intercept-url pattern="/marketplace/**" access="permitAll"/>-->
+        <intercept-url pattern="/**" access="isAuthenticated()" requires-channel="${requires.channel}"/>
+
+        <logout logout-success-url="/login?logout=true" invalidate-session="true" delete-cookies="JSESSIONID"/>
+
+        <session-management session-authentication-strategy-ref="sas"/>
+
+        <expression-handler ref="webSecurityExpressionHandler"/>
+        <headers>
+            <cache-control/>
+            <content-type-options/>
+            <hsts/>
+            <frame-options/>
+            <xss-protection/>
+        </headers>
+        <access-denied-handler ref="ajaxAccessDeniedHandler"/>
+        <csrf />
+    </http>
+
+    <beans:bean id="loginUrlAuthenticationEntryPoint"
+                class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/login"/>
+    </beans:bean>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="authenticationProvider"/>
+    </authentication-manager>
+
+    <beans:bean id="authenticationProvider"
+                class="com.scnsoft.eldermark.authentication.ExchangeDaoAuthenticationProvider">
+        <beans:property name="passwordEncoder">
+            <beans:bean class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
+        </beans:property>
+        <beans:property name="userDetailsService" ref="exchangeUserDetailsService"/>
+    </beans:bean>
+
+    <beans:bean id="exchangeUserDetailsService" class="com.scnsoft.eldermark.security.ExchangeUserDetailsService">
+    </beans:bean>
+
+    <beans:bean id="cloudAuthenticationFilter"
+                class="com.scnsoft.eldermark.security.ExtraParamAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="cloudAuthenticationManager"/>
+        <beans:property name="sessionAuthenticationStrategy" ref="sas"/>
+        <beans:property name="filterProcessesUrl" value="/cloud_security_check"/>
+        <beans:property name="authenticationSuccessHandler" ref="successHandler"/>
+        <beans:property name="postOnly" value="true"/>
+        <beans:property name="usernameParameter" value="username"/>
+        <beans:property name="passwordParameter" value="password"/>
+        <beans:property name="extraParameter" value="company"/>
+        <beans:property name="authenticationDetailsSource" ref="authenticationDetailsSource"/>
+    </beans:bean>
+
+    <authentication-manager id="cloudAuthenticationManager" alias="cloudAuthenticationManager">
+        <authentication-provider>
+            <user-service>
+                <user name="service/scansol" password="Mv44@:AXAmqdQ~2" authorities="ROLE_SCAN_SOL_MANAGER, ROLE_CLOUD_STORAGE_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="usernamePasswordAuthenticationFilter"
+                class="com.scnsoft.eldermark.security.ExtraParamAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="sessionAuthenticationStrategy" ref="sas"/>
+        <beans:property name="filterProcessesUrl" value="/j_spring_security_check"/>
+        <beans:property name="authenticationFailureHandler" ref="failureHandler"/>
+        <beans:property name="authenticationSuccessHandler" ref="successHandler"/>
+        <beans:property name="postOnly" value="true"/>
+        <beans:property name="usernameParameter" value="username"/>
+        <beans:property name="passwordParameter" value="password"/>
+        <beans:property name="extraParameter" value="company"/>
+        <beans:property name="authenticationDetailsSource" ref="authenticationDetailsSource"/>
+    </beans:bean>
+
+    <beans:bean id="successHandler"
+                class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+        <beans:property name="defaultTargetUrl" value="/"/>
+        <!--<beans:property name="alwaysUseDefaultTargetUrl" value="true"/>-->
+    </beans:bean>
+
+
+
+    <beans:bean id="failureHandler" class="com.scnsoft.eldermark.security.ExchangeExceptionMappingAuthenticationFailureHandler">
+        <beans:property name="exceptionMappings">
+            <beans:props>
+                <beans:prop key="org.springframework.security.authentication.CredentialsExpiredException">/change-password</beans:prop>
+            </beans:props>
+        </beans:property>
+        <beans:property name="defaultFailureUrl" value="/login?error=true"/>
+    </beans:bean>
+
+    <!-- Session concurrency control -->
+
+    <beans:bean id="sas"
+                class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+        <beans:constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+        <beans:property name="maximumSessions" value="1"/>
+    </beans:bean>
+
+    <beans:bean id="concurrentSessionFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+        <beans:constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+        <beans:constructor-arg name="expiredUrl" value="/login?expired-session=true"/>
+    </beans:bean>
+
+    <beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl">
+    </beans:bean>
+
+    <!-- Invalid Session Strategy for AJAX requests -->
+
+    <beans:bean id="ajaxInvalidSessionFilter" class="com.scnsoft.eldermark.security.AjaxInvalidSessionFilter">
+        <beans:property name="invalidSessionStrategy" ref="ajaxInvalidSessionStrategy"/>
+    </beans:bean>
+
+    <beans:bean id="ajaxInvalidSessionStrategy" class="com.scnsoft.eldermark.security.SendErrorInvalidSessionStrategy">
+        <beans:constructor-arg name="statusCode" value="401"/>
+    </beans:bean>
+
+    <!-- Web Authentication Details-->
+    <beans:bean id="authenticationDetailsSource"
+                class="com.scnsoft.eldermark.security.RemoteAddressWebAuthenticationDetailSource">
+    </beans:bean>
+
+    <!--     -->
+    <authentication-manager id="eventsAuthenticationManager">
+        <authentication-provider ref="eventsAuthenticationProvider">
+        </authentication-provider>
+    </authentication-manager>
+
+
+    <beans:bean id="eventsAuthenticationProvider"
+                class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <beans:property name="passwordEncoder">
+            <beans:bean class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
+        </beans:property>
+        <beans:property name="userDetailsService" ref="eventsProviderUserDetailsService"/>
+    </beans:bean>
+
+    <beans:bean id="eventsProviderUserDetailsService"
+                class="com.scnsoft.eldermark.security.EventsProviderDetailsService"/>
+
+    <!-- Access Decision Management  -->
+    <beans:bean id="roleHierarchy"
+                class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
+        <beans:property name="hierarchy">
+            <beans:value>
+                ROLE_ELDERMARK_USER_COMMUNITY > ROLE_ELDERMARK_USER
+                ROLE_MANAGER_COMMUNITY > ROLE_MANAGER
+                ROLE_DIRECT_MANAGER_COMMUNITY > ROLE_DIRECT_MANAGER
+                ROLE_SUPER_MANAGER_COMMUNITY > ROLE_SUPER_MANAGER
+            </beans:value>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+        <beans:constructor-arg>
+            <beans:list>
+                <beans:bean class="org.springframework.security.access.vote.RoleHierarchyVoter">
+                    <beans:constructor-arg ref="roleHierarchy" />
+                </beans:bean>
+                <beans:bean class="org.springframework.security.web.access.expression.WebExpressionVoter">
+                    <beans:property name="expressionHandler" ref="webSecurityExpressionHandler"/>
+                </beans:bean>
+            </beans:list>
+        </beans:constructor-arg>
+    </beans:bean>
+
+    <beans:bean id="methodSecurityExpressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+        <beans:property name = "roleHierarchy" ref="roleHierarchy"/>
+    </beans:bean>
+</beans:beans>

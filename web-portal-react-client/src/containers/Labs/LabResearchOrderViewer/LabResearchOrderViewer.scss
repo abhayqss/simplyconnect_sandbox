@@ -1,0 +1,17 @@
+@media (min-width: 576px) {
+  .LabResearchOrderViewer {
+    &.modal-dialog {
+      max-width: 1040px;
+    }
+  }
+}
+
+.LabResearchOrderViewer {
+  .LabResearchOrderDetails {
+    padding-top: 0;
+  }
+
+  .Breadcrumbs {
+      display: none;
+  }
+}

@@ -1,0 +1,23 @@
+@import "custom/_fonts";
+
+.CTMemberSummary {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+
+  &-Avatar {
+    margin-right: 10px;
+  }
+
+  &-Initials {
+    color: $font-color_head-text;
+    font-size: 16px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Role {
+    color: $font-color_head-text;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+  }
+}

@@ -1,0 +1,35 @@
+.RequestSignatureWizard {
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &-FormFooter {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 20px 25px 40px;
+        border-top: 1px solid #dee2e6;
+
+        .btn {
+            padding: 0;
+            width: 100px;
+            height: 35px;
+        }
+    }
+
+    &-SubmitBtn {
+        display: inline-block;
+        position: relative;
+
+        &_disabled {
+            .btn.disabled {
+                pointer-events: none;
+            }
+        }
+
+        .btn {
+            width: 120px;
+        }
+    }
+}

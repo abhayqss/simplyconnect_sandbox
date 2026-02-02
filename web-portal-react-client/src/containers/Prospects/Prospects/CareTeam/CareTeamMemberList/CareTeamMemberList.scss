@@ -1,0 +1,13 @@
+@import "custom/_fonts";
+
+.CareTeamMemberList-Caption {
+  margin-top: 10px;
+}
+
+.CareTeamMemberList-ProspectName {
+    font-weight: normal;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    color: $font-color_head-text;
+    white-space: nowrap;
+}

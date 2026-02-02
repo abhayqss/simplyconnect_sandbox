@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>rxnorm-database</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+        <url>jdbc:sqlserver://localhost:1433;databaseName=rxnorm</url>
+        <user>sa</user>
+        <password>eldermark</password>
+
+        <mssql.jdbc.driver.version>6.4.0.jre7</mssql.jdbc.driver.version>
+		<flyway.placeholders.project.basedir>${project.basedir}</flyway.placeholders.project.basedir>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Dev</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.240.1.42:1433;databaseName=rxnorm</url>
+                <user>sa</user>
+                <password>qp?n-ytu?</password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Demo</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.240.1.42:1433;databaseName=rxnorm</url>
+                <user>sa</user>
+                <password>qp?n-ytu?</password>
+            </properties>
+        </profile>
+		
+		<profile>
+            <id>Prod</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.240.0.5:1433;databaseName=rxnorm</url>
+                <user>sa</user>
+                <password>m@$inop654</password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Stg</id>
+            <properties>
+                <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+                <url>jdbc:sqlserver://10.199.1.159:1433;databaseName=rxnorm</url>
+                <user>exchange-user</user>
+                <password>4uja!9hv5n9S=hB</password>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>${mssql.jdbc.driver.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.1.2</version>
+
+                <configuration>
+                    <driver>${driver}</driver>
+                    <url>${url}</url>
+                    <user>${user}</user>
+                    <password>${password}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>db/migration/V2__import_rxnorm.sql</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>db/migration/V2__import_rxnorm.sql</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>LocalRepository</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+</project>

@@ -1,0 +1,61 @@
+.RequestSignatureProgress {
+    display: flex;
+
+    &-Separator {
+        height: 1px;
+        width: 40px;
+        background-color: #333;
+        align-self: center;
+        margin: 0 14px;
+        flex: 0 0 auto;
+    }
+
+    &-Step {
+        display: flex;
+        flex: 0 0 auto;
+    }
+
+    &-Round {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        padding: 2px 4px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: solid 1px #333;
+
+        &_active {
+            background-color: #333;
+
+            .RequestSignatureProgress-Number {
+                color: #fff;
+            }
+        }
+
+        &_past {
+            background-color: #0064ad;
+            border: solid 1px #0064ad;
+        }
+    }
+
+    &-CheckMark {
+        margin-top: 1px;
+    }
+
+    &-Number {
+        margin-top: 1px;
+        flex: 0 0 auto;
+        font-family: "Open Sans Extrabold", sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #333;
+    }
+
+    &-Title {
+        font-family: "Open Sans Bold", sans-serif;
+        font-weight: bold;
+    }
+}

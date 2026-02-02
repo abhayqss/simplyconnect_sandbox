@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <AnyCcdCode id="2" />
+  <AnyCcdCode id="3" />
+  <DiagnosisCcdCode id="2" code="J43.9" code_system="2.16.840.1.113883.6.90" display_name="Emphysema, unspecified" code_system_name="ICD-10-CM"/>
+  <DiagnosisCcdCode id="3" code="805.6" code_system="2.16.840.1.113883.6.103" display_name="Coccyx Fracture" code_system_name="ICD-9-CM"/>
+</dataset>

@@ -1,0 +1,60 @@
+.MonthDateGrid {
+  &-WeekDays {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  &-WeekDay {
+    padding: 5px;
+    color: #222222;
+    font-size: 14px;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  &-Dates {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1px;
+    background-color: #e0e0e0;
+    border: 1px solid #e0e0e0;
+  }
+
+  &-Date {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    min-height: 135px;
+    background-color: #ffffff;
+
+    &Title {
+      color: #222222;
+      font-size: 14px;
+      padding: 4px 7px;
+      border-radius: 2px;
+      font-family: "Open Sans", sans-serif;
+      margin-top: 2px;
+      margin-right: 2px;
+      line-height: 1;
+
+      &_color_gray {
+        color: #cfcfcf;
+      }
+    }
+
+    &_past {
+      background-color: #fcfcfc;
+    }
+
+    &_current {
+      .MonthDateGrid-DateTitle {
+        color: #ffffff;
+        background-color: #2493e5;
+      }
+    }
+  }
+}

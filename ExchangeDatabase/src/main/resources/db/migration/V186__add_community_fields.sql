@@ -1,0 +1,1 @@
+ALTER table dbo.Organization add phone varchar(100) NULL;

@@ -1,0 +1,41 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.WorkflowManagementPreview {
+  padding: 20px;
+}
+
+.Workflow-Preview-Page {
+  @include page
+}
+
+.sd-body.sd-body--static {
+  max-width: 100% !important;
+  padding: 20px !important;
+}
+
+.sd-body.sd-body--responsive {
+  max-width: 100% !important;
+  padding: 20px !important;
+}
+
+.Workflow-Preview-Caption {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 10px;
+
+  .Workflow-Preview-CaptionHeader {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
+.Workflow-Preview-Title {
+  font-size: 16px;
+  color: #4c4e51;
+  padding-bottom: 10px;
+  max-width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

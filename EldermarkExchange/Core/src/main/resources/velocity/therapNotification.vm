@@ -1,0 +1,58 @@
+#* @vtlvariable name="notification" type="com.scnsoft.eldermark.entity.inbound.therap.TherapMailNotificationDto" *#
+<div>
+    Dear ${notification.recipientName},<br/>
+    <br/>
+    Results of processing data from Events/IDFs files:<br/>
+    <br/>
+    <ul>
+        #if(${notification.status.equalsIgnoreCase('ERROR')})
+            <li>
+                ${notification.fileName} was not processed by Simply Connect system.
+            </li>
+        #else
+
+            #foreach($enrollment in $notification.enrollments)
+                #if (${enrollment.status.equalsIgnoreCase('ERROR')})
+                    <li>
+                        ${enrollment.fileName} was not processed by Simply Connect system.
+                    </li>
+                #elseif(${enrollment.status.equalsIgnoreCase('WARN')})
+                    <li>
+                        ${enrollment.fileName}: ${enrollment.notProcessed} out of ${enrollment.total}
+                        records were NOT processed by Simply Connect system.
+                    </li>
+                #end
+            #end
+
+            #foreach($event in $notification.events)
+                #if (${event.status.equalsIgnoreCase('ERROR')})
+                    <li>
+                        ${event.fileName} was not processed by Simply Connect system.
+                    </li>
+                #elseif(${event.status.equalsIgnoreCase('WARN')})
+                    <li>
+                        ${event.fileName}: ${event.notProcessed} out of ${event.total}
+                        records were NOT processed by Simply Connect system.
+                    </li>
+                #end
+            #end
+
+            #foreach($idf in $notification.idfs)
+                #if ($idf.status.equalsIgnoreCase('ERROR'))
+                    <li>
+                        $idf.fileName was not processed by Simply Connect system.
+                    </li>
+                #elseif(${idf.status.equalsIgnoreCase('WARN')})
+                    <li>
+                        ${idf.fileName}: ${idf.notProcessed} out of ${idf.total}
+                        records were NOT processed by Simply Connect system.
+                    </li>
+                #end
+            #end
+        #end
+
+    </ul>
+    <br/>
+    The error report is attached.<br/>
+    <br/>
+</div>

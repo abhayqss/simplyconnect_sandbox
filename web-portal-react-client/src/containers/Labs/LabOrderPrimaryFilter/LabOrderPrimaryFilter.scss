@@ -1,0 +1,29 @@
+.LabOrderPrimaryFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.LabOrderPrimaryFilter-Field {
+  max-width: 420px;
+
+  .MultiSelect-SelectedText {
+    color: #0064ad;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-SelectedTextOnExpand {
+    color: #0064ad;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .MultiSelect-ToggleChevron {
+    fill: #0064ad;
+  }
+}
+
+.LabOrderPrimaryFilter-Field_frozen {
+  pointer-events: none;
+}

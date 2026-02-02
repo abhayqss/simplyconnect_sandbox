@@ -1,0 +1,60 @@
+@import "custom/_fonts";
+
+.IncidentReportHistoryContainer {
+  padding: 12px 24px 24px 24px;
+
+  &.TableContainer {
+    .Table {
+      @media (max-width: 1199px) {
+        display: none;
+      }
+    }
+
+    .TableMobile {
+      display: none;
+
+      @media (max-width: 1199px) {
+        display: table;
+      }
+    }
+  }
+}
+
+.IncidentReportChangeHistory {
+  .TableMobile-Detail {
+    div {
+      max-width: initial;
+      flex: 1 0 auto;
+      padding: 0 15px;
+    }
+  }
+}
+
+.IncidentReport-Status {
+  color: $font-color_head-text;
+  font-size: 14px;
+  padding: 0 8px;
+  border-radius: 2px;
+}
+
+.IncidentReport-ViewBtn {
+  margin: 0 -14px;
+
+  &.btn-link {
+    cursor: pointer;
+    color: #0064ad;
+    text-decoration: none;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 14px;
+    width: auto;
+
+    &:hover {
+      color: #0064ad;
+      text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

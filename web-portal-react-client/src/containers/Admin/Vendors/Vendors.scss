@@ -1,0 +1,222 @@
+@import "custom/_fonts";
+@import 'custom/_page';
+
+.Vendors {
+  @include page;
+}
+
+.VendorsListContainer {
+  margin-top: 25px;
+}
+
+.VendorsList-Caption {
+  padding-bottom: 10px;
+}
+
+.VendorsList-CaptionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.VendorsList-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.VendorsList-TitleText {
+  display: inline-block;
+  font-size: 26px;
+  color: $font-color_head-text;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.VendorsList-ControlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.VendorsList-Filter {
+  margin-top: 5px;
+}
+
+.VendorsList-FilterFieldIcon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+}
+
+.VendorsList-OrganizationName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+
+  &_disabled {
+    cursor: default;
+  }
+}
+
+.VendorsList-AffiliatedOrganizationCount {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.VendorsList-CommunitiesColHeader {
+  width: 15%;
+
+  @media (max-width: 1400px) {
+    width: 120px;
+  }
+}
+
+.VendorsList-Vendors-ColHeader {
+  width: 10%;
+
+  @media (max-width: 1400px) {
+    width: 120px;
+  }
+}
+
+.VendorsList-AffiliatedColHeader {
+  width: 10%;
+
+  @media (max-width: 1400px) {
+    width: 120px;
+  }
+}
+
+.VendorsList-AffiliatedOrganizationsColHeader {
+  @media (max-width: 1400px) {
+    width: 190px;
+  }
+}
+
+.VendorsList-CreatedAutomaticallyColHeader {
+  @media (max-width: 1400px) {
+    width: 180px;
+  }
+}
+
+.VendorsList-AffiliatedOrganizations {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.VendorsList-AffiliatedOrganization {
+  padding: 5px;
+  text-align: left;
+}
+
+.VendorsList-AffiliatedOrganizationName {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+
+  &:hover {
+    color: #0064ad;
+  }
+}
+
+.VendorsList-AffiliatedOrganizationName-List {
+  color: #0064ad;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Open Sans Semibold", sans-serif;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #4ba4e8 !important;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    border: 2px solid orange;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: purple;
+  }
+
+}
+
+.VendorList-Actions-Box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.Vendor-not-zero {
+  color: #075AA0;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.VendorCommunityList-Caption {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.VendorCommunityList-CaptionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.VendorCommunityList-Title {
+  flex: 1;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+
+.red-color {
+  color: #d92d34
+}
+
+.blue-color {
+  color: #075AA0
+}

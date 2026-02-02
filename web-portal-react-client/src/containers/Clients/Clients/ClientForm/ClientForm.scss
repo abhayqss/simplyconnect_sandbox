@@ -1,0 +1,165 @@
+.ClientForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .Scrollable {
+    flex: 1 1 0%;
+  }
+
+  &-EditSsnButton {
+    position: absolute;
+    top: 36px;
+    right: 23px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.ClientForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.ClientForm-SectionTitle {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientForm-RadioGroupField {
+  .RadioGroupField-Body {
+    display: flex;
+  }
+
+  .RadioGroupField-Title {
+    margin-bottom: 10px;
+  }
+}
+
+.ClientForm-AvatarPicker {
+  margin-right: 30px;
+}
+
+.ClientForm-CheckboxField.form-group {
+  padding-top: 34px;
+  padding-bottom: 5px;
+}
+
+.ClientForm-CheckboxFieldTitle {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: "Open Sans Semibold", sans-serif;
+}
+
+.ClientForm-Button {
+  width: 100px;
+  height: 35px;
+  margin-top: 30px;
+
+  &.btn {
+    padding: 0;
+  }
+}
+
+.ClientForm-FilterFieldIcon {
+  top: 45px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4c4e51;
+  position: absolute;
+}
+
+.ClientForm-LabelIcon {
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+.ClientForm-InfoIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.ClientForm-TooltipBody {
+  text-align: left;
+  padding: 7px 20px;
+  margin: 0;
+}
+
+.ClientForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+.ClientForm-PrimaryContactType {
+  white-space: nowrap;
+}
+
+.ClientForm-NotificationMethod > .Radio.Radio_disabled:last-child {
+  margin-left: -4px;
+}
+
+.ClentForm-removeHousingVouchersDiv {
+  padding-top: 3px;
+}
+
+.ClentForm-removeHousingVouchersBtn {
+  &:hover {
+    background-color: #0064ad;
+    border-radius: 3px;
+    transition: 0.2s;
+    fill: white;
+    stroke: white;
+  }
+
+  fill: #0064ad;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  padding: 6px;
+  position: relative;
+  top: 50%
+}
+
+
+.ClientForm-Close-Voucher {
+  color: #448993;
+  width: 18px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.ClientForm-HousingVouchers .TextField-Input {
+  padding-left: 35px;
+}
+
+.ClientForm-HousingVouchers .inner-span {
+  font-weight: bold;
+  position: absolute;
+  left: 15px;
+  top: 38px;
+}

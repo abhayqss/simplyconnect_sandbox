@@ -1,0 +1,42 @@
+package com.scnsoft.eldermark.entity;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "LegalAuthenticator")
+public class LegalAuthenticator extends BasicEntity {
+    @Column
+    private Date time;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id")
+    private Person person;
+
+    @OneToOne(mappedBy = "legalAuthenticator")
+    private Resident resident;
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Resident getResident() {
+        return resident;
+    }
+
+    public void setResident(Resident resident) {
+        this.resident = resident;
+    }
+}

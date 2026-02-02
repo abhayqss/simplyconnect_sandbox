@@ -1,0 +1,20 @@
+#* @vtlvariable name="invitation" type="com.scnsoft.eldermark.beans.InvitationDto" *#
+#* @vtlvariable name="portalUrl" type="java.lang.String" *#
+<div
+##        style="margin-left: 25px; margin-right: 25px; width:573px;"
+>
+    <b>Dear ${invitation.targetFullname},</b> <br/>
+    <br/>
+    ${invitation.creator} has invited you to join
+    <a href="${portalUrl}" style="text-decoration: none"><span style="color:#0064ad;">the Simply Connect platform</span></a>.<br><br>
+
+    If you do not have an account, please create an account for future access to the Simply Connect platform.<br/>
+## <a href = '${invitation.url}'>"Create Account"</a><br/>
+    #parse( "velocity/button.vm")
+    Note, that the registration link will expire in 72 hours.
+    <br/><br/>
+    #set($loginUsername = ${invitation.targetUsername})
+    #set($loginCompanyId = ${invitation.targetCompanyId})
+    #parse("velocity/loginDetails.vm")
+    <br/><br/>
+</div>

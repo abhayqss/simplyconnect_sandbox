@@ -1,0 +1,67 @@
+.CommunityZones {
+  flex: 1;
+  padding: 20px 30px;
+  position: relative;
+}
+
+.CommunityZoneList {
+
+}
+
+.CommunityZoneListContainer {
+  margin-top: 30px;
+}
+
+.CommunityZoneList-Caption {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CommunityZoneList-Title {
+  position: relative;
+  display: inline-block;
+}
+
+.CommunityZoneList-CommunityZoneCount {
+  &.badge {
+    color: #ffffff;
+    font-size: 12px;
+  }
+
+  position: absolute;
+  left: 83px;
+  top: 3px;
+}
+
+.CommunityZoneList-Filter {
+  margin-top: 20px;
+}
+
+.CommunityZoneList-FilterField {
+  max-width: 400px;
+}
+
+.CommunityZoneList-FilterFieldIcon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  fill: #4C4E51;
+}
+
+.AddCommunityZoneBtn {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.CommunityZoneList-CommunityZoneName {
+  color: #0064ad;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: #0064ad;
+  }
+}

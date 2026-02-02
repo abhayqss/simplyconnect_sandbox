@@ -1,0 +1,10 @@
+@import "custom/_fonts";
+
+.form-group.field.field-array {
+    .CheckboxGroupField-Title {
+        font-size: 13px;
+        font-weight: bold;
+        color: $font-color_head-text;
+        font-family: "Open Sans Semibold", sans-serif;
+    }
+}

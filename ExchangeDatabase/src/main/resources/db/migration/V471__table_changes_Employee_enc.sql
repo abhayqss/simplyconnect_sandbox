@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[Employee_enc] ADD [qa_incident_reports] bit null;

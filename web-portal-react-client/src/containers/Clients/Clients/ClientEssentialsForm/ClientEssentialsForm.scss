@@ -1,0 +1,47 @@
+@import "custom/_fonts";
+
+.ClientEssentialsForm {
+  height: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .ClientEssentialsForm-FileField {
+    margin-bottom: 40px;
+  }
+}
+
+.ClientEssentialsForm-Section {
+  padding: 20px 40px 20px;
+}
+
+.ClientEssentialsForm-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #dee2e6;
+  padding: 20px 25px 40px;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.ClientEssentialsForm-Alert {
+  padding: 18px 16px;
+  margin: 16px 0;
+  background-color: #fff1ca;
+  border-radius: 3px;
+}
+
+.ClientEssentialsForm-AlertText {
+  color: $font-color_head-text;
+  font-size: 14px;
+}

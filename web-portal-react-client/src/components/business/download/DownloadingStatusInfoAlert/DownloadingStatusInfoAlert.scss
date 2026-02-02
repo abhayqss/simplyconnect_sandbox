@@ -1,0 +1,31 @@
+.DownloadingStatusInfoAlert.Toastify__toast {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 56px;
+    border: none;
+    margin: 0;
+    background: #5690e5;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.DownloadingStatusInfoAlert-Icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+.DownloadingStatusInfoAlert-Status {
+    font-size: 15px;
+    margin-left: 12px;
+    font-family: 'Open Sans Semibold';
+}
+
+.DownloadingStatusInfoAlert-Body > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

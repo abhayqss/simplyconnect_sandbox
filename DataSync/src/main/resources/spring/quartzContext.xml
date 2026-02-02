@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:datasource.properties</value>
+                <value>classpath:datasync.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="autoStartup" value="false"/>
+        <property name="configLocation"  value="classpath:quartz.properties"/>
+        <property name="triggers">
+            <list>
+                <bean id="cronTriggerFactoryBean" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+                    <property name="jobDetail">
+                        <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                            <property name="targetObject" ref="dataSyncImpl"/>
+                            <property name="targetMethod" value="run"/>
+                            <property name="concurrent" value="false"/>
+                        </bean>
+                    </property>
+                    <property name="cronExpression" value="${cron.expression}"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>

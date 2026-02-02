@@ -1,0 +1,8 @@
+<div>
+    <b>Dear ${fullName},</b> <br/>
+    <br><br>
+    <div>
+        ${organizationName} is no longer using the Appointments feature.
+            You will no longer be able to view appointments through Simply Connect portal.
+    </div>
+</div>

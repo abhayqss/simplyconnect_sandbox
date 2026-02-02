@@ -1,0 +1,33 @@
+@import "custom/_fonts";
+
+.Login {
+  flex: 1;
+
+  &-Body {
+    height: 100%;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  &-Logo {
+    position: absolute;
+    top: 12px;
+  }
+
+  &-Alert {
+    width: 100%;
+    max-width: 385px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: $font-color_head-text;
+    border-radius: 3px;
+    background-color: #fff1ca;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,13 @@
+.CcdDocumentDetails {
+  flex: 1;
+  display: flex;
+  position: relative;
+
+  &-FrameContainer {
+    flex: 1;
+  }
+
+  &-Frame {
+    border: none;
+  }
+}

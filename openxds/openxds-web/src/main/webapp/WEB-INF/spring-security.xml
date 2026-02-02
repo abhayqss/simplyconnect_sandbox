@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:*.properties"/>
+
+    <!--Custom controller for Exchange config-->
+    <http pattern="/xdscustom/**"
+          auto-config="false"
+          use-expressions="true"
+          authentication-manager-ref="xdsCustomAuthenticationManager">
+        <access-denied-handler ref="xdsCustomAccessDeniedHandler"/>
+        <http-basic/>
+        <intercept-url pattern="/**" access="isAuthenticated()" requires-channel="${requires.channel}"/>
+    </http>
+
+    <authentication-manager id="xdsCustomAuthenticationManager">
+        <authentication-provider>
+            <user-service>
+                <user name="${xds.custom.auth.username}" password="${xds.custom.auth.password}" authorities="ROLE_XDS_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean name="xdsCustomAccessDeniedHandler"
+                class="org.openhealthtools.openxds.webapp.security.xdscustom.XdsCustomAccessDeniedHandler"/>
+
+
+    <!-- =========================== Web console config =============================================================-->
+    <http auto-config="false" use-expressions="true" disable-url-rewriting="true" entry-point-ref="loginUrlAuthenticationEntryPoint">
+        <intercept-url pattern="/login*" access="permitAll" requires-channel="${requires.channel}"/>
+        <intercept-url pattern="/access-denied.action" access="permitAll" requires-channel="${requires.channel}"/>
+        <intercept-url pattern="/resources/**" access="permitAll" requires-channel="${requires.channel}"/>
+        <intercept-url pattern="/**" access="hasRole('ROLE_SUPER_ADMINISTRATOR')" requires-channel="${requires.channel}"/>
+        <logout logout-success-url="/login.action?logout=true" delete-cookies="JSESSIONID"/>
+        <custom-filter position="FORM_LOGIN_FILTER" ref="usernamePasswordAuthenticationFilter"/>
+        <access-denied-handler ref="redirectingAccessDeniedHandler"/>
+        <session-management invalid-session-url="/login.action?logout=true"/>
+    </http>
+
+    <beans:bean name="redirectingAccessDeniedHandler" class="org.openhealthtools.openxds.webapp.security.web.RedirectingAccessDeniedHandler">
+        <beans:property name="accessDeniedUrl" value="/access-denied.action"/>
+    </beans:bean>
+
+    <beans:bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/login.action"/>
+    </beans:bean>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="authenticationProvider" />
+    </authentication-manager>
+
+    <beans:bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <beans:property name="passwordEncoder">
+            <beans:bean class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+        </beans:property>
+        <beans:property name="userDetailsService" ref="employeeDetailsService" />
+    </beans:bean>
+
+    <beans:bean id="employeeDetailsService" class="org.openhealthtools.openxds.webapp.security.web.ExchangeUserDetailsService">
+        <beans:property name="dataSource" ref="eexDataSource"/>
+    </beans:bean>
+
+    <beans:import resource="classpath:applicationContext.xml"/>
+
+    <beans:bean id="usernamePasswordAuthenticationFilter" class="org.openhealthtools.openxds.webapp.security.web.ExtraParamAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="filterProcessesUrl" value="/j_spring_security_check" />
+        <beans:property name="authenticationFailureHandler" ref="failureHandler" />
+        <beans:property name="authenticationSuccessHandler" ref="successHandler" />
+        <beans:property name="postOnly" value="true" />
+        <beans:property name="usernameParameter" value="username" />
+        <beans:property name="passwordParameter" value="password" />
+        <beans:property name="extraParameter" value="company" />
+    </beans:bean>
+
+    <beans:bean id="successHandler" class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler" >
+        <beans:property name="defaultTargetUrl" value="/home.action" />
+        <beans:property name="alwaysUseDefaultTargetUrl" value="true" />
+    </beans:bean>
+
+    <beans:bean id="failureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler" >
+        <beans:property name="defaultFailureUrl" value="/login.action?error=true" />
+    </beans:bean>
+</beans:beans>

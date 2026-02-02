@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk-11\bin\java" -jar -Dspring.profiles.active=local "bulk-file-encrypt-0.0.1-SNAPSHOT.jar" "source=C:\folder_to_decrypt_01,C:\folder_to_decrypt_01" "checkEncrypted=false"

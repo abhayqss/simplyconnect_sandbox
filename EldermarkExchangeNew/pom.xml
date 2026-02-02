@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.scnsoft.eldermark</groupId>
+    <artifactId>eldermark-exchange-new</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+        <springfox.version>3.0.0</springfox.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hapi.version>2.3</hapi.version>
+        <duke.version>1.2</duke.version>
+    </properties>
+
+    <modules>
+        <module>build-tools</module>
+        <module>eldermark-exchange-core-entity</module>
+        <module>eldermark-exchange-core-services</module>
+        <module>eldermark-exchange-web-commons</module>
+        <module>eldermark-exchange-web-portal</module>
+        <module>eldermark-exchange-openxds-api</module>
+        <module>eldermark-exchange-event-xml-api</module>
+        <module>eldermark-exchange-external-api</module>
+        <module>eldermark-exchange-mobile-api</module>
+        <module>eldermark-exchange-hl7v2</module>
+        <module>eldermark-exchange-core-merger</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>no.priv.garshol.duke</groupId>
+                <artifactId>duke</artifactId>
+                <version>${duke.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-annotations</artifactId>
+            <version>4.3.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>H2</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <!--3.0.0-M5 fails to run, saying it is missing EldermarkExchangeCoreEntityApplication inside
+                        core-services test-classes-->
+                        <version>3.0.0-M4</version>
+                        <executions>
+                            <execution>
+                                <phase>integration-test</phase>
+                                <!-- Invokes both the integration-test and the verify goals of the Failsafe Maven plugin -->
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                                <configuration>
+                                    <encoding>UTF-8</encoding>
+                                    <!-- Includes integration tests -->
+                                    <includes>
+                                        <include>**/*IT.java</include>
+                                    </includes>
+                                    <!-- Excludes tests for manual execution -->
+                                    <excludes>
+                                        <exclude>**/CcdHL7OperationsIT.java</exclude>
+                                        <exclude>**/ConsolCcdOperationsIT.java</exclude>
+                                    </excludes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.3.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs</artifactId>
+                        <version>4.3.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.scnsoft.eldermark</groupId>
+                        <artifactId>build-tools</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <!--Show only Scariest and Scary issues-->
+                    <maxRank>9</maxRank>
+                    <threshold>Medium</threshold>
+                    <excludeFilterFile>build-tools/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>1.10.1</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.14.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failOnViolation>true</failOnViolation>
+                    <failurePriority>2</failurePriority>
+                    <printFailingErrors>true</printFailingErrors>
+                    <rulesets>
+                        <ruleset>build-tools/pmd/ruleset.xml</ruleset>
+                    </rulesets>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.scnsoft.eldermark</groupId>
+                        <artifactId>build-tools</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>versions-maven-plugin</artifactId>-->
+<!--                <version>2.10.0</version>-->
+<!--                <configuration>-->
+<!--                    <excludes>-->
+<!--                        <exclude>org.apache.commons:commons-collections4</exclude>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+        </plugins>
+
+    </build>
+
+</project>

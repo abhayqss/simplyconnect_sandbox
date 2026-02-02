@@ -1,0 +1,35 @@
+.ClientFilter {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #f9f9f9;
+
+  .btn {
+    padding: 0;
+    width: 100px;
+    height: 35px;
+  }
+
+  &-CheckboxField {
+    margin-top: 29px;
+  }
+
+  &-CheckboxFieldTooltip {
+    text-align: left;
+    padding: 5px;
+  }
+}
+
+.ClientFilter-Icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.ClientFilter-Icon_rotated_90 {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+
+.ClientFilter-Icon_rotated_0 {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}

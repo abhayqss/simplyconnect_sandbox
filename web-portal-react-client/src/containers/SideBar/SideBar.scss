@@ -1,0 +1,263 @@
+.SideBar-Container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+$maxWidth: 100px;
+
+.SideBar {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  max-width: $maxWidth;
+  padding-top: 80px;
+  transition: max-width .2s;
+  background-color: #1e3352;
+  overflow-y: auto;
+
+  @media (max-height: 739px) {
+    padding-top: 10px;
+  }
+
+  @media (max-width: 1023px) {
+    max-width: 65px;
+  }
+
+  @media (max-width: 767px) {
+    width: 65px;
+    transition: width .2s;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    height: calc(100% - 80px);
+    padding-top: 30px;
+  }
+
+  @media (max-width: 499px) {
+    width: 5px;
+    overflow: visible;
+  }
+
+  &.SideBar_opened {
+    max-width: $maxWidth * 2;
+
+    @media (max-width: 767px) {
+      width: $maxWidth * 2;
+    }
+  }
+}
+
+.SideBar-Items {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e3352;
+
+  @media (max-width: 499px) {
+    display: none;
+  }
+}
+
+.SideBar_opened {
+  overflow-y: auto;
+
+  .SideBar-Items {
+    display: block;
+  }
+
+  .SideBar-Nav {
+    text-align: left;
+    margin-top: 20px;
+    padding-left: 35px;
+    padding-right: 20px;
+  }
+
+  .SideBar-Section {
+    align-items: flex-start;
+
+    .SideBar-Nav {
+      padding-left: 0;
+    }
+  }
+
+  .SideBar-Toggle {
+    @media (max-width: 499px) {
+      right: 0;
+    }
+  }
+
+  .SideBar-ToggleIcon {
+    transform: rotate(180deg);
+
+    @media (max-width: 499px) {
+      display: none;
+    }
+  }
+
+  .SideBar-ToggleSmallIcon {
+    transform: rotate(180deg);
+  }
+}
+
+.SideBar-Toggle {
+  margin: 0;
+  align-self: flex-end;
+  width: 100%;
+  text-align: right;
+  padding: 26px 26px 26px 0;
+  background-color: #1e3352;
+
+  @media (max-height: 669px) {
+    padding: 10px 26px 15px 0;
+  }
+
+  @media (max-width: 1023px) {
+    padding: 10px 8px 10px 0;
+  }
+
+  @media (max-width: 499px) {
+    padding: 0;
+    position: absolute;
+    top: calc(50% - 30px);
+    right: -28px;
+    width: auto;
+    background-color: transparent;
+  }
+}
+
+.SideBar-ToggleIcon {
+  @media (max-width: 499px) {
+    display: none;
+  }
+}
+
+.SideBar-ToggleSmallIcon {
+  width: 30px;
+  height: 40px;
+  fill: #1e3352;
+  box-sizing: content-box;
+  background-color: transparent;
+
+  @media (min-width: 500px) {
+    display: none;
+  }
+}
+
+.SideBar-Section {
+  margin-top: 60px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.SideBar-SectionTitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  padding-left: 35px;
+  padding-right: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.SideBar-SectionBody {
+  padding-top: 20px;
+  padding-left: 35px;
+}
+
+
+.SideBar-SectionBody-close {
+  padding-top: 20px;
+  //padding-left: 35px;
+}
+
+
+.SideBar-Nav {
+  margin-top: 30px;
+  text-align: center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.SideBar-NavIcon {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  fill: #ffffff80;
+
+  @media (max-height: 669px) {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.SideBar-NavTitle {
+  color: #ffffff;
+  font-size: 15px;
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+}
+
+.SideBar-Nav_active {
+  .SideBar-NavTitle {
+    color: #009dfe;
+  }
+
+  .SideBar-NavIcon {
+    fill: #009dfe;
+
+    path {
+      fill: #009dfe;
+    }
+  }
+}
+
+.SideBar-Nav_disabled {
+  cursor: default;
+
+  .SideBar-NavTitle {
+    padding-right: 10px;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
+  .SideBar-NavIcon {
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
+  .SideBar-NavSeparator,
+  .SideBar-NavExtraText {
+    opacity: 1;
+  }
+}
+
+.SideBar-NavSeparator {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.SideBar-NavSeparator,
+.SideBar-NavExtraText {
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+.SideBar-Content {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+
+  @media (max-width: 767px) {
+    padding-left: 65px;
+  }
+
+  @media (max-width: 499px) {
+    padding-left: 5px;
+  }
+}

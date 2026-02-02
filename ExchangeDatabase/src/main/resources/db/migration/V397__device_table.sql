@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[PalCare_DeviceType] (
+	[id] [bigint] IDENTITY(1,1)  NOT NULL,
+	[name] [varchar](255) NOT NULL,
+	PRIMARY KEY CLUSTERED
+    (
+        [id] ASC
+    )
+)
+GO
+
+CREATE UNIQUE NONCLUSTERED INDEX [device_id_unique] ON [dbo].[PalCare_MobileDevice]
+(
+	[device_identifier] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO

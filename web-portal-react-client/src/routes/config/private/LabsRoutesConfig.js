@@ -1,0 +1,108 @@
+import { lazy } from "react";
+
+import {
+  ADMINISTRATOR,
+  BEHAVIORAL_HEALTH,
+  CLINICIAN,
+  COMMUNITY_ADMINISTRATOR,
+  DOCTOR,
+  CAREGIVER,
+  PREMIUM,
+  GROUPS,
+  NAVI_GUIDE,
+  ORGANIZATION_ADMIN,
+  PERSON_RECEIVING_SERVICES,
+  PHARMACIST_VENDOR,
+  QUALITY_ASSURANCE,
+  SUPER_ADMINISTRATOR,
+  VENDOR,
+} from "../Roles";
+
+const Labs = lazy(() => import("containers/Labs/Labs"));
+const LabResearchOrders = lazy(() => import("containers/Labs/LabResearchOrders/LabResearchOrders"));
+const LabResearchOrderDetails = lazy(() => import("containers/Labs/LabResearchOrderDetails/LabResearchOrderDetails"));
+
+const {
+  PROFESSIONALS_CARE_MANAGEMENT,
+  PROFESSIONALS_OTHER,
+  PHARMACY,
+  NON_PROFESSIONALS,
+  PROFESSIONALS_PRIMARY_PHYSICIAN,
+} = GROUPS;
+
+export default {
+  component: Labs,
+  path: "/labs",
+  permission: [
+    SUPER_ADMINISTRATOR,
+    ORGANIZATION_ADMIN,
+    NAVI_GUIDE,
+    BEHAVIORAL_HEALTH,
+    VENDOR,
+    DOCTOR,
+    CAREGIVER,
+    PREMIUM,
+    CLINICIAN,
+    PHARMACIST_VENDOR,
+    QUALITY_ASSURANCE,
+    ADMINISTRATOR,
+    COMMUNITY_ADMINISTRATOR,
+    ...PROFESSIONALS_PRIMARY_PHYSICIAN,
+    ...PROFESSIONALS_CARE_MANAGEMENT,
+    ...PROFESSIONALS_OTHER,
+    ...NON_PROFESSIONALS,
+    PERSON_RECEIVING_SERVICES,
+  ],
+  children: [
+    {
+      component: LabResearchOrders,
+      path: "/",
+      permission: [
+        SUPER_ADMINISTRATOR,
+        ORGANIZATION_ADMIN,
+        NAVI_GUIDE,
+        BEHAVIORAL_HEALTH,
+        VENDOR,
+        DOCTOR,
+        CAREGIVER,
+        PREMIUM,
+        CLINICIAN,
+        PHARMACIST_VENDOR,
+        QUALITY_ASSURANCE,
+        ADMINISTRATOR,
+        COMMUNITY_ADMINISTRATOR,
+        ...PROFESSIONALS_PRIMARY_PHYSICIAN,
+        ...PROFESSIONALS_CARE_MANAGEMENT,
+        ...PROFESSIONALS_OTHER,
+        ...NON_PROFESSIONALS,
+        PERSON_RECEIVING_SERVICES,
+      ],
+      exact: true,
+    },
+    {
+      component: LabResearchOrderDetails,
+      path: "/:orderId",
+      permission: [
+        SUPER_ADMINISTRATOR,
+        ORGANIZATION_ADMIN,
+        NAVI_GUIDE,
+        BEHAVIORAL_HEALTH,
+        VENDOR,
+        DOCTOR,
+        CAREGIVER,
+        PREMIUM,
+        CLINICIAN,
+        PHARMACIST_VENDOR,
+        QUALITY_ASSURANCE,
+        ADMINISTRATOR,
+        COMMUNITY_ADMINISTRATOR,
+        ...PROFESSIONALS_PRIMARY_PHYSICIAN,
+        PERSON_RECEIVING_SERVICES,
+        ...PROFESSIONALS_CARE_MANAGEMENT,
+        ...PROFESSIONALS_OTHER,
+        ...PHARMACY,
+        ...NON_PROFESSIONALS,
+      ],
+    },
+  ],
+};

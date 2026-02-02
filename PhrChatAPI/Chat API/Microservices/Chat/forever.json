@@ -1,0 +1,10 @@
+{
+  "uid": "notify-chat",
+  "append": true,
+  "watch": false,
+  "script": "src/service.js",
+  "sourceDir": "E:\\Exchange\\exchange\\PhrChatAPI\\ChatAPI\\Microservices\\Chat\\",
+  "logFile": "E:\\Exchange\\exchange\\PhrChatAPI\\ChatAPI\\Microservices\\Chat\\foreverLogs\\forever.log",
+  "outFile": "E:\\Exchange\\exchange\\PhrChatAPI\\ChatAPI\\Microservices\\Chat\\foreverLogs\\out.log",
+  "errFile": "E:\\Exchange\\exchange\\PhrChatAPI\\ChatAPI\\Microservices\\Chat\\foreverLogs\\err.log"
+}

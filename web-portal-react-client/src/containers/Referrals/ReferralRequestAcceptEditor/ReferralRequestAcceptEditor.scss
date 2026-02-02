@@ -1,0 +1,13 @@
+@media (min-width: 576px) {
+    .ReferralRequestAcceptEditor {
+      &.modal-dialog {
+        max-width: 700px;
+      }
+  
+      .modal-content {
+        border: none;
+        max-height: 550px;
+      }
+    }
+  }
+  

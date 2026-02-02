@@ -1,0 +1,100 @@
+@import "custom/_fonts";
+
+.PhoneField {
+  position: relative;
+
+  .form-control.is-invalid, .was-validated .form-control:invalid {
+    background-image: none;
+  }
+
+  .form-control {
+    &:disabled {
+      background-color: #f1f1f1;
+      color: #898989;
+    }
+  }
+
+  &_disabled {
+    .PhoneField-Label {
+      color: #898989;
+    }
+  }
+
+  &-Label{
+    color: $font-color_head-text;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Open Sans Semibold", sans-serif;
+  }
+
+  .react-tel-input {
+    .PhoneField-Input {
+      &.form-control {
+        height: 35px;
+        width: inherit;
+        border-radius: 2px;
+        border: 1px solid #dddddd;
+        font-size: $font-size_form-field-value;
+        color: $font-color_head-text;
+
+        &:focus {
+          border-color: #898989;
+          background-color: #ffffff !important;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        &:hover {
+          border-color: #bfbdbd;
+        }
+
+        &:-webkit-autofill {
+          background-color: #ffffff;
+          -webkit-box-shadow: 0 0 0 1000px #fff inset;
+
+          &:focus {
+            background-color: #ffffff;
+            -webkit-box-shadow: 0 0 0 1000px #fff inset;
+          }
+        }
+
+        &::placeholder {
+          color: $font-color_placeholder;
+        }
+
+        &.is-invalid {
+          border-color: #f33232;
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    .flag-dropdown {
+      border: 1px solid #dddddd;
+
+      &.invalid-number {
+        border-color: #f33232;
+      }
+    }
+  }
+
+  &-Error {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #dc3545;
+  }
+
+  &-Hint {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    font-size: 13px;
+    color: #898989;
+  }
+}
+
+.PhoneField.mb-3 {
+  margin-bottom: 20px !important;
+}

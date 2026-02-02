@@ -1,0 +1,25 @@
+*.iml
+target/
+*/.idea/*
+
+.idea
+openxds/lib
+build
+DataSync/logs/
+
+#archived csv files
+ExchangeDatabase/src/main/resources/db/migration/RXNCONSO_corrected_separator.csv
+RxNormDatabase/src/main/resources/db/migration/RXNSAT_corrected_separator.csv
+
+openxds/lib/common-utils-1.0.jar
+openxds/lib/common-ws-1.0.jar
+openxds/lib/iheos-1.0.jar
+openxds/lib/openxds-api-1.0.jar
+openxds/lib/openxds-config-1.0.jar
+openxds/lib/openxds-registry-adapter-omar-1.0.jar
+openxds/lib/openxds-registry-patient-lightweight-1.0.jar
+openxds/lib/openxds-repository-1.0.jar
+
+#personal file with settings (must not be put to git)
+personal.properties
+web-portal-react-client/build.zip

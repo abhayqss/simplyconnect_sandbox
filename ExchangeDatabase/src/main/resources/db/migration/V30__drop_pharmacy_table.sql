@@ -1,0 +1,5 @@
+SET XACT_ABORT ON
+GO
+
+DROP TABLE [dbo].[Pharmacy];
+GO

@@ -1,0 +1,60 @@
+.spinner-input {
+
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #E0E0E0;
+  //border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.spinner-field {
+  width: calc(100% - 30px);
+  text-align: left;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.spinner-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-btn {
+  background-color: #F4FBFE;
+  border: none;
+  //padding: 5px;
+  cursor: pointer;
+  width: 30px;
+  height: 17px;
+  text-align: center;
+}
+
+.spinner-btn-up {
+  border-bottom: 1px solid #E0E0E0;
+  border-left: 1px solid #E0E0E0;
+}
+
+.spinner-btn-down {
+  transform: rotate(180deg);
+  border-right: 1px solid #E0E0E0;
+  //border: 1px solid #E0E0E0;
+}
+
+.spinner-btn:hover {
+  //background-color: #e0e0e0;
+}
+
+.spinner-btn:active {
+  background-color: #ccc;
+}
+
+.spinner-btn:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}

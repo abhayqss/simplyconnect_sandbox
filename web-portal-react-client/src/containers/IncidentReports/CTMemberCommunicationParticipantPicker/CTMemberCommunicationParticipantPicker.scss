@@ -1,0 +1,15 @@
+@import "custom/_fonts";
+
+.CTMemberGroupConversationParticipantPicker {
+  &-Section {
+    margin-top: 40px;
+    padding-left: 55px;
+    padding-right: 55px;
+
+    &Title {
+      color: $font-color_head-text;
+      font-size: 26px;
+      font-family: "Open Sans Semibold", sans-serif;
+    }
+  }
+}
